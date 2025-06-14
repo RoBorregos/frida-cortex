@@ -46,9 +46,32 @@ If using an API based model, populate the `.env` file with your API keys, based 
 pip install -r requirements.txt
 baml-cli generate --from command_interpreter/baml_src
 ```
+
 2. Run command interpreter
 
 ```bash
 python3 command_interpreter/interpreter.py
 ```
+
 You can enter a natural language command through text and the list of commands to be executed will be displayed.
+
+## Execute the command interpreter
+
+### Executing with local LLM
+
+1. Download the model
+
+```bash
+# In the project root directory
+cd inference
+./download-model.sh
+```
+
+2. Run the container
+
+```bash
+# In the project root directory
+docker compose up
+```
+
+Now, the model can be reached at `http://localhost:11434`.

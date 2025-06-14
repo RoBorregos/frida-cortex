@@ -20,6 +20,6 @@ done
 
 echo "Ollama service is up and running."
 
-curl http://localhost:11434/api/generate -d '{"model": "qwen3", "keep_alive": -1}'
+curl http://localhost:11434/api/generate -d '{"model": "rbrgs-finetuning", "keep_alive": -1}'
 
 echo "Ollama models loaded. Container will continue to run..."
