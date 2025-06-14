@@ -5,8 +5,6 @@ services:
       context: ./inference
       dockerfile: Dockerfile
     image: frida-cortex:latest
-    runtime: nvidia
-    network_mode: host
     volumes:
       - ./inference:/ollama
     ports:
