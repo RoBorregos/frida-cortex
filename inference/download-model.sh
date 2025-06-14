@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Download model and Modelfile to the directory where this script is located
-SCRIPT_DIR=$(dirname "$(readlink -f "$0")")
+SCRIPT_DIR=$(cd "$(dirname "$0")" && pwd)
 
 [ ! -f "$SCRIPT_DIR/new-rbrgs-finetuned.F16.gguf" ] && curl -L https://huggingface.co/diegohc/rbrgs-finetuning/resolve/paraphrased-dataset/q4/unsloth.Q4_K_M.gguf -o "$SCRIPT_DIR/new-rbrgs-finetuned.F16.gguf"
 
@@ -19,9 +19,18 @@ else
     COMMAND=""
 fi
 
-echo "Running: docker run -d --rm --runtime=nvidia -v \"$SCRIPT_DIR\":/ollama -e OLLAMA_MODELS=/ollama $IMAGE $COMMAND"
+# Auto-detect NVIDIA GPU and set runtime flag
+RUNTIME_FLAG=""
+if command -v nvidia-smi >/dev/null 2>&1; then
+    echo "NVIDIA GPU detected. Using NVIDIA runtime."
+    RUNTIME_FLAG="--runtime=nvidia"
+else
+    echo "No NVIDIA GPU detected. Using default CPU runtime."
+fi
 
-CONTAINER_ID=$(docker run -d --rm --runtime=nvidia -v $SCRIPT_DIR:/ollama -e OLLAMA_MODELS=/ollama "$IMAGE" $COMMAND)
+echo "Running: docker run -d --rm $RUNTIME_FLAG -v \"$SCRIPT_DIR\":/ollama -e OLLAMA_MODELS=/ollama $IMAGE $COMMAND"
+
+CONTAINER_ID=$(docker run -d --rm $RUNTIME_FLAG -v "$SCRIPT_DIR":/ollama -e OLLAMA_MODELS=/ollama "$IMAGE" $COMMAND)
 
 docker exec "$CONTAINER_ID" ollama create -f /ollama/Modelfile rbrgs-finetuning
 
