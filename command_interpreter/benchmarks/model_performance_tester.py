@@ -27,19 +27,16 @@ set_log_level("ERROR")
 
 # Available models (copied from interpreter.py)
 AVAILABLE_MODELS = [
-    "R1",
-    "QWEN3_14B", 
-    "QWEN3_0_6B",
-    "LOCAL_FINETUNED_NEW",
-    "PRO_2_5",
-    "FLASH_2_5",
-    "O4_MINI",
-    "GPT_4_1_MINI",
-    "API_QWEN3_4B",
-    "API_QWEN3_14B"
+    "LOCAL_FINETUNED",
+    "GEMINI_PRO_2_5",
+    "GEMINI_FLASH_2_5",
+    "OPENAI_GPT_4_1_MINI",
+    "ANTHROPIC_CLAUDE_SONNET_4",
+    "META_LLAMA_3_3_8B_IT_FREE",
+    "META_LLAMA_3_3_70B"
 ]
 
-DEFAULT_MODEL = "FLASH_2_5"
+DEFAULT_MODEL = "GEMINI_FLASH_2_5"
 
 # Initialize client registry
 client_registry = ClientRegistry()
@@ -51,6 +48,24 @@ OVERALL_THRESHOLD = 0.75  # Threshold for the overall test case score
 TEST_DATA_FILE = "../../dataset_generator/dataset.json"
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"  # Example model
 
+# --- Task Category Mapping ---
+# A -> navigate to a location, look for a person, and follow
+# B -> take an object from a placement, and perform an action  
+# C -> Speak or answer a question
+
+COMMAND_CATEGORY = {
+    'A': ["followNameFromBeacToRoom", "guideNameFromBeacToBeac", "guidePrsFromBeacToBeac", "guideClothPrsFromBeacToBeac", "meetNameAtLocThenFindInRm", "followPrsAtLoc"],
+    'A|B|C': ["goToLoc"],
+    'A|C': ["findPrsInRoom", "meetPrsAtBeac", "greetClothDscInRm", "greetNameInRm"],
+    'B': ["takeObjFromPlcmt", "findObjInRoom", "bringMeObjFromPlcmt"],
+    'C': ["countObjOnPlcmt","countPrsInRoom", "tellPrsInfoInLoc", "tellObjPropOnPlcmt", "talkInfoToGestPrsInRoom", "answerToGestPrsInRoom", "tellCatPropOnPlcmt", "countClothPrsInRoom", "tellPrsInfoAtLocToPrsAtLoc"],
+}
+
+TASK_TYPE_DESCRIPTIONS = {
+    'A': 'Navigate to a location, look for a person, and follow',
+    'B': 'Take an object from a placement, and perform an action',
+    'C': 'Speak or answer a question'
+}
 
 # --- Pydantic Models for Structured Results ---
 
@@ -66,11 +81,23 @@ class TestResult(BaseModel):
     error: Optional[str] = None
     expected_commands: Optional[List[Dict]] = None
     actual_commands: Optional[List[Dict]] = None
+    cmd_category: Optional[str] = None  # New field for task category
 
 
 class CommandCountGroup(BaseModel):
     """Results grouped by command count"""
     command_count: int
+    passed_count: int
+    failed_count: int
+    total_count: int
+    pass_rate: float
+    test_results: List[TestResult]
+
+
+class TaskTypeGroup(BaseModel):
+    """Results grouped by task type"""
+    task_type: str
+    task_description: str
     passed_count: int
     failed_count: int
     total_count: int
@@ -87,6 +114,7 @@ class TestSummary(BaseModel):
     overall_pass_rate: float
     average_execution_time: float
     groups_by_command_count: List[CommandCountGroup]
+    groups_by_task_type: List[TaskTypeGroup]  # New field for task type grouping
     
     def print_summary(self):
         """Print a formatted summary of the test results"""
@@ -103,6 +131,15 @@ class TestSummary(BaseModel):
         for group in sorted(self.groups_by_command_count, key=lambda x: x.command_count):
             print(f"Commands: {group.command_count:2d} | "
                   f"Total: {group.total_count:3d} | "
+                  f"Passed: {group.passed_count:3d} | "
+                  f"Failed: {group.failed_count:3d} | "
+                  f"Pass Rate: {group.pass_rate:5.1f}%")
+        
+        print(f"\nResults by Task Type:")
+        print("-" * 60)
+        for group in sorted(self.groups_by_task_type, key=lambda x: x.task_type):
+            print(f"Task {group.task_type}: {group.task_description}")
+            print(f"  Total: {group.total_count:3d} | "
                   f"Passed: {group.passed_count:3d} | "
                   f"Failed: {group.failed_count:3d} | "
                   f"Pass Rate: {group.pass_rate:5.1f}%")
@@ -224,7 +261,7 @@ def compare_commands(actual: CommandListLLM, expected: CommandListLLM) -> float:
 
 def execute_command_with_model(command_text: str, model_name: str):
     """Execute a command using the appropriate model function"""
-    if model_name == "LOCAL_FINETUNED_NEW":
+    if model_name == "LOCAL_FINETUNED":
         return b.GenerateCommandListFineTuned(command_text,
                                               baml_options={"client_registry": client_registry})
     else:
@@ -232,11 +269,12 @@ def execute_command_with_model(command_text: str, model_name: str):
                                      baml_options={"client_registry": client_registry})
 
 
-def run_tests(model_name: str = DEFAULT_MODEL) -> TestSummary:
+def run_tests(model_name: str = DEFAULT_MODEL, use_semantic_enrichment: bool = False) -> TestSummary:
     """Loads data, runs tests, and returns structured results.
     
     Args:
         model_name: The model to use for testing. Must be one of AVAILABLE_MODELS.
+        use_semantic_enrichment: If True, applies semantic enrichment to input commands before processing.
         
     Returns:
         TestSummary: Structured results including grouping by command count
@@ -249,6 +287,8 @@ def run_tests(model_name: str = DEFAULT_MODEL) -> TestSummary:
     # Set the model in client registry
     client_registry.set_primary(model_name)
     print(f"Testing with model: {model_name}")
+    if use_semantic_enrichment:
+        print("Semantic enrichment: ENABLED")
 
     print(f"Loading test data from: {TEST_DATA_FILE}")
     try:
@@ -262,7 +302,7 @@ def run_tests(model_name: str = DEFAULT_MODEL) -> TestSummary:
         return None
 
     test_cases = [
-        (command["string_cmd"], command["structured_cmd"])
+        (command["string_cmd"], command["structured_cmd"], command.get("cmd_category", "Unknown"))
         for command in command_dataset[STARTING_CASE:]  # Adjust slice as needed
     ]
 
@@ -272,31 +312,46 @@ def run_tests(model_name: str = DEFAULT_MODEL) -> TestSummary:
     all_test_results = []
     execution_times = []
 
-    for i, (input_str, expected_str) in enumerate(tqdm(test_cases, desc="Running BAML tests")):
+    for i, (input_str, expected_str, cmd_category) in enumerate(tqdm(test_cases, desc="Running BAML tests")):
         time.sleep(3)
         print(f"\n--- Test Case {STARTING_CASE + i} ---")
-        print(f"Input: {input_str}")
+        print(f"Original Input: {input_str}")
+
+        # Apply semantic enrichment if flag is active
+        processed_input = input_str
+        if use_semantic_enrichment:
+            try:
+                print("Applying semantic enrichment...")
+                enriched_command = b.GenerateSemanticEnrichedCommand(input_str)
+                processed_input = enriched_command
+                print(f"Enriched Input: {processed_input}")
+            except Exception as e:
+                print(f"Warning: Semantic enrichment failed, using original input. Error: {e}")
+                processed_input = input_str
+        
+        print(f"Processing Input: {processed_input}")
 
         expected_command_list = parse_expected_output(expected_str)
         if not expected_command_list:
             print(" \x1b[91mFailed (Skipping due to parse error in expected output)\x1b[0m")
             test_result = TestResult(
                 index=STARTING_CASE + i,
-                input_command=input_str,
+                input_command=processed_input,
                 expected_command_count=0,
                 actual_command_count=0,
                 score=0.0,
                 passed=False,
                 execution_time=0.0,
-                error="Failed to parse expected output JSON"
+                error="Failed to parse expected output JSON",
+                cmd_category=cmd_category
             )
             all_test_results.append(test_result)
             continue
 
         try:
             start_time = time.time()
-            # Call the BAML function with the selected model
-            actual_command_list = execute_command_with_model(input_str, model_name)
+            # Call the BAML function with the selected model using processed input
+            actual_command_list = execute_command_with_model(processed_input, model_name)
             end_time = time.time()
             duration = end_time - start_time
             execution_times.append(duration)
@@ -317,14 +372,15 @@ def run_tests(model_name: str = DEFAULT_MODEL) -> TestSummary:
             # Create test result
             test_result = TestResult(
                 index=STARTING_CASE + i,
-                input_command=input_str,
+                input_command=processed_input,
                 expected_command_count=len(expected_command_list.commands),
                 actual_command_count=len(actual_command_list.commands),
                 score=score,
                 passed=passed,
                 execution_time=duration,
                 expected_commands=[cmd.model_dump() for cmd in expected_command_list.commands],
-                actual_commands=[cmd.model_dump() for cmd in actual_command_list.commands]
+                actual_commands=[cmd.model_dump() for cmd in actual_command_list.commands],
+                cmd_category=cmd_category
             )
             all_test_results.append(test_result)
 
@@ -335,13 +391,14 @@ def run_tests(model_name: str = DEFAULT_MODEL) -> TestSummary:
             
             test_result = TestResult(
                 index=STARTING_CASE + i,
-                input_command=input_str,
+                input_command=processed_input,
                 expected_command_count=len(expected_command_list.commands) if expected_command_list else 0,
                 actual_command_count=0,
                 score=0.0,
                 passed=False,
                 execution_time=duration,
-                error=str(e)
+                error=str(e),
+                cmd_category=cmd_category
             )
             all_test_results.append(test_result)
 
@@ -367,6 +424,41 @@ def run_tests(model_name: str = DEFAULT_MODEL) -> TestSummary:
         )
         command_count_groups.append(group)
 
+    # Group results by task type (handle multi-category assignments like A|B|C and A|C)
+    task_type_results = defaultdict(list)
+    
+    for result in all_test_results:
+        cmd_category = result.cmd_category
+        if cmd_category and cmd_category != "Unknown":
+            # Split multi-category assignments (e.g., "A|B|C" -> ["A", "B", "C"])
+            task_types = cmd_category.split('|')
+            for task_type in task_types:
+                task_type = task_type.strip()
+                if task_type in TASK_TYPE_DESCRIPTIONS:
+                    task_type_results[task_type].append(result)
+                else:
+                    print(f"Warning: Unknown task type '{task_type}' in category '{cmd_category}' for command '{result.input_command}'")
+        else:
+            print(f"Warning: No valid task category found for command '{result.input_command}'")
+
+    # Create task type groups
+    task_type_groups = []
+    for task_type, results in task_type_results.items():
+        passed_count = sum(1 for r in results if r.passed)
+        failed_count = len(results) - passed_count
+        pass_rate = (passed_count / len(results)) * 100 if results else 0
+        
+        group = TaskTypeGroup(
+            task_type=task_type,
+            task_description=TASK_TYPE_DESCRIPTIONS[task_type],
+            passed_count=passed_count,
+            failed_count=failed_count,
+            total_count=len(results),
+            pass_rate=pass_rate,
+            test_results=results
+        )
+        task_type_groups.append(group)
+
     # Calculate overall statistics
     total_passed = sum(1 for r in all_test_results if r.passed)
     total_failed = len(all_test_results) - total_passed
@@ -381,7 +473,8 @@ def run_tests(model_name: str = DEFAULT_MODEL) -> TestSummary:
         total_failed=total_failed,
         overall_pass_rate=overall_pass_rate,
         average_execution_time=average_time,
-        groups_by_command_count=command_count_groups
+        groups_by_command_count=command_count_groups,
+        groups_by_task_type=task_type_groups
     )
 
     # Print summary
@@ -438,24 +531,52 @@ def select_model_interactive():
             print(f"Error: {e}")
 
 
+def select_semantic_enrichment():
+    """Interactive semantic enrichment selection"""
+    while True:
+        try:
+            choice = input("Enable semantic enrichment? (y/N): ").strip().lower()
+            if choice in ['', 'n', 'no']:
+                return False
+            elif choice in ['y', 'yes']:
+                return True
+            else:
+                print("Please enter 'y' for yes or 'n' for no.")
+        except KeyboardInterrupt:
+            print("\nExiting...")
+            return None
+        except Exception as e:
+            print(f"Error: {e}")
+
+
 if __name__ == "__main__":
     # Interactive model selection
     selected_model = select_model_interactive()
     
     if selected_model:
-        print(f"\nStarting tests with model: {selected_model}")
-        results = run_tests(selected_model)
+        # Interactive semantic enrichment selection
+        use_enrichment = select_semantic_enrichment()
         
-        if results:
-            print(f"\nTest execution completed. Results available in structured format.")
-            print(f"Use the returned TestSummary object to access detailed results.")
+        if use_enrichment is not None:
+            enrichment_suffix = "_enriched" if use_enrichment else ""
+            print(f"\nStarting tests with model: {selected_model}")
+            if use_enrichment:
+                print("Semantic enrichment will be applied to input commands.")
             
-            # Example: Save results to JSON file
-            results_file = f"test_results_{selected_model}_{int(time.time())}.json"
-            with open(results_file, 'w') as f:
-                json.dump(results.model_dump(), f, indent=2)
-            print(f"Results saved to: {results_file}")
+            results = run_tests(selected_model, use_enrichment)
+            
+            if results:
+                print(f"\nTest execution completed. Results available in structured format.")
+                print(f"Use the returned TestSummary object to access detailed results.")
+                
+                # Example: Save results to JSON file
+                results_file = f"test_results_{selected_model}{enrichment_suffix}_{int(time.time())}.json"
+                with open(results_file, 'w') as f:
+                    json.dump(results.model_dump(), f, indent=2)
+                print(f"Results saved to: {results_file}")
+            else:
+                print("Test execution failed.")
         else:
-            print("Test execution failed.")
+            print("No semantic enrichment option selected. Exiting.")
     else:
         print("No model selected. Exiting.")

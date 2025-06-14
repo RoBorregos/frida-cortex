@@ -1,32 +1,4 @@
-
-client<llm> R1 {
-  provider "openai-generic"
-  options {
-    base_url "http://localhost:11434/v1"
-    model "deepseek-r1:32b"
-    max_tokens 4096
-  }
-}
-
-client<llm> QWEN3_14B { 
-  provider "openai-generic"
-  options {
-    base_url "http://localhost:11434/v1"
-    model "qwen3:14b"
-    max_tokens 4096
-  }
-}
-
-client<llm> QWEN3_0_6B { 
-  provider "openai-generic"
-  options {
-    base_url "http://localhost:11434/v1"
-    model "qwen3:0.6b"
-    max_tokens 4096
-  }
-}
-
-client<llm> LOCAL_FINETUNED_NEW { 
+client<llm> LOCAL_FINETUNED { 
   provider "openai-generic"
   options {
     base_url "http://localhost:11434/v1"
@@ -35,7 +7,7 @@ client<llm> LOCAL_FINETUNED_NEW {
   }
 }
 
-client<llm> PRO_2_5 {
+client<llm> GEMINI_PRO_2_5 {
   provider "openai-generic"
   retry_policy Constant
   options {
@@ -46,7 +18,7 @@ client<llm> PRO_2_5 {
   }
 }
 
-client<llm> FLASH_2_5 {
+client<llm> GEMINI_FLASH_2_5 {
   provider "openai-generic"
   retry_policy Constant
   options {
@@ -57,45 +29,90 @@ client<llm> FLASH_2_5 {
   }
 }
 
-client<llm> O4_MINI {
-  provider "openai"
-  retry_policy Constant
-  options {
-    api_key env.OPENAI_API_KEY
-    model "o4-mini"
-  }
-}
-
-client<llm> GPT_4_1_MINI {
-  provider "openai"
-  retry_policy Constant
-  options {
-    api_key env.OPENAI_API_KEY
-    model "gpt-4.1-mini"
-  }
-}
-
-client<llm> API_QWEN3_4B {
+client<llm> OPENAI_O4_MINI {
   provider "openai-generic"
   retry_policy Constant
   options {
     base_url https://openrouter.ai/api/v1
     api_key env.OPENROUTER_API_KEY
-    model "qwen/qwen3-4b:free"
-    max_tokens 4096
+    api_key env.OPENAI_API_KEY
+    model "openai/o4-mini"
   }
 }
 
-client<llm> API_QWEN3_14B {
+client<llm> OPENAI_GPT_4_1_MINI {
   provider "openai-generic"
   retry_policy Constant
   options {
     base_url https://openrouter.ai/api/v1
     api_key env.OPENROUTER_API_KEY
-    model "qwen/qwen3-14b"
+    model "openai/gpt-4.1-mini"
+  }
+}
+
+client<llm> ANTHROPIC_CLAUDE_SONNET_4 {
+  provider "openai-generic"
+  retry_policy Constant
+  options {
+    base_url https://openrouter.ai/api/v1
+    api_key env.OPENROUTER_API_KEY
+    model "anthropic/claude-sonnet-4"
+  }
+}
+
+client<llm> META_LLAMA_3_3_8B_IT_FREE {
+  provider "openai-generic"
+  retry_policy Constant
+  options {
+    base_url https://openrouter.ai/api/v1
+    api_key env.OPENROUTER_API_KEY
+    model "meta-llama/llama-3.3-8b-instruct:free"
     max_tokens 4096
   }
 }
+
+client<llm> META_LLAMA_3_3_70B {
+  provider "openai-generic"
+  retry_policy Constant
+  options {
+    base_url https://openrouter.ai/api/v1
+    api_key env.OPENROUTER_API_KEY
+    model "meta-llama/llama-3.3-70b-instruct"
+  }
+}
+
+// This isnt working
+client<llm> META_LLAMA_2_70B_HF {
+  provider "openai-generic"
+  retry_policy Constant
+  options {
+    base_url https://router.huggingface.co/together/v1
+    api_key env.HF_TOKEN
+    model "meta-llama/Llama-2-70b-hf"
+    max_tokens 2048
+  }
+}
+
+client<llm> LOCAL_R1_32B {
+  provider "openai-generic"
+  options {
+    base_url "http://localhost:11434/v1"
+    model "deepseek-r1:32b"
+    max_tokens 4096
+  }
+}
+
+client<llm> LOCAL_QWEN3_0_6B { 
+  provider "openai-generic"
+  options {
+    base_url "http://localhost:11434/v1"
+    model "qwen3:0.6b"
+    max_tokens 4096
+  }
+}
+
+
+
 
 
 retry_policy Constant {
