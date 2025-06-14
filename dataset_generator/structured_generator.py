@@ -82,10 +82,10 @@ def parse_objects(data):
 
 
 if __name__ == "__main__":
-    names_file_path = '../names/names.md'
-    locations_file_path = '../maps/location_names.md'
-    rooms_file_path = '../maps/room_names.md'
-    objects_file_path = '../objects/test.md'
+    names_file_path = './CompetitionTemplate/names/names.md'
+    locations_file_path = './CompetitionTemplate/maps/location_names.md'
+    rooms_file_path = './CompetitionTemplate/maps/room_names.md'
+    objects_file_path = './CompetitionTemplate/objects/objects.md'
     
     PYDANTIC_JSON = True
     NEW_FORMAT = True
