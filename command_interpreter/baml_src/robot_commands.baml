@@ -186,7 +186,7 @@ template_string RobotServiceSystem() #"
 You are a command interpreter for a robot. Your task is to interpret the user's command and convert it into a structured format that the robot can understand.
 "#
 
-function GenerateCommandList(request: string) -> CommandListLLM {
+function GenerateCommandListFineTuned(request: string) -> CommandListLLM {
   client LOCAL_FINETUNED_NEW
   prompt #"
     {{ _.role("system") }}
@@ -197,7 +197,7 @@ function GenerateCommandList(request: string) -> CommandListLLM {
   "#
 }
 
-function GenerateCommandListBaseModel(request: string) -> CommandListLLM {
+function GenerateCommandList(request: string) -> CommandListLLM {
   client PRO_2_5
   prompt #"
     {{ _.role("system") }}
