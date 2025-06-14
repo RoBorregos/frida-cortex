@@ -2,7 +2,7 @@
 
 /// Test for navigating to a location and retrieving an object
 test GoToLocTest {
-  functions [GenerateCommandListBaseModel]
+  functions [GenerateCommandList]
   args {
     request "go to the living room then locate a knife and get it and bring it to Angel in the bathroom"
   }
