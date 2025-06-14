@@ -7,6 +7,7 @@ from baml_py import ClientRegistry
 from dotenv import load_dotenv
 from baml_client.types import CommandListLLM
 from baml_client.config import set_log_level
+from caller import execute_function
 from termcolor import colored
 
 # Add the dataset_generator directory to the path to import the CommandGenerator
@@ -191,6 +192,12 @@ def execute_command(command_text):
                                                  baml_options={"client_registry": client_registry})
         
         print_commands_pretty(command_list)
+        print("\n" + colored("="*50, "cyan"))
+        print(colored("EXECUTING COMMANDS", "cyan", attrs=['bold']))
+        print(colored("="*50, "cyan"))
+        for cmd in command_list.commands:
+            execute_function(cmd)
+        print("\n" + colored("="*50, "cyan"))
         
     except Exception as e:
         print(colored(f"Error executing command: {e}", "red"))
