@@ -2,6 +2,7 @@ from baml_client.sync_client import b
 from dotenv import load_dotenv
 from baml_client.types import CommandListLLM
 from baml_client.config import set_log_level
+from caller import execute_function
 
 set_log_level("ERROR")  # Set as "INFO" to see the full prompt and response
 load_dotenv()
@@ -36,4 +37,6 @@ if __name__ == "__main__":
     print("Enter a command in natural language:")
     command = input()
     command_list = b.GenerateCommandListBaseModel(command)
-    print_commands_pretty(command_list)
+    for cmd in command_list.commands:
+        execute_function(cmd)
+    # print_commands_pretty(command_list)
