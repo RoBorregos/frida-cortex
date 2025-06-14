@@ -1,3 +1,10 @@
+inference/*
+!inference/download-model.sh
+!inference/run-inference.sh
+!inference/entrypoint.sh
+!inference/Modelfile
+!inference/Dockerfile
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
