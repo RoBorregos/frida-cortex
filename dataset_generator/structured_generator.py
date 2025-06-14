@@ -14,6 +14,25 @@ class CommandShape(BaseModel):
 class CommandListShape(BaseModel):
     commands: List[CommandShape]
 
+# A -> navigate to a location, look for a person, and follow
+# B -> take an object from a placement, and perform an action
+# C -> Speak or answer a question
+
+commandCategory = {
+    'A': ["followNameFromBeacToRoom", "guideNameFromBeacToBeac", "guidePrsFromBeacToBeac", "guideClothPrsFromBeacToBeac", "meetNameAtLocThenFindInRm", "followPrsAtLoc"],
+    'A|B|C': ["goToLoc" ],
+    'A|C': ["findPrsInRoom", "meetPrsAtBeac", "greetClothDscInRm", "greetNameInRm"],
+    'B': ["takeObjFromPlcmt", "findObjInRoom", "bringMeObjFromPlcmt"],
+    'C': ["countObjOnPlcmt","countPrsInRoom", "tellPrsInfoInLoc",  "tellObjPropOnPlcmt", "talkInfoToGestPrsInRoom", "answerToGestPrsInRoom", "tellCatPropOnPlcmt", "countClothPrsInRoom", "tellPrsInfoAtLocToPrsAtLoc" ],
+}
+
+def type_lookup(cmd_type):
+    for key, value in commandCategory.items():
+        if cmd_type in value:
+            return key
+    
+    return "Unknown"
+
 def read_data(file_path):
     with open(file_path, 'r') as file:
         data = file.read()
@@ -126,13 +145,13 @@ if __name__ == "__main__":
                 #         obj[k] = v
                 #     formated_cmd = {command['action']: obj}
                 #     formatted_structured_cmd.append(formated_cmd)
-                dataset.append({'cmd_type': generator.all_cmd_types[index], 'string_cmd': string_cmd, 'structured_cmd': structured_cmd})
+                dataset.append({'cmd_type': generator.all_cmd_types[index], 'string_cmd': string_cmd, 'structured_cmd': structured_cmd, 'cmd_category': type_lookup(generator.all_cmd_types[index])})
             else:
                 if PYDANTIC_JSON:
                     json_commands = CommandListShape(commands=structured_cmd).model_dump_json()
                 else:
                     json_commands = [json.loads(c.model_dump_json()) for c in CommandListShape(commands=structured_cmd).commands]
-                dataset.append({'cmd_type': generator.all_cmd_types[index], 'string_cmd': string_cmd, 'structured_cmd': json_commands})
+                dataset.append({'cmd_type': generator.all_cmd_types[index], 'string_cmd': string_cmd, 'structured_cmd': json_commands, 'cmd_category': type_lookup(generator.all_cmd_types[index])})
     
     # Save the dataset to a file
     with open('dataset.json', 'w') as f:
