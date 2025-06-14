@@ -103,7 +103,7 @@ if __name__ == "__main__":
 
     generator = CommandGenerator(names, location_names, placement_location_names, room_names, object_names,
                                  object_categories_plural, object_categories_singular)
-    user_prompt = "How many commands do you want to generate of each category?\n"
+    user_prompt = "How many commands do you want to generate of each category? (There are 23 categories in total)\n"
     print(user_prompt)
     user_input = input()
     
