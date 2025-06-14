@@ -99,11 +99,11 @@ class SayWithContext {
   user_instruction string @description(#"Instruction that will help to system
   to return the desired information to the user, it can be a question or a
   statement like 'tell me how many foods there are on the bookshelf'"#)
-  previous_command_info string[] @description(#"Previous commands needed to return
-  the desired information to the user, it has to be a list of previous command or
-  commands that have been executed (['count', 'get_visual_info'], etc.), or
+  previous_command_info string @description(#"Previous command needed to return
+  the desired information to the user, it has to be a previous command that
+  have been executed ('count', 'get_visual_info', etc.), or
   internal information that the system has stored in its memory 
-  (['time', 'affection'], etc.)"#)
+  ('time', 'affection', etc.)"#)
   @@description(#"Use this command to say a message with specific information
   obtained from previous commands or internal information. It's different to
   answer_question since here it just the robot talking without a conversation"#)
@@ -198,7 +198,7 @@ function GenerateCommandListFineTuned(request: string) -> CommandListLLM {
 }
 
 function GenerateCommandList(request: string) -> CommandListLLM {
-  client PRO_2_5
+  client FLASH_2_5
   prompt #"
     {{ _.role("system") }}
     {{ RobotServiceSystem() }}
