@@ -1,15 +1,22 @@
+# =============================================================================
+# GPU CONFIGURATION
+# =============================================================================
 import os
 os.environ["CUDA_DEVICE_ORDER"] = "PCI_BUS_ID"
-os.environ["CUDA_VISIBLE_DEVICES"] = "1" # set GPU number
+os.environ["CUDA_VISIBLE_DEVICES"] = "1"  # Set which GPU to use (GPU #1)
 
-
+# =============================================================================
+# MODEL SETUP AND CONFIGURATION
+# =============================================================================
 from unsloth import FastLanguageModel
 import torch
-max_seq_length = 2048 # Choose any! We auto support RoPE Scaling internally!
-dtype = None # None for auto detection. Float16 for Tesla T4, V100, Bfloat16 for Ampere+
-load_in_4bit = True # Use 4bit quantization to reduce memory usage. Can be False.
 
-# 4bit pre quantized models we support for 4x faster downloading + no OOMs.
+# Model parameters
+max_seq_length = 2048  # Maximum sequence length for training
+dtype = None  # Auto-detect optimal dtype (Float16 for older GPUs, Bfloat16 for newer)
+load_in_4bit = True  # Enable 4-bit quantization to reduce memory usage
+
+# List of available pre-quantized 4-bit models for faster loading
 fourbit_models = [
     "unsloth/Meta-Llama-3.1-8B-bnb-4bit",      # Llama-3.1 2x faster
     "unsloth/Meta-Llama-3.1-8B-Instruct-bnb-4bit",
@@ -28,100 +35,119 @@ fourbit_models = [
     "unsloth/Llama-3.2-3B-Instruct-bnb-4bit",
 ] # More models at https://huggingface.co/unsloth
 
+# Load the base model and tokenizer
 model, tokenizer = FastLanguageModel.from_pretrained(
-    model_name = "unsloth/DeepSeek-R1-Distill-Llama-8B", # or choose "unsloth/Llama-3.2-1B-Instruct"
+    model_name = "unsloth/DeepSeek-R1-Distill-Llama-8B",  # Base model to fine-tune
     max_seq_length = max_seq_length,
     dtype = dtype,
     load_in_4bit = load_in_4bit,
-    # token = "hf_...", # use one if using gated models like meta-llama/Llama-2-7b-hf
+    # token = "hf_...", # Uncomment if using gated models requiring HuggingFace token
 )
 
-
+# =============================================================================
+# LORA (LOW-RANK ADAPTATION) CONFIGURATION
+# =============================================================================
+# Configure LoRA parameters for efficient fine-tuning
 model = FastLanguageModel.get_peft_model(
     model,
-    r = 16, # Choose any number > 0 ! Suggested 8, 16, 32, 64, 128
-    target_modules = ["q_proj", "k_proj", "v_proj", "o_proj",
-                      "gate_proj", "up_proj", "down_proj",],
-    lora_alpha = 32,
-    lora_dropout = 0, # Supports any, but = 0 is optimized
-    bias = "none",    # Supports any, but = "none" is optimized
-    # [NEW] "unsloth" uses 30% less VRAM, fits 2x larger batch sizes!
-    use_gradient_checkpointing = "unsloth", # True or "unsloth" for very long context
-    random_state = 3407,
-    use_rslora = False,  # We support rank stabilized LoRA
-    loftq_config = None, # And LoftQ
+    r = 16,  # LoRA rank - higher values = more parameters but better adaptation
+    target_modules = ["q_proj", "k_proj", "v_proj", "o_proj",  # Attention layers
+                      "gate_proj", "up_proj", "down_proj",],   # MLP layers
+    lora_alpha = 32,  # LoRA scaling parameter
+    lora_dropout = 0,  # Dropout for LoRA layers (0 is optimized)
+    bias = "none",     # Bias handling ("none" is optimized)
+    use_gradient_checkpointing = "unsloth",  # Memory optimization technique
+    random_state = 3407,  # Seed for reproducibility
+    use_rslora = False,   # Rank stabilized LoRA
+    loftq_config = None,  # LoftQ configuration
 )
 
-
+# =============================================================================
+# CHAT TEMPLATE SETUP
+# =============================================================================
 from unsloth.chat_templates import get_chat_template
 
+# Apply Llama 3.1 chat template for proper conversation formatting
 tokenizer = get_chat_template(
     tokenizer,
     chat_template = "llama-3.1",
 )
 
+# =============================================================================
+# DATA FORMATTING FUNCTIONS
+# =============================================================================
 def formatting_prompts_func(examples):
+    """Convert conversation examples to text format using chat template"""
     convos = examples["conversations"]
     texts = [tokenizer.apply_chat_template(convo, tokenize = False, add_generation_prompt = False) for convo in convos]
     return { "text" : texts, }
-pass
 
+# =============================================================================
+# DATASET LOADING AND PREPARATION
+# =============================================================================
 from datasets import Dataset
 import json
 
 def get_base_msgs():
+    """Return the base system message for robot command interpretation"""
     return [
         {
             "role": "system",
-                    "content": """You are a command interpreter for a robot. Your task is to interpret the user's command and convert it into a structured format that the robot can understand."""
+            "content": """You are a command interpreter for a robot. Your task is to interpret the user's command and convert it into a structured format that the robot can understand."""
         },
     ]
 
-
 def get_messages(msgs, text_input):
+    """Add user message to conversation"""
     msgs.append({"role": "user", "content": text_input})
     return msgs
 
-
 def get_response(msgs, response):
+    """Add assistant response to conversation"""
     msgs.append({"role": "assistant", "content": response})
     return msgs
 
-
 def load_custom_dataset(file_path):
+    """Load and format custom dataset from JSON file"""
     res = []
     with open(file_path, "r") as f:
         data = json.load(f)
 
+        # Convert each training example to conversation format
         for i in data:
-            str_cmd = str(i["string_cmd"])
-            resp = str(i["structured_cmd"])
+            str_cmd = str(i["string_cmd"])    # Natural language command
+            resp = str(i["structured_cmd"])   # Structured response
+            
+            # Create conversation: system message + user command + assistant response
             asda = get_base_msgs()
             a = get_response(get_messages(asda, str_cmd), resp)
             res.append(a)
 
-    # Create dataset dictionary
-    dataset_dict = {
-        'conversations': res
-    }
-
-    # Convert to HuggingFace dataset
+    # Create HuggingFace dataset
+    dataset_dict = {'conversations': res}
     dataset = Dataset.from_dict(dataset_dict)
-
     return dataset
 
-# dataset = load_dataset("mlabonne/FineTome-100k", split = "train")
+# Load custom training dataset
 dataset = load_custom_dataset('nlp-function-dataset.json')
 
+# =============================================================================
+# DATASET PREPROCESSING
+# =============================================================================
 from unsloth.chat_templates import standardize_sharegpt
+
+# Standardize dataset format and apply text formatting
 dataset = standardize_sharegpt(dataset)
 dataset = dataset.map(formatting_prompts_func, batched = True,)
 
-
+# =============================================================================
+# TRAINING CONFIGURATION
+# =============================================================================
 from trl import SFTTrainer
 from transformers import TrainingArguments, DataCollatorForSeq2Seq
 from unsloth import is_bfloat16_supported
 
+# Initialize the supervised fine-tuning trainer
 trainer = SFTTrainer(
     model = model,
     tokenizer = tokenizer,
@@ -129,52 +155,64 @@ trainer = SFTTrainer(
     dataset_text_field = "text",
     max_seq_length = max_seq_length,
     data_collator = DataCollatorForSeq2Seq(tokenizer = tokenizer),
-    dataset_num_proc = 2,
-    packing = False, # Can make training 5x faster for short sequences.
+    dataset_num_proc = 2,  # Number of processes for dataset processing
+    packing = False,  # Whether to pack multiple sequences together
     args = TrainingArguments(
-        per_device_train_batch_size = 2,
-        gradient_accumulation_steps = 4,
-        warmup_steps = 5,
-        num_train_epochs = 3, # Set this for 1 full training run.
-        # max_steps = 1,
-        learning_rate = 2e-4,
-        fp16 = not is_bfloat16_supported(),
-        bf16 = is_bfloat16_supported(),
-        logging_steps = 1,
-        optim = "adamw_8bit",
-        weight_decay = 0.01,
-        lr_scheduler_type = "linear",
-        seed = 3407,
-        output_dir = "outputs",
-        report_to = "none", # Use this for WandB etc
+        per_device_train_batch_size = 2,  # Batch size per GPU
+        gradient_accumulation_steps = 4,  # Steps to accumulate gradients
+        warmup_steps = 5,  # Learning rate warmup steps
+        num_train_epochs = 3,  # Number of training epochs
+        learning_rate = 2e-4,  # Learning rate
+        fp16 = not is_bfloat16_supported(),  # Use fp16 if bf16 not supported
+        bf16 = is_bfloat16_supported(),      # Use bf16 if supported
+        logging_steps = 1,  # Log every N steps
+        optim = "adamw_8bit",  # Optimizer with 8-bit precision
+        weight_decay = 0.01,   # Weight decay for regularization
+        lr_scheduler_type = "linear",  # Learning rate scheduler
+        seed = 3407,  # Random seed
+        output_dir = "outputs",  # Directory to save outputs
+        report_to = "none",  # Disable wandb/tensorboard logging
     ),
 )
 
-
+# =============================================================================
+# RESPONSE-ONLY TRAINING SETUP
+# =============================================================================
 from unsloth.chat_templates import train_on_responses_only
+
+# Configure trainer to only compute loss on assistant responses
 trainer = train_on_responses_only(
     trainer,
     instruction_part = "<|start_header_id|>user<|end_header_id|>\n\n",
     response_part = "<|start_header_id|>assistant<|end_header_id|>\n\n",
 )
 
-
+# =============================================================================
+# TRAINING DATA INSPECTION
+# =============================================================================
+# Display sample of training data to verify formatting
 tokenizer.decode(trainer.train_dataset[5]["input_ids"])
 
 space = tokenizer(" ", add_special_tokens = False).input_ids[0]
 tokenizer.decode([space if x == -100 else x for x in trainer.train_dataset[5]["labels"]])
 
-
-#@title Show current memory stats
+# =============================================================================
+# MEMORY MONITORING - PRE-TRAINING
+# =============================================================================
 gpu_stats = torch.cuda.get_device_properties(0)
 start_gpu_memory = round(torch.cuda.max_memory_reserved() / 1024 / 1024 / 1024, 3)
 max_memory = round(gpu_stats.total_memory / 1024 / 1024 / 1024, 3)
 print(f"GPU = {gpu_stats.name}. Max memory = {max_memory} GB.")
 print(f"{start_gpu_memory} GB of memory reserved.")
 
+# =============================================================================
+# TRAINING EXECUTION
+# =============================================================================
 trainer_stats = trainer.train()
 
-#@title Show final memory and time stats
+# =============================================================================
+# MEMORY MONITORING - POST-TRAINING
+# =============================================================================
 used_memory = round(torch.cuda.max_memory_reserved() / 1024 / 1024 / 1024, 3)
 used_memory_for_lora = round(used_memory - start_gpu_memory, 3)
 used_percentage = round(used_memory         /max_memory*100, 3)
@@ -186,44 +224,51 @@ print(f"Peak reserved memory for training = {used_memory_for_lora} GB.")
 print(f"Peak reserved memory % of max memory = {used_percentage} %.")
 print(f"Peak reserved memory for training % of max memory = {lora_percentage} %.")
 
-
+# =============================================================================
+# INFERENCE TESTING - ROBOT COMMAND INTERPRETATION
+# =============================================================================
 from unsloth.chat_templates import get_chat_template
 
+# Re-apply chat template for inference
 tokenizer = get_chat_template(
     tokenizer,
     chat_template = "llama-3.1",
 )
-FastLanguageModel.for_inference(model) # Enable native 2x faster inference
+FastLanguageModel.for_inference(model)  # Optimize model for inference
 
+# Test the fine-tuned model on robot command interpretation
 messages = [
-        {
-      "content": """You are a command interpreter for a robot. Your task is to interpret the user's command and convert it into a structured format that the robot can understand.""",
-      "role": "system"
+    {
+        "content": """You are a command interpreter for a robot. Your task is to interpret the user's command and convert it into a structured format that the robot can understand.""",
+        "role": "system"
     },
     { "content": "Go to the kitchen, grab cookies and place them in the living room", "role": "user" },
 ]
 inputs = tokenizer.apply_chat_template(
     messages,
     tokenize = True,
-    add_generation_prompt = True, # Must add for generation
+    add_generation_prompt = True,
     return_tensors = "pt",
 ).to("cuda")
 
+# Generate response
 outputs = model.generate(input_ids = inputs, max_new_tokens = 64, use_cache = True,
                          temperature = 1.5, min_p = 0.1)
 tokenizer.batch_decode(outputs)
 
+# =============================================================================
+# INFERENCE TESTING - GENERAL KNOWLEDGE (FIBONACCI)
+# =============================================================================
+FastLanguageModel.for_inference(model)
 
-
-FastLanguageModel.for_inference(model) # Enable native 2x faster inference
-
+# Test general capabilities with Fibonacci sequence
 messages = [
     {"role": "user", "content": "Continue the fibonnaci sequence: 1, 1, 2, 3, 5, 8,"},
 ]
 inputs = tokenizer.apply_chat_template(
     messages,
     tokenize = True,
-    add_generation_prompt = True, # Must add for generation
+    add_generation_prompt = True,
     return_tensors = "pt",
 ).to("cuda")
 
@@ -232,17 +277,23 @@ text_streamer = TextStreamer(tokenizer, skip_prompt = True)
 _ = model.generate(input_ids = inputs, streamer = text_streamer, max_new_tokens = 128,
                    use_cache = True, temperature = 1.5, min_p = 0.1)
 
+# =============================================================================
+# MODEL SAVING - LORA ADAPTER
+# =============================================================================
+model.save_pretrained("lora_model")    # Save LoRA adapter weights
+tokenizer.save_pretrained("lora_model")  # Save tokenizer configuration
 
-model.save_pretrained("lora_model") # Local saving
-tokenizer.save_pretrained("lora_model")
-
+# =============================================================================
+# INFERENCE TESTING - CREATIVE DESCRIPTION
+# =============================================================================
+# Test creative capabilities
 messages = [
     {"role": "user", "content": "Describe a tall tower in the capital of France."},
 ]
 inputs = tokenizer.apply_chat_template(
     messages,
     tokenize = True,
-    add_generation_prompt = True, # Must add for generation
+    add_generation_prompt = True,
     return_tensors = "pt",
 ).to("cuda")
 
@@ -251,8 +302,10 @@ text_streamer = TextStreamer(tokenizer, skip_prompt = True)
 _ = model.generate(input_ids = inputs, streamer = text_streamer, max_new_tokens = 128,
                    use_cache = True, temperature = 1.5, min_p = 0.1)
 
-
-# Save to GGUF
-if True: model.save_pretrained_gguf("model/llama/f16", tokenizer, quantization_method = "f16")
-if True: model.save_pretrained_gguf("model/llama/q4", tokenizer, quantization_method = "q4_k_m")
+# =============================================================================
+# MODEL SAVING - GGUF FORMAT
+# =============================================================================
+# Save model in GGUF format for different quantization levels
+if True: model.save_pretrained_gguf("model/llama/f16", tokenizer, quantization_method = "f16")      # 16-bit float
+if True: model.save_pretrained_gguf("model/llama/q4", tokenizer, quantization_method = "q4_k_m")   # 4-bit quantized
 
