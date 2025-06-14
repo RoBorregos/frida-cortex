@@ -55,8 +55,6 @@ python3 command_interpreter/interpreter.py
 
 You can enter a natural language command through text and the list of commands to be executed will be displayed.
 
-## Execute the command interpreter
-
 ### Executing with local LLM
 
 1. Download the model
@@ -86,6 +84,7 @@ The configuration is designed to be multi-platform and should work out of the bo
 - **macOS (Intel):** The application will run on CPU using x86_64 containers with emulation.
 - **Linux (without NVIDIA GPU):** The application will run on CPU and use host networking for optimal performance.
 - **Linux (with NVIDIA GPU):** If you have an NVIDIA GPU and the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) installed, the scripts will automatically detect and use your GPU for hardware acceleration with host networking.
+- **Windows (Git Bash/WSL):** Run scripts from Git Bash or WSL terminal. GPU acceleration is supported with NVIDIA cards via Docker Desktop's WSL2 backend. Uses standard port mapping.
 
 The `run-inference.sh` script provides:
 - ✅ **Automatic hardware detection** - detects NVIDIA GPU and Docker runtime availability

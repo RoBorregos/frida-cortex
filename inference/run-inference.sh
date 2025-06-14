@@ -7,6 +7,13 @@ echo "Detecting hardware capabilities..."
 # Detect operating system
 OS=$(uname -s)
 
+# Detect Windows environments (Git Bash, MSYS, etc.)
+if [[ "$OS" == MINGW* ]] || [[ "$OS" == MSYS* ]] || [[ "$OS" == CYGWIN* ]]; then
+    OS="Windows"
+    # Set environment variable for proper Docker path handling in Git Bash
+    export MSYS_NO_PATHCONV=1
+fi
+
 # Check if NVIDIA GPU is available and Docker can use nvidia runtime
 if command -v nvidia-smi >/dev/null 2>&1 && docker info | grep -q "nvidia"; then
     echo "✓ NVIDIA GPU detected and Docker nvidia runtime available"
@@ -20,6 +27,13 @@ services:
   ollama:
     runtime: nvidia
     network_mode: host
+EOF
+    elif [ "$OS" = "Windows" ]; then
+        echo "✓ Windows detected - using port mapping with GPU acceleration"
+        cat > docker-compose.gpu.yml << EOF
+services:
+  ollama:
+    runtime: nvidia
 EOF
     else
         echo "✓ Non-Linux OS detected - using port mapping"
@@ -65,7 +79,11 @@ services:
 EOF
         docker compose -f ../docker-compose.yml -f docker-compose.override.yml up "$@"
         rm -f docker-compose.override.yml
+    elif [ "$OS" = "Windows" ]; then
+        echo "✓ Windows detected - using default port mapping"
+        docker compose -f ../docker-compose.yml up "$@"
     else
+        # Handle other OSes
         docker compose -f ../docker-compose.yml up "$@"
     fi
 fi 
