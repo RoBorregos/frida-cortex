@@ -1,8 +1,10 @@
 from baml_client.sync_client import b
 from dotenv import load_dotenv
+from baml_client.types import CommandListLLM
+from baml_client.config import set_log_level
 
+set_log_level("ERROR")  # Set as "INFO" to see the full prompt and response
 load_dotenv()
-
 
 def print_commands_pretty(command_list):
     """Print the command list in a formatted, readable way"""
