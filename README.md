@@ -71,7 +71,32 @@ cd inference
 
 ```bash
 # In the project root directory
-docker compose up
+cd inference
+# This script automatically detects your hardware and uses GPU acceleration if available
+./run-inference.sh
 ```
 
 Now, the model can be reached at `http://localhost:11434`.
+
+### Platform-specific notes
+
+The configuration is designed to be multi-platform and should work out of the box:
+
+- **macOS (Apple Silicon):** The application will automatically use ARM64-optimized containers for better performance on M1/M2/M3 chips. CPU-only mode is used.
+- **macOS (Intel):** The application will run on CPU using x86_64 containers with emulation.
+- **Linux (without NVIDIA GPU):** The application will run on CPU and use host networking for optimal performance.
+- **Linux (with NVIDIA GPU):** If you have an NVIDIA GPU and the [NVIDIA Container Toolkit](https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html) installed, the scripts will automatically detect and use your GPU for hardware acceleration with host networking.
+
+The `run-inference.sh` script provides:
+- ✅ **Automatic hardware detection** - detects NVIDIA GPU and Docker runtime availability
+- ✅ **Graceful fallback** - uses CPU mode if GPU acceleration is not available
+- ✅ **Clear feedback** - shows exactly what hardware configuration is being used
+- ✅ **No manual configuration** - works out of the box on any platform
+
+### Alternative: Manual Docker Compose
+
+If you prefer to use Docker Compose directly (CPU-only mode):
+
+```bash
+docker compose up
+```
