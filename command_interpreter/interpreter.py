@@ -24,28 +24,29 @@ except ImportError:
     print(colored("Warning: Could not import CommandGenerator parsing functions. Using fallback functions.", "yellow"))
     GENERATOR_FUNCTIONS_AVAILABLE = False
 
-set_log_level("ERROR")  # Set as "INFO" to see the full prompt and response
+set_log_level("INFO")  # Set as "INFO" to see the full prompt and response
 load_dotenv()
 
 # Available models from client.baml
 AVAILABLE_MODELS = [
-    "R1",
-    "QWEN3_14B", 
-    "QWEN3_0_6B",
-    "LOCAL_FINETUNED_NEW",
-    "PRO_2_5",
-    "FLASH_2_5",
-    "O4_MINI",
-    "GPT_4_1_MINI",
-    "API_QWEN3_4B",
-    "API_QWEN3_14B"
+    'R1',
+    'QWEN3_14B', 
+    'QWEN3_0_6B',
+    'LOCAL_FINETUNED_NEW',
+    'PRO_2_5',
+    'FLASH_2_5',
+    'O4_MINI',
+    'GPT_4_1_MINI',
+    'API_QWEN3_4B',
+    'API_QWEN3_14B'
 ]
 
-DEFAULT_MODEL = "PRO_2_5"
+DEFAULT_MODEL = 'FLASH_2_5'
 current_model = DEFAULT_MODEL
 
 # Initialize client registry
 client_registry = ClientRegistry()
+client_registry.set_primary(current_model)
 
 def print_commands_pretty(command_list):
     """Print the command list in a formatted, readable way with colors"""
@@ -183,9 +184,11 @@ def execute_command(command_text):
         print(f"\n{colored('Executing with model:', 'cyan')} {colored(current_model, 'green', attrs=['bold'])}")
         
         if current_model == "LOCAL_FINETUNED_NEW":
-            command_list = b.GenerateCommandListFineTuned(command_text)
+            command_list = b.GenerateCommandListFineTuned(command_text,
+                                                          baml_options={"client_registry": client_registry})
         else:
-            command_list = b.GenerateCommandList(command_text)
+            command_list = b.GenerateCommandList(command_text,
+                                                 baml_options={"client_registry": client_registry})
         
         print_commands_pretty(command_list)
         
