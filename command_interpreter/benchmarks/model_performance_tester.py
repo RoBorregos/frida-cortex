@@ -2,7 +2,8 @@
 
 import json
 import time
-from typing import Optional
+from typing import Optional, List, Dict
+from collections import defaultdict
 
 # Updated imports to reference parent directory level
 import sys
@@ -19,6 +20,7 @@ from sentence_transformers import SentenceTransformer
 from scipy.spatial.distance import cosine
 from tqdm import tqdm
 import numpy as np
+from pydantic import BaseModel
 
 # Turn off all logging
 set_log_level("ERROR")
@@ -37,7 +39,7 @@ AVAILABLE_MODELS = [
     "API_QWEN3_14B"
 ]
 
-DEFAULT_MODEL = "PRO_2_5"
+DEFAULT_MODEL = "FLASH_2_5"
 
 # Initialize client registry
 client_registry = ClientRegistry()
@@ -48,6 +50,63 @@ SIMILARITY_THRESHOLD = 0.8  # Threshold for complement similarity
 OVERALL_THRESHOLD = 0.75  # Threshold for the overall test case score
 TEST_DATA_FILE = "../../dataset_generator/dataset.json"
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"  # Example model
+
+
+# --- Pydantic Models for Structured Results ---
+
+class TestResult(BaseModel):
+    """Individual test case result"""
+    index: int
+    input_command: str
+    expected_command_count: int
+    actual_command_count: int
+    score: float
+    passed: bool
+    execution_time: float
+    error: Optional[str] = None
+    expected_commands: Optional[List[Dict]] = None
+    actual_commands: Optional[List[Dict]] = None
+
+
+class CommandCountGroup(BaseModel):
+    """Results grouped by command count"""
+    command_count: int
+    passed_count: int
+    failed_count: int
+    total_count: int
+    pass_rate: float
+    test_results: List[TestResult]
+
+
+class TestSummary(BaseModel):
+    """Complete test execution summary"""
+    model_name: str
+    total_cases: int
+    total_passed: int
+    total_failed: int
+    overall_pass_rate: float
+    average_execution_time: float
+    groups_by_command_count: List[CommandCountGroup]
+    
+    def print_summary(self):
+        """Print a formatted summary of the test results"""
+        print("\n" + "=" * 60)
+        print(f"TEST SUMMARY - Model: {self.model_name}")
+        print("=" * 60)
+        print(f"Total Cases: {self.total_cases}")
+        print(f"Passed: {self.total_passed} ({self.overall_pass_rate:.1f}%)")
+        print(f"Failed: {self.total_failed}")
+        print(f"Average Execution Time: {self.average_execution_time:.2f}s")
+        
+        print(f"\nResults by Command Count:")
+        print("-" * 40)
+        for group in sorted(self.groups_by_command_count, key=lambda x: x.command_count):
+            print(f"Commands: {group.command_count:2d} | "
+                  f"Total: {group.total_count:3d} | "
+                  f"Passed: {group.passed_count:3d} | "
+                  f"Failed: {group.failed_count:3d} | "
+                  f"Pass Rate: {group.pass_rate:5.1f}%")
+        print("=" * 60)
 
 
 # --- Helper Functions ---
@@ -173,16 +232,19 @@ def execute_command_with_model(command_text: str, model_name: str):
                                      baml_options={"client_registry": client_registry})
 
 
-def run_tests(model_name: str = DEFAULT_MODEL):
-    """Loads data, runs tests, and reports results.
+def run_tests(model_name: str = DEFAULT_MODEL) -> TestSummary:
+    """Loads data, runs tests, and returns structured results.
     
     Args:
         model_name: The model to use for testing. Must be one of AVAILABLE_MODELS.
+        
+    Returns:
+        TestSummary: Structured results including grouping by command count
     """
     # Validate model name
     if model_name not in AVAILABLE_MODELS:
         print(f"Error: Model '{model_name}' not available. Available models: {', '.join(AVAILABLE_MODELS)}")
-        return
+        return None
     
     # Set the model in client registry
     client_registry.set_primary(model_name)
@@ -194,10 +256,10 @@ def run_tests(model_name: str = DEFAULT_MODEL):
             command_dataset = json.load(f)
     except FileNotFoundError:
         print(f"Error: Test data file not found at {TEST_DATA_FILE}")
-        return
+        return None
     except json.JSONDecodeError:
         print(f"Error: Could not decode JSON from {TEST_DATA_FILE}")
-        return
+        return None
 
     test_cases = [
         (command["string_cmd"], command["structured_cmd"])
@@ -206,12 +268,11 @@ def run_tests(model_name: str = DEFAULT_MODEL):
 
     print(f"Loaded {len(test_cases)} test cases.")
 
-    passed_count = 0
-    failed_cases = []
-    execution_times = []  # <-- Add list to store times
+    # Collect all test results
+    all_test_results = []
+    execution_times = []
 
     for i, (input_str, expected_str) in enumerate(tqdm(test_cases, desc="Running BAML tests")):
-        # TODO: Remove delay for local testing, it was used to avoid rate limiting
         time.sleep(3)
         print(f"\n--- Test Case {STARTING_CASE + i} ---")
         print(f"Input: {input_str}")
@@ -219,7 +280,17 @@ def run_tests(model_name: str = DEFAULT_MODEL):
         expected_command_list = parse_expected_output(expected_str)
         if not expected_command_list:
             print(" \x1b[91mFailed (Skipping due to parse error in expected output)\x1b[0m")
-            failed_cases.append({"index": STARTING_CASE + i, "input": input_str, "expected_str": expected_str, "reason": "Failed to parse expected output JSON."})
+            test_result = TestResult(
+                index=STARTING_CASE + i,
+                input_command=input_str,
+                expected_command_count=0,
+                actual_command_count=0,
+                score=0.0,
+                passed=False,
+                execution_time=0.0,
+                error="Failed to parse expected output JSON"
+            )
+            all_test_results.append(test_result)
             continue
 
         try:
@@ -227,71 +298,96 @@ def run_tests(model_name: str = DEFAULT_MODEL):
             # Call the BAML function with the selected model
             actual_command_list = execute_command_with_model(input_str, model_name)
             end_time = time.time()
-            duration = end_time - start_time  # <-- Calculate duration
-            execution_times.append(duration)  # <-- Store duration
+            duration = end_time - start_time
+            execution_times.append(duration)
+            
             print(f"Expected: {expected_command_list.model_dump_json(indent=2)}")
             print(f"BAML Response ({duration:.2f}s): {actual_command_list.model_dump_json(indent=2)}")
 
             # Compare results
             score = compare_commands(actual_command_list, expected_command_list)
             print(f"Comparison Score: {score:.3f}")
-
-            if score >= OVERALL_THRESHOLD:
+            
+            passed = score >= OVERALL_THRESHOLD
+            if passed:
                 print(f" \x1b[92mPassed (Score: {score:.3f} >= {OVERALL_THRESHOLD})\x1b[0m")
-                passed_count += 1
             else:
                 print(f" \x1b[91mFailed (Score: {score:.3f} < {OVERALL_THRESHOLD})\x1b[0m")
-                failed_cases.append(
-                    {
-                        "index": STARTING_CASE + i,
-                        "input": input_str,
-                        "expected_str": expected_str,
-                        "expected_parsed": expected_command_list.model_dump(),
-                        "actual": actual_command_list.model_dump(),
-                        "score": score,
-                    }
-                )
+
+            # Create test result
+            test_result = TestResult(
+                index=STARTING_CASE + i,
+                input_command=input_str,
+                expected_command_count=len(expected_command_list.commands),
+                actual_command_count=len(actual_command_list.commands),
+                score=score,
+                passed=passed,
+                execution_time=duration,
+                expected_commands=[cmd.model_dump() for cmd in expected_command_list.commands],
+                actual_commands=[cmd.model_dump() for cmd in actual_command_list.commands]
+            )
+            all_test_results.append(test_result)
 
         except Exception as e:
             print(f" \x1b[91mFailed (Error during BAML call or comparison): {e}\x1b[0m")
-            failed_cases.append({"index": STARTING_CASE + i, "input": input_str, "expected_str": expected_str, "reason": f"Runtime error: {e}"})
-            # Ensure duration is recorded even on error if start_time was set
-            if "start_time" in locals():
-                duration = time.time() - start_time
-                execution_times.append(duration)
+            duration = time.time() - start_time if "start_time" in locals() else 0.0
+            execution_times.append(duration)
+            
+            test_result = TestResult(
+                index=STARTING_CASE + i,
+                input_command=input_str,
+                expected_command_count=len(expected_command_list.commands) if expected_command_list else 0,
+                actual_command_count=0,
+                score=0.0,
+                passed=False,
+                execution_time=duration,
+                error=str(e)
+            )
+            all_test_results.append(test_result)
 
-        # Optional: Add delay between API calls if needed
-        # time.sleep(1)
+    # Group results by command count
+    groups_by_count = defaultdict(list)
+    for result in all_test_results:
+        groups_by_count[result.expected_command_count].append(result)
 
-    if failed_cases:
-        print("\n--- Failed Cases ---")
-        for case in failed_cases:
-            print(f"Index: {case['index']}")
-            print(f"  Input: {case['input']}")
-            print(f"  Expected (raw): {case['expected_str']}")
-            if "reason" in case:
-                print(f"  Reason: {case['reason']}")
-            else:
-                print(f"  Expected (parsed): {json.dumps(case['expected_parsed'], indent=2)}")
-                print(f"  Actual: {json.dumps(case['actual'], indent=2)}")
-                print(f"  Score: {case['score']:.3f}")
-            print("-" * 20)
-        # Optionally write failed cases to a file
-        # with open("baml_test_failures.json", "w") as f:
-        #     json.dump(failed_cases, f, indent=2)
-        # print("Failed cases saved to baml_test_failures.json")
+    # Create command count groups
+    command_count_groups = []
+    for command_count, results in groups_by_count.items():
+        passed_count = sum(1 for r in results if r.passed)
+        failed_count = len(results) - passed_count
+        pass_rate = (passed_count / len(results)) * 100 if results else 0
+        
+        group = CommandCountGroup(
+            command_count=command_count,
+            passed_count=passed_count,
+            failed_count=failed_count,
+            total_count=len(results),
+            pass_rate=pass_rate,
+            test_results=results
+        )
+        command_count_groups.append(group)
 
-    # --- Reporting ---
-    print("\n--- Test Summary ---")
-    total_cases = len(test_cases)
-    print(f"Total Cases: {total_cases}")
-    print(f" \x1b[92mPassed: {passed_count}\x1b[0m")
-    print(f" \x1b[91mFailed: {len(failed_cases)}\x1b[0m")
-
-    # Calculate average time
+    # Calculate overall statistics
+    total_passed = sum(1 for r in all_test_results if r.passed)
+    total_failed = len(all_test_results) - total_passed
+    overall_pass_rate = (total_passed / len(all_test_results)) * 100 if all_test_results else 0
     average_time = np.mean(execution_times) if execution_times else 0
-    print(f"Average Time per Case: {average_time:.2f}s")
-    print(f"Model Tested: {model_name}")  # <-- Print model name
+
+    # Create summary
+    summary = TestSummary(
+        model_name=model_name,
+        total_cases=len(all_test_results),
+        total_passed=total_passed,
+        total_failed=total_failed,
+        overall_pass_rate=overall_pass_rate,
+        average_execution_time=average_time,
+        groups_by_command_count=command_count_groups
+    )
+
+    # Print summary
+    summary.print_summary()
+    
+    return summary
 
 
 def display_available_models():
@@ -348,6 +444,18 @@ if __name__ == "__main__":
     
     if selected_model:
         print(f"\nStarting tests with model: {selected_model}")
-        run_tests(selected_model)
+        results = run_tests(selected_model)
+        
+        if results:
+            print(f"\nTest execution completed. Results available in structured format.")
+            print(f"Use the returned TestSummary object to access detailed results.")
+            
+            # Example: Save results to JSON file
+            results_file = f"test_results_{selected_model}_{int(time.time())}.json"
+            with open(results_file, 'w') as f:
+                json.dump(results.model_dump(), f, indent=2)
+            print(f"Results saved to: {results_file}")
+        else:
+            print("Test execution failed.")
     else:
         print("No model selected. Exiting.")

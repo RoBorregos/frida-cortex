@@ -24,7 +24,7 @@ except ImportError:
     print(colored("Warning: Could not import CommandGenerator parsing functions. Using fallback functions.", "yellow"))
     GENERATOR_FUNCTIONS_AVAILABLE = False
 
-set_log_level("INFO")  # Set as "INFO" to see the full prompt and response
+set_log_level("ERROR")  # Set as "INFO" to see the full prompt and response
 load_dotenv()
 
 # Available models from client.baml
