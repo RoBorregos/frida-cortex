@@ -187,7 +187,7 @@ You are a command interpreter for a robot. Your task is to interpret the user's 
 "#
 
 function GenerateCommandListFineTuned(request: string) -> CommandListLLM {
-  client LOCAL_FINETUNED_NEW
+  client LOCAL_FINETUNED
   prompt #"
     {{ _.role("system") }}
     You are a command interpreter for a robot. Your task is to interpret the user's command and convert it into a structured format that the robot can understand.
@@ -198,7 +198,7 @@ function GenerateCommandListFineTuned(request: string) -> CommandListLLM {
 }
 
 function GenerateCommandList(request: string) -> CommandListLLM {
-  client FLASH_2_5
+  client GEMINI_FLASH_2_5
   prompt #"
     {{ _.role("system") }}
     {{ RobotServiceSystem() }}
@@ -210,4 +210,26 @@ function GenerateCommandList(request: string) -> CommandListLLM {
     Generate commands for this prompt in the specified format::
     {{ request }}
   "#
+}
+
+function GenerateSemanticEnrichedCommand(request: string) -> string {
+  client GEMINI_FLASH_2_5
+  prompt #"
+    You will receive a natural language command to be executed by a robot.
+    Paraphrase the following command keeping the intent and task objectives
+    and the same number of commands. ONLY use synonyms for the actions.
+    For example, if the command is:
+    'go to the living room then locate a knife and get it and bring it to Angel in the bathroom',
+    the result should be:
+    'stroll toward the living room proceed to notice a knife and collect it and fulfill delivery to Angel in the bathroom'
+    Just return one command in one line.
+    {{ request }}
+  "#
+}
+
+test SemanticEnrichmentTest {
+  functions [GenerateSemanticEnrichedCommand]
+  args {
+    request "look for a toy in the office then get it and put it on the kitchen table"
+  }
 }
