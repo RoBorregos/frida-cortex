@@ -30,19 +30,16 @@ load_dotenv()
 
 # Available models from client.baml
 AVAILABLE_MODELS = [
-    'R1',
-    'QWEN3_14B', 
-    'QWEN3_0_6B',
-    'LOCAL_FINETUNED_NEW',
-    'PRO_2_5',
-    'FLASH_2_5',
-    'O4_MINI',
-    'GPT_4_1_MINI',
-    'API_QWEN3_4B',
-    'API_QWEN3_14B'
+    'LOCAL_FINETUNED',
+    'GEMINI_PRO_2_5',
+    'GEMINI_FLASH_2_5',
+    'OPENAI_GPT_4_1_MINI',
+    'ANTHROPIC_CLAUDE_SONNET_4',
+    'META_LLAMA_3_3_8B_IT_FREE',
+    'META_LLAMA_3_3_70B'
 ]
 
-DEFAULT_MODEL = 'FLASH_2_5'
+DEFAULT_MODEL = 'GEMINI_FLASH_2_5'
 current_model = DEFAULT_MODEL
 
 # Initialize client registry
@@ -184,7 +181,7 @@ def execute_command(command_text):
     try:
         print(f"\n{colored('Executing with model:', 'cyan')} {colored(current_model, 'green', attrs=['bold'])}")
         
-        if current_model == "LOCAL_FINETUNED_NEW":
+        if current_model == "LOCAL_FINETUNED":
             command_list = b.GenerateCommandListFineTuned(command_text,
                                                           baml_options={"client_registry": client_registry})
         else:
