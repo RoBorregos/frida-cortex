@@ -2,7 +2,7 @@
 
 /// Test for navigating to a location and retrieving an object
 test GoToLocTest {
-  functions [GenerateCommandList]
+  functions [GenerateCommandListFineTuned]
   args {
     request "go to the living room then locate a knife and get it and bring it to Angel in the bathroom"
   }
@@ -16,7 +16,7 @@ test GoToLocTest {
 
 /// Test for taking an object from a placement and delivering it
 test TakeObjFromPlcmtTest {
-  functions [GenerateCommandListBaseModel]
+  functions [GenerateCommandListFineTuned]
   args {
     request "take a pear from the sofa and deliver it to Charlie in the living room"
   }
