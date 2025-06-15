@@ -1,17 +1,44 @@
-Configuring the enviroment:
+⚙️ Configuring the Environment
+🧩 Client Options
+The ChromaDB client can be:
 
--Client can be ephimeral, persistent or hosted via a docker container.
+Ephemeral
 
--You can reset the collections by running:
+Persistent
 
-python .\command_interpreter\embeddings\chroma_adapter.py for Windows
+Hosted via Docker container
 
-python3 ./command_interpreter/embeddings/chroma_adapter.py for Linux
+🔄 Resetting Collections
+To reset the collections, run the appropriate command depending on your operating system:
 
-By default there is a local model for embeddings that is used, but it can support online providers of embeddings using their API, each provider has to be configured differently. 
-For example, Huggin Face.https://docs.trychroma.com/integrations/embedding-models/hugging-face-server
+🪟 Windows
+bash
+Copy
+Edit
+python .\command_interpreter\embeddings\chroma_adapter.py
+🐧 Linux / macOS
+bash
+Copy
+Edit
+python3 ./command_interpreter/embeddings/chroma_adapter.py
+⚠️ Note: Resetting will recreate the collections from scratch.
 
-The distance function of the embedding space can be one of three: squared ("l2"), inner product ("ip") or cosine similarity ("cosine"), each has a use case but in ours cosine similarity is the best fit.
-To edit this configuration, you can go to _get_or_create_collection in chroma_adapter.py
+🧠 Embedding Model Configuration
+By default, a local model is used for generating embeddings. However, ChromaDB supports integration with online providers via their APIs, such as:
 
-BEWARE THAT TO SEE CHANGES IN THE RESULTS YOU NEED TO RESET COLLECTIONS
+🤗 Hugging Face
+
+Each provider requires a different configuration approach.
+
+📐 Distance Function in Vector Space
+You can choose one of the following distance functions for your embedding space:
+
+Function	Description	Use Case Example
+l2	Squared L2 norm	Physical/spatial comparison
+ip	Inner product	Ranking, recommender systems
+cosine	Cosine similarity	Semantic similarity (✅ best fit)
+
+You can configure this in the _get_or_create_collection method inside chroma_adapter.py.
+
+⚠️ Important
+To see changes in results, you must reset the collections after modifying the configuration
