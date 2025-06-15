@@ -7,6 +7,8 @@ import chromadb
 from chromadb.utils import embedding_functions
 from filter import remove_empty_lists, remove_nulls
 from sentence_transformers import SentenceTransformer
+from chromadb.utils.embedding_functions.cohere_embedding_function import CohereEmbeddingFunction
+
 
 # MODEL_PATH = "/workspace/src/hri/packages/nlp/assets/all-MiniLM-L12-v2"
 
@@ -14,7 +16,7 @@ from sentence_transformers import SentenceTransformer
 class ChromaAdapter:
     def __init__(self):
         #self.client = chromadb.HttpClient(host="localhost", port=8000)
-        self.client = chromadb.PersistentClient(path="/embeddings")
+        self.client = chromadb.PersistentClient(path="persist_folder")
 
         # if not os.path.exists(MODEL_PATH):
         #     print(f"Model not found at {MODEL_PATH}. Downloading...")
@@ -83,8 +85,16 @@ class ChromaAdapter:
         """Helper method to get or create a collection"""
         try:
             return self.client.get_or_create_collection(
-                name=collection_name, embedding_function=self.sentence_transformer_ef
-            )
+                name=collection_name, configuration={
+                    "hnsw": {
+                        "space": "cosine", # Cohere models often use cosine space
+                        "ef_search": 100,
+                        "ef_construction": 100,
+                        "max_neighbors": 16,
+                        "num_threads": 4
+                    },
+                    "embedding_function": self.sentence_transformer_ef
+                })
         except Exception:
             raise ValueError(f"The collection is missing {collection_name}")
 

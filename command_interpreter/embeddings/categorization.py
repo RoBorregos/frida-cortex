@@ -369,30 +369,104 @@ class Embeddings():
         except Exception as e:
             print(f"Failed to list collections: {str(e)}")
 
+    def _query_(self, query: str, collection: str, top_k: int = 1) -> list[str]:
+    # Wrap the query in a list so that the field receives a sequence of strings.
+        request = SimpleNamespace(query=[query], collection=collection, topk=top_k)
+        results, success = self.query_entry_callback(request)
+        if collection == "command_history":
+            print(f"Querying command history: {results}")
+            results_loaded = json.loads(results[0])
+            sorted_results = sorted(
+                results_loaded["results"], key=lambda x: x["metadata"]["timestamp"], reverse=True
+            )
+            results_list = sorted_results[:top_k]
+        else:
+            results_loaded = json.loads(results[0])
+            results_list = results_loaded["results"]
+        return results_list
+
+    def find_closest(self, documents: list, query: str, top_k: int = 1) -> list[str]:
+        """
+        Method to find the closest item to the query.
+        Args:
+            documents: the documents to search among
+            query: the query to search for
+        Returns:
+            Status: the status of the execution
+            list[str]: the results of the query
+        """
+        request = SimpleNamespace(
+            query=[query], collection="closest_items", topk=top_k
+        )
+        self.add_entry_callback(request)
+        Results = self._query_(query, "closest_items", top_k)
+        Results = self.get_name(Results)
+        print(f"find_closest result({query}): {str(Results)}")
+        return Results
+
+    def query_item(self, query: str, top_k: int = 1) -> list[str]:
+        return self._query_(query, "items", top_k)
+
+    def query_location(self, query: str, top_k: int = 1) -> list[str]:
+        return self._query_(query, "locations", top_k)
+
+    def get_metadata_key(self, query_result, field: str):
+        """
+        Extracts the field from the metadata of a query result.
+
+        Args:
+            query_result (tuple): The query result tuple (status, list of JSON strings)
+
+        Returns:
+            list: The 'context' field from metadata, or empty string if not found
+        """
+        try:
+            key_list = []
+            for result in query_result:
+                metadata = result["metadata"]
+                if isinstance(metadata, list) and metadata:
+                    metadata = metadata[0]
+                result_key = metadata.get(field, "")  # safely get 'field'
+                key_list.append(result_key)
+            return key_list
+        except (IndexError, KeyError, json.JSONDecodeError) as e:
+            print(f"Failed to extract context: {str(e)}")
+            return ""
+
+    def get_subarea(self, query_result):
+        return self.get_metadata_key(query_result, "subarea")
+
+    def get_area(self, query_result):
+        return self.get_metadata_key(query_result, "area")
+    
+    def get_context(self, query_result):
+        return self.get_metadata_key(query_result, "context")
+
+    def get_command(self, query_result):
+        return self.get_metadata_key(query_result, "command")
+
+    def get_result(self, query_result):
+        return self.get_metadata_key(query_result, "result")
+
+    def get_status(self, query_result):
+        return self.get_metadata_key(query_result, "status")
+
+    def get_name(self, query_result):
+        return self.get_metadata_key(query_result, "original_name")
+    
+
 
 def main():
     embeddings = Embeddings()
-    #embeddings.print_all_collections
-    
-    request = SimpleNamespace(
-        document=["coffee with cream", "brown sugar"],
-        metadata='[{"context": "kitchen"},{"context": "foods"}]',
-        collection="items"
-    )
+    #embeddings.print_all_collections()
 
-    embeddings.add_entry_callback(request)
+    results = embeddings.query_item("item to cut vegetables")
+    name = embeddings.get_name(results)
+    context = embeddings.get_context(results)
 
-
-    fake_request = SimpleNamespace(
-        query=["coffee"],
-        collection="items",
-        topk=3
-    )
-    
-    results, success = embeddings.query_entry_callback(fake_request)
-
-    print("Success:", success)
-    print("Results:", results)
+    print("Success:", results)
+    print("Name:", name)
+    print("Context:", context)
 
 
 
