@@ -193,7 +193,7 @@ class ChromaAdapter:
 
 def main():
     client_ = ChromaAdapter()
-    #client_.remove_all_collections()
+    client_.remove_all_collections()
     results = client_.list_collections()
     print(results)
 

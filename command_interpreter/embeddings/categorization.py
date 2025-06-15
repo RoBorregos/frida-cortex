@@ -374,25 +374,25 @@ def main():
     embeddings = Embeddings()
     #embeddings.print_all_collections
     
-    # request = SimpleNamespace(
-    #     document=["coffee with cream", "brown sugar"],
-    #     metadata='[{"context": "kitchen"},{"context": "foods"}]',
-    #     collection="items"
-    # )
+    request = SimpleNamespace(
+        document=["coffee with cream", "brown sugar"],
+        metadata='[{"context": "kitchen"},{"context": "foods"}]',
+        collection="items"
+    )
 
-    # embeddings.add_entry_callback(request)
+    embeddings.add_entry_callback(request)
 
 
-    # fake_request = SimpleNamespace(
-    #     query=["coffee"],
-    #     collection="items",
-    #     topk=3
-    # )
+    fake_request = SimpleNamespace(
+        query=["coffee"],
+        collection="items",
+        topk=3
+    )
     
-    # results, success = embeddings.query_entry_callback(fake_request)
+    results, success = embeddings.query_entry_callback(fake_request)
 
-    # print("Success:", success)
-    # print("Results:", results)
+    print("Success:", success)
+    print("Results:", results)
 
 
 
