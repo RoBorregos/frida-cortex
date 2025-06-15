@@ -58,7 +58,7 @@ from datetime import datetime
         self._add_to_collection(document=documents, metadata="", collection="closest_items")
         Results = self._query_(query, "closest_items", top_k)
         Results = self.get_name(Results)
-        Logger.info(self.node, f"find_closest result({query}): {str(Results)}")
+        print(f"find_closest result({query}): {str(Results)}")
         return Status.EXECUTION_SUCCESS, Results
 
     def find_closest_raw(self, documents: str, query: str, top_k: int = 1) -> list[str]:

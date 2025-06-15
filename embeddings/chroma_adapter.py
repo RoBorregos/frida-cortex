@@ -8,24 +8,26 @@ from chromadb.utils import embedding_functions
 from filter import remove_empty_lists, remove_nulls
 from sentence_transformers import SentenceTransformer
 
-MODEL_PATH = "/workspace/src/hri/packages/nlp/assets/all-MiniLM-L12-v2"
+# MODEL_PATH = "/workspace/src/hri/packages/nlp/assets/all-MiniLM-L12-v2"
 
 
 class ChromaAdapter:
     def __init__(self):
-        self.client = chromadb.HttpClient(host="localhost", port=8000)
+        #self.client = chromadb.HttpClient(host="localhost", port=8000)
+        self.client = chromadb.PersistentClient(path="/embeddings")
 
-        if not os.path.exists(MODEL_PATH):
-            print(f"Model not found at {MODEL_PATH}. Downloading...")
-            model = SentenceTransformer("all-MiniLM-L12-v2")
-            model.save(MODEL_PATH)
-        else:
-            print(f"Loading model from {MODEL_PATH}")
+        # if not os.path.exists(MODEL_PATH):
+        #     print(f"Model not found at {MODEL_PATH}. Downloading...")
+        #     model = SentenceTransformer("all-MiniLM-L12-v2")
+        #     model.save(MODEL_PATH)
+        # else:
+        #     print(f"Loading model from {MODEL_PATH}")
 
         # Configure the embedding function
         self.sentence_transformer_ef = (
             embedding_functions.SentenceTransformerEmbeddingFunction(
-                model_name=MODEL_PATH
+                # model_name=MODEL_PATH
+                model_name="all-MiniLM-L12-v2"
             )
         )
 
@@ -40,7 +42,8 @@ class ChromaAdapter:
         """Method to remove all collections"""
         collections = self.client.list_collections()
         for collection in collections:
-            self.client.delete_collection(name=collection)
+            collection_name = collection.name
+            self.client.delete_collection(name=collection_name)
         return
 
     def remove_categorization_collections(self):
@@ -190,6 +193,7 @@ class ChromaAdapter:
 
 def main():
     client_ = ChromaAdapter()
+    #client_.remove_all_collections()
     results = client_.list_collections()
     print(results)
 
