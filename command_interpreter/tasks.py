@@ -13,7 +13,8 @@ from baml_client.types import (
     FindPersonByName
 )
 
-from status import Status
+from command_interpreter.status import Status
+from command_interpreter.embeddings.categorization import Embeddings
 
 class Tasks:
     def __init__(self):
@@ -24,13 +25,20 @@ class Tasks:
             "image_segmentation": "Segment different parts of an image.",
             "optical_character_recognition": "Extract text from images."
         }
+        self.embeddings = Embeddings()
 
     
-    def go_to(self, command: GoTo):
-        return Status.EXECUTION_SUCCESS, "arrived to: " + command.location_to_go
+    def go_to(self, command: GoTo) -> tuple[Status, str]:
+        query_result = self.embeddings.query_location(command.location_to_go)
+        area = self.embeddings.get_area(query_result)
+        subarea = self.embeddings.get_subarea(query_result)
+        return (Status.EXECUTION_SUCCESS, "arrived to: " +
+                (area + (" -> " + subarea if subarea else "")))
     
-    def pick_object(self, command: PickObject):
-        return Status.EXECUTION_SUCCESS, "picked up: " + command.object_to_pick
+    def pick_object(self, command: PickObject) -> tuple[Status, str]:
+        query_result = self.embeddings.query_item(command.object_to_pick)
+        name = self.embeddings.get_name(query_result)
+        return (Status.EXECUTION_SUCCESS, "picked up: " + name)
     
     def place_object(self, command: PlaceObject):
         return Status.EXECUTION_SUCCESS, "placed object"

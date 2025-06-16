@@ -201,3 +201,5 @@ cython_debug/
 .cursorindexingignore
 
 *baml_client
+
+persist_folder/
