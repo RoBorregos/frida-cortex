@@ -43,7 +43,7 @@ class GetPersonInfo {
   retrieved about the person (pose, gesture, name, clothing, age, etc.)"#)
   @@description(#"Use this command to get information about a person,
   info type is the type of information to be retrieved.
-  Can only be used AFTER a person is found by the find_person action"#)
+  Can ONLY be used AFTER a person is found by the find_person action"#)
 }
 
 class GetVisualInfo {
@@ -99,7 +99,7 @@ class SayWithContext {
   user_instruction string @description(#"Instruction that will help to system
   to return the desired information to the user, it can be a question or a
   statement like 'tell me how many foods there are on the bookshelf'"#)
-  previous_command_info string @description(#"Previous command needed to return
+  previous_command_info "introduction"|string @description(#"Previous command needed to return
   the desired information to the user, it has to be a previous command that
   have been executed ('count', 'get_visual_info', etc.), or
   internal information that the system has stored in its memory 
@@ -117,7 +117,7 @@ class CommandListLLM {
 }
 
 /// System prompt for non-finetuned model
-template_string RobotServiceSystemNoFinetune() #"
+template_string RobotServiceSystem() #"
 
 You are a service robot for domestic applications.
  Now you are located in a house environment and we will give you general purpose tasks in the form of natural language.
@@ -165,9 +165,9 @@ You are a service robot for domestic applications.
   ]
  }
  Note from this example that if a user request something to be told or given back to their,
- you should first 'go_to' the 'start_location' and then perform the action.
+ you should first 'go_to' the 'start_location' and then perform the action. This is always the case.
 
- The action get_person_info, guide_person_to and follow_person_until can only be used after a person is found by the find_person or find_person_by_name action.
+ The action get_person_info, guide_person_to and follow_person_until can ONLY be used after a person is found by the find_person or find_person_by_name action.
  The actions place_object can only be used after a pick_object action and usually follows a go_to command.
  The action give_object can only be used after a pick_object action and usually follows a go_to action, if not asked to return to start_location, it usually follows a find_person or find_person_by_name command also.
  The action say_with_context can only be used after a previous command that has been executed.
@@ -175,15 +175,11 @@ You are a service robot for domestic applications.
  The action count usually follows a go_to command.
  The action get_visual_info usually follows a go_to command.
  The action answer_question can only be used after a previous find_person or find_person_by_name command.
- The find_person and find_person_by_name already include an introduction, so you don't need a follow up say_with_context IF it's just to introduce yourself or salute.
+
+ Remember something being asked back to the original user needs a go_to command to the start_location.
 
 You can ask for clarification if the task is not clear enough.
 
-"#
-/// System prompt template for the robot service
-template_string RobotServiceSystem() #"
-
-You are a command interpreter for a robot. Your task is to interpret the user's command and convert it into a structured format that the robot can understand.
 "#
 
 function GenerateCommandListFineTuned(request: string) -> CommandListLLM {

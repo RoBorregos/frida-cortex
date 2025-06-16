@@ -46,6 +46,7 @@ STARTING_CASE = 0  # Adjust if needed
 SIMILARITY_THRESHOLD = 0.8  # Threshold for complement similarity
 OVERALL_THRESHOLD = 0.75  # Threshold for the overall test case score
 TEST_DATA_FILE = "../../dataset_generator/dataset.json"
+
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"  # Example model
 
 # --- Task Category Mapping ---
@@ -601,8 +602,8 @@ if __name__ == "__main__":
                 print(f"\nTest execution completed. Results available in structured format.")
                 print(f"Use the returned TestSummary object to access detailed results.")
                 
-                # Example: Save results to JSON file
-                results_file = f"test_results_{selected_model}{enrichment_suffix}{reorder_suffix}_{int(time.time())}.json"
+                # Example: Save results to JSON file inside results folder
+                results_file = f"results/test_results_{selected_model}{enrichment_suffix}{reorder_suffix}_{int(time.time())}.json"
                 with open(results_file, 'w') as f:
                     json.dump(results.model_dump(), f, indent=2)
                 print(f"Results saved to: {results_file}")
