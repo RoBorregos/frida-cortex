@@ -3,11 +3,15 @@
 import json
 import os
 from enum import Enum
+import sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+
 from pathlib import Path
 from typing import ClassVar, Dict, Optional
-from chroma_adapter import ChromaAdapter
+from command_interpreter.embeddings.chroma_adapter import ChromaAdapter
 from pydantic import BaseModel, ValidationError
 from types import SimpleNamespace
+from termcolor import colored
 
 
 class MetadataProfile(str, Enum):
@@ -47,7 +51,7 @@ class MetadataModel(BaseModel):
 
 class Embeddings():
     def __init__(self):
-        print("Initializing categorization node.")
+        # print("Initializing categorization node.")
         # Initialize ChromaAdapter (handles Chroma client and embedding functions)
         self.chroma_adapter = ChromaAdapter()
         self.build_embeddings()
@@ -99,29 +103,31 @@ class Embeddings():
                 request.collection, documents, metadata_objects
             )
 
-
-            print("Add Entry request handled successfully")
+            print(colored("💾 Database: Entry added successfully", "blue", attrs=['bold']))
  
 
         except Exception as e:
-            print(f"Failed to add item: {str(e)}")
+            print(colored(f"❌ Database Error: Failed to add item - {str(e)}", "red", attrs=['bold']))
         return
 
     def query_entry_callback(self, request):
         """Service callback to query items from ChromaDB"""
-        print("Query Entry request received")
+        # print("Query Entry request received")
         try:
             if request.collection == "items":
                 context = MetadataModel.PROFILES[MetadataProfile.ITEMS]["context"]
+                print(colored("🔍 Database: Querying 'items' collection", "blue"))
             elif request.collection == "locations":
                 context = MetadataModel.PROFILES[MetadataProfile.LOCATIONS]["context"]
+                print(colored("🔍 Database: Querying 'locations' collection", "blue"))
             elif request.collection == "actions":
                 context = MetadataModel.PROFILES[MetadataProfile.ACTIONS]["context"]
+                print(colored("🔍 Database: Querying 'actions' collection", "blue"))
             else:
                 context = ""
 
             grouped_results = []
-            print(f"Query Entry request received {(request.query)}")
+            # print(f"Query Entry request received {(request.query)}")
 
             for query in request.query:
                 query_with_context = query + context
@@ -173,15 +179,16 @@ class Embeddings():
 
             results = [json.dumps(entry) for entry in grouped_results]
             success = bool(grouped_results)
-            print(
-                "Query successful" if grouped_results else "No matching items found"
-            )
+            if grouped_results:
+                print(colored("✅ Database: Query successful", "blue", attrs=['bold']))
+            else:
+                print(colored("⚠️  Database: No matching items found", "yellow", attrs=['bold']))
 
-            print("Query request handled")
+            # print("Query request handled")
         except Exception as e:
             success = False
             message = f"Failed to query items: {str(e)}"
-            print(message)
+            print(colored(f"❌ Database Error: {message}", "red", attrs=['bold']))
         if request.collection == "closest_items":
             self.chroma_adapter.delete_collection("closest_items")
         return results, success
@@ -252,7 +259,7 @@ class Embeddings():
             collections_ = self.chroma_adapter.list_collections()
             if collection_name in collections_:
                 continue
-            print("Processing file:", file)
+            # print("Processing file:", file)
             # Read the JSON file into a Python dictionary
             with open(file, "r") as f:
                 data = json.load(f)
@@ -374,7 +381,7 @@ class Embeddings():
         request = SimpleNamespace(query=[query], collection=collection, topk=top_k)
         results, success = self.query_entry_callback(request)
         if collection == "command_history":
-            print(f"Querying command history: {results}")
+            print(colored("🔍 Database: Querying command history", "blue"))
             results_loaded = json.loads(results[0])
             sorted_results = sorted(
                 results_loaded["results"], key=lambda x: x["metadata"]["timestamp"], reverse=True
@@ -401,7 +408,7 @@ class Embeddings():
         self.add_entry_callback(request)
         Results = self._query_(query, "closest_items", top_k)
         Results = self.get_name(Results)
-        print(f"find_closest result({query}): {str(Results)}")
+        print(colored(f"🎯 Database: find_closest result for '{query}': {str(Results)}", "blue", attrs=['bold']))
         return Results
 
     def query_item(self, query: str, top_k: int = 1) -> list[str]:
@@ -434,10 +441,10 @@ class Embeddings():
             return ""
 
     def get_subarea(self, query_result):
-        return self.get_metadata_key(query_result, "subarea")
+        return self.get_metadata_key(query_result, "subarea")[0]
 
     def get_area(self, query_result):
-        return self.get_metadata_key(query_result, "area")
+        return self.get_metadata_key(query_result, "area")[0]
     
     def get_context(self, query_result):
         return self.get_metadata_key(query_result, "context")
@@ -452,7 +459,7 @@ class Embeddings():
         return self.get_metadata_key(query_result, "status")
 
     def get_name(self, query_result):
-        return self.get_metadata_key(query_result, "original_name")
+        return self.get_metadata_key(query_result, "original_name")[0]
     
 
 
@@ -460,12 +467,20 @@ def main():
     embeddings = Embeddings()
     #embeddings.print_all_collections()
 
-    results = embeddings.query_item("item to cut vegetables")
+    results = embeddings.query_item("soda")
     name = embeddings.get_name(results)
     context = embeddings.get_context(results)
 
     print("Success:", results)
     print("Name:", name)
+    print("Context:", context)
+
+    results = embeddings.query_location("start_location")
+    area = embeddings.get_area(results)
+    subarea = embeddings.get_subarea(results)
+    context = embeddings.get_context(results)
+    print("Success:", results)
+    print("Location: " + str(area)+ (" -> " + str(subarea) if subarea else ""))
     print("Context:", context)
 
 

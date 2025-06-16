@@ -2,12 +2,16 @@ import sys
 import os
 import re
 import warnings
+
+# Add the parent directory to Python path to enable absolute imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from baml_client.sync_client import b
 from baml_py import ClientRegistry
 from dotenv import load_dotenv
 from baml_client.types import CommandListLLM
 from baml_client.config import set_log_level
-from caller import execute_function
+from command_interpreter.caller import execute_function
 from termcolor import colored
 
 # Add the dataset_generator directory to the path to import the CommandGenerator
@@ -48,13 +52,13 @@ client_registry.set_primary(current_model)
 
 def print_commands_pretty(command_list):
     """Print the command list in a formatted, readable way with colors"""
-    print("\n" + colored("="*50, "cyan"))
-    print(colored("GENERATED COMMANDS", "cyan", attrs=['bold']))
-    print(colored("="*50, "cyan"))
+    print("\n" + colored("="*60, "blue"))
+    print(colored("🧠 GENERATED COMMANDS", "blue", attrs=['bold']))
+    print(colored("="*60, "blue"))
     
     if hasattr(command_list, 'commands') and command_list.commands:
         for i, command in enumerate(command_list.commands, 1):
-            print(f"\n{colored(f'{i}.', 'green', attrs=['bold'])} {colored(command.__class__.__name__, 'yellow', attrs=['bold'])}")
+            print(f"\n{colored(f'{i}.', 'cyan', attrs=['bold'])} {colored(command.__class__.__name__, 'magenta', attrs=['bold'])}")
             
             # Use model_dump() to get clean field data without Pydantic internals
             if hasattr(command, 'model_dump'):
@@ -62,15 +66,17 @@ def print_commands_pretty(command_list):
                 for field_name, field_value in fields.items():
                     # Convert field name to readable format
                     readable_name = field_name.replace('_', ' ').title()
-                    print(f"   {colored(readable_name + ':', 'blue')} {colored(str(field_value), 'white')}")
+                    print(f"   {colored(readable_name + ':', 'yellow', attrs=['bold'])} {colored(str(field_value), 'white', attrs=['bold'])}")
             else:
                 # Fallback for non-Pydantic objects
                 action_value = getattr(command, 'action', 'N/A')
-                print(f"   {colored('Action:', 'blue')} {colored(action_value, 'white')}")
+                print(f"   {colored('Action:', 'yellow', attrs=['bold'])} {colored(action_value, 'white', attrs=['bold'])}")
     else:
-        print(colored("No commands generated.", "red"))
+        print(colored("❌ No commands generated.", "red", attrs=['bold']))
     
-    print("\n" + colored("="*50, "cyan"))
+    print("\n" + colored("="*60, "blue"))
+    print(colored("✅ Command generation completed!", "blue", attrs=['bold']))
+    print(colored("="*60, "blue"))
 
 def print_instructions():
     """Print the instructions for using the command interpreter"""
@@ -189,12 +195,14 @@ def execute_command(command_text):
                                                  baml_options={"client_registry": client_registry})
         
         print_commands_pretty(command_list)
-        print("\n" + colored("="*50, "cyan"))
-        print(colored("EXECUTING COMMANDS", "cyan", attrs=['bold']))
-        print(colored("="*50, "cyan"))
+        print("\n" + colored("="*60, "green"))
+        print(colored("🚀 EXECUTING COMMANDS", "green", attrs=['bold']))
+        print(colored("="*60, "green"))
         for cmd in command_list.commands:
             execute_function(cmd)
-        print("\n" + colored("="*50, "cyan"))
+        print(colored("="*60, "green"))
+        print(colored("🎉 All commands completed!", "green", attrs=['bold']))
+        print(colored("="*60, "green"))
         
     except Exception as e:
         print(colored(f"Error executing command: {e}", "red"))
