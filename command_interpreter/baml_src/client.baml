@@ -35,8 +35,8 @@ client<llm> OPENAI_O4_MINI {
   options {
     base_url https://openrouter.ai/api/v1
     api_key env.OPENROUTER_API_KEY
-    api_key env.OPENAI_API_KEY
     model "openai/o4-mini"
+    max_tokens 4096
   }
 }
 

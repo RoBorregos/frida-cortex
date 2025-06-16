@@ -570,8 +570,8 @@ if __name__ == "__main__":
                 print(f"\nTest execution completed. Results available in structured format.")
                 print(f"Use the returned TestSummary object to access detailed results.")
                 
-                # Example: Save results to JSON file
-                results_file = f"test_results_{selected_model}{enrichment_suffix}_{int(time.time())}.json"
+                # Example: Save results to JSON file inside results folder
+                results_file = f"results/test_results_{selected_model}{enrichment_suffix}_{int(time.time())}.json"
                 with open(results_file, 'w') as f:
                     json.dump(results.model_dump(), f, indent=2)
                 print(f"Results saved to: {results_file}")
