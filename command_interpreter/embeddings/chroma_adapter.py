@@ -5,7 +5,7 @@ from uuid import uuid4
 
 import chromadb
 from chromadb.utils import embedding_functions
-from filter import remove_empty_lists, remove_nulls
+from command_interpreter.embeddings.filter import remove_empty_lists, remove_nulls
 from sentence_transformers import SentenceTransformer
 from chromadb.utils.embedding_functions.cohere_embedding_function import CohereEmbeddingFunction
 
