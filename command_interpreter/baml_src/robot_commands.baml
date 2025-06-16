@@ -222,9 +222,29 @@ function GenerateSemanticEnrichedCommand(request: string) -> string {
     {{ request }}
   "#
 }
+function GenerateReorderedCommand(request: string) -> string {
+  client GEMINI_FLASH_2_5
+  prompt #"
+    You will receive a natural language command to be executed by a robot.
+    Change the order of the words to create a new sentence that keeps the exact same meaning.
+    Do not add or remove any information. Only rearrange or rephrase using different structure or word order.
+    For example, if the command is:
+    "Pick up the red cup from the kitchen counter."
+    the result should be:
+    "From the kitchen counter, pick up the red cup."
+    {{ request }}
+  "#
+}
 
 test SemanticEnrichmentTest {
   functions [GenerateSemanticEnrichedCommand]
+  args {
+    request "look for a toy in the office then get it and put it on the kitchen table"
+  }
+}
+
+test GenerateReorderedCommandTest {
+  functions [GenerateReorderedCommand]
   args {
     request "look for a toy in the office then get it and put it on the kitchen table"
   }
