@@ -1,8 +1,7 @@
 [
-    {"document": "chips_can", "metadata": {"context": "item for household use"}},
     {"document": "cereal_box", "metadata": {"context": "item for household use"}},
     {"document": "tuna_can", "metadata": {"context": "item for household use"}},
-    {"document": "milk", "metadata": {"context": "item for household use"}},
+    {"document": "milk", "metadata": {"context": "general type of lactose product"}},
     {"document": "tomato_soup", "metadata": {"context": "item for household use"}},
     {"document": "mustard_bottle", "metadata": {"context": "item for household use"}},
     {"document": "red_bowl", "metadata": {"context": "item for household use"}},
@@ -26,7 +25,7 @@
     {"document": "orange", "metadata": {"context": "item for household use"}},
     {"document": "peach", "metadata": {"context": "item for household use"}},
     {"document": "pear", "metadata": {"context": "item for household use"}},
-    {"document": "cocacola", "metadata": {"context": "item for household use"}},
+    {"document": "cocacola  ", "metadata": {"context": "type of soda to drink"}},
     {"document": "galletas", "metadata": {"context": "item for household use"}},
     {"document": "leche", "metadata": {"context": "item for household use"}},
     {"document": "pringles", "metadata": {"context": "item for household use"}}
