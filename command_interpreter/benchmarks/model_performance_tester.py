@@ -269,7 +269,7 @@ def execute_command_with_model(command_text: str, model_name: str):
                                      baml_options={"client_registry": client_registry})
 
 
-def run_tests(model_name: str = DEFAULT_MODEL, use_semantic_enrichment: bool = False) -> TestSummary:
+def run_tests(model_name: str = DEFAULT_MODEL, use_semantic_enrichment: bool = False, use_reorder: bool = False) -> TestSummary:
     """Loads data, runs tests, and returns structured results.
     
     Args:
@@ -327,6 +327,16 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_semantic_enrichment: bool = F
                 print(f"Enriched Input: {processed_input}")
             except Exception as e:
                 print(f"Warning: Semantic enrichment failed, using original input. Error: {e}")
+                processed_input = input_str
+        
+        if use_reorder:
+            try:
+                print("Reordering commands...")
+                reordered_command = b.GenerateReorderedCommand(processed_input)
+                processed_input = reordered_command
+                print(f"Reordered Input: {processed_input}")
+            except Exception as e:
+                print(f"Warning: Reordering failed, using original input. Error: {e}")
                 processed_input = input_str
         
         print(f"Processing Input: {processed_input}")
@@ -547,6 +557,23 @@ def select_semantic_enrichment():
             return None
         except Exception as e:
             print(f"Error: {e}")
+            
+def select_reorder():
+    """Interactive reorder selection"""
+    while True:
+        try:
+            choice = input("Enable input reorder? (y/N): ").strip().lower()
+            if choice in ['', 'n', 'no']:
+                return False
+            elif choice in ['y', 'yes']:
+                return True
+            else:
+                print("Please enter 'y' for yes or 'n' for no.")
+        except KeyboardInterrupt:
+            print("\nExiting...")
+            return None
+        except Exception as e:
+            print(f"Error: {e}")
 
 
 if __name__ == "__main__":
@@ -556,21 +583,26 @@ if __name__ == "__main__":
     if selected_model:
         # Interactive semantic enrichment selection
         use_enrichment = select_semantic_enrichment()
+        use_reorder = select_reorder()
         
         if use_enrichment is not None:
             enrichment_suffix = "_enriched" if use_enrichment else ""
+            reorder_suffix = "_reorder" if use_reorder else ""
             print(f"\nStarting tests with model: {selected_model}")
             if use_enrichment:
                 print("Semantic enrichment will be applied to input commands.")
             
-            results = run_tests(selected_model, use_enrichment)
+            if use_reorder:
+                print("Reordering of commands will be applied to input commands.")
+
+            results = run_tests(selected_model, use_enrichment, use_reorder)
             
             if results:
                 print(f"\nTest execution completed. Results available in structured format.")
                 print(f"Use the returned TestSummary object to access detailed results.")
                 
                 # Example: Save results to JSON file
-                results_file = f"test_results_{selected_model}{enrichment_suffix}_{int(time.time())}.json"
+                results_file = f"test_results_{selected_model}{enrichment_suffix}{reorder_suffix}_{int(time.time())}.json"
                 with open(results_file, 'w') as f:
                     json.dump(results.model_dump(), f, indent=2)
                 print(f"Results saved to: {results_file}")
