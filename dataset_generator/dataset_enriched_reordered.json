@@ -1,0 +1,5617 @@
+[
+  {
+    "cmd_type": "goToLoc",
+    "string_cmd": "On the shelf, deposit a cheezit after proceeding to the bedroom to locate and retrieve it",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "cheezit"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "shelf"
+      },
+      {
+        "action": "place_object"
+      }
+    ],
+    "cmd_category": "A|B|C",
+    "original_string_cmd": "go to the bedroom then find a cheezit and get it and place it on the shelf",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "takeObjFromPlcmt",
+    "string_cmd": "Bring a dish from the sink to me after grasping it",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sink"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "dish"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "grasp a dish from the sink and bring it to me",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findPrsInRoom",
+    "string_cmd": "Find a person in the living room who is pointing to the right and state the day of the month.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the right"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "locate a person pointing to the right in the living room and say the day of the month",
+        "previous_command_info": "the day of the month"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "locate a person pointing to the right in the living room and say the day of the month",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findObjInRoom",
+    "string_cmd": "Proceed to the kitchen to pinpoint and retrieve a toy, subsequently conveying it to Adel in the bathroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "toy"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Adel"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "look for a toy in the kitchen then fetch it and bring it to Adel in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetPrsAtBeac",
+    "string_cmd": "Follow Jules after meeting with them in the office.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jules"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "meet Jules in the office and follow them",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countObjOnPlcmt",
+    "string_cmd": "Communicate the quantity of dishes residing in the dishwasher.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "dishwasher"
+      },
+      {
+        "action": "count",
+        "target_to_count": "dishes"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many dishes there are on the dishwasher",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many dishes there are on the dishwasher",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countPrsInRoom",
+    "string_cmd": "How many individuals are waving inside the bathroom, tell me",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "count",
+        "target_to_count": "waving persons"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many waving persons are in the bathroom",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many waving persons are in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoInLoc",
+    "string_cmd": "Could you provide me with the identity of the individual situated in the bedroom?",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "name"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me the name of the person in the bedroom",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me the name of the person in the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellObjPropOnPlcmt",
+    "string_cmd": "On the bookshelf, tell me the largest object.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bookshelf"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "biggest",
+        "object_category": "object"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the biggest object on the bookshelf",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the biggest object on the bookshelf",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "talkInfoToGestPrsInRoom",
+    "string_cmd": "Instruct the individual with their right arm raised in the office about your team's country affiliation.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their right arm"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell your teams country to the person raising their right arm in the office",
+        "previous_command_info": "your teams country"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell your teams country to the person raising their right arm in the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "answerToGestPrsInRoom",
+    "string_cmd": "In the living room, respond to the person indicating the right.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the right"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "answer the question of the person pointing to the right in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followNameFromBeacToRoom",
+    "string_cmd": "Track Jane from the entrance heading to the bathroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "entrance"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jane"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "bathroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow Jane from the entrance to the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideNameFromBeacToBeac",
+    "string_cmd": "From the cabinet, escort Simone to the living room.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Simone"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "living room"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "lead Simone from the cabinet to the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guidePrsFromBeacToBeac",
+    "string_cmd": "Lead the individual facing right away from the sofa towards the chairs",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sofa"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the right"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "chairs"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "escort the person pointing to the right from the sofa to the chairs",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideClothPrsFromBeacToBeac",
+    "string_cmd": "Escort the person in the black shirt from the kitchen table into the bedroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen table"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "black shirt"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "bedroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "guide the person wearing a black shirt from the kitchen table to the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "bringMeObjFromPlcmt",
+    "string_cmd": "Retrieve a spoon for me from the sink.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sink"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "spoon"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "bring me a spoon from the sink",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellCatPropOnPlcmt",
+    "string_cmd": "On the bedside table, identify the food item with the greatest weight.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedside table"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "heaviest",
+        "object_category": "food"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the heaviest food on the bedside table",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the heaviest food on the bedside table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetClothDscInRm",
+    "string_cmd": "In the bedroom, acknowledge the individual in the gray sweater, then trail them to the lamp.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "gray sweater"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "salute the person wearing a gray sweater in the bedroom and follow them to the lamp",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "lamp"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "salute the person wearing a gray sweater in the bedroom and follow them to the lamp",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetNameInRm",
+    "string_cmd": "Inside the bathroom, offer a salutation to Robin, then trail after them to the cabinet.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Robin"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "greet Robin in the bathroom and follow them to the cabinet",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "cabinet"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "greet Robin in the bathroom and follow them to the cabinet",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetNameAtLocThenFindInRm",
+    "string_cmd": "After meeting Jules at the armchair, seek them in the kitchen.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "armchair"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jules"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jules"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "meet Jules at the armchair then look for them in the kitchen",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countClothPrsInRoom",
+    "string_cmd": "Inform me regarding the quantity of individuals adorned in black coats currently within the kitchen",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "count",
+        "target_to_count": "people wearing black coats"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many people in the kitchen are wearing black coats",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many people in the kitchen are wearing black coats",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+    "string_cmd": "Communicate the gestural actions of the person by the refrigerator to the person at the cabinet.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "refrigerator"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "gesture"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell the gesture of the person at the refrigerator to the person at the cabinet",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell the gesture of the person at the refrigerator to the person at the cabinet",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followPrsAtLoc",
+    "string_cmd": "In the office, pursue the reclining individual.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "lying person"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow the lying person in the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "goToLoc",
+    "string_cmd": "Proceed to the bathroom, then search for a Cheez-It to collect and bring to the person in the kitchen pointing right.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "cheezit"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the right"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "A|B|C",
+    "original_string_cmd": "go to the bathroom then look for a cheezit and fetch it and deliver it to the person pointing to the right in the kitchen",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "takeObjFromPlcmt",
+    "string_cmd": "Transport the mustard to Jules in the kitchen after obtaining it from the storage rack.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "storage rack"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "mustard"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jules"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "get a mustard from the storage rack and deliver it to Jules in the kitchen",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findPrsInRoom",
+    "string_cmd": "Guide a reclining individual in the office toward the dishwasher.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "lying person"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "dishwasher"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "locate a lying person in the office and guide them to the dishwasher",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findObjInRoom",
+    "string_cmd": "Place a cleaning supply you locate and retrieve from the kitchen onto the storage rack.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "cleaning supply"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "storage rack"
+      },
+      {
+        "action": "place_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "locate a cleaning supply in the kitchen then get it and place it on the storage rack",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetPrsAtBeac",
+    "string_cmd": "Join Simone in the office and walk behind them.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Simone"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "meet Simone in the office and follow them",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countObjOnPlcmt",
+    "string_cmd": "Report the quantity of produce located on the cabinet.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "count",
+        "target_to_count": "fruits"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many fruits there are on the cabinet",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many fruits there are on the cabinet",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countPrsInRoom",
+    "string_cmd": "Let me know the count of individuals occupying seats in the living room.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "count",
+        "target_to_count": "sitting persons"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many sitting persons are in the living room",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many sitting persons are in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoInLoc",
+    "string_cmd": "Report the posture of the individual positioned near the desk lamp.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "desk lamp"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "pose"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me the pose of the person at the desk lamp",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me the pose of the person at the desk lamp",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellObjPropOnPlcmt",
+    "string_cmd": "Identify the object of least size located on the tv stand",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "tv stand"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "smallest",
+        "object_category": "object"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the smallest object on the tv stand",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the smallest object on the tv stand",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "talkInfoToGestPrsInRoom",
+    "string_cmd": "Communicate the monthly date to the individual with their left arm elevated in the living room.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their left arm"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell the day of the month to the person raising their left arm in the living room",
+        "previous_command_info": "the day of the month"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell the day of the month to the person raising their left arm in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "answerToGestPrsInRoom",
+    "string_cmd": "In the bedroom, answer the quiz of the individual presenting their right arm",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their right arm"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "answer the quiz of the person raising their right arm in the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followNameFromBeacToRoom",
+    "string_cmd": "From the bedside table, trail Angel to the living room.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedside table"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Angel"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "living room"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow Angel from the bedside table to the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideNameFromBeacToBeac",
+    "string_cmd": "Guide Angel from the desk lamp at the waste basket.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "desk lamp"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Angel"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "waste basket"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "escort Angel from the desk lamp to the waste basket",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guidePrsFromBeacToBeac",
+    "string_cmd": "From the bookshelf, guide the individual who is standing to the office.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bookshelf"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "standing person"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "office"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "escort the standing person from the bookshelf to the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideClothPrsFromBeacToBeac",
+    "string_cmd": "From the entrance, escort the person in the red sweater to the chairs.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "entrance"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "red sweater"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "chairs"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "take the person wearing a red sweater from the entrance to the chairs",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "bringMeObjFromPlcmt",
+    "string_cmd": "Procure coffee grounds for me from the side tables.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "side tables"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "coffee grounds"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "bring me a coffee grounds from the side tables",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellCatPropOnPlcmt",
+    "string_cmd": "From the pantry, identify which fruit has the smallest width.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "pantry"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "thinnest",
+        "object_category": "fruit"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the thinnest fruit on the pantry",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the thinnest fruit on the pantry",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetClothDscInRm",
+    "string_cmd": "Follow the person attired in a black shirt located in the office and greet them.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "black shirt"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "greet the person wearing a black shirt in the office and follow them",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "greet the person wearing a black shirt in the office and follow them",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetNameInRm",
+    "string_cmd": "Accompany Morgan to the side tables after greeting them in the kitchen.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Morgan"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "greet Morgan in the kitchen and escort them to the side tables",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "side tables"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "greet Morgan in the kitchen and escort them to the side tables",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetNameAtLocThenFindInRm",
+    "string_cmd": "Find Charlie in the bathroom after you encounter them at the waste basket.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "waste basket"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Charlie"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Charlie"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "meet Charlie at the waste basket then locate them in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countClothPrsInRoom",
+    "string_cmd": "Inform me of the amount of individuals wearing blue coats who are in the bedroom",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "count",
+        "target_to_count": "people wearing blue coats"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many people in the bedroom are wearing blue coats",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many people in the bedroom are wearing blue coats",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+    "string_cmd": "Relay the name of the individual in the armchair to the person near the pantry.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "armchair"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "name"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "pantry"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell the name of the person at the armchair to the person at the pantry",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell the name of the person at the armchair to the person at the pantry",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followPrsAtLoc",
+    "string_cmd": "At the entrance, shadow the prone individual.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "entrance"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "lying person"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow the lying person at the entrance",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "goToLoc",
+    "string_cmd": "Locate and obtain a spoon from the kitchen, then place it on the refrigerator.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "spoon"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "refrigerator"
+      },
+      {
+        "action": "place_object"
+      }
+    ],
+    "cmd_category": "A|B|C",
+    "original_string_cmd": "go to the kitchen then find a spoon and get it and put it on the refrigerator",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "takeObjFromPlcmt",
+    "string_cmd": "From the cabinet, seize a food item and offer it to me.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "food"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "grasp a food from the cabinet and give it to me",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findPrsInRoom",
+    "string_cmd": "To lead the office's reclining individual toward the cabinet, please seek them out.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "lying person"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "cabinet"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "find a lying person in the office and lead them to the cabinet",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findObjInRoom",
+    "string_cmd": "Navigate to Morgan in the bedroom with the plate you retrieve from the kitchen.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "plate"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Morgan"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "look for a plate in the kitchen then get it and give it to Morgan in the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetPrsAtBeac",
+    "string_cmd": "Answer a question after encountering Axel in the bedroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Axel"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "meet Axel in the bedroom and answer a question",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countObjOnPlcmt",
+    "string_cmd": "On the tv stand, indicate the quantity of toys that exist.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "tv stand"
+      },
+      {
+        "action": "count",
+        "target_to_count": "toys"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many toys there are on the tv stand",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many toys there are on the tv stand",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countPrsInRoom",
+    "string_cmd": "How many standing humans are there in the living area?",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "count",
+        "target_to_count": "standing persons"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many standing persons are in the living room",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many standing persons are in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoInLoc",
+    "string_cmd": "Please report the posture of the individual located near the dishwasher.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "dishwasher"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "pose"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me the pose of the person at the dishwasher",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me the pose of the person at the dishwasher",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellObjPropOnPlcmt",
+    "string_cmd": "Can you tell me which object on the sofa weighs the most",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sofa"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "heaviest",
+        "object_category": "object"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the heaviest object on the sofa",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the heaviest object on the sofa",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "talkInfoToGestPrsInRoom",
+    "string_cmd": "Inform the person standing in the bedroom with their left arm raised about the day of the month.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their left arm"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell the day of the month to the person raising their left arm in the bedroom",
+        "previous_command_info": "the day of the month"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell the day of the month to the person raising their left arm in the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "answerToGestPrsInRoom",
+    "string_cmd": "Answer the quiz of the person in the bedroom who is pointing toward the right",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the right"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "answer the quiz of the person pointing to the right in the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followNameFromBeacToRoom",
+    "string_cmd": "Follow Jules from the storage rack to the kitchen",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "storage rack"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jules"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "kitchen"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow Jules from the storage rack to the kitchen",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideNameFromBeacToBeac",
+    "string_cmd": "Guide Robin from the coatrack, taking the path to the living room.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "coatrack"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Robin"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "living room"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "escort Robin from the coatrack to the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guidePrsFromBeacToBeac",
+    "string_cmd": "Guide the person gesturing to the right from the sofa location to the bathroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sofa"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the right"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "bathroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "lead the person pointing to the right from the sofa to the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideClothPrsFromBeacToBeac",
+    "string_cmd": "Transport the individual in the red t-shirt to the bathroom from the storage rack.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "storage rack"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "red t shirt"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "bathroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "take the person wearing a red t shirt from the storage rack to the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "bringMeObjFromPlcmt",
+    "string_cmd": "Fetch a plum from the pantry for me.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "pantry"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "plum"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "bring me a plum from the pantry",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellCatPropOnPlcmt",
+    "string_cmd": "Inform me of the drink with the least weight located on the side tables",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "side tables"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "lightest",
+        "object_category": "drink"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the lightest drink on the side tables",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the lightest drink on the side tables",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetClothDscInRm",
+    "string_cmd": "Greet the individual attired in a black shirt within the office, then trail them to the desk.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "black shirt"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say hello to the person wearing a black shirt in the office and follow them to the desk",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "desk"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "say hello to the person wearing a black shirt in the office and follow them to the desk",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetNameInRm",
+    "string_cmd": "In the office, deliver hellos to Charlie and state your unit's allegiance.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Charlie"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say hello to Charlie in the office and say your teams affiliation",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say hello to Charlie in the office and say your teams affiliation",
+        "previous_command_info": "your teams affiliation"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "say hello to Charlie in the office and say your teams affiliation",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetNameAtLocThenFindInRm",
+    "string_cmd": "Find Morgan in the office after rendezvousing with them at the dishwasher.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "dishwasher"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Morgan"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Morgan"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "meet Morgan at the dishwasher then find them in the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countClothPrsInRoom",
+    "string_cmd": "Report the number of individuals adorned in red blouses within the bathroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "count",
+        "target_to_count": "people wearing red blouses"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many people in the bathroom are wearing red blouses",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many people in the bathroom are wearing red blouses",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+    "string_cmd": "Inform the person at the entrance about the gesture of the individual at the exit.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "exit"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "gesture"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "entrance"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell the gesture of the person at the exit to the person at the entrance",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell the gesture of the person at the exit to the person at the entrance",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followPrsAtLoc",
+    "string_cmd": "At the desk, follow the standing person",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "desk"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "standing person"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow the standing person at the desk",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "goToLoc",
+    "string_cmd": "Proceed to the living room to find and acquire a mustard, then deposit it onto the shelf.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "mustard"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "shelf"
+      },
+      {
+        "action": "place_object"
+      }
+    ],
+    "cmd_category": "A|B|C",
+    "original_string_cmd": "go to the living room then locate a mustard and take it and put it on the shelf",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "takeObjFromPlcmt",
+    "string_cmd": "Bring me a beverage, collected from the desk.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "desk"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "drink"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "fetch a drink from the desk and bring it to me",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findPrsInRoom",
+    "string_cmd": "In the living room, find a person who is standing and announce your team's country.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "standing person"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "locate a standing person in the living room and say your teams country",
+        "previous_command_info": "your teams country"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "locate a standing person in the living room and say your teams country",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findObjInRoom",
+    "string_cmd": "Proceed to the kitchen to find a fruit, then seize and hand it to me.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "fruit"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "locate a fruit in the kitchen then grasp it and deliver it to me",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetPrsAtBeac",
+    "string_cmd": "Proceed to the bathroom to encounter Jane and express your team's designation.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jane"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "meet Jane in the bathroom and say your teams name",
+        "previous_command_info": "your teams name"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "meet Jane in the bathroom and say your teams name",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countObjOnPlcmt",
+    "string_cmd": "Report the number of fruits present on the kitchen table.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen table"
+      },
+      {
+        "action": "count",
+        "target_to_count": "fruits"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many fruits there are on the kitchen table",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many fruits there are on the kitchen table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countPrsInRoom",
+    "string_cmd": "How many individuals who are lying are situated in the living room?",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "count",
+        "target_to_count": "lying persons"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many lying persons are in the living room",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many lying persons are in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoInLoc",
+    "string_cmd": "Report the position of the individual situated at the sofa",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sofa"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "pose"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me the pose of the person at the sofa",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me the pose of the person at the sofa",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellObjPropOnPlcmt",
+    "string_cmd": "Identify the weightiest object situated upon the bedside table.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedside table"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "heaviest",
+        "object_category": "object"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the heaviest object on the bedside table",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the heaviest object on the bedside table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "talkInfoToGestPrsInRoom",
+    "string_cmd": "In the bathroom, articulate what day it is the person holding up their right arm.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their right arm"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say what day is today to the person raising their right arm in the bathroom",
+        "previous_command_info": "what day is today"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "say what day is today to the person raising their right arm in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "answerToGestPrsInRoom",
+    "string_cmd": "In the bathroom, resolve the quiz posed by the person indicating left.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the left"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "answer the quiz of the person pointing to the left in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followNameFromBeacToRoom",
+    "string_cmd": "Proceed to the living room after tracking Axel from the cabinet",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Axel"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "living room"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow Axel from the cabinet to the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideNameFromBeacToBeac",
+    "string_cmd": "Carry Charlie to the bathroom, collecting him from the waste basket.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "waste basket"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Charlie"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "bathroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "take Charlie from the waste basket to the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guidePrsFromBeacToBeac",
+    "string_cmd": "Move the individual who is waving to the bedroom from the bookshelf.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bookshelf"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "waving person"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "bedroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "take the waving person from the bookshelf to the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideClothPrsFromBeacToBeac",
+    "string_cmd": "Escort the individual with a white sweater from the shelf to the kitchen.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "shelf"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "white sweater"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "kitchen"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "guide the person wearing a white sweater from the shelf to the kitchen",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "bringMeObjFromPlcmt",
+    "string_cmd": "Collect a pringles from the sofa for me.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sofa"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "pringles"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "bring me a pringles from the sofa",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellCatPropOnPlcmt",
+    "string_cmd": "State the smallest fruit present on the cabinet.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "smallest",
+        "object_category": "fruit"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the smallest fruit on the cabinet",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the smallest fruit on the cabinet",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetClothDscInRm",
+    "string_cmd": "In the living room, greet the individual in the red jacket and then trail them to the sink.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "red jacket"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say hello to the person wearing a red jacket in the living room and follow them to the sink",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "sink"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "say hello to the person wearing a red jacket in the living room and follow them to the sink",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetNameInRm",
+    "string_cmd": "Proceed to the living room to pay respects to Morgan and usher them to the coatrack.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Morgan"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "salute Morgan in the living room and guide them to the coatrack",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "coatrack"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "salute Morgan in the living room and guide them to the coatrack",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetNameAtLocThenFindInRm",
+    "string_cmd": "Locate Adel in the office after meeting them at the bedside table.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedside table"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Adel"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Adel"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "meet Adel at the bedside table then locate them in the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countClothPrsInRoom",
+    "string_cmd": "In the living room, how many individuals have on white jackets?",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "count",
+        "target_to_count": "people wearing white jackets"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many people in the living room are wearing white jackets",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many people in the living room are wearing white jackets",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+    "string_cmd": "Report to the individual at the kitchen table the gesture of the person seated at the sofa.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sofa"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "gesture"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen table"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell the gesture of the person at the sofa to the person at the kitchen table",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell the gesture of the person at the sofa to the person at the kitchen table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followPrsAtLoc",
+    "string_cmd": "Track the person who is lying inside the office",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "lying person"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow the lying person in the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "goToLoc",
+    "string_cmd": "Approach the pantry to acquire a toy and provide it to me.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "pantry"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "toy"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "A|B|C",
+    "original_string_cmd": "go to the pantry then look for a toy and fetch it and give it to me",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "takeObjFromPlcmt",
+    "string_cmd": "Relocate a snack from the neighboring tables onto the sink",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "side tables"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "snack"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "sink"
+      },
+      {
+        "action": "place_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "take a snack from the side tables and put it on the sink",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findPrsInRoom",
+    "string_cmd": "Follow a person seated in the kitchen after locating them.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "sitting person"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "look for a sitting person in the kitchen and follow them",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findObjInRoom",
+    "string_cmd": "From the living room, acquire a snack then deposit it on the bookshelf.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "snack"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "bookshelf"
+      },
+      {
+        "action": "place_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "locate a snack in the living room then grasp it and place it on the bookshelf",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetPrsAtBeac",
+    "string_cmd": "Transport Jane to the exit after encountering her in the bathroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jane"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "exit"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "meet Jane in the bathroom and take them to the exit",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countObjOnPlcmt",
+    "string_cmd": "Report the total number of cleaning supplies situated on the tv stand to me.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "tv stand"
+      },
+      {
+        "action": "count",
+        "target_to_count": "cleaning supplies"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many cleaning supplies there are on the tv stand",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many cleaning supplies there are on the tv stand",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countPrsInRoom",
+    "string_cmd": "In the bathroom, report the count of individuals indicating leftwards.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "count",
+        "target_to_count": "persons pointing to the left"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many persons pointing to the left are in the bathroom",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many persons pointing to the left are in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoInLoc",
+    "string_cmd": "Report the position of the individual within the bathroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "pose"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me the pose of the person in the bathroom",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me the pose of the person in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellObjPropOnPlcmt",
+    "string_cmd": "On the television stand, tell me which item has the lowest weight.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "tv stand"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "lightest",
+        "object_category": "object"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the lightest object on the tv stand",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the lightest object on the tv stand",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "talkInfoToGestPrsInRoom",
+    "string_cmd": "Address the person with their left arm elevated in the bathroom by stating the day of the week.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their left arm"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say the day of the week to the person raising their left arm in the bathroom",
+        "previous_command_info": "the day of the week"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "say the day of the week to the person raising their left arm in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "answerToGestPrsInRoom",
+    "string_cmd": "In the kitchen, resolve the quiz of the person gesturing left.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the left"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "answer the quiz of the person pointing to the left in the kitchen",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followNameFromBeacToRoom",
+    "string_cmd": "From the side tables to the bedroom, follow Charlie",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "side tables"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Charlie"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "bedroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow Charlie from the side tables to the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideNameFromBeacToBeac",
+    "string_cmd": "Guide Paris to the desk, starting from the lamp.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "lamp"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Paris"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "desk"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "lead Paris from the lamp to the desk",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guidePrsFromBeacToBeac",
+    "string_cmd": "Direct the individual from the shelf pointing left towards the living room.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "shelf"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the left"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "living room"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "guide the person pointing to the left from the shelf to the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideClothPrsFromBeacToBeac",
+    "string_cmd": "Escort the person in the blue sweater from the desk to the bedroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "desk"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "blue sweater"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "bedroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "lead the person wearing a blue sweater from the desk to the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "bringMeObjFromPlcmt",
+    "string_cmd": "From the bedside table, fetch me a red wine.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedside table"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "red wine"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "bring me a red wine from the bedside table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellCatPropOnPlcmt",
+    "string_cmd": "On the desk, inform me of the largest plaything.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "desk"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "biggest",
+        "object_category": "toy"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the biggest toy on the desk",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the biggest toy on the desk",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetClothDscInRm",
+    "string_cmd": "In the bedroom, say what tomorrow's day is after greeting the person in the black coat.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "black coat"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "greet the person wearing a black coat in the bedroom and say what day is tomorrow",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "greet the person wearing a black coat in the bedroom and say what day is tomorrow",
+        "previous_command_info": "what day is tomorrow"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "greet the person wearing a black coat in the bedroom and say what day is tomorrow",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetNameInRm",
+    "string_cmd": "In the office, greet Robin and then track them to the desk.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Robin"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say hello to Robin in the office and follow them to the desk",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "desk"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "say hello to Robin in the office and follow them to the desk",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetNameAtLocThenFindInRm",
+    "string_cmd": "Locate Morgan in the living room after encountering them at the desk.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "desk"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Morgan"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Morgan"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "meet Morgan at the desk then find them in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countClothPrsInRoom",
+    "string_cmd": "How many people dressed in red sweaters populate the office space?",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "count",
+        "target_to_count": "people wearing red sweaters"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many people in the office are wearing red sweaters",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many people in the office are wearing red sweaters",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+    "string_cmd": "Relate the person at the refrigerator's stance to the person at the bookshelf.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "refrigerator"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "pose"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "bookshelf"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell the pose of the person at the refrigerator to the person at the bookshelf",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell the pose of the person at the refrigerator to the person at the bookshelf",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followPrsAtLoc",
+    "string_cmd": "At the entrance, follow the individual extending their left upper limb.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "entrance"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their left arm"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow the person raising their left arm at the entrance",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "goToLoc",
+    "string_cmd": "On the side tables, place a cup after navigating to the bathroom to locate and retrieve it.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "cup"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "side tables"
+      },
+      {
+        "action": "place_object"
+      }
+    ],
+    "cmd_category": "A|B|C",
+    "original_string_cmd": "go to the bathroom then locate a cup and fetch it and put it on the side tables",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "takeObjFromPlcmt",
+    "string_cmd": "Deliver a tennis ball to Morgan in the bathroom that you retrieve from the dishwasher.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "dishwasher"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "tennis ball"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Morgan"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "fetch a tennis ball from the dishwasher and give it to Morgan in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findPrsInRoom",
+    "string_cmd": "Find and respond to a waving person in the bathroom with a quiz answer",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "waving person"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "locate a waving person in the bathroom and answer a quiz",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findObjInRoom",
+    "string_cmd": "Locate and retrieve a tomato soup from the living room and bring it to me.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "tomato soup"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "look for a tomato soup in the living room then fetch it and deliver it to me",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetPrsAtBeac",
+    "string_cmd": "In the office, find Axel and trail after them.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Axel"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "meet Axel in the office and follow them",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countObjOnPlcmt",
+    "string_cmd": "How many fruit are resting on the desk, please quantify for me",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "desk"
+      },
+      {
+        "action": "count",
+        "target_to_count": "fruits"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many fruits there are on the desk",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many fruits there are on the desk",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countPrsInRoom",
+    "string_cmd": "Report the number of people standing in the kitchen.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "count",
+        "target_to_count": "standing persons"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many standing persons are in the kitchen",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many standing persons are in the kitchen",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoInLoc",
+    "string_cmd": "Determine the stance of the individual located near the television stand.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "tv stand"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "pose"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me the pose of the person at the tv stand",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me the pose of the person at the tv stand",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellObjPropOnPlcmt",
+    "string_cmd": "Determine the most slender item on the sofa and report it to me",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sofa"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "thinnest",
+        "object_category": "object"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the thinnest object on the sofa",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the thinnest object on the sofa",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "talkInfoToGestPrsInRoom",
+    "string_cmd": "In the kitchen, announce the time to the person gesturing to the left.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the left"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say the time to the person pointing to the left in the kitchen",
+        "previous_command_info": "the time"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "say the time to the person pointing to the left in the kitchen",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "answerToGestPrsInRoom",
+    "string_cmd": "In the living room, let the person with their right arm raised answer the quiz.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their right arm"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "answer the quiz of the person raising their right arm in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followNameFromBeacToRoom",
+    "string_cmd": "Following Jules from the bed, go to the living room.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bed"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jules"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "living room"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow Jules from the bed to the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideNameFromBeacToBeac",
+    "string_cmd": "Guide Paris to the kitchen table from the pantry.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "pantry"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Paris"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "kitchen table"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "lead Paris from the pantry to the kitchen table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guidePrsFromBeacToBeac",
+    "string_cmd": "Direct the upright individual to the dishwasher, starting from the entrance.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "entrance"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "standing person"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "dishwasher"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "guide the standing person from the entrance to the dishwasher",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideClothPrsFromBeacToBeac",
+    "string_cmd": "Accompany the trashbin's occupant wearing a red t-shirt to the bedside table.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "trashbin"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "red t shirt"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "bedside table"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "escort the person wearing a red t shirt from the trashbin to the bedside table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "bringMeObjFromPlcmt",
+    "string_cmd": "Obtain a Cheez-It from the kitchen table and give it to me",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen table"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "cheezit"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "give me a cheezit from the kitchen table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellCatPropOnPlcmt",
+    "string_cmd": "Report which toy on the cabinet possesses the least weight.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "lightest",
+        "object_category": "toy"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the lightest toy on the cabinet",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the lightest toy on the cabinet",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetClothDscInRm",
+    "string_cmd": "Take the person wearing an orange t shirt toward the coatrack after greeting them in the living room.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "orange t shirt"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "greet the person wearing an orange t shirt in the living room and take them to the coatrack",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "coatrack"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "greet the person wearing an orange t shirt in the living room and take them to the coatrack",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetNameInRm",
+    "string_cmd": "In the kitchen, wish Axel a greeting and direct them to the entrance.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Axel"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say hello to Axel in the kitchen and guide them to the entrance",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "entrance"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "say hello to Axel in the kitchen and guide them to the entrance",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetNameAtLocThenFindInRm",
+    "string_cmd": "After locating Axel in the bathroom, please rendezvous with him at the sink.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sink"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Axel"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Axel"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "meet Axel at the sink then find them in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countClothPrsInRoom",
+    "string_cmd": "In the restroom, please count the number of individuals attired in white sweaters.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "count",
+        "target_to_count": "people wearing white sweaters"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many people in the bathroom are wearing white sweaters",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many people in the bathroom are wearing white sweaters",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+    "string_cmd": "At the desk, inform the individual of the identity of the person located at the trashcan.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "trashbin"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "name"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "desk"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell the name of the person at the trashbin to the person at the desk",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell the name of the person at the trashbin to the person at the desk",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followPrsAtLoc",
+    "string_cmd": "In the living room, trail the individual elevating their left arm.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their left arm"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow the person raising their left arm in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "goToLoc",
+    "string_cmd": "Procure a cleaning supply from the cabinet and convey it to me.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "cleaning supply"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "A|B|C",
+    "original_string_cmd": "navigate to the cabinet then look for a cleaning supply and get it and deliver it to me",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "takeObjFromPlcmt",
+    "string_cmd": "Hand me a toy from the bookshelf that you grasp.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bookshelf"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "toy"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "grasp a toy from the bookshelf and deliver it to me",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findPrsInRoom",
+    "string_cmd": "Track a person seated in the bedroom after spotting them.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "sitting person"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "find a sitting person in the bedroom and follow them",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findObjInRoom",
+    "string_cmd": "Proceed to the office to deliver the fruit found and retrieved from the bathroom to the waving person.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "fruit"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "waving person"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "find a fruit in the bathroom then take it and deliver it to the waving person in the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetPrsAtBeac",
+    "string_cmd": "Escort Simone to the bedside table after meeting in the living room.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Simone"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "bedside table"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "meet Simone in the living room and escort them to the bedside table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countObjOnPlcmt",
+    "string_cmd": "On the side tables, enumerate the number of cleaning supplies.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "side tables"
+      },
+      {
+        "action": "count",
+        "target_to_count": "cleaning supplies"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many cleaning supplies there are on the side tables",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many cleaning supplies there are on the side tables",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countPrsInRoom",
+    "string_cmd": "In the office, please report the number of people who are seated",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "count",
+        "target_to_count": "sitting persons"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many sitting persons are in the office",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many sitting persons are in the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoInLoc",
+    "string_cmd": "In the bathroom, inform me of the person's pose.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "pose"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me the pose of the person in the bathroom",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me the pose of the person in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellObjPropOnPlcmt",
+    "string_cmd": "Inquire about the largest item situated upon the basin.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sink"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "biggest",
+        "object_category": "object"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the biggest object on the sink",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the biggest object on the sink",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "talkInfoToGestPrsInRoom",
+    "string_cmd": "To the office locate the person boosting their left arm and inform them what day follows today",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their left arm"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say what day is tomorrow to the person raising their left arm in the office",
+        "previous_command_info": "what day is tomorrow"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "say what day is tomorrow to the person raising their left arm in the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "answerToGestPrsInRoom",
+    "string_cmd": "In the office, provide the response to the quiz posed by the individual gesturing to the right.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the right"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "answer the quiz of the person pointing to the right in the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followNameFromBeacToRoom",
+    "string_cmd": "Track Morgan from the sink to the bedroom",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sink"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Morgan"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "bedroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow Morgan from the sink to the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideNameFromBeacToBeac",
+    "string_cmd": "Direct Axel from the side tables, guiding him to the kitchen.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "side tables"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Axel"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "kitchen"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "guide Axel from the side tables to the kitchen",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guidePrsFromBeacToBeac",
+    "string_cmd": "From the bed, assist the prone individual to the TV stand.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bed"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "lying person"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "tv stand"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "guide the lying person from the bed to the tv stand",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideClothPrsFromBeacToBeac",
+    "string_cmd": "Escort the individual in the gray sweater from the storage rack to the potted plant.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "potted plant"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "gray sweater"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "storage rack"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "lead the person wearing a gray sweater from the potted plant to the storage rack",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "bringMeObjFromPlcmt",
+    "string_cmd": "From the shelf, deliver a mustard to me.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "shelf"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "mustard"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "bring me a mustard from the shelf",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellCatPropOnPlcmt",
+    "string_cmd": "Identify the least heavy dish located on the bedside table.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedside table"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "lightest",
+        "object_category": "dish"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the lightest dish on the bedside table",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the lightest dish on the bedside table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetClothDscInRm",
+    "string_cmd": "Escort the individual wearing a white coat in the kitchen to the desk after greeting them.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "white coat"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "greet the person wearing a white coat in the kitchen and escort them to the desk",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "desk"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "greet the person wearing a white coat in the kitchen and escort them to the desk",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetNameInRm",
+    "string_cmd": "In the bedroom, introduce yourself to Morgan and follow them",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Morgan"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "introduce yourself to Morgan in the bedroom and follow them",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "introduce yourself to Morgan in the bedroom and follow them",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetNameAtLocThenFindInRm",
+    "string_cmd": "Find Charlie in the kitchen and proceed to the desk lamp to meet them.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "desk lamp"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Charlie"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Charlie"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "meet Charlie at the desk lamp then locate them in the kitchen",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countClothPrsInRoom",
+    "string_cmd": "In the office, inform me of the number of individuals attired in yellow blouses.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "count",
+        "target_to_count": "people wearing yellow blouses"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many people in the office are wearing yellow blouses",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many people in the office are wearing yellow blouses",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+    "string_cmd": "Communicate to the individual at the dishwasher the stance of the person near the cabinet.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "pose"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "dishwasher"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell the pose of the person at the cabinet to the person at the dishwasher",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell the pose of the person at the cabinet to the person at the dishwasher",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followPrsAtLoc",
+    "string_cmd": "Trace the individual who is resting in the living room.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "lying person"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow the lying person in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "goToLoc",
+    "string_cmd": "Navigate toward Jane in the bathroom after proceeding to the bedroom to find and gather a fruit.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "fruit"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jane"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "A|B|C",
+    "original_string_cmd": "go to the bedroom then look for a fruit and fetch it and bring it to Jane in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "takeObjFromPlcmt",
+    "string_cmd": "Fetch me a food after obtaining it from the shelf.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "shelf"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "food"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "take a food from the shelf and bring it to me",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findPrsInRoom",
+    "string_cmd": "In the living room, find a seated individual and trail them.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "sitting person"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "locate a sitting person in the living room and follow them",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findObjInRoom",
+    "string_cmd": "Collect spam from the bedroom and bring it here.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "spam"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "locate a spam in the bedroom then grasp it and bring it to me",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetPrsAtBeac",
+    "string_cmd": "Guide Axel to the desk after meeting him in the kitchen.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Axel"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "desk"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "meet Axel in the kitchen and lead them to the desk",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countObjOnPlcmt",
+    "string_cmd": "Report the total count of fruits residing on the kitchen table.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen table"
+      },
+      {
+        "action": "count",
+        "target_to_count": "fruits"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many fruits there are on the kitchen table",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many fruits there are on the kitchen table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countPrsInRoom",
+    "string_cmd": "In the bedroom, tell me how many people have their left arm raised",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "count",
+        "target_to_count": "persons raising their left arm"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many persons raising their left arm are in the bedroom",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many persons raising their left arm are in the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoInLoc",
+    "string_cmd": "Provide me with the identity of the individual situated in the living area.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "name"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me the name of the person in the living room",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me the name of the person in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellObjPropOnPlcmt",
+    "string_cmd": "Of the objects on the refrigerator, inform me as to which is the biggest.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "refrigerator"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "biggest",
+        "object_category": "object"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the biggest object on the refrigerator",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the biggest object on the refrigerator",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "talkInfoToGestPrsInRoom",
+    "string_cmd": "In the bedroom, speak your team's name to the person indicating to the left.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the left"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say your teams name to the person pointing to the left in the bedroom",
+        "previous_command_info": "your teams name"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "say your teams name to the person pointing to the left in the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "answerToGestPrsInRoom",
+    "string_cmd": "Resolve the quiz for the person who is indicating left within the bedroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the left"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "answer the quiz of the person pointing to the left in the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followNameFromBeacToRoom",
+    "string_cmd": "Shadow Charlie from the waste basket then keep him going to the bedroom",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "waste basket"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Charlie"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "bedroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow Charlie from the waste basket to the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideNameFromBeacToBeac",
+    "string_cmd": "Carry Axel from the cabinet over to the sofa",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Axel"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "sofa"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "take Axel from the cabinet to the sofa",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guidePrsFromBeacToBeac",
+    "string_cmd": "Guide the individual with their right arm raised to the kitchen from the entrance.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "entrance"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their right arm"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "kitchen"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "lead the person raising their right arm from the entrance to the kitchen",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideClothPrsFromBeacToBeac",
+    "string_cmd": "Steer the individual in the orange shirt toward the refrigerator from the pantry.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "pantry"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "orange shirt"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "refrigerator"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "guide the person wearing a orange shirt from the pantry to the refrigerator",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "bringMeObjFromPlcmt",
+    "string_cmd": "From the bed, fetch me a can of pringles",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bed"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "pringles"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "bring me a pringles from the bed",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellCatPropOnPlcmt",
+    "string_cmd": "On the storage rack, tell me which fruit is the biggest.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "storage rack"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "largest",
+        "object_category": "fruit"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the largest fruit on the storage rack",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the largest fruit on the storage rack",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetClothDscInRm",
+    "string_cmd": "In the bedroom, greet the individual in the blue sweater and escort them to the coatrack.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "blue sweater"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "introduce yourself to the person wearing a blue sweater in the bedroom and take them to the coatrack",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "coatrack"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "introduce yourself to the person wearing a blue sweater in the bedroom and take them to the coatrack",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetNameInRm",
+    "string_cmd": "Follow Robin to the bed in the living room and offer them a greeting.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Robin"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "salute Robin in the living room and follow them to the bed",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "bed"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "salute Robin in the living room and follow them to the bed",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetNameAtLocThenFindInRm",
+    "string_cmd": "Locate Adel in the bedroom after proceeding to the cabinet to rendezvous.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Adel"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Adel"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "meet Adel at the cabinet then look for them in the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countClothPrsInRoom",
+    "string_cmd": "In the bathroom, report the count of people attired in yellow t-shirts.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "count",
+        "target_to_count": "people wearing yellow t shirts"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many people in the bathroom are wearing yellow t shirts",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many people in the bathroom are wearing yellow t shirts",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+    "string_cmd": "Communicate the person's pose near the exit location to the individual located near the potted plant.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "exit"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "pose"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "potted plant"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell the pose of the person at the exit to the person at the potted plant",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell the pose of the person at the exit to the person at the potted plant",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followPrsAtLoc",
+    "string_cmd": "Head towards the lamp while trailing the individual gesturing to the left.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "lamp"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the left"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow the person pointing to the left at the lamp",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "goToLoc",
+    "string_cmd": "Deliver the orange to the person pointing to the left in the living room after navigating to the potted plant to locate and retrieve it",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "potted plant"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "orange"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the left"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "A|B|C",
+    "original_string_cmd": "go to the potted plant then find an orange and take it and deliver it to the person pointing to the left in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "takeObjFromPlcmt",
+    "string_cmd": "Deliver a fruit to me after taking it from the kitchen table.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen table"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "fruit"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "take a fruit from the kitchen table and deliver it to me",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findPrsInRoom",
+    "string_cmd": "In the bathroom, locate and trail a person who is seated.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "sitting person"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "find a sitting person in the bathroom and follow them",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findObjInRoom",
+    "string_cmd": "Retrieve and hand me a cup found within the bedroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "cup"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "find a cup in the bedroom then take it and give it to me",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetPrsAtBeac",
+    "string_cmd": "Find Angel in the living room and accompany them closely",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Angel"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "meet Angel in the living room and follow them",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countObjOnPlcmt",
+    "string_cmd": "Report the count of cleaning supplies located on the shelf",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "shelf"
+      },
+      {
+        "action": "count",
+        "target_to_count": "cleaning supplies"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many cleaning supplies there are on the shelf",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many cleaning supplies there are on the shelf",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countPrsInRoom",
+    "string_cmd": "How many persons in the bedroom are pointing to the right, please tell me",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "count",
+        "target_to_count": "persons pointing to the right"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many persons pointing to the right are in the bedroom",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many persons pointing to the right are in the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoInLoc",
+    "string_cmd": "Report the stance of the individual at the storage rack.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "storage rack"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "pose"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me the pose of the person at the storage rack",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me the pose of the person at the storage rack",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellObjPropOnPlcmt",
+    "string_cmd": "Identify the most substantial object located on the sink.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "sink"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "biggest",
+        "object_category": "object"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the biggest object on the sink",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the biggest object on the sink",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "talkInfoToGestPrsInRoom",
+    "string_cmd": "In the office, inform the individual elevating their left arm of your team's country.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their left arm"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell your teams country to the person raising their left arm in the office",
+        "previous_command_info": "your teams country"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell your teams country to the person raising their left arm in the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "answerToGestPrsInRoom",
+    "string_cmd": "In the bathroom, respond to the inquiry from the individual gesturing to the left.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person pointing to the left"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "answer the question of the person pointing to the left in the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followNameFromBeacToRoom",
+    "string_cmd": "Proceed to the bathroom following Jules from the chairs",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "chairs"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jules"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "bathroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow Jules from the chairs to the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideNameFromBeacToBeac",
+    "string_cmd": "Show Angel the way from the exit to the kitchen.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "exit"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Angel"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "kitchen"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "guide Angel from the exit to the kitchen",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guidePrsFromBeacToBeac",
+    "string_cmd": "Convey the person from the exit who is lying down to the bathroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "exit"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "lying person"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "bathroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "take the lying person from the exit to the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideClothPrsFromBeacToBeac",
+    "string_cmd": "Guide the person in the white jacket to the bathroom from the bookshelf.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bookshelf"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "white jacket"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "bathroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "escort the person wearing a white jacket from the bookshelf to the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "bringMeObjFromPlcmt",
+    "string_cmd": "Retrieve the milk from the bed and give it to me.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bed"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "milk"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "give me a milk from the bed",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellCatPropOnPlcmt",
+    "string_cmd": "What is the largest cleaning item on the bookshelf, tell me?",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bookshelf"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "biggest",
+        "object_category": "cleaning supply"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the biggest cleaning supply on the bookshelf",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the biggest cleaning supply on the bookshelf",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetClothDscInRm",
+    "string_cmd": "In the office, go and greet the person donned in a blue sweater, and then shadow them.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "blue sweater"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "introduce yourself to the person wearing a blue sweater in the office and follow them",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "introduce yourself to the person wearing a blue sweater in the office and follow them",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetNameInRm",
+    "string_cmd": "Introduce yourself to Jules in the bathroom, then pursue them to the desk.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bathroom"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jules"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "introduce yourself to Jules in the bathroom and follow them to the desk",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "desk"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "introduce yourself to Jules in the bathroom and follow them to the desk",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetNameAtLocThenFindInRm",
+    "string_cmd": "Find Charlie in the living room after proceeding to the cabinet to meet them.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Charlie"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Charlie"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "meet Charlie at the cabinet then look for them in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countClothPrsInRoom",
+    "string_cmd": "How many individuals in the kitchen are clad in blue jackets?",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen"
+      },
+      {
+        "action": "count",
+        "target_to_count": "people wearing blue jackets"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many people in the kitchen are wearing blue jackets",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many people in the kitchen are wearing blue jackets",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+    "string_cmd": "From the person at the storage rack, describe the gesture of the individual at the entrance.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "entrance"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "gesture"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "storage rack"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell the gesture of the person at the entrance to the person at the storage rack",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell the gesture of the person at the entrance to the person at the storage rack",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followPrsAtLoc",
+    "string_cmd": "At the trashbin, trail the sitting person.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "trashbin"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "sitting person"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow the sitting person at the trashbin",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "goToLoc",
+    "string_cmd": "Process to locate and acquire a tropical juice from the trashbin and deposit it onto the bedside table.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "trashbin"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "tropical juice"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "bedside table"
+      },
+      {
+        "action": "place_object"
+      }
+    ],
+    "cmd_category": "A|B|C",
+    "original_string_cmd": "go to the trashbin then locate a tropical juice and get it and put it on the bedside table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "takeObjFromPlcmt",
+    "string_cmd": "Put the drink on the cabinet after retrieving it from the TV stand.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "tv stand"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "drink"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "place_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "get a drink from the tv stand and place it on the cabinet",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findPrsInRoom",
+    "string_cmd": "Answer a quiz then search for a seated individual within the bedroom.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "sitting person"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "look for a sitting person in the bedroom and answer a quiz",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "findObjInRoom",
+    "string_cmd": "Find and grasp the cola from the bedroom, then put it on the shelf.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "cola"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "shelf"
+      },
+      {
+        "action": "place_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "look for a cola in the bedroom then get it and place it on the shelf",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetPrsAtBeac",
+    "string_cmd": "In the office, convey the day of the week to Axel, after meeting him there.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Axel"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "meet Axel in the office and tell the day of the week",
+        "previous_command_info": "the day of the week"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "meet Axel in the office and tell the day of the week",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countObjOnPlcmt",
+    "string_cmd": "How many toys are there on the kitchen table, provide this count?",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen table"
+      },
+      {
+        "action": "count",
+        "target_to_count": "toys"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many toys there are on the kitchen table",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many toys there are on the kitchen table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countPrsInRoom",
+    "string_cmd": "In the bedroom, state the count of individuals who are standing",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "count",
+        "target_to_count": "standing persons"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many standing persons are in the bedroom",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many standing persons are in the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoInLoc",
+    "string_cmd": "At the lamp, relay the name of the situated person.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "lamp"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "name"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me the name of the person at the lamp",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me the name of the person at the lamp",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellObjPropOnPlcmt",
+    "string_cmd": "Identify the most weighty object positioned on the cabinet.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "heaviest",
+        "object_category": "object"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the heaviest object on the cabinet",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the heaviest object on the cabinet",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "talkInfoToGestPrsInRoom",
+    "string_cmd": "In the office, address something about yourself to the individual lifting their left arm.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their left arm"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say something about yourself to the person raising their left arm in the office",
+        "previous_command_info": "something about yourself"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "say something about yourself to the person raising their left arm in the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "answerToGestPrsInRoom",
+    "string_cmd": "In the bedroom, answer the quiz of the individual with their left arm raised.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their left arm"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "answer the quiz of the person raising their left arm in the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followNameFromBeacToRoom",
+    "string_cmd": "From the shelf to the bedroom, trail Jane",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "shelf"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Jane"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "bedroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow Jane from the shelf to the bedroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideNameFromBeacToBeac",
+    "string_cmd": "Direct Robin towards the office from the shelf's location.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "shelf"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Robin"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "office"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "guide Robin from the shelf to the office",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guidePrsFromBeacToBeac",
+    "string_cmd": "Guide the individual with their right arm raised from beside the side tables toward the bathroom",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "side tables"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "person raising their right arm"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "bathroom"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "escort the person raising their right arm from the side tables to the bathroom",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "guideClothPrsFromBeacToBeac",
+    "string_cmd": "Accompany the individual in the red shirt from the cabinet to the dishwasher.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "red shirt"
+      },
+      {
+        "action": "guide_person_to",
+        "destination_room": "dishwasher"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "escort the person wearing a red shirt from the cabinet to the dishwasher",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "bringMeObjFromPlcmt",
+    "string_cmd": "From the bedside table, fetch me a fork",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedside table"
+      },
+      {
+        "action": "pick_object",
+        "object_to_pick": "fork"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "give_object"
+      }
+    ],
+    "cmd_category": "B",
+    "original_string_cmd": "bring me a fork from the bedside table",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellCatPropOnPlcmt",
+    "string_cmd": "From the cabinet, tell me which scrubbing supply registers as the tiniest.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "cabinet"
+      },
+      {
+        "action": "get_visual_info",
+        "measure": "smallest",
+        "object_category": "cleaning supply"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me what is the smallest cleaning supply on the cabinet",
+        "previous_command_info": "get_visual_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me what is the smallest cleaning supply on the cabinet",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetClothDscInRm",
+    "string_cmd": "In the office, provide an answer to a question and salute the person wearing a crimson colored top.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "office"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "red shirt"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "salute the person wearing a red shirt in the office and answer a question",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "answer_question"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "salute the person wearing a red shirt in the office and answer a question",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "greetNameInRm",
+    "string_cmd": "Instruct your team about your country, after moving into the living room to greet Paris.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Paris"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say hello to Paris in the living room and tell your teams country",
+        "previous_command_info": "introduction"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "say hello to Paris in the living room and tell your teams country",
+        "previous_command_info": "your teams country"
+      }
+    ],
+    "cmd_category": "A|C",
+    "original_string_cmd": "say hello to Paris in the living room and tell your teams country",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "meetNameAtLocThenFindInRm",
+    "string_cmd": "Find Robin at the kitchen table, then search for them in the living room.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "kitchen table"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Robin"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "find_person_by_name",
+        "name": "Robin"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "meet Robin at the kitchen table then look for them in the living room",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "countClothPrsInRoom",
+    "string_cmd": "Relay the count of individuals sporting blue shirts in the living room",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "living room"
+      },
+      {
+        "action": "count",
+        "target_to_count": "people wearing blue shirts"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "start_location"
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell me how many people in the living room are wearing blue shirts",
+        "previous_command_info": "count"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell me how many people in the living room are wearing blue shirts",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+    "string_cmd": "Communicate the bodily posture of the individual at the trashbin to the person at the bookshelf.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "trashbin"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "get_person_info",
+        "info_type": "pose"
+      },
+      {
+        "action": "go_to",
+        "location_to_go": "bookshelf"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": ""
+      },
+      {
+        "action": "say_with_context",
+        "user_instruction": "tell the pose of the person at the trashbin to the person at the bookshelf",
+        "previous_command_info": "get_person_info"
+      }
+    ],
+    "cmd_category": "C",
+    "original_string_cmd": "tell the pose of the person at the trashbin to the person at the bookshelf",
+    "enrichment_applied": true
+  },
+  {
+    "cmd_type": "followPrsAtLoc",
+    "string_cmd": "In the bedroom, trail the seated individual.",
+    "structured_cmd": [
+      {
+        "action": "go_to",
+        "location_to_go": "bedroom"
+      },
+      {
+        "action": "find_person",
+        "attribute_value": "sitting person"
+      },
+      {
+        "action": "follow_person_until",
+        "destination": "canceled"
+      }
+    ],
+    "cmd_category": "A",
+    "original_string_cmd": "follow the sitting person in the bedroom",
+    "enrichment_applied": true
+  }
+]

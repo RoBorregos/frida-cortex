@@ -9,18 +9,19 @@ from collections import defaultdict
 import sys
 import os
 from dotenv import load_dotenv
+from baml_py import ClientRegistry, Collector
+from sentence_transformers import SentenceTransformer
+from scipy.spatial.distance import cosine
+from tqdm import tqdm
+import numpy as np
+from pydantic import BaseModel
+
 load_dotenv()
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
 
 from baml_client.sync_client import b
 from baml_client.types import CommandListLLM
 from baml_client.config import set_log_level
-from baml_py import ClientRegistry
-from sentence_transformers import SentenceTransformer
-from scipy.spatial.distance import cosine
-from tqdm import tqdm
-import numpy as np
-from pydantic import BaseModel
 
 # Turn off all logging
 set_log_level("ERROR")
@@ -40,12 +41,14 @@ DEFAULT_MODEL = "GEMINI_FLASH_2_5"
 
 # Initialize client registry
 client_registry = ClientRegistry()
+collector = Collector()
 
 # --- Configuration ---
 STARTING_CASE = 0  # Adjust if needed
 SIMILARITY_THRESHOLD = 0.8  # Threshold for complement similarity
 OVERALL_THRESHOLD = 0.75  # Threshold for the overall test case score
 TEST_DATA_FILE = "../../dataset_generator/dataset.json"
+TEST_DATA_FILE_ENRICHED_AND_REORDERED = "../../dataset_generator/dataset_enriched_reordered.json"
 
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"  # Example model
 
@@ -79,6 +82,8 @@ class TestResult(BaseModel):
     score: float
     passed: bool
     execution_time: float
+    input_tokens: int
+    output_tokens: int
     error: Optional[str] = None
     expected_commands: Optional[List[Dict]] = None
     actual_commands: Optional[List[Dict]] = None
@@ -114,6 +119,8 @@ class TestSummary(BaseModel):
     total_failed: int
     overall_pass_rate: float
     average_execution_time: float
+    average_input_tokens: int
+    average_output_tokens: int
     groups_by_command_count: List[CommandCountGroup]
     groups_by_task_type: List[TaskTypeGroup]  # New field for task type grouping
     
@@ -126,7 +133,8 @@ class TestSummary(BaseModel):
         print(f"Passed: {self.total_passed} ({self.overall_pass_rate:.1f}%)")
         print(f"Failed: {self.total_failed}")
         print(f"Average Execution Time: {self.average_execution_time:.2f}s")
-        
+        print(f"Average Input Tokens: {self.average_input_tokens}")
+        print(f"Average Output Tokens: {self.average_output_tokens}")
         print(f"\nResults by Command Count:")
         print("-" * 40)
         for group in sorted(self.groups_by_command_count, key=lambda x: x.command_count):
@@ -264,18 +272,20 @@ def execute_command_with_model(command_text: str, model_name: str):
     """Execute a command using the appropriate model function"""
     if model_name == "LOCAL_FINETUNED":
         return b.GenerateCommandListFineTuned(command_text,
-                                              baml_options={"client_registry": client_registry})
+                                              baml_options={"client_registry": client_registry,
+                                                            "collector": collector})
     else:
         return b.GenerateCommandList(command_text,
-                                     baml_options={"client_registry": client_registry})
+                                     baml_options={"client_registry": client_registry,
+                                                   "collector": collector})
 
 
-def run_tests(model_name: str = DEFAULT_MODEL, use_semantic_enrichment: bool = False, use_reorder: bool = False) -> TestSummary:
+def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool = False) -> TestSummary:
     """Loads data, runs tests, and returns structured results.
     
     Args:
         model_name: The model to use for testing. Must be one of AVAILABLE_MODELS.
-        use_semantic_enrichment: If True, applies semantic enrichment to input commands before processing.
+        use_enrichment_and_reorder: If True, applies combined enrichment and reordering to input commands before processing.
         
     Returns:
         TestSummary: Structured results including grouping by command count
@@ -288,15 +298,16 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_semantic_enrichment: bool = F
     # Set the model in client registry
     client_registry.set_primary(model_name)
     print(f"Testing with model: {model_name}")
-    if use_semantic_enrichment:
-        print("Semantic enrichment: ENABLED")
+    test_data_file = TEST_DATA_FILE_ENRICHED_AND_REORDERED if use_enrichment_and_reorder else TEST_DATA_FILE
+    if use_enrichment_and_reorder:
+        print("Combined enrichment and reordering: ENABLED")
 
-    print(f"Loading test data from: {TEST_DATA_FILE}")
+    print(f"Loading test data from: {test_data_file}")
     try:
-        with open(TEST_DATA_FILE, "r") as f:
+        with open(test_data_file, "r") as f:
             command_dataset = json.load(f)
     except FileNotFoundError:
-        print(f"Error: Test data file not found at {TEST_DATA_FILE}")
+        print(f"Error: Test data file not found at {test_data_file}")
         return None
     except json.JSONDecodeError:
         print(f"Error: Could not decode JSON from {TEST_DATA_FILE}")
@@ -312,47 +323,26 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_semantic_enrichment: bool = F
     # Collect all test results
     all_test_results = []
     execution_times = []
-
+    total_input_tokens = []
+    total_output_tokens = []
     for i, (input_str, expected_str, cmd_category) in enumerate(tqdm(test_cases, desc="Running BAML tests")):
         time.sleep(3)
         print(f"\n--- Test Case {STARTING_CASE + i} ---")
-        print(f"Original Input: {input_str}")
-
-        # Apply semantic enrichment if flag is active
-        processed_input = input_str
-        if use_semantic_enrichment:
-            try:
-                print("Applying semantic enrichment...")
-                enriched_command = b.GenerateSemanticEnrichedCommand(input_str)
-                processed_input = enriched_command
-                print(f"Enriched Input: {processed_input}")
-            except Exception as e:
-                print(f"Warning: Semantic enrichment failed, using original input. Error: {e}")
-                processed_input = input_str
-        
-        if use_reorder:
-            try:
-                print("Reordering commands...")
-                reordered_command = b.GenerateReorderedCommand(processed_input)
-                processed_input = reordered_command
-                print(f"Reordered Input: {processed_input}")
-            except Exception as e:
-                print(f"Warning: Reordering failed, using original input. Error: {e}")
-                processed_input = input_str
-        
-        print(f"Processing Input: {processed_input}")
+        print(f"Input: {input_str}")
 
         expected_command_list = parse_expected_output(expected_str)
         if not expected_command_list:
             print(" \x1b[91mFailed (Skipping due to parse error in expected output)\x1b[0m")
             test_result = TestResult(
                 index=STARTING_CASE + i,
-                input_command=processed_input,
+                input_command=input_str,
                 expected_command_count=0,
                 actual_command_count=0,
                 score=0.0,
                 passed=False,
                 execution_time=0.0,
+                input_tokens=0,
+                output_tokens=0,
                 error="Failed to parse expected output JSON",
                 cmd_category=cmd_category
             )
@@ -362,10 +352,17 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_semantic_enrichment: bool = F
         try:
             start_time = time.time()
             # Call the BAML function with the selected model using processed input
-            actual_command_list = execute_command_with_model(processed_input, model_name)
+            actual_command_list = execute_command_with_model(input_str, model_name)
             end_time = time.time()
             duration = end_time - start_time
             execution_times.append(duration)
+            input_tokens = 0
+            output_tokens = 0
+            if collector.last and collector.last.usage:
+                input_tokens = collector.last.usage.input_tokens or 0
+                output_tokens = collector.last.usage.output_tokens or 0
+                total_input_tokens.append(input_tokens)
+                total_output_tokens.append(output_tokens)
             
             print(f"Expected: {expected_command_list.model_dump_json(indent=2)}")
             print(f"BAML Response ({duration:.2f}s): {actual_command_list.model_dump_json(indent=2)}")
@@ -383,12 +380,14 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_semantic_enrichment: bool = F
             # Create test result
             test_result = TestResult(
                 index=STARTING_CASE + i,
-                input_command=processed_input,
+                input_command=input_str,
                 expected_command_count=len(expected_command_list.commands),
                 actual_command_count=len(actual_command_list.commands),
                 score=score,
                 passed=passed,
                 execution_time=duration,
+                input_tokens=input_tokens,
+                output_tokens=output_tokens,
                 expected_commands=[cmd.model_dump() for cmd in expected_command_list.commands],
                 actual_commands=[cmd.model_dump() for cmd in actual_command_list.commands],
                 cmd_category=cmd_category
@@ -402,12 +401,14 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_semantic_enrichment: bool = F
             
             test_result = TestResult(
                 index=STARTING_CASE + i,
-                input_command=processed_input,
+                input_command=input_str,
                 expected_command_count=len(expected_command_list.commands) if expected_command_list else 0,
                 actual_command_count=0,
                 score=0.0,
                 passed=False,
                 execution_time=duration,
+                input_tokens=0,
+                output_tokens=0,
                 error=str(e),
                 cmd_category=cmd_category
             )
@@ -475,7 +476,8 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_semantic_enrichment: bool = F
     total_failed = len(all_test_results) - total_passed
     overall_pass_rate = (total_passed / len(all_test_results)) * 100 if all_test_results else 0
     average_time = np.mean(execution_times) if execution_times else 0
-
+    average_input_tokens = int(np.mean(total_input_tokens)) if total_input_tokens else 0
+    average_output_tokens = int(np.mean(total_output_tokens)) if total_output_tokens else 0
     # Create summary
     summary = TestSummary(
         model_name=model_name,
@@ -484,6 +486,8 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_semantic_enrichment: bool = F
         total_failed=total_failed,
         overall_pass_rate=overall_pass_rate,
         average_execution_time=average_time,
+        average_input_tokens=average_input_tokens,
+        average_output_tokens=average_output_tokens,
         groups_by_command_count=command_count_groups,
         groups_by_task_type=task_type_groups
     )
@@ -525,7 +529,7 @@ def select_model_interactive():
             # Try to find exact model name match
             if choice in AVAILABLE_MODELS:
                 return choice
-            
+
             # Try case-insensitive match
             for model in AVAILABLE_MODELS:
                 if model.lower() == choice.lower():
@@ -542,28 +546,11 @@ def select_model_interactive():
             print(f"Error: {e}")
 
 
-def select_semantic_enrichment():
-    """Interactive semantic enrichment selection"""
+def select_combined_enrichment():
+    """Interactive combined enrichment selection"""
     while True:
         try:
-            choice = input("Enable semantic enrichment? (y/N): ").strip().lower()
-            if choice in ['', 'n', 'no']:
-                return False
-            elif choice in ['y', 'yes']:
-                return True
-            else:
-                print("Please enter 'y' for yes or 'n' for no.")
-        except KeyboardInterrupt:
-            print("\nExiting...")
-            return None
-        except Exception as e:
-            print(f"Error: {e}")
-            
-def select_reorder():
-    """Interactive reorder selection"""
-    while True:
-        try:
-            choice = input("Enable input reorder? (y/N): ").strip().lower()
+            choice = input("Enable combined enrichment and reordering? (y/N): ").strip().lower()
             if choice in ['', 'n', 'no']:
                 return False
             elif choice in ['y', 'yes']:
@@ -582,28 +569,21 @@ if __name__ == "__main__":
     selected_model = select_model_interactive()
     
     if selected_model:
-        # Interactive semantic enrichment selection
-        use_enrichment = select_semantic_enrichment()
-        use_reorder = select_reorder()
+        # Interactive options selection
+        use_enrichment_and_reorder = select_combined_enrichment()
         
-        if use_enrichment is not None:
-            enrichment_suffix = "_enriched" if use_enrichment else ""
-            reorder_suffix = "_reorder" if use_reorder else ""
+        if use_enrichment_and_reorder is not None:
+            enrichment_and_reorder_suffix = "_enriched_and_reordered"
             print(f"\nStarting tests with model: {selected_model}")
-            if use_enrichment:
-                print("Semantic enrichment will be applied to input commands.")
-            
-            if use_reorder:
-                print("Reordering of commands will be applied to input commands.")
 
-            results = run_tests(selected_model, use_enrichment, use_reorder)
+            results = run_tests(selected_model, use_enrichment_and_reorder)
             
             if results:
                 print(f"\nTest execution completed. Results available in structured format.")
                 print(f"Use the returned TestSummary object to access detailed results.")
                 
                 # Example: Save results to JSON file inside results folder
-                results_file = f"results/test_results_{selected_model}{enrichment_suffix}{reorder_suffix}_{int(time.time())}.json"
+                results_file = f"results/test_results_{selected_model}{enrichment_and_reorder_suffix}_{int(time.time())}.json"
                 with open(results_file, 'w') as f:
                     json.dump(results.model_dump(), f, indent=2)
                 print(f"Results saved to: {results_file}")

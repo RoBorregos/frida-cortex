@@ -166,6 +166,16 @@ You are a service robot for domestic applications.
  }
  Note from this example that if a user request something to be told or given back to their,
  you should first 'go_to' the 'start_location' and then perform the action. This is always the case.
+ Remember something being asked back to the original user needs a go_to command to the start_location.
+ But if its not inferred that the robot should go back to the start_location, you should NOT use it:
+ 'find a person in the living room who is pointing to the right and state the day of the month'
+ {
+  "commands": [
+    {"action": "go_to", "location_to_go": "living room"},
+    {"action": "find_person","attribute_value": "person pointing to the right"},
+    {"action": "say_with_context","user_instruction": "locate a person pointing to the right in the living room and say the day of the month","previous_command_info": "the day of the month"}
+  ]
+ }
 
  The action get_person_info, guide_person_to and follow_person_until can ONLY be used after a person is found by the find_person or find_person_by_name action.
  The actions place_object can only be used after a pick_object action and usually follows a go_to command.
@@ -175,10 +185,6 @@ You are a service robot for domestic applications.
  The action count usually follows a go_to command.
  The action get_visual_info usually follows a go_to command.
  The action answer_question can only be used after a previous find_person or find_person_by_name command.
-
- Remember something being asked back to the original user needs a go_to command to the start_location.
-
-You can ask for clarification if the task is not clear enough.
 
 "#
 
@@ -203,48 +209,40 @@ function GenerateCommandList(request: string) -> CommandListLLM {
     {{ ctx.output_format }}
 
     {{ _.role("user") }}
-    Generate commands for this prompt in the specified format::
+    Generate commands for this prompt in the specified format:
     {{ request }}
   "#
 }
 
-function GenerateSemanticEnrichedCommand(request: string) -> string {
+
+function GenerateEnrichedAndReorderedCommand(request: string) -> string {
   client GEMINI_FLASH_2_5
   prompt #"
     You will receive a natural language command to be executed by a robot.
-    Paraphrase the following command keeping the intent and task objectives
-    and the same number of commands. ONLY use synonyms for the actions.
+    Your task is to both paraphrase AND reorder the command while keeping the exact same intent and task objectives.
+    
+    Steps to follow:
+    1. Paraphrase the command using synonyms for actions while maintaining the same meaning
+    2. Change the word order to create a different sentence structure
+    3. Keep all the same information - do not add or remove any details
+    
     For example, if the command is:
     'go to the living room then locate a knife and get it and bring it to Angel in the bathroom',
-    the result should be:
-    'stroll toward the living room proceed to notice a knife and collect it and fulfill delivery to Angel in the bathroom'
-    Just return one command in one line.
-    {{ request }}
-  "#
-}
-function GenerateReorderedCommand(request: string) -> string {
-  client GEMINI_FLASH_2_5
-  prompt #"
-    You will receive a natural language command to be executed by a robot.
-    Change the order of the words to create a new sentence that keeps the exact same meaning.
-    Do not add or remove any information. Only rearrange or rephrase using different structure or word order.
-    For example, if the command is:
-    "Pick up the red cup from the kitchen counter."
-    the result should be:
-    "From the kitchen counter, pick up the red cup."
+    the result could be:
+    'Navigate toward Angel in the bathroom after proceeding to the living room to find and collect a knife'
+    
+    Another example:
+    'Pick up the red cup from the kitchen counter'
+    could become:
+    'From the kitchen counter, collect the red cup'
+    
+    Just return one transformed command in one line.
     {{ request }}
   "#
 }
 
-test SemanticEnrichmentTest {
-  functions [GenerateSemanticEnrichedCommand]
-  args {
-    request "look for a toy in the office then get it and put it on the kitchen table"
-  }
-}
-
-test GenerateReorderedCommandTest {
-  functions [GenerateReorderedCommand]
+test GenerateEnrichedAndReorderedCommandTest {
+  functions [GenerateEnrichedAndReorderedCommand]
   args {
     request "look for a toy in the office then get it and put it on the kitchen table"
   }
