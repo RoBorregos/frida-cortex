@@ -203,48 +203,40 @@ function GenerateCommandList(request: string) -> CommandListLLM {
     {{ ctx.output_format }}
 
     {{ _.role("user") }}
-    Generate commands for this prompt in the specified format::
+    Generate commands for this prompt in the specified format:
     {{ request }}
   "#
 }
 
-function GenerateSemanticEnrichedCommand(request: string) -> string {
+
+function GenerateEnrichedAndReorderedCommand(request: string) -> string {
   client GEMINI_FLASH_2_5
   prompt #"
     You will receive a natural language command to be executed by a robot.
-    Paraphrase the following command keeping the intent and task objectives
-    and the same number of commands. ONLY use synonyms for the actions.
+    Your task is to both paraphrase AND reorder the command while keeping the exact same intent and task objectives.
+    
+    Steps to follow:
+    1. Paraphrase the command using synonyms for actions while maintaining the same meaning
+    2. Change the word order to create a different sentence structure
+    3. Keep all the same information - do not add or remove any details
+    
     For example, if the command is:
     'go to the living room then locate a knife and get it and bring it to Angel in the bathroom',
-    the result should be:
-    'stroll toward the living room proceed to notice a knife and collect it and fulfill delivery to Angel in the bathroom'
-    Just return one command in one line.
-    {{ request }}
-  "#
-}
-function GenerateReorderedCommand(request: string) -> string {
-  client GEMINI_FLASH_2_5
-  prompt #"
-    You will receive a natural language command to be executed by a robot.
-    Change the order of the words to create a new sentence that keeps the exact same meaning.
-    Do not add or remove any information. Only rearrange or rephrase using different structure or word order.
-    For example, if the command is:
-    "Pick up the red cup from the kitchen counter."
-    the result should be:
-    "From the kitchen counter, pick up the red cup."
+    the result could be:
+    'Navigate toward Angel in the bathroom after proceeding to the living room to find and collect a knife'
+    
+    Another example:
+    'Pick up the red cup from the kitchen counter'
+    could become:
+    'From the kitchen counter, collect the red cup'
+    
+    Just return one transformed command in one line.
     {{ request }}
   "#
 }
 
-test SemanticEnrichmentTest {
-  functions [GenerateSemanticEnrichedCommand]
-  args {
-    request "look for a toy in the office then get it and put it on the kitchen table"
-  }
-}
-
-test GenerateReorderedCommandTest {
-  functions [GenerateReorderedCommand]
+test GenerateEnrichedAndReorderedCommandTest {
+  functions [GenerateEnrichedAndReorderedCommand]
   args {
     request "look for a toy in the office then get it and put it on the kitchen table"
   }
