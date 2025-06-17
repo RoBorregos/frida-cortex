@@ -326,8 +326,6 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
     total_input_tokens = []
     total_output_tokens = []
     for i, (input_str, expected_str, cmd_category) in enumerate(tqdm(test_cases, desc="Running BAML tests")):
-        if i == 3:
-            break
         time.sleep(3)
         print(f"\n--- Test Case {STARTING_CASE + i} ---")
         print(f"Input: {input_str}")
