@@ -323,9 +323,11 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
     # Collect all test results
     all_test_results = []
     execution_times = []
-    total_input_tokens = 0
-    total_output_tokens = 0
+    total_input_tokens = []
+    total_output_tokens = []
     for i, (input_str, expected_str, cmd_category) in enumerate(tqdm(test_cases, desc="Running BAML tests")):
+        if i == 3:
+            break
         time.sleep(3)
         print(f"\n--- Test Case {STARTING_CASE + i} ---")
         print(f"Input: {input_str}")
@@ -341,6 +343,8 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
                 score=0.0,
                 passed=False,
                 execution_time=0.0,
+                input_tokens=0,
+                output_tokens=0,
                 error="Failed to parse expected output JSON",
                 cmd_category=cmd_category
             )
@@ -359,8 +363,8 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
             if collector.last and collector.last.usage:
                 input_tokens = collector.last.usage.input_tokens or 0
                 output_tokens = collector.last.usage.output_tokens or 0
-                total_input_tokens += input_tokens
-                total_output_tokens += output_tokens
+                total_input_tokens.append(input_tokens)
+                total_output_tokens.append(output_tokens)
             
             print(f"Expected: {expected_command_list.model_dump_json(indent=2)}")
             print(f"BAML Response ({duration:.2f}s): {actual_command_list.model_dump_json(indent=2)}")
@@ -384,6 +388,8 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
                 score=score,
                 passed=passed,
                 execution_time=duration,
+                input_tokens=input_tokens,
+                output_tokens=output_tokens,
                 expected_commands=[cmd.model_dump() for cmd in expected_command_list.commands],
                 actual_commands=[cmd.model_dump() for cmd in actual_command_list.commands],
                 cmd_category=cmd_category
@@ -403,6 +409,8 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
                 score=0.0,
                 passed=False,
                 execution_time=duration,
+                input_tokens=0,
+                output_tokens=0,
                 error=str(e),
                 cmd_category=cmd_category
             )
@@ -470,8 +478,8 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
     total_failed = len(all_test_results) - total_passed
     overall_pass_rate = (total_passed / len(all_test_results)) * 100 if all_test_results else 0
     average_time = np.mean(execution_times) if execution_times else 0
-    average_input_tokens = total_input_tokens / len(all_test_results) if all_test_results else 0
-    average_output_tokens = total_output_tokens / len(all_test_results) if all_test_results else 0
+    average_input_tokens = int(np.mean(total_input_tokens)) if total_input_tokens else 0
+    average_output_tokens = int(np.mean(total_output_tokens)) if total_output_tokens else 0
     # Create summary
     summary = TestSummary(
         model_name=model_name,

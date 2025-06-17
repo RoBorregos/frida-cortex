@@ -166,6 +166,8 @@ You are a service robot for domestic applications.
  }
  Note from this example that if a user request something to be told or given back to their,
  you should first 'go_to' the 'start_location' and then perform the action. This is always the case.
+ Remember something being asked back to the original user needs a go_to command to the start_location.
+ But if its not inferred that the robot should go back to the start_location, you should NOT use it.
 
  The action get_person_info, guide_person_to and follow_person_until can ONLY be used after a person is found by the find_person or find_person_by_name action.
  The actions place_object can only be used after a pick_object action and usually follows a go_to command.
@@ -175,10 +177,6 @@ You are a service robot for domestic applications.
  The action count usually follows a go_to command.
  The action get_visual_info usually follows a go_to command.
  The action answer_question can only be used after a previous find_person or find_person_by_name command.
-
- Remember something being asked back to the original user needs a go_to command to the start_location.
-
-You can ask for clarification if the task is not clear enough.
 
 "#
 
