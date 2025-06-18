@@ -573,7 +573,7 @@ if __name__ == "__main__":
         use_enrichment_and_reorder = select_combined_enrichment()
         
         if use_enrichment_and_reorder is not None:
-            enrichment_and_reorder_suffix = "_enriched_and_reordered"
+            enrichment_and_reorder_suffix = "_enriched_and_reordered" if use_enrichment_and_reorder else ""
             print(f"\nStarting tests with model: {selected_model}")
 
             results = run_tests(selected_model, use_enrichment_and_reorder)
