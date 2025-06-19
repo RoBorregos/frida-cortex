@@ -103,15 +103,8 @@
         "structured_cmd": [
             {
                 "action": "go_to",
-                "location_to_go": "office"
-            },
-            {
-                "action": "find_person_by_name",
-                "name": "Jules"
-            },
-            {
-                "action": "follow_person_until",
-                "destination": "canceled"
+                "success": false,
+                "result": "failed to arrive to place"
             }
         ],
         "cmd_category": "A|C"
@@ -122,20 +115,23 @@
         "structured_cmd": [
             {
                 "action": "go_to",
-                "location_to_go": "dishwasher"
+                "success": true,
+                "result": "arrived to: kitchen -> sink"
             },
             {
                 "action": "count",
-                "target_to_count": "dishes"
+                "success": true,
+                "result": "found: 4 dishes"
             },
             {
                 "action": "go_to",
-                "location_to_go": "start_location"
+                "success": true,
+                "result": "arrived to: start_location"
             },
             {
                 "action": "say_with_context",
-                "user_instruction": "tell me how many dishes there are on the dishwasher",
-                "previous_command_info": "count"
+                "success": true,
+                "result": "there are 4 dishes on the dishwasher"
             }
         ],
         "cmd_category": "C"

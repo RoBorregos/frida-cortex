@@ -17,7 +17,7 @@ function AugmentedResponse(relevant_document: string, user_instruction: string) 
         {{ user_instruction }}
 
         Return a concise and short response to the user covering all the
-        aspects of the user instruction.
+        aspects of the user instruction. Don't include the question in the response.
 
         The response should be in the same language as the user instruction.
     "#
