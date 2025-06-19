@@ -47,14 +47,15 @@ class Tasks:
     
     def say_with_context(self, command: SayWithContext):
         query_result = self.embeddings.query_command_history(command.user_instruction)
-        response = b.AugmentedResponse(query_result, command.user_instruction)
+        response = b.AugmentedResponse(str(query_result), command.user_instruction)
         return Status.EXECUTION_SUCCESS, response
     
     def answer_question(self, command: AnswerQuestion):
-        return Status.EXECUTION_SUCCESS, "success"
+        # It is assumed it always answers the question
+        return Status.EXECUTION_SUCCESS, "answered user's question"
     
     def get_visual_info(self, command: GetVisualInfo):
-        return Status.EXECUTION_SUCCESS, "Fanta"
+        return Status.EXECUTION_SUCCESS, "found: " + command.measure + " " + command.object_category
     
     def give_object(self, command: GiveObject):
         return Status.EXECUTION_SUCCESS, "object given"
@@ -75,14 +76,17 @@ class Tasks:
 
     def get_person_info(self, command: GetPersonInfo):
         if command.info_type == "gesture":
-            return Status.EXECUTION_SUCCESS, "pointing to the right"
+            return Status.EXECUTION_SUCCESS, "person gesture is pointing to the right"
         elif command.info_type == "pose":
-            return Status.EXECUTION_SUCCESS, "standing"
+            return Status.EXECUTION_SUCCESS, "person pose is standing"
+        elif command.info_type == "name":
+            return Status.EXECUTION_SUCCESS, "person name is John"
         
-        return Status.EXECUTION_SUCCESS, "Name: John"
+        return Status.EXECUTION_SUCCESS, "person " + command.info_type + " was found"
     
     def count(self, command: Count):
-        return Status.EXECUTION_SUCCESS, "4"
+        # Always returns 4
+        return Status.EXECUTION_SUCCESS, "found: 4 " + command.target_to_count
     
     def find_person(self, command: FindPerson):
         # Is assumed it always finds the person
