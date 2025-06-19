@@ -416,6 +416,9 @@ class Embeddings():
 
     def query_location(self, query: str, top_k: int = 1) -> list[str]:
         return self._query_(query, "locations", top_k)
+    
+    def query_command_history(self, query: str, top_k: int = 1) -> list[str]:
+        return self._query_(query, "command_history", top_k)
 
     def get_metadata_key(self, query_result, field: str):
         """
