@@ -10,8 +10,10 @@ from baml_client.types import (
     GuidePersonTo,
     Count,
     GetPersonInfo,
+    FindPerson,
     FindPersonByName
 )
+from baml_client.sync_client import b
 
 from command_interpreter.status import Status
 from command_interpreter.embeddings.categorization import Embeddings
@@ -44,7 +46,9 @@ class Tasks:
         return Status.EXECUTION_SUCCESS, "placed object"
     
     def say_with_context(self, command: SayWithContext):
-        return Status.EXECUTION_SUCCESS, "success"
+        query_result = self.embeddings.query_command_history(command.user_instruction)
+        response = b.AugmentedResponse(query_result, command.user_instruction)
+        return Status.EXECUTION_SUCCESS, response
     
     def answer_question(self, command: AnswerQuestion):
         return Status.EXECUTION_SUCCESS, "success"
@@ -58,10 +62,16 @@ class Tasks:
     def follow_person_until(self, command: FollowPersonUntil):
         if command.destination == "cancelled":
             return Status.EXECUTION_SUCCESS, "followed user until cancelled"
-        return Status.EXECUTION_SUCCESS, "arrived to " + command.destination
+        query_result = self.embeddings.query_location(command.destination)
+        area = self.embeddings.get_area(query_result)
+        subarea = self.embeddings.get_subarea(query_result)
+        return Status.EXECUTION_SUCCESS, "arrived to " + (area + (" -> " + subarea if subarea else ""))
     
     def guide_person_to(self, command: GuidePersonTo):
-        return Status.EXECUTION_SUCCESS, "arrived to " + command.destination_room
+        query_result = self.embeddings.query_location(command.destination_room)
+        area = self.embeddings.get_area(query_result)
+        subarea = self.embeddings.get_subarea(query_result)
+        return Status.EXECUTION_SUCCESS, "arrived to " + (area + (" -> " + subarea if subarea else ""))
 
     def get_person_info(self, command: GetPersonInfo):
         if command.info_type == "gesture":
@@ -74,8 +84,13 @@ class Tasks:
     def count(self, command: Count):
         return Status.EXECUTION_SUCCESS, "4"
     
-    def find_person(self, command: FindPersonByName):
-        return Status.EXECUTION_SUCCESS, "found " + command.attribute_value
+    def find_person(self, command: FindPerson):
+        # Is assumed it always finds the person
+        if command.attribute_value == "":
+            return Status.EXECUTION_SUCCESS, "found person"
+        else:
+            return Status.EXECUTION_SUCCESS, "found person with attribute: " + command.attribute_value
     
     def find_person_by_name(self, command: FindPersonByName):
+        # Is assumed it always finds the person
         return Status.EXECUTION_SUCCESS, f"found {command.name}"
