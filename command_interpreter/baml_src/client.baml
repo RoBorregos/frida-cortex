@@ -13,7 +13,7 @@ client<llm> GEMINI_PRO_2_5 {
   options {
     base_url https://openrouter.ai/api/v1
     api_key env.OPENROUTER_API_KEY
-    model "google/gemini-2.5-pro-preview"
+    model "google/gemini-2.5-pro"
     max_tokens 4096
   }
 }
@@ -24,7 +24,7 @@ client<llm> GEMINI_FLASH_2_5 {
   options {
     base_url https://openrouter.ai/api/v1
     api_key env.OPENROUTER_API_KEY
-    model "google/gemini-2.5-flash-preview"
+    model "google/gemini-2.5-flash"
     max_tokens 4096
   }
 }
