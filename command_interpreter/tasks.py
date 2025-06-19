@@ -55,7 +55,8 @@ class Tasks:
         return Status.EXECUTION_SUCCESS, "answered user's question"
     
     def get_visual_info(self, command: GetVisualInfo):
-        return Status.EXECUTION_SUCCESS, "found: " + command.measure + " " + command.object_category
+        # It is assumed it always finds a box as the desired object
+        return Status.EXECUTION_SUCCESS, "found: box as " + command.measure + " " + command.object_category
     
     def give_object(self, command: GiveObject):
         return Status.EXECUTION_SUCCESS, "object given"
@@ -66,13 +67,13 @@ class Tasks:
         query_result = self.embeddings.query_location(command.destination)
         area = self.embeddings.get_area(query_result)
         subarea = self.embeddings.get_subarea(query_result)
-        return Status.EXECUTION_SUCCESS, "arrived to " + (area + (" -> " + subarea if subarea else ""))
+        return Status.EXECUTION_SUCCESS, "arrived to: " + (area + (" -> " + subarea if subarea else ""))
     
     def guide_person_to(self, command: GuidePersonTo):
         query_result = self.embeddings.query_location(command.destination_room)
         area = self.embeddings.get_area(query_result)
         subarea = self.embeddings.get_subarea(query_result)
-        return Status.EXECUTION_SUCCESS, "arrived to " + (area + (" -> " + subarea if subarea else ""))
+        return Status.EXECUTION_SUCCESS, "arrived to: " + (area + (" -> " + subarea if subarea else ""))
 
     def get_person_info(self, command: GetPersonInfo):
         if command.info_type == "gesture":

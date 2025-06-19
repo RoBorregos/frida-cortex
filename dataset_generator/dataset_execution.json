@@ -142,20 +142,23 @@
         "structured_cmd": [
             {
                 "action": "go_to",
-                "location_to_go": "bathroom"
+                "success": true,
+                "result": "arrived to: bathroom"
             },
             {
                 "action": "count",
-                "target_to_count": "waving persons"
+                "success": true,
+                "result": "found: 4 waving persons"
             },
             {
                 "action": "go_to",
-                "location_to_go": "start_location"
+                "success": true,
+                "result": "arrived to: start_location"
             },
             {
                 "action": "say_with_context",
-                "user_instruction": "tell me how many waving persons are in the bathroom",
-                "previous_command_info": "count"
+                "success": true,
+                "result": "there are 4 waving persons in the bathroom"
             }
         ],
         "cmd_category": "C"
@@ -166,24 +169,28 @@
         "structured_cmd": [
             {
                 "action": "go_to",
-                "location_to_go": "bedroom"
+                "success": true,
+                "result": "arrived to: bedroom"
             },
             {
                 "action": "find_person",
-                "attribute_value": ""
+                "success": true,
+                "result": "found person"
             },
             {
                 "action": "get_person_info",
-                "info_type": "name"
+                "success": true,
+                "result": "person name is John"
             },
             {
                 "action": "go_to",
-                "location_to_go": "start_location"
+                "success": true,
+                "result": "arrived to: start_location"
             },
             {
                 "action": "say_with_context",
-                "user_instruction": "tell me the name of the person in the bedroom",
-                "previous_command_info": "get_person_info"
+                "success": true,
+                "result": "the name of the person in the bedroom is John"
             }
         ],
         "cmd_category": "C"
@@ -194,21 +201,23 @@
         "structured_cmd": [
             {
                 "action": "go_to",
-                "location_to_go": "bookshelf"
+                "success": true,
+                "result": "arrived to: kitchen -> shelf"
             },
             {
                 "action": "get_visual_info",
-                "measure": "biggest",
-                "object_category": "object"
+                "success": true,
+                "result": "found: box as biggest object"
             },
             {
                 "action": "go_to",
-                "location_to_go": "start_location"
+                "success": true,
+                "result": "arrived to: start_location"
             },
             {
                 "action": "say_with_context",
-                "user_instruction": "tell me what is the biggest object on the bookshelf",
-                "previous_command_info": "get_visual_info"
+                "success": true,
+                "result": "the biggest object on the bookshelf is the box"
             }
         ],
         "cmd_category": "C"
