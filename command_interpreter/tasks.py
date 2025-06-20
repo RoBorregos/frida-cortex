@@ -62,8 +62,8 @@ class Tasks:
         return Status.EXECUTION_SUCCESS, "object given"
     
     def follow_person_until(self, command: FollowPersonUntil):
-        if command.destination == "cancelled":
-            return Status.EXECUTION_SUCCESS, "followed user until cancelled"
+        if command.destination == "canceled" or command.destination == "cancelled":
+            return Status.EXECUTION_SUCCESS, "followed user until canceled"
         query_result = self.embeddings.query_location(command.destination)
         area = self.embeddings.get_area(query_result)
         subarea = self.embeddings.get_subarea(query_result)
