@@ -10,8 +10,10 @@ from baml_client.types import (
     GuidePersonTo,
     Count,
     GetPersonInfo,
+    FindPerson,
     FindPersonByName
 )
+from baml_client.sync_client import b
 
 from command_interpreter.status import Status
 from command_interpreter.embeddings.categorization import Embeddings
@@ -44,38 +46,56 @@ class Tasks:
         return Status.EXECUTION_SUCCESS, "placed object"
     
     def say_with_context(self, command: SayWithContext):
-        return Status.EXECUTION_SUCCESS, "success"
+        query_result = self.embeddings.query_command_history(command.user_instruction)
+        response = b.AugmentedResponse(str(query_result), command.user_instruction)
+        return Status.EXECUTION_SUCCESS, response
     
     def answer_question(self, command: AnswerQuestion):
-        return Status.EXECUTION_SUCCESS, "success"
+        # It is assumed it always answers the question
+        return Status.EXECUTION_SUCCESS, "answered user's question"
     
     def get_visual_info(self, command: GetVisualInfo):
-        return Status.EXECUTION_SUCCESS, "Fanta"
+        # It is assumed it always finds a box as the desired object
+        return Status.EXECUTION_SUCCESS, "found: box as " + command.measure + " " + command.object_category
     
     def give_object(self, command: GiveObject):
         return Status.EXECUTION_SUCCESS, "object given"
     
     def follow_person_until(self, command: FollowPersonUntil):
-        if command.destination == "cancelled":
-            return Status.EXECUTION_SUCCESS, "followed user until cancelled"
-        return Status.EXECUTION_SUCCESS, "arrived to " + command.destination
+        if command.destination == "canceled" or command.destination == "cancelled":
+            return Status.EXECUTION_SUCCESS, "followed user until canceled"
+        query_result = self.embeddings.query_location(command.destination)
+        area = self.embeddings.get_area(query_result)
+        subarea = self.embeddings.get_subarea(query_result)
+        return Status.EXECUTION_SUCCESS, "arrived to: " + (area + (" -> " + subarea if subarea else ""))
     
     def guide_person_to(self, command: GuidePersonTo):
-        return Status.EXECUTION_SUCCESS, "arrived to " + command.destination_room
+        query_result = self.embeddings.query_location(command.destination_room)
+        area = self.embeddings.get_area(query_result)
+        subarea = self.embeddings.get_subarea(query_result)
+        return Status.EXECUTION_SUCCESS, "arrived to: " + (area + (" -> " + subarea if subarea else ""))
 
     def get_person_info(self, command: GetPersonInfo):
         if command.info_type == "gesture":
-            return Status.EXECUTION_SUCCESS, "pointing to the right"
+            return Status.EXECUTION_SUCCESS, "person gesture is pointing to the right"
         elif command.info_type == "pose":
-            return Status.EXECUTION_SUCCESS, "standing"
+            return Status.EXECUTION_SUCCESS, "person pose is standing"
+        elif command.info_type == "name":
+            return Status.EXECUTION_SUCCESS, "person name is John"
         
-        return Status.EXECUTION_SUCCESS, "Name: John"
+        return Status.EXECUTION_SUCCESS, "person " + command.info_type + " was found"
     
     def count(self, command: Count):
-        return Status.EXECUTION_SUCCESS, "4"
+        # Always returns 4
+        return Status.EXECUTION_SUCCESS, "found: 4 " + command.target_to_count
     
-    def find_person(self, command: FindPersonByName):
-        return Status.EXECUTION_SUCCESS, "found " + command.attribute_value
+    def find_person(self, command: FindPerson):
+        # Is assumed it always finds the person
+        if command.attribute_value == "":
+            return Status.EXECUTION_SUCCESS, "found person"
+        else:
+            return Status.EXECUTION_SUCCESS, "found person with attribute: " + command.attribute_value
     
     def find_person_by_name(self, command: FindPersonByName):
+        # Is assumed it always finds the person
         return Status.EXECUTION_SUCCESS, f"found {command.name}"
