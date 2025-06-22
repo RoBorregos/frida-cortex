@@ -26,7 +26,7 @@
     {"document": "peach", "metadata": {"context": "fruit peach for eating"}},
     {"document": "pear", "metadata": {"context": "fruit pear for eating"}},
     {"document": "cocacola  ", "metadata": {"context": "type of soda to drink"}},
-    {"document": "galletas", "metadata": {"context": "brand of cookies"}},
+    {"document": "galletas", "metadata": {"context": "brand of cookies as snack"}},
     {"document": "leche", "metadata": {"context": "type of milk to drink"}},
     {"document": "pringles", "metadata": {"context": "brand of potato chips"}}
   ]
