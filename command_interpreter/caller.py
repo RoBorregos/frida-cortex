@@ -55,11 +55,11 @@ def execute_function(command):
                 except Exception:
                     pass
                 
-                tasks.add_command_history(
-                    command,
-                    res,
-                    status,
-                )
+            tasks.add_command_history(
+                command,
+                res,
+                status,
+            )
     except Exception as e:
         print(colored("─" * 60, "red"))
         print(colored("💥 EXECUTION ERROR", "red", attrs=['bold']))
