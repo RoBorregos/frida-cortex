@@ -35,6 +35,17 @@ python3 structured_generator.py
 # The dataset will be generated in `dataset_generator/dataset.json`
 ```
 
+## Execute Legacy Dataset Generator
+
+This generator uses an older, external C# project to generate commands. It requires `mono` and `make` to be installed on your system.
+
+```bash
+# Run in the root directory of the repository
+python3 dataset_generator/legacy_generator.py
+
+# The dataset will be generated in `dataset_generator/legacy_dataset.json`
+```
+
 ## Execute Command Interpreter
 
 If using an API based model, populate the `.env` file with your API keys, based on `.env.example`.
