@@ -428,7 +428,21 @@ class Embeddings():
         Results = self._query_(query, "closest_items", top_k)
         Results = self.get_name(Results)
         print(colored(f"🎯 Database: find_closest result for '{query}': {str(Results)}", "blue", attrs=['bold']))
+
         return Results
+
+    def delete_collection(self, collection_name: str):
+        """
+        Deletes a collection from the ChromaDB.
+        
+        Args:
+            collection_name (str): The name of the collection to delete.
+        """
+        try:
+            self.chroma_adapter.delete_collection(collection_name)
+            print(colored(f"🗑️  Database: Collection '{collection_name}' deleted successfully", "blue", attrs=['bold']))
+        except Exception as e:
+            print(colored(f"❌ Database Error: Failed to delete collection '{collection_name}' - {str(e)}", "red", attrs=['bold']))
 
     def query_item(self, query: str, top_k: int = 1) -> list[str]:
         return self._query_(query, "items", top_k)
@@ -489,21 +503,41 @@ def main():
     embeddings = Embeddings()
     #embeddings.print_all_collections()
 
-    results = embeddings.query_item("soda")
+    # results = embeddings.query_item("soda")
+    # results = embeddings.query_item("soda")
+    # name = embeddings.get_name(results)
+    # name = embeddings.get_name(results)
+    # context = embeddings.get_context(results)
+    embeddings.add_command_history(     
+                command= SimpleNamespace(
+                    action= "get me a soda"),
+                result= 'Succesfull',
+                status= 1
+)
+    
+    results = embeddings.query_command_history("get me a soda")
     name = embeddings.get_name(results)
     context = embeddings.get_context(results)
-
     print("Success:", results)
     print("Name:", name)
-    print("Context:", context)
 
-    results = embeddings.query_location("start_location")
-    area = embeddings.get_area(results)
-    subarea = embeddings.get_subarea(results)
+    embeddings.delete_collection("command_history")
+    results = embeddings.query_command_history("get me a soda")
+    name = embeddings.get_name(results)
     context = embeddings.get_context(results)
     print("Success:", results)
-    print("Location: " + str(area)+ (" -> " + str(subarea) if subarea else ""))
-    print("Context:", context)
+    print("Name:", name)                      
+    # print("Success:", results)
+    # print("Name:", name)
+    # print("Context:", context)
+
+    # results = embeddings.query_location("start_location")
+    # area = embeddings.get_area(results)
+    # subarea = embeddings.get_subarea(results)
+    # context = embeddings.get_context(results)
+    # print("Success:", results)
+    # print("Location: " + str(area)+ (" -> " + str(subarea) if subarea else ""))
+    # print("Context:", context)
 
 
 
