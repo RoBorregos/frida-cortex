@@ -11,6 +11,7 @@ def search_command(command, objects: list[object]):
 
 def execute_function(command):
     tasks = Tasks()
+    tasks.clear_command_history()
     try:
         exec_commad = search_command(
             command.action,

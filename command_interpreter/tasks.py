@@ -106,3 +106,7 @@ class Tasks:
             res,
             status,
         )
+
+    def clear_command_history(self):
+        """Clears the command history before execution"""
+        self.embeddings.delete_collection("command_history")
