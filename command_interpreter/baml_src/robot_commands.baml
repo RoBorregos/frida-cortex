@@ -200,7 +200,7 @@ function GenerateCommandListFineTuned(request: string) -> CommandListLLM {
 }
 
 function GenerateCommandList(request: string) -> CommandListLLM {
-  client GEMINI_FLASH_2_5
+  client GEMMA_2_7B
   prompt #"
     {{ _.role("system") }}
     {{ RobotServiceSystem() }}

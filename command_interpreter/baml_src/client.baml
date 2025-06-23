@@ -82,13 +82,35 @@ client<llm> META_LLAMA_3_3_70B {
 }
 
 // This isnt working
-client<llm> META_LLAMA_2_70B_HF {
+client<llm> META_LLAMA_2_70B {
   provider "openai-generic"
   retry_policy Constant
   options {
-    base_url https://router.huggingface.co/together/v1
-    api_key env.HF_TOKEN
+    base_url https://api.together.xyz/v1
+    api_key env.TOGETHER_AI_API_KEY
     model "meta-llama/Llama-2-70b-hf"
+    max_tokens 2048
+  }
+}
+
+client<llm> GEMMA_2_27B {
+  provider "openai-generic"
+  retry_policy Constant
+  options {
+    base_url https://openrouter.ai/api/v1
+    api_key env.OPENROUTER_API_KEY
+    model "google/gemma-2-27b-it"
+    max_tokens 4096
+  }
+}
+
+client<llm> GEMMA_2_7B {
+  provider "openai-generic"
+  retry_policy Constant
+  options {
+    base_url https://integrate.api.nvidia.com/v1
+    api_key env.NVIDIA_API_KEY
+    model "google/gemma-7b"
     max_tokens 2048
   }
 }
@@ -110,9 +132,6 @@ client<llm> LOCAL_QWEN3_0_6B {
     max_tokens 4096
   }
 }
-
-
-
 
 
 retry_policy Constant {
