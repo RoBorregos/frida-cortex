@@ -46,7 +46,7 @@ class Tasks:
         return Status.EXECUTION_SUCCESS, "placed object"
     
     def say_with_context(self, command: SayWithContext):
-        query_result = self.embeddings.query_command_history(command.user_instruction)
+        query_result = self.embeddings.query_command_history(command.previous_command_info)
         response = b.AugmentedResponse(str(query_result), command.user_instruction)
         return Status.EXECUTION_SUCCESS, response
     
@@ -99,3 +99,10 @@ class Tasks:
     def find_person_by_name(self, command: FindPersonByName):
         # Is assumed it always finds the person
         return Status.EXECUTION_SUCCESS, f"found {command.name}"
+    
+    def add_command_history(self, command, res, status):
+        self.embeddings.add_command_history(
+            command,
+            res,
+            status,
+        )

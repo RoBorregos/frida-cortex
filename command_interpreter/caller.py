@@ -55,15 +55,14 @@ def execute_function(command):
                 except Exception:
                     pass
                 
-                # TODO: command history
-                # self.subtask_manager.hri.add_command_history(
-                #     command,
-                #     res,
-                #     status,
-                # )
+                tasks.add_command_history(
+                    command,
+                    res,
+                    status,
+                )
     except Exception as e:
         print(colored("─" * 60, "red"))
-        print(colored(f"💥 EXECUTION ERROR", "red", attrs=['bold']))
+        print(colored("💥 EXECUTION ERROR", "red", attrs=['bold']))
         print(colored("─" * 60, "red"))
         print(colored(f"Command: {str(command)}", "yellow"))
         print(colored(f"Error: {str(e)}", "red", attrs=['bold']))
