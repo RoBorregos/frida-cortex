@@ -12,6 +12,7 @@ from command_interpreter.embeddings.chroma_adapter import ChromaAdapter
 from pydantic import BaseModel, ValidationError
 from types import SimpleNamespace
 from termcolor import colored
+from datetime import datetime
 
 
 class MetadataProfile(str, Enum):
@@ -288,6 +289,24 @@ class Embeddings():
         # self.print_all_collections()
         return
 
+    def add_command_history(self, command, result, status):
+        collection = "command_history"
+
+        document = [command.action]
+        metadata = [
+            {
+                "command": str(command),
+                "result": result,
+                "status": status,
+                "timestamp": datetime.now().isoformat(),
+            }
+        ]
+
+        request = SimpleNamespace(
+            document=document, metadata=json.dumps(metadata), collection=collection
+        )
+        self.add_entry_callback(request)
+    
     def add_locations(self):
         collection_name = "locations"
         collections_ = self.chroma_adapter.list_collections()
