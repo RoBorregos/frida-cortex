@@ -11,7 +11,7 @@ from baml_py import ClientRegistry
 from dotenv import load_dotenv
 from baml_client.types import CommandListLLM
 from baml_client.config import set_log_level
-from command_interpreter.caller import execute_function
+from command_interpreter.caller import execute_function, clear_command_history
 from termcolor import colored
 
 # Add the dataset_generator directory to the path to import the CommandGenerator
@@ -200,6 +200,7 @@ def execute_command(command_text):
         print(colored("="*60, "green"))
         for cmd in command_list.commands:
             execute_function(cmd)
+        clear_command_history()
         print(colored("="*60, "green"))
         print(colored("🎉 All commands completed!", "green", attrs=['bold']))
         print(colored("="*60, "green"))
