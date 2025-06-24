@@ -9,8 +9,7 @@ def search_command(command, objects: list[object]):
                 return method
     return None
 
-def execute_function(command):
-    tasks = Tasks()
+def execute_function(command, tasks):
     try:
         exec_commad = search_command(
             command.action,
@@ -68,6 +67,5 @@ def execute_function(command):
         print(colored(f"Error: {str(e)}", "red", attrs=['bold']))
         print(colored("─" * 60, "red"))
 
-def clear_command_history():
-    tasks = Tasks()
+def clear_command_history(tasks):
     tasks.clear_command_history()

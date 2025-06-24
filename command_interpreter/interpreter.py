@@ -12,6 +12,7 @@ from dotenv import load_dotenv
 from baml_client.types import CommandListLLM
 from baml_client.config import set_log_level
 from command_interpreter.caller import execute_function, clear_command_history
+from command_interpreter.tasks import Tasks
 from termcolor import colored
 
 # Add the dataset_generator directory to the path to import the CommandGenerator
@@ -160,7 +161,7 @@ def setup_command_generator():
         print(colored("Make sure the CompetitionTemplate submodule is initialized.", "yellow"))
         return None
 
-def generate_and_execute_command(command_generator):
+def generate_and_execute_command(command_generator, tasks):
     """Generate a random command and execute it with the current model"""
     if command_generator is None:
         print(colored("Command generator is not available. Please check the CompetitionTemplate setup.", "red"))
@@ -177,12 +178,12 @@ def generate_and_execute_command(command_generator):
         print(colored("="*50, "green"))
         
         # Execute the generated command with the current model
-        execute_command(string_cmd)
+        execute_command(string_cmd, tasks)
         
     except Exception as e:
         print(colored(f"Error generating command: {e}", "red"))
 
-def execute_command(command_text):
+def execute_command(command_text, tasks):
     """Execute a command using the appropriate model function"""
     try:
         print(f"\n{colored('Executing with model:', 'cyan')} {colored(current_model, 'green', attrs=['bold'])}")
@@ -199,8 +200,8 @@ def execute_command(command_text):
         print(colored("🚀 EXECUTING COMMANDS", "green", attrs=['bold']))
         print(colored("="*60, "green"))
         for cmd in command_list.commands:
-            execute_function(cmd)
-        clear_command_history()
+            execute_function(cmd, tasks)
+        clear_command_history(tasks)
         print(colored("="*60, "green"))
         print(colored("🎉 All commands completed!", "green", attrs=['bold']))
         print(colored("="*60, "green"))
@@ -219,6 +220,9 @@ def main():
     except Exception as e:
         print(colored(f"Warning: Command generator setup failed: {e}", "red"))
     
+    # Create a single Tasks instance to reuse throughout the session
+    tasks = Tasks()
+    
     # Set initial model
     client_registry.set_primary(current_model)
     
@@ -236,10 +240,10 @@ def main():
             elif user_input.lower() == 'm':
                 select_model()
             elif user_input.lower() == 'g':
-                generate_and_execute_command(command_generator)
+                generate_and_execute_command(command_generator, tasks)
             elif user_input:
                 # Natural language command
-                execute_command(user_input)
+                execute_command(user_input, tasks)
             else:
                 print(colored("Please enter a valid command.", "yellow"))
                 
