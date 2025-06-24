@@ -46,8 +46,15 @@ class Tasks:
         return Status.EXECUTION_SUCCESS, "placed object"
     
     def say_with_context(self, command: SayWithContext):
-        query_result = self.embeddings.query_command_history(command.previous_command_info)
-        response = b.AugmentedResponse(str(query_result), command.user_instruction)
+        query_command_history = self.embeddings.query_command_history(command.previous_command_info + " " + command.user_instruction)
+        query_tec_knowledge = self.embeddings.query_tec_knowledge(command.previous_command_info + " " + command.user_instruction)
+        query_frida_knowledge = self.embeddings.query_frida_knowledge(command.previous_command_info + " " + command.user_instruction)
+        query_roborregos_knowledge = self.embeddings.query_roborregos_knowledge(command.previous_command_info + " " + command.user_instruction)
+        query_result = ("command history: " + str(query_command_history) + "\n"
+                        + "tec knowledge: " + str(query_tec_knowledge) + "\n"
+                        + "frida knowledge: " + str(query_frida_knowledge) + "\n"
+                        + "roborregos knowledge: " + str(query_roborregos_knowledge))
+        response = b.AugmentedResponse(query_result, command.user_instruction)
         return Status.EXECUTION_SUCCESS, response
     
     def answer_question(self, command: AnswerQuestion):
