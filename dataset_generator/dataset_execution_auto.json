@@ -1,0 +1,5952 @@
+[
+    {
+        "cmd_type": "goToLoc",
+        "string_cmd": "go to the bedroom then find a cheezit and get it and place it on the shelf",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: cheezit"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: shelf"
+            },
+            {
+                "action": "place_object",
+                "success": true,
+                "result": "placed object"
+            }
+        ],
+        "cmd_category": "A|B|C"
+    },
+    {
+        "cmd_type": "takeObjFromPlcmt",
+        "string_cmd": "grasp a dish from the sink and bring it to me",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sink"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: dish"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "findPrsInRoom",
+        "string_cmd": "locate a person pointing to the right in the living room and say the day of the month",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the right"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "the day of the month"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "findObjInRoom",
+        "string_cmd": "look for a toy in the kitchen then fetch it and bring it to Adel in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: toy"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Adel"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "meetPrsAtBeac",
+        "string_cmd": "meet Jules in the office and follow them",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jules"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "countObjOnPlcmt",
+        "string_cmd": "tell me how many dishes there are on the dishwasher",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: dishwasher"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 dishes"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "countPrsInRoom",
+        "string_cmd": "tell me how many waving persons are in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 waving persons"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoInLoc",
+        "string_cmd": "tell me the name of the person in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person name is John"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellObjPropOnPlcmt",
+        "string_cmd": "tell me what is the biggest object on the bookshelf",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bookshelf"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: biggest object"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "talkInfoToGestPrsInRoom",
+        "string_cmd": "tell your teams country to the person raising their right arm in the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their right arm"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "your teams country"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "answerToGestPrsInRoom",
+        "string_cmd": "answer the question of the person pointing to the right in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the right"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followNameFromBeacToRoom",
+        "string_cmd": "follow Jane from the entrance to the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: entrance"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jane"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: bathroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideNameFromBeacToBeac",
+        "string_cmd": "lead Simone from the cabinet to the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Simone"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: living room"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guidePrsFromBeacToBeac",
+        "string_cmd": "escort the person pointing to the right from the sofa to the chairs",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sofa"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the right"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: chairs"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideClothPrsFromBeacToBeac",
+        "string_cmd": "guide the person wearing a black shirt from the kitchen table to the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen table"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: black shirt"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "bringMeObjFromPlcmt",
+        "string_cmd": "bring me a spoon from the sink",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sink"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: spoon"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "tellCatPropOnPlcmt",
+        "string_cmd": "tell me what is the heaviest food on the bedside table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedside table"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: heaviest food"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "greetClothDscInRm",
+        "string_cmd": "salute the person wearing a gray sweater in the bedroom and follow them to the lamp",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: gray sweater"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: lamp"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "greetNameInRm",
+        "string_cmd": "greet Robin in the bathroom and follow them to the cabinet",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Robin"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: cabinet"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "meetNameAtLocThenFindInRm",
+        "string_cmd": "meet Jules at the armchair then look for them in the kitchen",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: armchair"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jules"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jules"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "countClothPrsInRoom",
+        "string_cmd": "tell me how many people in the kitchen are wearing black coats",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 people wearing black coats"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+        "string_cmd": "tell the gesture of the person at the refrigerator to the person at the cabinet",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: refrigerator"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person gesture is pointing to the right"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followPrsAtLoc",
+        "string_cmd": "follow the lying person in the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: lying person"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "goToLoc",
+        "string_cmd": "go to the bathroom then look for a cheezit and fetch it and deliver it to the person pointing to the right in the kitchen",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: cheezit"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the right"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "A|B|C"
+    },
+    {
+        "cmd_type": "takeObjFromPlcmt",
+        "string_cmd": "get a mustard from the storage rack and deliver it to Jules in the kitchen",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: storage rack"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: mustard_bottle"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jules"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "findPrsInRoom",
+        "string_cmd": "locate a lying person in the office and guide them to the dishwasher",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: lying person"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: dishwasher"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "findObjInRoom",
+        "string_cmd": "locate a cleaning supply in the kitchen then get it and place it on the storage rack",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: cleaning supply"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: storage rack"
+            },
+            {
+                "action": "place_object",
+                "success": true,
+                "result": "placed object"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "meetPrsAtBeac",
+        "string_cmd": "meet Simone in the office and follow them",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Simone"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "countObjOnPlcmt",
+        "string_cmd": "tell me how many fruits there are on the cabinet",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 fruits"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "countPrsInRoom",
+        "string_cmd": "tell me how many sitting persons are in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 sitting persons"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoInLoc",
+        "string_cmd": "tell me the pose of the person at the desk lamp",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: desk lamp"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person pose is standing"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellObjPropOnPlcmt",
+        "string_cmd": "tell me what is the smallest object on the tv stand",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: tv stand"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: smallest object"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "talkInfoToGestPrsInRoom",
+        "string_cmd": "tell the day of the month to the person raising their left arm in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their left arm"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "the day of the month"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "answerToGestPrsInRoom",
+        "string_cmd": "answer the quiz of the person raising their right arm in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their right arm"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followNameFromBeacToRoom",
+        "string_cmd": "follow Angel from the bedside table to the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedside table"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Angel"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: living room"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideNameFromBeacToBeac",
+        "string_cmd": "escort Angel from the desk lamp to the waste basket",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: desk lamp"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Angel"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: waste basket"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guidePrsFromBeacToBeac",
+        "string_cmd": "escort the standing person from the bookshelf to the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bookshelf"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: standing person"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: office"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideClothPrsFromBeacToBeac",
+        "string_cmd": "take the person wearing a red sweater from the entrance to the chairs",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: entrance"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: red sweater"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: chairs"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "bringMeObjFromPlcmt",
+        "string_cmd": "bring me a coffee grounds from the side tables",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: side tables"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: coffee grounds"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "tellCatPropOnPlcmt",
+        "string_cmd": "tell me what is the thinnest fruit on the pantry",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: pantry"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: thinnest fruit"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "greetClothDscInRm",
+        "string_cmd": "greet the person wearing a black shirt in the office and follow them",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: black shirt"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "greetNameInRm",
+        "string_cmd": "greet Morgan in the kitchen and escort them to the side tables",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Morgan"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: side tables"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "meetNameAtLocThenFindInRm",
+        "string_cmd": "meet Charlie at the waste basket then locate them in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: waste basket"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Charlie"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Charlie"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "countClothPrsInRoom",
+        "string_cmd": "tell me how many people in the bedroom are wearing blue coats",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 people wearing blue coats"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+        "string_cmd": "tell the name of the person at the armchair to the person at the pantry",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: armchair"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person name is John"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: pantry"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followPrsAtLoc",
+        "string_cmd": "follow the lying person at the entrance",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: entrance"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: lying person"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "goToLoc",
+        "string_cmd": "go to the kitchen then find a spoon and get it and put it on the refrigerator",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: spoon"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: refrigerator"
+            },
+            {
+                "action": "place_object",
+                "success": true,
+                "result": "placed object"
+            }
+        ],
+        "cmd_category": "A|B|C"
+    },
+    {
+        "cmd_type": "takeObjFromPlcmt",
+        "string_cmd": "grasp a food from the cabinet and give it to me",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: food"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "findPrsInRoom",
+        "string_cmd": "find a lying person in the office and lead them to the cabinet",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: lying person"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "findObjInRoom",
+        "string_cmd": "look for a plate in the kitchen then get it and give it to Morgan in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: plate"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Morgan"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "meetPrsAtBeac",
+        "string_cmd": "meet Axel in the bedroom and answer a question",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Axel"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "countObjOnPlcmt",
+        "string_cmd": "tell me how many toys there are on the tv stand",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: tv stand"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 toys"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "countPrsInRoom",
+        "string_cmd": "tell me how many standing persons are in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 standing persons"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoInLoc",
+        "string_cmd": "tell me the pose of the person at the dishwasher",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: dishwasher"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person pose is standing"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellObjPropOnPlcmt",
+        "string_cmd": "tell me what is the heaviest object on the sofa",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sofa"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: heaviest object"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "talkInfoToGestPrsInRoom",
+        "string_cmd": "tell the day of the month to the person raising their left arm in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their left arm"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "the day of the month"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "answerToGestPrsInRoom",
+        "string_cmd": "answer the quiz of the person pointing to the right in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the right"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followNameFromBeacToRoom",
+        "string_cmd": "follow Jules from the storage rack to the kitchen",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: storage rack"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jules"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: kitchen"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideNameFromBeacToBeac",
+        "string_cmd": "escort Robin from the coatrack to the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: coatrack"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Robin"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: living room"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guidePrsFromBeacToBeac",
+        "string_cmd": "lead the person pointing to the right from the sofa to the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sofa"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the right"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideClothPrsFromBeacToBeac",
+        "string_cmd": "take the person wearing a red t shirt from the storage rack to the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: storage rack"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: red t shirt"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "bringMeObjFromPlcmt",
+        "string_cmd": "bring me a plum from the pantry",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: pantry"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: plum"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "tellCatPropOnPlcmt",
+        "string_cmd": "tell me what is the lightest drink on the side tables",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: side tables"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: lightest drink"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "greetClothDscInRm",
+        "string_cmd": "say hello to the person wearing a black shirt in the office and follow them to the desk",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: black shirt"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: desk"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "greetNameInRm",
+        "string_cmd": "say hello to Charlie in the office and say your teams affiliation",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Charlie"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "your teams affiliation"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "meetNameAtLocThenFindInRm",
+        "string_cmd": "meet Morgan at the dishwasher then find them in the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: dishwasher"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Morgan"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Morgan"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "countClothPrsInRoom",
+        "string_cmd": "tell me how many people in the bathroom are wearing red blouses",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 people wearing red blouses"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+        "string_cmd": "tell the gesture of the person at the exit to the person at the entrance",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: exit"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person gesture is pointing to the right"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: entrance"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followPrsAtLoc",
+        "string_cmd": "follow the standing person at the desk",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: desk"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: standing person"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "goToLoc",
+        "string_cmd": "go to the living room then locate a mustard and take it and put it on the shelf",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: mustard_bottle"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: shelf"
+            },
+            {
+                "action": "place_object",
+                "success": true,
+                "result": "placed object"
+            }
+        ],
+        "cmd_category": "A|B|C"
+    },
+    {
+        "cmd_type": "takeObjFromPlcmt",
+        "string_cmd": "fetch a drink from the desk and bring it to me",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: desk"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: drink"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "findPrsInRoom",
+        "string_cmd": "locate a standing person in the living room and say your teams country",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: standing person"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "your teams country"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "findObjInRoom",
+        "string_cmd": "locate a fruit in the kitchen then grasp it and deliver it to me",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: fruit"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "meetPrsAtBeac",
+        "string_cmd": "meet Jane in the bathroom and say your teams name",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jane"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "your teams name"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "countObjOnPlcmt",
+        "string_cmd": "tell me how many fruits there are on the kitchen table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen table"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 fruits"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "countPrsInRoom",
+        "string_cmd": "tell me how many lying persons are in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 lying persons"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoInLoc",
+        "string_cmd": "tell me the pose of the person at the sofa",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sofa"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person pose is standing"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellObjPropOnPlcmt",
+        "string_cmd": "tell me what is the heaviest object on the bedside table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedside table"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: heaviest object"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "talkInfoToGestPrsInRoom",
+        "string_cmd": "say what day is today to the person raising their right arm in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their right arm"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "what day is today"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "answerToGestPrsInRoom",
+        "string_cmd": "answer the quiz of the person pointing to the left in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the left"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followNameFromBeacToRoom",
+        "string_cmd": "follow Axel from the cabinet to the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Axel"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: living room"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideNameFromBeacToBeac",
+        "string_cmd": "take Charlie from the waste basket to the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: waste basket"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Charlie"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guidePrsFromBeacToBeac",
+        "string_cmd": "take the waving person from the bookshelf to the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bookshelf"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: waving person"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideClothPrsFromBeacToBeac",
+        "string_cmd": "guide the person wearing a white sweater from the shelf to the kitchen",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: shelf"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: white sweater"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "bringMeObjFromPlcmt",
+        "string_cmd": "bring me a pringles from the sofa",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sofa"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: pringles"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "tellCatPropOnPlcmt",
+        "string_cmd": "tell me what is the smallest fruit on the cabinet",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: smallest fruit"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "greetClothDscInRm",
+        "string_cmd": "say hello to the person wearing a red jacket in the living room and follow them to the sink",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: red jacket"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: sink"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "greetNameInRm",
+        "string_cmd": "salute Morgan in the living room and guide them to the coatrack",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Morgan"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: coatrack"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "meetNameAtLocThenFindInRm",
+        "string_cmd": "meet Adel at the bedside table then locate them in the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedside table"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Adel"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Adel"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "countClothPrsInRoom",
+        "string_cmd": "tell me how many people in the living room are wearing white jackets",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 people wearing white jackets"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+        "string_cmd": "tell the gesture of the person at the sofa to the person at the kitchen table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sofa"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person gesture is pointing to the right"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen table"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followPrsAtLoc",
+        "string_cmd": "follow the lying person in the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: lying person"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "goToLoc",
+        "string_cmd": "go to the pantry then look for a toy and fetch it and give it to me",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: pantry"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: toy"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "A|B|C"
+    },
+    {
+        "cmd_type": "takeObjFromPlcmt",
+        "string_cmd": "take a snack from the side tables and put it on the sink",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: side tables"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: snack"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sink"
+            },
+            {
+                "action": "place_object",
+                "success": true,
+                "result": "placed object"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "findPrsInRoom",
+        "string_cmd": "look for a sitting person in the kitchen and follow them",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: sitting person"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "findObjInRoom",
+        "string_cmd": "locate a snack in the living room then grasp it and place it on the bookshelf",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: snack"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bookshelf"
+            },
+            {
+                "action": "place_object",
+                "success": true,
+                "result": "placed object"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "meetPrsAtBeac",
+        "string_cmd": "meet Jane in the bathroom and take them to the exit",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jane"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: exit"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "countObjOnPlcmt",
+        "string_cmd": "tell me how many cleaning supplies there are on the tv stand",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: tv stand"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 cleaning supplies"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "countPrsInRoom",
+        "string_cmd": "tell me how many persons pointing to the left are in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 persons pointing to the left"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoInLoc",
+        "string_cmd": "tell me the pose of the person in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person pose is standing"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellObjPropOnPlcmt",
+        "string_cmd": "tell me what is the lightest object on the tv stand",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: tv stand"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: lightest object"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "talkInfoToGestPrsInRoom",
+        "string_cmd": "say the day of the week to the person raising their left arm in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their left arm"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "the day of the week"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "answerToGestPrsInRoom",
+        "string_cmd": "answer the quiz of the person pointing to the left in the kitchen",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the left"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followNameFromBeacToRoom",
+        "string_cmd": "follow Charlie from the side tables to the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: side tables"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Charlie"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: bedroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideNameFromBeacToBeac",
+        "string_cmd": "lead Paris from the lamp to the desk",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: lamp"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Paris"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: desk"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guidePrsFromBeacToBeac",
+        "string_cmd": "guide the person pointing to the left from the shelf to the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: shelf"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the left"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: living room"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideClothPrsFromBeacToBeac",
+        "string_cmd": "lead the person wearing a blue sweater from the desk to the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: desk"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: blue sweater"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "bringMeObjFromPlcmt",
+        "string_cmd": "bring me a red wine from the bedside table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedside table"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: red wine"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "tellCatPropOnPlcmt",
+        "string_cmd": "tell me what is the biggest toy on the desk",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: desk"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: biggest toy"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "greetClothDscInRm",
+        "string_cmd": "greet the person wearing a black coat in the bedroom and say what day is tomorrow",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: black coat"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "what day is tomorrow"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "greetNameInRm",
+        "string_cmd": "say hello to Robin in the office and follow them to the desk",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Robin"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: desk"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "meetNameAtLocThenFindInRm",
+        "string_cmd": "meet Morgan at the desk then find them in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: desk"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Morgan"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Morgan"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "countClothPrsInRoom",
+        "string_cmd": "tell me how many people in the office are wearing red sweaters",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 people wearing red sweaters"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+        "string_cmd": "tell the pose of the person at the refrigerator to the person at the bookshelf",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: refrigerator"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person pose is standing"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bookshelf"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followPrsAtLoc",
+        "string_cmd": "follow the person raising their left arm at the entrance",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: entrance"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their left arm"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "goToLoc",
+        "string_cmd": "go to the bathroom then locate a cup and fetch it and put it on the side tables",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: cup"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: side tables"
+            },
+            {
+                "action": "place_object",
+                "success": true,
+                "result": "placed object"
+            }
+        ],
+        "cmd_category": "A|B|C"
+    },
+    {
+        "cmd_type": "takeObjFromPlcmt",
+        "string_cmd": "fetch a tennis ball from the dishwasher and give it to Morgan in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: dishwasher"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: tennis ball"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Morgan"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "findPrsInRoom",
+        "string_cmd": "locate a waving person in the bathroom and answer a quiz",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: waving person"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "findObjInRoom",
+        "string_cmd": "look for a tomato soup in the living room then fetch it and deliver it to me",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: tomato soup"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "meetPrsAtBeac",
+        "string_cmd": "meet Axel in the office and follow them",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Axel"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "countObjOnPlcmt",
+        "string_cmd": "tell me how many fruits there are on the desk",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: desk"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 fruits"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "countPrsInRoom",
+        "string_cmd": "tell me how many standing persons are in the kitchen",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 standing persons"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoInLoc",
+        "string_cmd": "tell me the pose of the person at the tv stand",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: tv stand"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person pose is standing"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellObjPropOnPlcmt",
+        "string_cmd": "tell me what is the thinnest object on the sofa",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sofa"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: thinnest object"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "talkInfoToGestPrsInRoom",
+        "string_cmd": "say the time to the person pointing to the left in the kitchen",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the left"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "the time"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "answerToGestPrsInRoom",
+        "string_cmd": "answer the quiz of the person raising their right arm in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their right arm"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followNameFromBeacToRoom",
+        "string_cmd": "follow Jules from the bed to the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bed"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jules"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: living room"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideNameFromBeacToBeac",
+        "string_cmd": "lead Paris from the pantry to the kitchen table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: pantry"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Paris"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: kitchen table"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guidePrsFromBeacToBeac",
+        "string_cmd": "guide the standing person from the entrance to the dishwasher",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: entrance"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: standing person"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: dishwasher"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideClothPrsFromBeacToBeac",
+        "string_cmd": "escort the person wearing a red t shirt from the trashbin to the bedside table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: trashbin"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: red t shirt"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: bedside table"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "bringMeObjFromPlcmt",
+        "string_cmd": "give me a cheezit from the kitchen table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen table"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: cheezit"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "tellCatPropOnPlcmt",
+        "string_cmd": "tell me what is the lightest toy on the cabinet",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: lightest toy"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "greetClothDscInRm",
+        "string_cmd": "greet the person wearing an orange t shirt in the living room and take them to the coatrack",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: orange t shirt"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: coatrack"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "greetNameInRm",
+        "string_cmd": "say hello to Axel in the kitchen and guide them to the entrance",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Axel"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: entrance"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "meetNameAtLocThenFindInRm",
+        "string_cmd": "meet Axel at the sink then find them in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sink"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Axel"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Axel"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "countClothPrsInRoom",
+        "string_cmd": "tell me how many people in the bathroom are wearing white sweaters",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 people wearing white sweaters"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+        "string_cmd": "tell the name of the person at the trashbin to the person at the desk",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: trashbin"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person name is John"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: desk"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followPrsAtLoc",
+        "string_cmd": "follow the person raising their left arm in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their left arm"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "goToLoc",
+        "string_cmd": "navigate to the cabinet then look for a cleaning supply and get it and deliver it to me",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: cleaning supply"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "A|B|C"
+    },
+    {
+        "cmd_type": "takeObjFromPlcmt",
+        "string_cmd": "grasp a toy from the bookshelf and deliver it to me",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bookshelf"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: toy"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "findPrsInRoom",
+        "string_cmd": "find a sitting person in the bedroom and follow them",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: sitting person"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "findObjInRoom",
+        "string_cmd": "find a fruit in the bathroom then take it and deliver it to the waving person in the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: fruit"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: waving person"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "meetPrsAtBeac",
+        "string_cmd": "meet Simone in the living room and escort them to the bedside table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Simone"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: bedside table"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "countObjOnPlcmt",
+        "string_cmd": "tell me how many cleaning supplies there are on the side tables",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: side tables"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 cleaning supplies"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "countPrsInRoom",
+        "string_cmd": "tell me how many sitting persons are in the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 sitting persons"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoInLoc",
+        "string_cmd": "tell me the pose of the person in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person pose is standing"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellObjPropOnPlcmt",
+        "string_cmd": "tell me what is the biggest object on the sink",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sink"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: biggest object"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "talkInfoToGestPrsInRoom",
+        "string_cmd": "say what day is tomorrow to the person raising their left arm in the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their left arm"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "what day is tomorrow"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "answerToGestPrsInRoom",
+        "string_cmd": "answer the quiz of the person pointing to the right in the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the right"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followNameFromBeacToRoom",
+        "string_cmd": "follow Morgan from the sink to the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sink"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Morgan"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: bedroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideNameFromBeacToBeac",
+        "string_cmd": "guide Axel from the side tables to the kitchen",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: side tables"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Axel"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guidePrsFromBeacToBeac",
+        "string_cmd": "guide the lying person from the bed to the tv stand",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bed"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: lying person"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: tv stand"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideClothPrsFromBeacToBeac",
+        "string_cmd": "lead the person wearing a gray sweater from the potted plant to the storage rack",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: potted plant"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: gray sweater"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: storage rack"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "bringMeObjFromPlcmt",
+        "string_cmd": "bring me a mustard from the shelf",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: shelf"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: mustard_bottle"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "tellCatPropOnPlcmt",
+        "string_cmd": "tell me what is the lightest dish on the bedside table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedside table"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: lightest dish"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "greetClothDscInRm",
+        "string_cmd": "greet the person wearing a white coat in the kitchen and escort them to the desk",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: white coat"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: desk"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "greetNameInRm",
+        "string_cmd": "introduce yourself to Morgan in the bedroom and follow them",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Morgan"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "meetNameAtLocThenFindInRm",
+        "string_cmd": "meet Charlie at the desk lamp then locate them in the kitchen",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: desk lamp"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Charlie"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Charlie"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "countClothPrsInRoom",
+        "string_cmd": "tell me how many people in the office are wearing yellow blouses",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 people wearing yellow blouses"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+        "string_cmd": "tell the pose of the person at the cabinet to the person at the dishwasher",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person pose is standing"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: dishwasher"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followPrsAtLoc",
+        "string_cmd": "follow the lying person in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: lying person"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "goToLoc",
+        "string_cmd": "go to the bedroom then look for a fruit and fetch it and bring it to Jane in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: fruit"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jane"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "A|B|C"
+    },
+    {
+        "cmd_type": "takeObjFromPlcmt",
+        "string_cmd": "take a food from the shelf and bring it to me",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: shelf"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: food"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "findPrsInRoom",
+        "string_cmd": "locate a sitting person in the living room and follow them",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: sitting person"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "findObjInRoom",
+        "string_cmd": "locate a spam in the bedroom then grasp it and bring it to me",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: spam"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "meetPrsAtBeac",
+        "string_cmd": "meet Axel in the kitchen and lead them to the desk",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Axel"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: desk"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "countObjOnPlcmt",
+        "string_cmd": "tell me how many fruits there are on the kitchen table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen table"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 fruits"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "countPrsInRoom",
+        "string_cmd": "tell me how many persons raising their left arm are in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 persons raising their left arm"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoInLoc",
+        "string_cmd": "tell me the name of the person in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person name is John"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellObjPropOnPlcmt",
+        "string_cmd": "tell me what is the biggest object on the refrigerator",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: refrigerator"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: biggest object"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "talkInfoToGestPrsInRoom",
+        "string_cmd": "say your teams name to the person pointing to the left in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the left"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "your teams name"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "answerToGestPrsInRoom",
+        "string_cmd": "answer the quiz of the person pointing to the left in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the left"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followNameFromBeacToRoom",
+        "string_cmd": "follow Charlie from the waste basket to the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: waste basket"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Charlie"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: bedroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideNameFromBeacToBeac",
+        "string_cmd": "take Axel from the cabinet to the sofa",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Axel"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: sofa"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guidePrsFromBeacToBeac",
+        "string_cmd": "lead the person raising their right arm from the entrance to the kitchen",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: entrance"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their right arm"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideClothPrsFromBeacToBeac",
+        "string_cmd": "guide the person wearing a orange shirt from the pantry to the refrigerator",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: pantry"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: orange shirt"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: refrigerator"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "bringMeObjFromPlcmt",
+        "string_cmd": "bring me a pringles from the bed",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bed"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: pringles"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "tellCatPropOnPlcmt",
+        "string_cmd": "tell me what is the largest fruit on the storage rack",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: storage rack"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: largest fruit"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "greetClothDscInRm",
+        "string_cmd": "introduce yourself to the person wearing a blue sweater in the bedroom and take them to the coatrack",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: blue sweater"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: coatrack"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "greetNameInRm",
+        "string_cmd": "salute Robin in the living room and follow them to the bed",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Robin"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: bed"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "meetNameAtLocThenFindInRm",
+        "string_cmd": "meet Adel at the cabinet then look for them in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Adel"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Adel"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "countClothPrsInRoom",
+        "string_cmd": "tell me how many people in the bathroom are wearing yellow t shirts",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 people wearing yellow t shirts"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+        "string_cmd": "tell the pose of the person at the exit to the person at the potted plant",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: exit"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person pose is standing"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: potted plant"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followPrsAtLoc",
+        "string_cmd": "follow the person pointing to the left at the lamp",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: lamp"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the left"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "goToLoc",
+        "string_cmd": "go to the potted plant then find an orange and take it and deliver it to the person pointing to the left in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: potted plant"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: orange"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the left"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "A|B|C"
+    },
+    {
+        "cmd_type": "takeObjFromPlcmt",
+        "string_cmd": "take a fruit from the kitchen table and deliver it to me",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen table"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: fruit"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "findPrsInRoom",
+        "string_cmd": "find a sitting person in the bathroom and follow them",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: sitting person"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "findObjInRoom",
+        "string_cmd": "find a cup in the bedroom then take it and give it to me",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: cup"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "meetPrsAtBeac",
+        "string_cmd": "meet Angel in the living room and follow them",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Angel"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "countObjOnPlcmt",
+        "string_cmd": "tell me how many cleaning supplies there are on the shelf",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: shelf"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 cleaning supplies"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "countPrsInRoom",
+        "string_cmd": "tell me how many persons pointing to the right are in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 persons pointing to the right"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoInLoc",
+        "string_cmd": "tell me the pose of the person at the storage rack",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: storage rack"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person pose is standing"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellObjPropOnPlcmt",
+        "string_cmd": "tell me what is the biggest object on the sink",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: sink"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: biggest object"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "talkInfoToGestPrsInRoom",
+        "string_cmd": "tell your teams country to the person raising their left arm in the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their left arm"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "your teams country"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "answerToGestPrsInRoom",
+        "string_cmd": "answer the question of the person pointing to the left in the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person pointing to the left"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followNameFromBeacToRoom",
+        "string_cmd": "follow Jules from the chairs to the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: chairs"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jules"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: bathroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideNameFromBeacToBeac",
+        "string_cmd": "guide Angel from the exit to the kitchen",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: exit"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Angel"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guidePrsFromBeacToBeac",
+        "string_cmd": "take the lying person from the exit to the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: exit"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: lying person"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideClothPrsFromBeacToBeac",
+        "string_cmd": "escort the person wearing a white jacket from the bookshelf to the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bookshelf"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: white jacket"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "bringMeObjFromPlcmt",
+        "string_cmd": "give me a milk from the bed",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bed"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: milk"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "tellCatPropOnPlcmt",
+        "string_cmd": "tell me what is the biggest cleaning supply on the bookshelf",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bookshelf"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: biggest cleaning supply"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "greetClothDscInRm",
+        "string_cmd": "introduce yourself to the person wearing a blue sweater in the office and follow them",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: blue sweater"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "greetNameInRm",
+        "string_cmd": "introduce yourself to Jules in the bathroom and follow them to the desk",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jules"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: desk"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "meetNameAtLocThenFindInRm",
+        "string_cmd": "meet Charlie at the cabinet then look for them in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Charlie"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Charlie"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "countClothPrsInRoom",
+        "string_cmd": "tell me how many people in the kitchen are wearing blue jackets",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 people wearing blue jackets"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+        "string_cmd": "tell the gesture of the person at the entrance to the person at the storage rack",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: entrance"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person gesture is pointing to the right"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: storage rack"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followPrsAtLoc",
+        "string_cmd": "follow the sitting person at the trashbin",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: trashbin"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: sitting person"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "goToLoc",
+        "string_cmd": "go to the trashbin then locate a tropical juice and get it and put it on the bedside table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: trashbin"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: tropical juice"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedside table"
+            },
+            {
+                "action": "place_object",
+                "success": true,
+                "result": "placed object"
+            }
+        ],
+        "cmd_category": "A|B|C"
+    },
+    {
+        "cmd_type": "takeObjFromPlcmt",
+        "string_cmd": "get a drink from the tv stand and place it on the cabinet",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: tv stand"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: drink"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "place_object",
+                "success": true,
+                "result": "placed object"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "findPrsInRoom",
+        "string_cmd": "look for a sitting person in the bedroom and answer a quiz",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: sitting person"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "findObjInRoom",
+        "string_cmd": "look for a cola in the bedroom then get it and place it on the shelf",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: cocacola  "
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: shelf"
+            },
+            {
+                "action": "place_object",
+                "success": true,
+                "result": "placed object"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "meetPrsAtBeac",
+        "string_cmd": "meet Axel in the office and tell the day of the week",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Axel"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "the day of the week"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "countObjOnPlcmt",
+        "string_cmd": "tell me how many toys there are on the kitchen table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen table"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 toys"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "countPrsInRoom",
+        "string_cmd": "tell me how many standing persons are in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 standing persons"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoInLoc",
+        "string_cmd": "tell me the name of the person at the lamp",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: lamp"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person name is John"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellObjPropOnPlcmt",
+        "string_cmd": "tell me what is the heaviest object on the cabinet",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: heaviest object"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "talkInfoToGestPrsInRoom",
+        "string_cmd": "say something about yourself to the person raising their left arm in the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their left arm"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "something about yourself"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "answerToGestPrsInRoom",
+        "string_cmd": "answer the quiz of the person raising their left arm in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their left arm"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followNameFromBeacToRoom",
+        "string_cmd": "follow Jane from the shelf to the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: shelf"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Jane"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "arrived to: bedroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideNameFromBeacToBeac",
+        "string_cmd": "guide Robin from the shelf to the office",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: shelf"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Robin"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: office"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guidePrsFromBeacToBeac",
+        "string_cmd": "escort the person raising their right arm from the side tables to the bathroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: side tables"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: person raising their right arm"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: bathroom"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "guideClothPrsFromBeacToBeac",
+        "string_cmd": "escort the person wearing a red shirt from the cabinet to the dishwasher",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: red shirt"
+            },
+            {
+                "action": "guide_person_to",
+                "success": true,
+                "result": "arrived to: dishwasher"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "bringMeObjFromPlcmt",
+        "string_cmd": "bring me a fork from the bedside table",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedside table"
+            },
+            {
+                "action": "pick_object",
+                "success": true,
+                "result": "picked up: fork"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "give_object",
+                "success": true,
+                "result": "object given"
+            }
+        ],
+        "cmd_category": "B"
+    },
+    {
+        "cmd_type": "tellCatPropOnPlcmt",
+        "string_cmd": "tell me what is the smallest cleaning supply on the cabinet",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: cabinet"
+            },
+            {
+                "action": "get_visual_info",
+                "success": true,
+                "result": "found: smallest cleaning supply"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "found: biggest object"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "greetClothDscInRm",
+        "string_cmd": "salute the person wearing a red shirt in the office and answer a question",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: office"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: red shirt"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "answer_question",
+                "success": true,
+                "result": "answered user's question"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "greetNameInRm",
+        "string_cmd": "say hello to Paris in the living room and tell your teams country",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Paris"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "introduction"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "your teams country"
+            }
+        ],
+        "cmd_category": "A|C"
+    },
+    {
+        "cmd_type": "meetNameAtLocThenFindInRm",
+        "string_cmd": "meet Robin at the kitchen table then look for them in the living room",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: kitchen table"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Robin"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "find_person_by_name",
+                "success": true,
+                "result": "found Robin"
+            }
+        ],
+        "cmd_category": "A"
+    },
+    {
+        "cmd_type": "countClothPrsInRoom",
+        "string_cmd": "tell me how many people in the living room are wearing blue shirts",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: living room"
+            },
+            {
+                "action": "count",
+                "success": true,
+                "result": "found: 4 people wearing blue shirts"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: start_location"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "there are 4 items"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "tellPrsInfoAtLocToPrsAtLoc",
+        "string_cmd": "tell the pose of the person at the trashbin to the person at the bookshelf",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: trashbin"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "get_person_info",
+                "success": true,
+                "result": "person pose is standing"
+            },
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bookshelf"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person"
+            },
+            {
+                "action": "say_with_context",
+                "success": true,
+                "result": "person name is John"
+            }
+        ],
+        "cmd_category": "C"
+    },
+    {
+        "cmd_type": "followPrsAtLoc",
+        "string_cmd": "follow the sitting person in the bedroom",
+        "structured_cmd": [
+            {
+                "action": "go_to",
+                "success": true,
+                "result": "arrived to: bedroom"
+            },
+            {
+                "action": "find_person",
+                "success": true,
+                "result": "found person with attribute: sitting person"
+            },
+            {
+                "action": "follow_person_until",
+                "success": true,
+                "result": "followed user until cancelled"
+            }
+        ],
+        "cmd_category": "A"
+    }
+]
