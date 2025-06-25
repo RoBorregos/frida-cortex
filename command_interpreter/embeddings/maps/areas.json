@@ -110,7 +110,9 @@
             0.9930693099335081
         ]
     },
-    "bathroom": {},
+    "bathroom": {
+        "safe_place": []
+    },
     "start_location": {
         "safe_place": [
             0.36008721590042114,

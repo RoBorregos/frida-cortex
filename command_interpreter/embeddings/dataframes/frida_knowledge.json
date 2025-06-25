@@ -29,6 +29,7 @@
     {"document": "Frida robot uses an HDMI LCD touchscreen.", "metadata": {"context": "hardware specifications"}},
     {"document": "Frida robot uses an RP Lidar A1 for navigation.", "metadata": {"context": "hardware specifications"}},
     {"document": "Frida robot includes a custom sheet metal base cover.", "metadata": {"context": "hardware specifications"}},
-    {"document": "Frida robot includes additional devices like power indicators, 5V Ethernet switch, emergency stop devices, and a customized gripper controller.", "metadata": {"context": "hardware specifications"}}
+    {"document": "Frida robot includes additional devices like power indicators, 5V Ethernet switch, emergency stop devices, and a customized gripper controller.", "metadata": {"context": "hardware specifications"}},
+    {"document": "My team is called RoBorregos, we are a robotics team at Tec de Monterrey.", "metadata": {"context": "team overview introduction"}}
   ]
   

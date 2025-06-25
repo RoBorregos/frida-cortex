@@ -24,7 +24,7 @@ from baml_client.types import CommandListLLM
 from baml_client.config import set_log_level
 
 # Turn off all logging
-set_log_level("ERROR")
+set_log_level("INFO")
 
 # Available models (copied from interpreter.py)
 AVAILABLE_MODELS = [
@@ -34,7 +34,7 @@ AVAILABLE_MODELS = [
     "OPENAI_GPT_4_1_MINI",
     "ANTHROPIC_CLAUDE_SONNET_4",
     "META_LLAMA_3_3_8B_IT_FREE",
-    "META_LLAMA_3_3_70B"
+    "GEMMA_2_7B"
 ]
 
 DEFAULT_MODEL = "GEMINI_FLASH_2_5"
@@ -44,7 +44,7 @@ client_registry = ClientRegistry()
 collector = Collector()
 
 # --- Configuration ---
-STARTING_CASE = 0  # Adjust if needed
+STARTING_CASE = 200  # Adjust if needed
 SIMILARITY_THRESHOLD = 0.8  # Threshold for complement similarity
 OVERALL_THRESHOLD = 0.75  # Threshold for the overall test case score
 TEST_DATA_FILE = "../../dataset_generator/dataset.json"

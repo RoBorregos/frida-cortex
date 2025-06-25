@@ -128,3 +128,64 @@ python model_performance_tester.py
 | Task A: Navigate to a location, look for a person, and follow | 110 | 94 | 16 | 85.5% |
 | Task B: Take an object from a placement, and perform an action | 40 | 39 | 1 | 97.5% |
 | Task C: Speak or answer a question | 140 | 129 | 11 | 92.1% |
+
+
+# Results execution
+
+### Not grounded
+
+**Test Summary: `LOCAL_FINETUNED`**
+
+| Metric | Value |
+| --- | --- |
+| Total Cases | 230 |
+| Passed | 64 (27.8%) |
+| Failed | 166 |
+| Average Execution Score | 0.649 |
+| Average Execution Time | 0.54s |
+
+**Results by Command Count**
+
+| Commands | Total | Passed | Failed | Pass Rate | Avg Score |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 3 | 90 | 24 | 66 | 26.7% | 0.651 |
+| 4 | 112 | 27 | 85 | 24.1% | 0.629 |
+| 5 | 18 | 11 | 7 | 61.1% | 0.761 |
+| 6 | 10 | 2 | 8 | 20.0% | 0.669 |
+
+**Results by Task Type**
+
+| Task Type | Total | Passed | Failed | Pass Rate | Avg Score |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Task A: Navigate to a location, look for a person, and follow | 110 | 22 | 88 | 20.0% | 0.594 |
+| Task B: Take an object from a placement, and perform an action | 40 | 15 | 25 | 37.5% | 0.583 |
+| Task C: Speak or answer a question | 140 | 42 | 98 | 30.0% | 0.692 |
+
+### Grounded
+
+**Test Summary: `LOCAL_FINETUNED`**
+
+| Metric | Value |
+| --- | --- |
+| Total Cases | 230 |
+| Passed | 111 (48.3%) |
+| Failed | 119 |
+| Average Execution Score | 0.758 |
+| Average Execution Time | 0.55s |
+
+**Results by Command Count**
+
+| Commands | Total | Passed | Failed | Pass Rate | Avg Score |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| 3 | 90 | 34 | 56 | 37.8% | 0.739 |
+| 4 | 112 | 56 | 56 | 50.0% | 0.759 |
+| 5 | 18 | 15 | 3 | 83.3% | 0.851 |
+| 6 | 10 | 6 | 4 | 60.0% | 0.752 |
+
+**Results by Task Type**
+
+| Task Type | Total | Passed | Failed | Pass Rate | Avg Score |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Task A: Navigate to a location, look for a person, and follow | 110 | 39 | 71 | 35.5% | 0.713 |
+| Task B: Take an object from a placement, and perform an action | 40 | 27 | 13 | 67.5% | 0.716 |
+| Task C: Speak or answer a question | 140 | 74 | 66 | 52.9% | 0.789 |

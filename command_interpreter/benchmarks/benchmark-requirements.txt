@@ -1,5 +1,5 @@
 annotated-types==0.7.0
-baml-py==0.89.0
+baml-py==0.90.2
 certifi==2025.4.26
 charset-normalizer==3.4.2
 dotenv==0.9.9

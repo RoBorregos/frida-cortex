@@ -19,6 +19,7 @@ class MetadataProfile(str, Enum):
     ITEMS = "items"
     LOCATIONS = "locations"
     ACTIONS = "actions"
+    TEC_KNOWLEDGE = "tec_knowledge"
 
 
 # Metadata validation model for metadata
@@ -39,6 +40,7 @@ class MetadataModel(BaseModel):
         MetadataProfile.ITEMS: {"context": " item for household use"},
         MetadataProfile.LOCATIONS: {"context": " house locations"},
         MetadataProfile.ACTIONS: {"context": " human actions"},
+        MetadataProfile.TEC_KNOWLEDGE: {"context": " team knowledge"},
     }
 
     @classmethod
@@ -124,6 +126,9 @@ class Embeddings():
             elif request.collection == "actions":
                 context = MetadataModel.PROFILES[MetadataProfile.ACTIONS]["context"]
                 print(colored("🔍 Database: Querying 'actions' collection", "blue"))
+            elif request.collection == "tec_knowledge":
+                context = MetadataModel.PROFILES[MetadataProfile.TEC_KNOWLEDGE]["context"]
+                print(colored("🔍 Database: Querying 'tec_knowledge' collection", "blue"))
             else:
                 context = ""
 
@@ -133,8 +138,8 @@ class Embeddings():
             for query in request.query:
                 query_with_context = query + context
                 if request.collection == "command_history":
-                    results_raw = self.chroma_adapter.query_where(
-                        request.collection, [query_with_context]
+                    results_raw = self.chroma_adapter.query(
+                        request.collection, [query_with_context], request.topk
                     )
                 else:
                     results_raw = self.chroma_adapter.query(
@@ -253,9 +258,9 @@ class Embeddings():
 
         collections = {}
 
-        documents = []
-        metadatas_ = []
         for file in dataframes:
+            documents = []
+            metadatas_ = []
             collection_name = self.chroma_adapter._sanitize_collection_name(file.stem)
             collections_ = self.chroma_adapter.list_collections()
             if collection_name in collections_:
@@ -452,6 +457,15 @@ class Embeddings():
     
     def query_command_history(self, query: str, top_k: int = 1) -> list[str]:
         return self._query_(query, "command_history", top_k)
+    
+    def query_tec_knowledge(self, query: str, top_k: int = 1) -> list[str]:
+        return self._query_(query, "tec_knowledge", top_k)
+    
+    def query_frida_knowledge(self, query: str, top_k: int = 1) -> list[str]:
+        return self._query_(query, "frida_knowledge", top_k)
+    
+    def query_roborregos_knowledge(self, query: str, top_k: int = 1) -> list[str]:
+        return self._query_(query, "roborregos_knowledge", top_k)
 
     def get_metadata_key(self, query_result, field: str):
         """
