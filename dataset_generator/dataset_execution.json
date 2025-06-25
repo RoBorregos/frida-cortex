@@ -3396,7 +3396,7 @@
             {
                 "action": "go_to",
                 "success": true,
-                "result": "arrived to: living_room -> desk",
+                "result": "arrived to: living_room -> desk"
             },
             {
                 "action": "find_person",
@@ -5222,7 +5222,7 @@
             {
                 "action": "answer_question",
                 "success": true,
-                "result": "answered question"
+                "result": "answered user's question"
             }
         ],
         "cmd_category": "A|C"
@@ -5420,7 +5420,7 @@
             {
                 "action": "answer_question",
                 "success": true,
-                "result": "answered question"
+                "result": "answered user's question"
             }
         ],
         "cmd_category": "C"
@@ -5582,7 +5582,7 @@
             {
                 "action": "answer_question",
                 "success": true,
-                "result": "answered question"
+                "result": "answered user's question"
             }
         ],
         "cmd_category": "A|C"
