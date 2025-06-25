@@ -133,7 +133,6 @@ python model_performance_tester.py
 # Results execution
 
 ### Not grounded
-### Not grounded
 
 **Test Summary: `LOCAL_FINETUNED`**
 
