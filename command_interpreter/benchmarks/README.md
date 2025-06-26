@@ -132,6 +132,10 @@ python model_performance_tester.py
 
 # Results execution
 
+```python
+python command_interpreter/benchmarks/execution_performance_tester.py command_interpreter/benchmarks/results/test_results_LOCAL_FINETUNED_1750196765.json
+```
+
 ### Not grounded
 
 **Test Summary: `LOCAL_FINETUNED`**
