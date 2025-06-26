@@ -5,6 +5,3 @@
 [submodule "dataset_generator/CommandGenerator"]
 	path = dataset_generator/CommandGenerator
 	url = https://github.com/RoboCupAtHome/CommandGenerator.git
-[submodule "dataset_generator/legacy_generator_source"]
-	path = dataset_generator/legacy_generator_source
-	url = https://github.com/kyordhel/GPSRCmdGen.git
