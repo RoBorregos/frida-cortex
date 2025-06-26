@@ -1,0 +1,2147 @@
+[
+    {
+        "string_cmd": "Please give me the orange from the side table",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "side table"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "orange"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Please meet Mary at the entrance and follow her to the kitchen",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "entrance"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Mary"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "kitchen"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "find Michael at the end table and introduce it to Skyler at the desk",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "end table"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Michael"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "desk"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Skyler"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "introduce it to Skyler at the desk",
+                "previous_command_info": "introduction"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Tell me what's the largest object on the cupboard",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "cupboard"
+            },
+            {
+                "action": "get_visual_info",
+                "measure": "biggest",
+                "object_category": "object"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "what's the largest object on the cupboard",
+                "previous_command_info": "get_visual_info"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "go to the desk, find the cloth, and put it on the side table",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "desk"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "cloth"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "side table"
+            },
+            {
+                "action": "place_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you please take my bag to the uber",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "find_person",
+                "attribute_value": ""
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "bag"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "uber"
+            },
+            {
+                "action": "place_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Robot please find Francis at the exit and accompany her to her cab",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "exit"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Francis"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "cab"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you bring me the paprika from the sink",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "sink"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "paprika"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "go to the bookcase, find the tray, and put it on the side table",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bookcase"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "tray"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "side table"
+            },
+            {
+                "action": "place_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you meet Robin and escort her",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "find_person_by_name",
+                "name": "Robin"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "cancelled"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you deliver snacks to everyone in the living room.",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "living room"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "snacks"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": ""
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you look for a person waving in the living room and tell the time",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "living room"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": "waving"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "tell the time",
+                "previous_command_info": "time"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you please meet Charlie at the desk and follow him to the kitchen",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "desk"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Charlie"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "kitchen"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " bring me the lightest object from the end table",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "end table"
+            },
+            {
+                "action": "get_visual_info",
+                "measure": "lightest",
+                "object_category": "object"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "lightest object"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " bring me the right most object from the desk",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "desk"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "right most object"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you arrange snacks to all the guests in the dining room.",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "dining room"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "snacks"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "dining room table"
+            },
+            {
+                "action": "place_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "greet Michael at the sink and introduce it to Alex at the exit",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "sink"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Michael"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "greet Michael at the sink and introduce it to Alex at the exit",
+                "previous_command_info": "introduction"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "exit"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Alex"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "greet Michael at the sink and introduce it to Alex at the exit",
+                "previous_command_info": "introduction"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " the bedroom",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bedroom"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "navigate to the end table, meet Charlie, and follow him ",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "end table"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Charlie"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "cancelled"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Tell me how many bowl there are on the storage table",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "storage table"
+            },
+            {
+                "action": "count",
+                "target_to_count": "bowl"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "Tell me how many bowl there are on the storage table",
+                "previous_command_info": "count"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "bring my valise to the taxi",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "pick_object",
+                "object_to_pick": "valise"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "taxi"
+            },
+            {
+                "action": "place_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Please navigate to the dishwasher, meet James, and follow him ",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "dishwasher"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "James"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "cancelled"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Robot please face William at the front door and introduce him to everyone in the corridor.",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "front door"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "William"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "corridor"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": ""
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "introduce William to everyone in the corridor",
+                "previous_command_info": "introduction"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "find the cup in the bedroom",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bedroom"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "cup"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you greet Skyler at the bed and introduce it to James at the exit",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bed"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Skyler"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "greet Skyler",
+                "previous_command_info": "introduction"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "exit"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "James"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "introduce it to James",
+                "previous_command_info": "introduction"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "go to the exit, meet Alex, and accompany her",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "exit"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Alex"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "cancelled"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "say something about yourself to the person raising their left arm in the dining room",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "dining room"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": "person raising their left arm"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "say something about yourself to the person raising their left arm",
+                "previous_command_info": "introduction"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you meet Skyler at the bookcase and lead her to the dining table ",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bookcase"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Skyler"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "dining table"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "take the tray and put it on the bookcase",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "pick_object",
+                "object_to_pick": "tray"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "bookcase"
+            },
+            {
+                "action": "place_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Please meet John at the dishwasher, follow him, and go to the living room",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "dishwasher"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "John"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "living room"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you meet Robin at the couch, follow him, and navigate to the kitchen",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "couch"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Robin"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "kitchen"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " bring me the lightest containers from the dining table",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "dining table"
+            },
+            {
+                "action": "get_visual_info",
+                "measure": "lightest",
+                "object_category": "containers"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "containers"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " go to the entrance, meet Charlie, and take her",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "entrance"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Charlie"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "cancelled"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you please locate the fruits in the dining room",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "dining room"
+            },
+            {
+                "action": "count",
+                "target_to_count": "fruits"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "Could you please locate the fruits in the dining room",
+                "previous_command_info": "count"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "find Robert at the bookcase and ask him to leave",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bookcase"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Robert"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "ask Robert to leave",
+                "previous_command_info": "please leave"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Please meet Robin at the couch, follow her, and go to the kitchen",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "couch"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Robin"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "kitchen"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "look for three cleaning stuff in the bedroom",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bedroom"
+            },
+            {
+                "action": "count",
+                "target_to_count": "cleaning stuff"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "look for three cleaning stuff in the bedroom",
+                "previous_command_info": "count"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "serve drinks to all the women in the dining room.",
+        "cmd_category": "B",
+        "structured_command": [],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "meet Patricia at the end table and accompany her to the entrance ",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "end table"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Patricia"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "entrance"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you locate a person sitting in the corridor and tell something about yourself",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "corridor"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": "sitting"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "tell something about yourself",
+                "previous_command_info": "introduction"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Please guide John to the sink",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "find_person_by_name",
+                "name": "John"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "sink"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " the living room",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "living room"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "face John at the couch and introduce it to Michael at the sink",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "couch"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "John"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "sink"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Michael"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "face John at the couch and introduce it to Michael at the sink",
+                "previous_command_info": "introduction"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "face Robin at the exit and ask him to leave",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "exit"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Robin"
+            },
+            {
+                "action": "answer_question"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "contact Francis at the bed and ask her to leave",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bed"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Francis"
+            },
+            {
+                "action": "answer_question"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Tell me the pose of the person at the exit",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "exit"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": ""
+            },
+            {
+                "action": "get_person_info",
+                "info_type": "pose"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "Tell me the pose of the person at the exit",
+                "previous_command_info": "get_person_info"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "take the bowl from the desk and place it on the sink",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "desk"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "bowl"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "sink"
+            },
+            {
+                "action": "place_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " give me the fruits",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "pick_object",
+                "object_to_pick": "fruits"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Please take Alex from the dining table to the dining table ",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "dining table"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Alex"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "dining table"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you bring me the paprika from the sink",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "sink"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "paprika"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " bring me the right most object from the dining table",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "dining table"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "right most object"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " meet John at the sink, follow him, and navigate to the living room",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "sink"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "John"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "cancelled"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "living room"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "take the cloth from the cupboard and place it on the counter",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "cupboard"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "cloth"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "counter"
+            },
+            {
+                "action": "place_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " bring me the object on top of the apple from the end table",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "end table"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "object on top of the apple"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " escort Francis to the dishwasher, you can find her at the dining table ",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "dining table"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Francis"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "dishwasher"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you please greet Linda at the end table and introduce it to John at the bed",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "end table"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Linda"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "greet Linda",
+                "previous_command_info": "introduction"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "bed"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "John"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "introduce Linda to John",
+                "previous_command_info": "introduction"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Robot please go to the side table, locate the cloth, and deliver it to me",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "side table"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "cloth"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you please go to the bookcase, meet Skyler, and escort her",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bookcase"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Skyler"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "start_location"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Please meet Robin at the exit and follow her ",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "exit"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Robin"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "cancelled"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "go to the bookcase, meet Michael, and guide him to the dishwasher ",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bookcase"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Michael"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "dishwasher"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you bring me the cloth",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "pick_object",
+                "object_to_pick": "cloth"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Robot please follow John from the sink to the corridor",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "sink"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "John"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "corridor"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you please face Linda at the couch and introduce it to Skyler at the bed",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "couch"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Linda"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "bed"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Skyler"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "introduce it to Skyler at the bed",
+                "previous_command_info": "introduction"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Robot please meet John at the bookcase, follow him, and navigate to the corridor",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bookcase"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "John"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "cancelled"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "corridor"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " Tell me what's the largest object on the sink",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "sink"
+            },
+            {
+                "action": "get_visual_info",
+                "measure": "largest",
+                "object_category": "object"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "Tell me what's the largest object on the sink",
+                "previous_command_info": "get_visual_info"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " Tell me what's the biggest object on the sink",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "sink"
+            },
+            {
+                "action": "get_visual_info",
+                "measure": "biggest",
+                "object_category": "object"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "Tell me what's the biggest object on the sink",
+                "previous_command_info": "get_visual_info"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "deliver fruits to the person waving in the bedroom",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "kitchen"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "fruits"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "bedroom"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": "waving"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you please tell me how many people in the corridor are women",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "corridor"
+            },
+            {
+                "action": "count",
+                "target_to_count": "women"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "how many people in the corridor are women",
+                "previous_command_info": "count"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Tell me what's the smallest drinks on the side table",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "side table"
+            },
+            {
+                "action": "get_visual_info",
+                "measure": "smallest",
+                "object_category": "drinks"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "Tell me what's the smallest drinks on the side table",
+                "previous_command_info": "get_visual_info"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Please give me the left most object from the cupboard",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "cupboard"
+            },
+            {
+                "action": "get_visual_info",
+                "measure": "left most",
+                "object_category": "object"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "object"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "distribute snacks to all the elders in the kitchen.",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "kitchen"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "snacks"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": "elder"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Tell me how many tableware there are on the sink",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "sink"
+            },
+            {
+                "action": "count",
+                "target_to_count": "tableware"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "how many tableware there are on the sink",
+                "previous_command_info": "count"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Tell me the pose of the person at the bed",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bed"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": ""
+            },
+            {
+                "action": "get_person_info",
+                "info_type": "pose"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "Tell me the pose of the person at the bed",
+                "previous_command_info": "get_person_info"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " meet Alex at the bed, follow him, and navigate to the kitchen",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bed"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Alex"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "cancelled"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "kitchen"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you please bring cutlery to me",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "pick_object",
+                "object_to_pick": "cutlery"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "navigate to the sink, meet Skyler, and escort him to the dining table ",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "sink"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Skyler"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "dining table"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Robot please dump the garbage",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "waste bin"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "garbage"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "exit"
+            },
+            {
+                "action": "place_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you please meet Jennifer and guide her",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "living room"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Jennifer"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "start_location"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Please give me the fruits",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "kitchen"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "fruits"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you tell me how many people in the dining room are boys",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "dining room"
+            },
+            {
+                "action": "count",
+                "target_to_count": "boys"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "how many people in the dining room are boys",
+                "previous_command_info": "count"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Robot please guide James to the dishwasher",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "find_person_by_name",
+                "name": "James"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "dishwasher"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " meet Linda at the entrance, follow her, and guide her back",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "entrance"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Linda"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "cancelled"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "entrance"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "meet Charlie at the dishwasher and follow her to the corridor",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "dishwasher"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Charlie"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "corridor"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Robot please give me the cup",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "pick_object",
+                "object_to_pick": "cup"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": ""
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "meet Charlie and guide him",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "find_person_by_name",
+                "name": "Charlie"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "start_location"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you please get the bowl from the counter and put it on the storage table",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "counter"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "bowl"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "storage table"
+            },
+            {
+                "action": "place_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Robot please give me the object under the orange from the sink",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "sink"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "object under the orange"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Could you please provide drinks to all the elders in the corridor.",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "kitchen"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "drinks"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": "elder"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "corridor"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Robot please bring me the fruits",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "kitchen"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "fruits"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " take out the junk",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bin"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "junk"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "exit"
+            },
+            {
+                "action": "place_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "go to the desk, look for the bowl, and bring it to Robin at the desk",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "desk"
+            },
+            {
+                "action": "pick_object",
+                "object_to_pick": "bowl"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Robin"
+            },
+            {
+                "action": "give_object"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Robot please meet Alex at the end table, follow her, and go to the dining room",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "end table"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Alex"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "dining room"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "navigate to the desk, meet Linda, and guide her to the dining table ",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "desk"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Linda"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "dining table"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Tell me what's the largest object on the bookcase",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bookcase"
+            },
+            {
+                "action": "get_visual_info",
+                "measure": "largest",
+                "object_category": "object"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "Tell me what's the largest object on the bookcase",
+                "previous_command_info": "get_visual_info"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "meet Robert at the bookcase and follow him to the corridor",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "bookcase"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Robert"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "corridor"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Tell me the name of the person at the couch",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "couch"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": ""
+            },
+            {
+                "action": "get_person_info",
+                "info_type": "name"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "Tell me the name of the person at the couch",
+                "previous_command_info": "get_person_info"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": " meet Alex at the exit, follow her, and go to the dining room",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "exit"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "Alex"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "cancelled"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "dining room"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Tell me the pose of the person at the dishwasher",
+        "cmd_category": "C",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "dishwasher"
+            },
+            {
+                "action": "find_person",
+                "attribute_value": ""
+            },
+            {
+                "action": "get_person_info",
+                "info_type": "pose"
+            },
+            {
+                "action": "go_to",
+                "location_to_go": "start_location"
+            },
+            {
+                "action": "say_with_context",
+                "user_instruction": "Tell me the pose of the person at the dishwasher",
+                "previous_command_info": "get_person_info"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Robot please take Jennifer to the desk",
+        "cmd_category": "B",
+        "structured_command": [
+            {
+                "action": "find_person_by_name",
+                "name": "Jennifer"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "desk"
+            }
+        ],
+        "cmd_type": null
+    },
+    {
+        "string_cmd": "Please meet John at the entrance, follow him, and escort him back",
+        "cmd_category": "A",
+        "structured_command": [
+            {
+                "action": "go_to",
+                "location_to_go": "entrance"
+            },
+            {
+                "action": "find_person_by_name",
+                "name": "John"
+            },
+            {
+                "action": "follow_person_until",
+                "destination": "cancelled"
+            },
+            {
+                "action": "guide_person_to",
+                "destination_room": "entrance"
+            }
+        ],
+        "cmd_type": null
+    }
+]

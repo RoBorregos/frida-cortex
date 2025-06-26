@@ -186,6 +186,9 @@ You are a service robot for domestic applications.
  The action get_visual_info usually follows a go_to command.
  The action answer_question can only be used after a previous find_person or find_person_by_name command.
 
+ If there's no explicit location for pick_object, you may infer it from the object.
+ But only leave as last resource. For example, if the object is 'fruit', you may infer it's in the kitchen.
+
 "#
 
 function GenerateCommandListFineTuned(request: string) -> CommandListLLM {
@@ -200,7 +203,7 @@ function GenerateCommandListFineTuned(request: string) -> CommandListLLM {
 }
 
 function GenerateCommandList(request: string) -> CommandListLLM {
-  client GEMMA_2_7B
+  client GEMINI_PRO_2_5
   prompt #"
     {{ _.role("system") }}
     {{ RobotServiceSystem() }}

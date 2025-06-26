@@ -115,6 +115,16 @@ client<llm> GEMMA_2_7B {
   }
 }
 
+client<llm> LOCAL_GEMMA_2_7B {
+  provider "openai-generic"
+  retry_policy Constant
+  options {
+    base_url "http://localhost:11434/v1"
+    model "gemma:7b"
+    max_tokens 4096
+  }
+}
+
 client<llm> LOCAL_R1_32B {
   provider "openai-generic"
   options {
