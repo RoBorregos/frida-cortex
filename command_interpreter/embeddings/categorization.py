@@ -12,12 +12,14 @@ from command_interpreter.embeddings.chroma_adapter import ChromaAdapter
 from pydantic import BaseModel, ValidationError
 from types import SimpleNamespace
 from termcolor import colored
+from datetime import datetime
 
 
 class MetadataProfile(str, Enum):
     ITEMS = "items"
     LOCATIONS = "locations"
     ACTIONS = "actions"
+    TEC_KNOWLEDGE = "tec_knowledge"
 
 
 # Metadata validation model for metadata
@@ -38,6 +40,7 @@ class MetadataModel(BaseModel):
         MetadataProfile.ITEMS: {"context": " item for household use"},
         MetadataProfile.LOCATIONS: {"context": " house locations"},
         MetadataProfile.ACTIONS: {"context": " human actions"},
+        MetadataProfile.TEC_KNOWLEDGE: {"context": " team knowledge"},
     }
 
     @classmethod
@@ -123,6 +126,9 @@ class Embeddings():
             elif request.collection == "actions":
                 context = MetadataModel.PROFILES[MetadataProfile.ACTIONS]["context"]
                 print(colored("🔍 Database: Querying 'actions' collection", "blue"))
+            elif request.collection == "tec_knowledge":
+                context = MetadataModel.PROFILES[MetadataProfile.TEC_KNOWLEDGE]["context"]
+                print(colored("🔍 Database: Querying 'tec_knowledge' collection", "blue"))
             else:
                 context = ""
 
@@ -132,8 +138,8 @@ class Embeddings():
             for query in request.query:
                 query_with_context = query + context
                 if request.collection == "command_history":
-                    results_raw = self.chroma_adapter.query_where(
-                        request.collection, [query_with_context]
+                    results_raw = self.chroma_adapter.query(
+                        request.collection, [query_with_context], request.topk
                     )
                 else:
                     results_raw = self.chroma_adapter.query(
@@ -252,9 +258,9 @@ class Embeddings():
 
         collections = {}
 
-        documents = []
-        metadatas_ = []
         for file in dataframes:
+            documents = []
+            metadatas_ = []
             collection_name = self.chroma_adapter._sanitize_collection_name(file.stem)
             collections_ = self.chroma_adapter.list_collections()
             if collection_name in collections_:
@@ -288,6 +294,24 @@ class Embeddings():
         # self.print_all_collections()
         return
 
+    def add_command_history(self, command, result, status):
+        collection = "command_history"
+
+        document = [command.action]
+        metadata = [
+            {
+                "command": str(command),
+                "result": result,
+                "status": status,
+                "timestamp": datetime.now().isoformat(),
+            }
+        ]
+
+        request = SimpleNamespace(
+            document=document, metadata=json.dumps(metadata), collection=collection
+        )
+        self.add_entry_callback(request)
+    
     def add_locations(self):
         collection_name = "locations"
         collections_ = self.chroma_adapter.list_collections()
@@ -409,7 +433,21 @@ class Embeddings():
         Results = self._query_(query, "closest_items", top_k)
         Results = self.get_name(Results)
         print(colored(f"🎯 Database: find_closest result for '{query}': {str(Results)}", "blue", attrs=['bold']))
+
         return Results
+
+    def delete_collection(self, collection_name: str):
+        """
+        Deletes a collection from the ChromaDB.
+        
+        Args:
+            collection_name (str): The name of the collection to delete.
+        """
+        try:
+            self.chroma_adapter.delete_collection(collection_name)
+            print(colored(f"🗑️  Database: Collection '{collection_name}' deleted successfully", "blue", attrs=['bold']))
+        except Exception as e:
+            print(colored(f"❌ Database Error: Failed to delete collection '{collection_name}' - {str(e)}", "red", attrs=['bold']))
 
     def query_item(self, query: str, top_k: int = 1) -> list[str]:
         return self._query_(query, "items", top_k)
@@ -419,6 +457,15 @@ class Embeddings():
     
     def query_command_history(self, query: str, top_k: int = 1) -> list[str]:
         return self._query_(query, "command_history", top_k)
+    
+    def query_tec_knowledge(self, query: str, top_k: int = 1) -> list[str]:
+        return self._query_(query, "tec_knowledge", top_k)
+    
+    def query_frida_knowledge(self, query: str, top_k: int = 1) -> list[str]:
+        return self._query_(query, "frida_knowledge", top_k)
+    
+    def query_roborregos_knowledge(self, query: str, top_k: int = 1) -> list[str]:
+        return self._query_(query, "roborregos_knowledge", top_k)
 
     def get_metadata_key(self, query_result, field: str):
         """
@@ -470,21 +517,41 @@ def main():
     embeddings = Embeddings()
     #embeddings.print_all_collections()
 
-    results = embeddings.query_item("soda")
+    # results = embeddings.query_item("soda")
+    # results = embeddings.query_item("soda")
+    # name = embeddings.get_name(results)
+    # name = embeddings.get_name(results)
+    # context = embeddings.get_context(results)
+    embeddings.add_command_history(     
+                command= SimpleNamespace(
+                    action= "get me a soda"),
+                result= 'Succesfull',
+                status= 1
+)
+    
+    results = embeddings.query_command_history("get me a soda")
     name = embeddings.get_name(results)
     context = embeddings.get_context(results)
-
     print("Success:", results)
     print("Name:", name)
-    print("Context:", context)
 
-    results = embeddings.query_location("start_location")
-    area = embeddings.get_area(results)
-    subarea = embeddings.get_subarea(results)
+    embeddings.delete_collection("command_history")
+    results = embeddings.query_command_history("get me a soda")
+    name = embeddings.get_name(results)
     context = embeddings.get_context(results)
     print("Success:", results)
-    print("Location: " + str(area)+ (" -> " + str(subarea) if subarea else ""))
-    print("Context:", context)
+    print("Name:", name)                      
+    # print("Success:", results)
+    # print("Name:", name)
+    # print("Context:", context)
+
+    # results = embeddings.query_location("start_location")
+    # area = embeddings.get_area(results)
+    # subarea = embeddings.get_subarea(results)
+    # context = embeddings.get_context(results)
+    # print("Success:", results)
+    # print("Location: " + str(area)+ (" -> " + str(subarea) if subarea else ""))
+    # print("Context:", context)
 
 
 

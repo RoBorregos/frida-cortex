@@ -1,4 +1,5 @@
 [
+    {"document": "My team is called RoBorregos, we are a robotics team at Tec de Monterrey.", "metadata": {"context": "team overview introduction"}},
     {"document": "In 2015, four students competed in the TMR, reaching a pass to the international; There, they met people from other countries and noticed the potential that Mexico could have.", "metadata": {"context": "team history"}},
     {"document": "Motivated, they started RoBorregos, intending to share knowledge and experiences through generations.", "metadata": {"context": "team history"}},
     {"document": "We participate in different national and international competitions for autonomous robots such as Mexico's TMR (Torneo Mexicano de Robótica), RoboCup, and IEEE LARC (Latin American Robotics Competition).", "metadata": {"context": "competitions"}},

@@ -9,8 +9,7 @@ def search_command(command, objects: list[object]):
                 return method
     return None
 
-def execute_function(command):
-    tasks = Tasks()
+def execute_function(command, tasks, grounding: bool = True):
     try:
         exec_commad = search_command(
             command.action,
@@ -23,7 +22,7 @@ def execute_function(command):
             print(f"\n{colored('▶️  EXECUTING:', 'green', attrs=['bold'])} {colored(command.action, 'cyan', attrs=['bold'])}")
             print(colored("─" * 60, "green"))
             
-            status, res = exec_commad(command)
+            status, res = exec_commad(command, grounding)
             
             # Format and display results with better visual hierarchy
             print(f"{colored('🎯 Action:', 'yellow', attrs=['bold'])} {colored(str(command.action), 'white', attrs=['bold'])}")
@@ -55,16 +54,23 @@ def execute_function(command):
                 except Exception:
                     pass
                 
-                # TODO: command history
-                # self.subtask_manager.hri.add_command_history(
-                #     command,
-                #     res,
-                #     status,
-                # )
+            tasks.add_command_history(
+                command,
+                res,
+                status,
+            )
+
+            # return action (str), success (bool), result (str)
+            return (command.action,
+                    True if status_color == 'green' else False,
+                    res)
     except Exception as e:
         print(colored("─" * 60, "red"))
-        print(colored(f"💥 EXECUTION ERROR", "red", attrs=['bold']))
+        print(colored("💥 EXECUTION ERROR", "red", attrs=['bold']))
         print(colored("─" * 60, "red"))
         print(colored(f"Command: {str(command)}", "yellow"))
         print(colored(f"Error: {str(e)}", "red", attrs=['bold']))
         print(colored("─" * 60, "red"))
+
+def clear_command_history(tasks):
+    tasks.clear_command_history()
