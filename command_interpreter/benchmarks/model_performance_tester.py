@@ -34,7 +34,7 @@ AVAILABLE_MODELS = [
     "OPENAI_GPT_4_1_MINI",
     "ANTHROPIC_CLAUDE_SONNET_4",
     "META_LLAMA_3_3_8B_IT_FREE",
-    "GEMMA_2_7B"
+    "LOCAL_GEMMA_2_7B"
 ]
 
 DEFAULT_MODEL = "GEMINI_FLASH_2_5"
@@ -44,11 +44,12 @@ client_registry = ClientRegistry()
 collector = Collector()
 
 # --- Configuration ---
-STARTING_CASE = 200  # Adjust if needed
+STARTING_CASE = 0  # Adjust if needed
 SIMILARITY_THRESHOLD = 0.8  # Threshold for complement similarity
 OVERALL_THRESHOLD = 0.75  # Threshold for the overall test case score
 TEST_DATA_FILE = "../../dataset_generator/dataset.json"
 TEST_DATA_FILE_ENRICHED_AND_REORDERED = "../../dataset_generator/dataset_enriched_reordered.json"
+TEST_DATA_FILE_LEGACY = "../../legacy_dataset_generator/dataset_legacy.json"
 
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"  # Example model
 
@@ -299,6 +300,8 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
     client_registry.set_primary(model_name)
     print(f"Testing with model: {model_name}")
     test_data_file = TEST_DATA_FILE_ENRICHED_AND_REORDERED if use_enrichment_and_reorder else TEST_DATA_FILE
+    if model_name == "LOCAL_GEMMA_2_7B":
+        test_data_file = TEST_DATA_FILE_LEGACY
     if use_enrichment_and_reorder:
         print("Combined enrichment and reordering: ENABLED")
 
@@ -574,6 +577,7 @@ if __name__ == "__main__":
         
         if use_enrichment_and_reorder is not None:
             enrichment_and_reorder_suffix = "_enriched_and_reordered" if use_enrichment_and_reorder else ""
+            enrichment_and_reorder_suffix += "_legacy" if selected_model == "LOCAL_GEMMA_2_7B" else ""
             print(f"\nStarting tests with model: {selected_model}")
 
             results = run_tests(selected_model, use_enrichment_and_reorder)
