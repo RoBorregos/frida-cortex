@@ -129,6 +129,221 @@ python model_performance_tester.py
 | Task B: Take an object from a placement, and perform an action | 40 | 39 | 1 | 97.5% |
 | Task C: Speak or answer a question | 140 | 129 | 11 | 92.1% |
 
+## Deepseek R1 Distill Llama 8B
+
+### Regular dataset
+
+**Test Summary: `DEEPSEEK_R1_DISTILL_LLAMA_8B`**
+
+| Metric | Value |
+| --- | --- |
+| Total Cases | 115 |
+| Passed | 36 (31.3%) |
+| Failed | 79 |
+| Average Execution Time | 13.17s |
+| Average Input Tokens | 1599 |
+| Average Output Tokens | 678 |
+
+**Results by Command Count**
+
+| Commands | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| 3 | 45 | 13 | 32 | 28.9% |
+| 4 | 56 | 20 | 36 | 35.7% |
+| 5 | 9 | 3 | 6 | 33.3% |
+| 6 | 5 | 0 | 5 | 0.0% |
+
+**Results by Task Type**
+
+| Task Type | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| Task A: Navigate to a location, look for a person, and follow | 55 | 15 | 40 | 27.3% |
+| Task B: Take an object from a placement, and perform an action | 20 | 12 | 8 | 60.0% |
+| Task C: Speak or answer a question | 70 | 22 | 48 | 31.4% |
+
+### Enriched and reordered commands
+
+**Test Summary: `DEEPSEEK_R1_DISTILL_LLAMA_8B`**
+
+| Metric | Value |
+| --- | --- |
+| Total Cases | 115 |
+| Passed | 34 (29.6%) |
+| Failed | 81 |
+| Average Execution Time | 16.82s |
+| Average Input Tokens | 1601 |
+| Average Output Tokens | 876 |
+
+**Results by Command Count**
+
+| Commands | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| 3 | 45 | 18 | 27 | 40.0% |
+| 4 | 56 | 13 | 43 | 23.2% |
+| 5 | 9 | 2 | 7 | 22.2% |
+| 6 | 5 | 1 | 4 | 20.0% |
+
+**Results by Task Type**
+
+| Task Type | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| Task A: Navigate to a location, look for a person, and follow | 55 | 18 | 37 | 32.7% |
+| Task B: Take an object from a placement, and perform an action | 20 | 12 | 8 | 60.0% |
+| Task C: Speak or answer a question | 70 | 17 | 53 | 24.3% |
+
+## Gemini 2.5 Flash Lite
+
+### Regular dataset
+
+**Test Summary: `GEMINI_FLASH_LITE_2_5`**
+
+| Metric | Value |
+| --- | --- |
+| Total Cases | 115 |
+| Passed | 87 (75.7%) |
+| Failed | 28 |
+| Average Execution Time | 1.04s |
+| Average Input Tokens | 1809 |
+| Average Output Tokens | 125 |
+
+**Results by Command Count**
+
+| Commands | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| 3 | 45 | 34 | 11 | 75.6% |
+| 4 | 56 | 43 | 13 | 76.8% |
+| 5 | 9 | 5 | 4 | 55.6% |
+| 6 | 5 | 5 | 0 | 100.0% |
+
+**Results by Task Type**
+
+| Task Type | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| Task A: Navigate to a location, look for a person, and follow | 55 | 37 | 18 | 67.3% |
+| Task B: Take an object from a placement, and perform an action | 20 | 12 | 8 | 60.0% |
+| Task C: Speak or answer a question | 70 | 57 | 13 | 81.4% |
+
+### Enriched and reordered commands
+
+**Test Summary: `GEMINI_FLASH_LITE_2_5`**
+
+| Metric | Value |
+| --- | --- |
+| Total Cases | 115 |
+| Passed | 81 (70.4%) |
+| Failed | 34 |
+| Average Execution Time | 0.98s |
+| Average Input Tokens | 1811 |
+| Average Output Tokens | 120 |
+
+**Results by Command Count**
+
+| Commands | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| 3 | 45 | 41 | 4 | 91.1% |
+| 4 | 56 | 36 | 20 | 64.3% |
+| 5 | 9 | 2 | 7 | 22.2% |
+| 6 | 5 | 2 | 3 | 40.0% |
+
+**Results by Task Type**
+
+| Task Type | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| Task A: Navigate to a location, look for a person, and follow | 55 | 42 | 13 | 76.4% |
+| Task B: Take an object from a placement, and perform an action | 20 | 12 | 8 | 60.0% |
+| Task C: Speak or answer a question | 70 | 49 | 21 | 70.0% |
+
+# Structured outputs
+
+### BAML (Schema Aligned Parsing)
+
+**Test Summary: `GEMINI_FLASH_2_5`**
+
+| Metric | Value |
+| --- | --- |
+| Total Cases | 60 |
+| Passed | 58 (96.7%) |
+| Failed | 2 |
+| Average Execution Time | 3.73s |
+| Average Input Tokens | 2620 |
+| Average Output Tokens | 393 |
+
+**Results by Command Count**
+
+| Commands | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| 3 | 10 | 10 | 0 | 100.0% |
+| 4 | 17 | 16 | 1 | 94.1% |
+| 5 | 1 | 1 | 0 | 100.0% |
+| 6 | 2 | 2 | 0 | 100.0% |
+
+**Results by Task Type**
+
+| Task Type | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| Task A: Navigate to a location, look for a person, and follow | 15 | 14 | 1 | 93.3% |
+| Task B: Take an object from a placement, and perform an action | 4 | 3 | 1 | 75.0% |
+| Task C: Speak or answer a question | 19 | 18 | 1 | 94.7% |
+
+### JSON mode
+
+**Test Summary: `GEMINI_FLASH_2_5`**
+
+| Metric | Value |
+| --- | --- |
+| Total Cases | 60 |
+| Passed | 52 (86.7%) |
+| Failed | 8 |
+| Average Execution Time | 3.76s |
+| Average Input Tokens | 0 |
+| Average Output Tokens | 0 |
+
+**Results by Command Count**
+
+| Commands | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| 3 | 10 | 8 | 2 | 80.0% |
+| 4 | 17 | 16 | 1 | 94.1% |
+| 5 | 1 | 1 | 0 | 100.0% |
+| 6 | 2 | 1 | 1 | 50.0% |
+
+**Results by Task Type**
+
+| Task Type | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| Task A: Navigate to a location, look for a person, and follow | 15 | 13 | 2 | 86.7% |
+| Task B: Take an object from a placement, and perform an action | 4 | 4 | 0 | 100.0% |
+| Task C: Speak or answer a question | 19 | 15 | 4 | 78.9% |
+
+### Prompting
+
+**Test Summary: `GEMINI_FLASH_2_5`**
+
+| Metric | Value |
+| --- | --- |
+| Total Cases | 30 |
+| Passed | 0 (0.0%) |
+| Failed | 30 |
+| Average Execution Time | 3.30s |
+| Average Input Tokens | 0 |
+| Average Output Tokens | 0 |
+
+**Results by Command Count**
+
+| Commands | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| 3 | 10 | 0 | 10 | 0.0% |
+| 4 | 17 | 0 | 17 | 0.0% |
+| 5 | 1 | 0 | 1 | 0.0% |
+| 6 | 2 | 0 | 2 | 0.0% |
+
+**Results by Task Type**
+
+| Task Type | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| Task A: Navigate to a location, look for a person, and follow | 15 | 0 | 15 | 0.0% |
+| Task B: Take an object from a placement, and perform an action | 4 | 0 | 4 | 0.0% |
+| Task C: Speak or answer a question | 19 | 0 | 19 | 0.0% |
 
 # Results execution
 
