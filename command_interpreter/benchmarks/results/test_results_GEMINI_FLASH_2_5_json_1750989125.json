@@ -1,12 +1,12 @@
 {
   "model_name": "GEMINI_FLASH_2_5",
   "total_cases": 60,
-  "total_passed": 58,
-  "total_failed": 2,
-  "overall_pass_rate": 96.66666666666667,
-  "average_execution_time": 3.731309914588928,
-  "average_input_tokens": 2620,
-  "average_output_tokens": 393,
+  "total_passed": 52,
+  "total_failed": 8,
+  "overall_pass_rate": 86.66666666666667,
+  "average_execution_time": 3.757446225484212,
+  "average_input_tokens": 0,
+  "average_output_tokens": 0,
   "groups_by_command_count": [
     {
       "command_count": 4,
@@ -22,9 +22,9 @@
           "actual_command_count": 4,
           "score": 0.9995300695300102,
           "passed": true,
-          "execution_time": 5.116209030151367,
-          "input_tokens": 2619,
-          "output_tokens": 761,
+          "execution_time": 2.349292039871216,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -73,11 +73,11 @@
           "input_command": "introduce yourself to the person wearing a blue sweater in the office and follow them",
           "expected_command_count": 4,
           "actual_command_count": 4,
-          "score": 0.9815973415970802,
+          "score": 0.9917579889297485,
           "passed": true,
-          "execution_time": 4.493970155715942,
-          "input_tokens": 2623,
-          "output_tokens": 567,
+          "execution_time": 6.9117591381073,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -105,11 +105,11 @@
             },
             {
               "action": "find_person",
-              "attribute_value": "person wearing a blue sweater"
+              "attribute_value": "wearing a blue sweater"
             },
             {
               "action": "say_with_context",
-              "user_instruction": "introduce yourself",
+              "user_instruction": "introduce yourself to the person wearing a blue sweater",
               "previous_command_info": "introduction"
             },
             {
@@ -126,9 +126,9 @@
           "actual_command_count": 4,
           "score": 0.9901038557291031,
           "passed": true,
-          "execution_time": 3.4970438480377197,
-          "input_tokens": 2621,
-          "output_tokens": 103,
+          "execution_time": 2.7417080402374268,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -177,9 +177,9 @@
           "actual_command_count": 4,
           "score": 1.0,
           "passed": true,
-          "execution_time": 4.48592209815979,
-          "input_tokens": 2621,
-          "output_tokens": 193,
+          "execution_time": 2.007668972015381,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -226,9 +226,9 @@
           "actual_command_count": 4,
           "score": 0.9992636814713478,
           "passed": true,
-          "execution_time": 3.7538187503814697,
-          "input_tokens": 2620,
-          "output_tokens": 349,
+          "execution_time": 2.1623847484588623,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -274,12 +274,12 @@
           "index": 207,
           "input_command": "go to the trashbin then locate a tropical juice and get it and put it on the bedside table",
           "expected_command_count": 4,
-          "actual_command_count": 5,
-          "score": 0.0,
-          "passed": false,
-          "execution_time": 3.3911020755767822,
-          "input_tokens": 2628,
-          "output_tokens": 423,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 5.261594295501709,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -304,11 +304,6 @@
               "location_to_go": "trashbin"
             },
             {
-              "action": "get_visual_info",
-              "measure": "tropical juice",
-              "object_category": "drinks"
-            },
-            {
               "action": "pick_object",
               "object_to_pick": "tropical juice"
             },
@@ -329,9 +324,9 @@
           "actual_command_count": 4,
           "score": 1.0,
           "passed": true,
-          "execution_time": 2.805565118789673,
-          "input_tokens": 2621,
-          "output_tokens": 382,
+          "execution_time": 3.9571049213409424,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -376,9 +371,9 @@
           "actual_command_count": 4,
           "score": 1.0,
           "passed": true,
-          "execution_time": 1.051041603088379,
-          "input_tokens": 2624,
-          "output_tokens": 112,
+          "execution_time": 2.8761637210845947,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -423,9 +418,9 @@
           "actual_command_count": 4,
           "score": 0.9993200302124023,
           "passed": true,
-          "execution_time": 2.1006431579589844,
-          "input_tokens": 2619,
-          "output_tokens": 233,
+          "execution_time": 1.5029702186584473,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -474,9 +469,9 @@
           "actual_command_count": 4,
           "score": 0.9992010146379471,
           "passed": true,
-          "execution_time": 8.098030090332031,
-          "input_tokens": 2618,
-          "output_tokens": 857,
+          "execution_time": 5.8750410079956055,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -525,9 +520,9 @@
           "actual_command_count": 4,
           "score": 1.0,
           "passed": true,
-          "execution_time": 3.204303026199341,
-          "input_tokens": 2618,
-          "output_tokens": 442,
+          "execution_time": 1.6828627586364746,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -578,9 +573,9 @@
           "actual_command_count": 4,
           "score": 1.0,
           "passed": true,
-          "execution_time": 3.09279727935791,
-          "input_tokens": 2616,
-          "output_tokens": 253,
+          "execution_time": 1.7619831562042236,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -623,11 +618,11 @@
           "input_command": "tell me what is the smallest cleaning supply on the cabinet",
           "expected_command_count": 4,
           "actual_command_count": 4,
-          "score": 1.0,
+          "score": 0.999505802989006,
           "passed": true,
-          "execution_time": 6.262495994567871,
-          "input_tokens": 2619,
-          "output_tokens": 941,
+          "execution_time": 2.3065669536590576,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -665,7 +660,7 @@
             },
             {
               "action": "say_with_context",
-              "user_instruction": "tell me what is the smallest cleaning supply on the cabinet",
+              "user_instruction": "what is the smallest cleaning supply on the cabinet",
               "previous_command_info": "get_visual_info"
             }
           ],
@@ -676,11 +671,11 @@
           "input_command": "salute the person wearing a red shirt in the office and answer a question",
           "expected_command_count": 4,
           "actual_command_count": 4,
-          "score": 0.983948789536953,
+          "score": 0.9915856719017029,
           "passed": true,
-          "execution_time": 6.342982053756714,
-          "input_tokens": 2623,
-          "output_tokens": 727,
+          "execution_time": 5.598690032958984,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -707,12 +702,12 @@
             },
             {
               "action": "find_person",
-              "attribute_value": "red shirt"
+              "attribute_value": "wearing a red shirt"
             },
             {
               "action": "say_with_context",
-              "user_instruction": "salute the person wearing a red shirt",
-              "previous_command_info": "found_person"
+              "user_instruction": "salute the person wearing a red shirt in the office",
+              "previous_command_info": "introduction"
             },
             {
               "action": "answer_question"
@@ -724,12 +719,12 @@
           "index": 225,
           "input_command": "say hello to Paris in the living room and tell your teams country",
           "expected_command_count": 4,
-          "actual_command_count": 4,
-          "score": 0.9718966409564018,
-          "passed": true,
-          "execution_time": 6.046074151992798,
-          "input_tokens": 2621,
-          "output_tokens": 825,
+          "actual_command_count": 5,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 4.895083904266357,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -766,9 +761,13 @@
               "previous_command_info": "introduction"
             },
             {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
               "action": "say_with_context",
               "user_instruction": "tell your teams country",
-              "previous_command_info": "robot_team_country"
+              "previous_command_info": "team's country"
             }
           ],
           "cmd_category": "A|C"
@@ -780,9 +779,9 @@
           "actual_command_count": 4,
           "score": 1.0,
           "passed": true,
-          "execution_time": 2.802988052368164,
-          "input_tokens": 2622,
-          "output_tokens": 354,
+          "execution_time": 8.022363901138306,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -827,11 +826,11 @@
           "input_command": "tell me how many people in the living room are wearing blue shirts",
           "expected_command_count": 4,
           "actual_command_count": 4,
-          "score": 1.0,
+          "score": 0.9991752952337265,
           "passed": true,
-          "execution_time": 1.6482670307159424,
-          "input_tokens": 2621,
-          "output_tokens": 221,
+          "execution_time": 2.608167886734009,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -867,7 +866,7 @@
             },
             {
               "action": "say_with_context",
-              "user_instruction": "tell me how many people in the living room are wearing blue shirts",
+              "user_instruction": "how many people in the living room are wearing blue shirts",
               "previous_command_info": "count"
             }
           ],
@@ -877,76 +876,24 @@
     },
     {
       "command_count": 6,
-      "passed_count": 2,
-      "failed_count": 0,
+      "passed_count": 1,
+      "failed_count": 1,
       "total_count": 2,
-      "pass_rate": 100.0,
+      "pass_rate": 50.0,
       "test_results": [
         {
           "index": 205,
           "input_command": "tell the gesture of the person at the entrance to the person at the storage rack",
           "expected_command_count": 6,
-          "actual_command_count": 6,
-          "score": 1.0,
-          "passed": true,
-          "execution_time": 3.7579808235168457,
-          "input_tokens": 2624,
-          "output_tokens": 425,
-          "error": null,
-          "expected_commands": [
-            {
-              "action": "go_to",
-              "location_to_go": "entrance"
-            },
-            {
-              "action": "find_person",
-              "attribute_value": ""
-            },
-            {
-              "action": "get_person_info",
-              "info_type": "gesture"
-            },
-            {
-              "action": "go_to",
-              "location_to_go": "storage rack"
-            },
-            {
-              "action": "find_person",
-              "attribute_value": ""
-            },
-            {
-              "action": "say_with_context",
-              "user_instruction": "tell the gesture of the person at the entrance to the person at the storage rack",
-              "previous_command_info": "get_person_info"
-            }
-          ],
-          "actual_commands": [
-            {
-              "action": "go_to",
-              "location_to_go": "entrance"
-            },
-            {
-              "action": "find_person",
-              "attribute_value": ""
-            },
-            {
-              "action": "get_person_info",
-              "info_type": "gesture"
-            },
-            {
-              "action": "go_to",
-              "location_to_go": "storage rack"
-            },
-            {
-              "action": "find_person",
-              "attribute_value": ""
-            },
-            {
-              "action": "say_with_context",
-              "user_instruction": "tell the gesture of the person at the entrance to the person at the storage rack",
-              "previous_command_info": "get_person_info"
-            }
-          ],
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 2.93017315864563,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "48 validation errors for CommandListLLM\ncommands.1.GoTo.action\n  Input should be 'go_to' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.GoTo.location_to_go\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.PickObject.action\n  Input should be 'pick_object' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.PickObject.object_to_pick\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.FindPersonByName.action\n  Input should be 'find_person_by_name' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.FindPersonByName.name\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.FindPerson.attribute_value\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.Count.action\n  Input should be 'count' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.Count.target_to_count\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.GetPersonInfo.action\n  Input should be 'get_person_info' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.GetPersonInfo.info_type\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.GetVisualInfo.action\n  Input should be 'get_visual_info' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.GetVisualInfo.measure\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.GetVisualInfo.object_category\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.AnswerQuestion.action\n  Input should be 'answer_question' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.FollowPersonUntil.action\n  Input should be 'follow_person_until' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.FollowPersonUntil.destination\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.GuidePersonTo.action\n  Input should be 'guide_person_to' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.GuidePersonTo.destination_room\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.GiveObject.action\n  Input should be 'give_object' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.PlaceObject.action\n  Input should be 'place_object' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.SayWithContext.action\n  Input should be 'say_with_context' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.SayWithContext.user_instruction\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.SayWithContext.previous_command_info\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.GoTo.action\n  Input should be 'go_to' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.GoTo.location_to_go\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.PickObject.action\n  Input should be 'pick_object' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.PickObject.object_to_pick\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.FindPersonByName.action\n  Input should be 'find_person_by_name' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.FindPersonByName.name\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.FindPerson.attribute_value\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.Count.action\n  Input should be 'count' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.Count.target_to_count\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.GetPersonInfo.action\n  Input should be 'get_person_info' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.GetPersonInfo.info_type\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.GetVisualInfo.action\n  Input should be 'get_visual_info' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.GetVisualInfo.measure\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.GetVisualInfo.object_category\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.AnswerQuestion.action\n  Input should be 'answer_question' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.FollowPersonUntil.action\n  Input should be 'follow_person_until' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.FollowPersonUntil.destination\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.GuidePersonTo.action\n  Input should be 'guide_person_to' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.GuidePersonTo.destination_room\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.GiveObject.action\n  Input should be 'give_object' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.PlaceObject.action\n  Input should be 'place_object' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.SayWithContext.action\n  Input should be 'say_with_context' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.SayWithContext.user_instruction\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.SayWithContext.previous_command_info\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing",
+          "expected_commands": null,
+          "actual_commands": null,
           "cmd_category": "C"
         },
         {
@@ -954,11 +901,11 @@
           "input_command": "tell the pose of the person at the trashbin to the person at the bookshelf",
           "expected_command_count": 6,
           "actual_command_count": 6,
-          "score": 1.0,
+          "score": 0.9895262271165848,
           "passed": true,
-          "execution_time": 1.8169498443603516,
-          "input_tokens": 2624,
-          "output_tokens": 157,
+          "execution_time": 5.67692494392395,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1010,8 +957,8 @@
             },
             {
               "action": "say_with_context",
-              "user_instruction": "tell the pose of the person at the trashbin to the person at the bookshelf",
-              "previous_command_info": "get_person_info"
+              "user_instruction": "the pose of the person at the trashbin",
+              "previous_command_info": "pose"
             }
           ],
           "cmd_category": "C"
@@ -1020,10 +967,10 @@
     },
     {
       "command_count": 3,
-      "passed_count": 10,
-      "failed_count": 0,
+      "passed_count": 8,
+      "failed_count": 2,
       "total_count": 10,
-      "pass_rate": 100.0,
+      "pass_rate": 80.0,
       "test_results": [
         {
           "index": 206,
@@ -1032,9 +979,9 @@
           "actual_command_count": 3,
           "score": 0.9977969725926717,
           "passed": true,
-          "execution_time": 2.237513780593872,
-          "input_tokens": 2616,
-          "output_tokens": 295,
+          "execution_time": 3.051304817199707,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1073,9 +1020,9 @@
           "actual_command_count": 3,
           "score": 0.9990844329198202,
           "passed": true,
-          "execution_time": 1.7170519828796387,
-          "input_tokens": 2620,
-          "output_tokens": 148,
+          "execution_time": 2.2178518772125244,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1109,12 +1056,12 @@
           "index": 211,
           "input_command": "meet Axel in the office and tell the day of the week",
           "expected_command_count": 3,
-          "actual_command_count": 3,
-          "score": 0.9874521295229594,
-          "passed": true,
-          "execution_time": 2.8310420513153076,
-          "input_tokens": 2620,
-          "output_tokens": 360,
+          "actual_command_count": 4,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 3.0712151527404785,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1141,9 +1088,13 @@
               "name": "Axel"
             },
             {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
               "action": "say_with_context",
               "user_instruction": "tell the day of the week",
-              "previous_command_info": "time"
+              "previous_command_info": "the day of the week"
             }
           ],
           "cmd_category": "A|C"
@@ -1152,43 +1103,15 @@
           "index": 216,
           "input_command": "say something about yourself to the person raising their left arm in the office",
           "expected_command_count": 3,
-          "actual_command_count": 3,
-          "score": 0.9944761693477631,
-          "passed": true,
-          "execution_time": 4.291317939758301,
-          "input_tokens": 2622,
-          "output_tokens": 552,
-          "error": null,
-          "expected_commands": [
-            {
-              "action": "go_to",
-              "location_to_go": "office"
-            },
-            {
-              "action": "find_person",
-              "attribute_value": "person raising their left arm"
-            },
-            {
-              "action": "say_with_context",
-              "user_instruction": "say something about yourself to the person raising their left arm in the office",
-              "previous_command_info": "something about yourself"
-            }
-          ],
-          "actual_commands": [
-            {
-              "action": "go_to",
-              "location_to_go": "office"
-            },
-            {
-              "action": "find_person",
-              "attribute_value": "raising their left arm"
-            },
-            {
-              "action": "say_with_context",
-              "user_instruction": "say something about yourself to the person raising their left arm in the office",
-              "previous_command_info": "introduction"
-            }
-          ],
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.142338752746582,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
+          "expected_commands": null,
+          "actual_commands": null,
           "cmd_category": "C"
         },
         {
@@ -1198,9 +1121,9 @@
           "actual_command_count": 3,
           "score": 0.9989950557549795,
           "passed": true,
-          "execution_time": 4.9913530349731445,
-          "input_tokens": 2621,
-          "output_tokens": 253,
+          "execution_time": 6.2221620082855225,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1237,9 +1160,9 @@
           "actual_command_count": 3,
           "score": 1.0,
           "passed": true,
-          "execution_time": 3.9762609004974365,
-          "input_tokens": 2616,
-          "output_tokens": 527,
+          "execution_time": 2.135016918182373,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1278,9 +1201,9 @@
           "actual_command_count": 3,
           "score": 1.0,
           "passed": true,
-          "execution_time": 6.360957145690918,
-          "input_tokens": 2616,
-          "output_tokens": 521,
+          "execution_time": 1.5972192287445068,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1319,9 +1242,9 @@
           "actual_command_count": 3,
           "score": 0.998828132947286,
           "passed": true,
-          "execution_time": 5.408099174499512,
-          "input_tokens": 2623,
-          "output_tokens": 210,
+          "execution_time": 14.093353986740112,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1358,11 +1281,11 @@
           "input_command": "escort the person wearing a red shirt from the cabinet to the dishwasher",
           "expected_command_count": 3,
           "actual_command_count": 3,
-          "score": 0.9969724913438162,
+          "score": 0.9966580073038737,
           "passed": true,
-          "execution_time": 3.330487012863159,
-          "input_tokens": 2622,
-          "output_tokens": 252,
+          "execution_time": 2.372951030731201,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1385,7 +1308,7 @@
             },
             {
               "action": "find_person",
-              "attribute_value": "wearing a red shirt"
+              "attribute_value": "person wearing a red shirt"
             },
             {
               "action": "guide_person_to",
@@ -1401,9 +1324,9 @@
           "actual_command_count": 3,
           "score": 0.9977969725926717,
           "passed": true,
-          "execution_time": 1.048241138458252,
-          "input_tokens": 2615,
-          "output_tokens": 94,
+          "execution_time": 2.384538173675537,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1449,11 +1372,11 @@
           "input_command": "tell me the name of the person at the lamp",
           "expected_command_count": 5,
           "actual_command_count": 5,
-          "score": 1.0,
+          "score": 0.999071615934372,
           "passed": true,
-          "execution_time": 1.9787890911102295,
-          "input_tokens": 2618,
-          "output_tokens": 268,
+          "execution_time": 3.3069310188293457,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1497,7 +1420,7 @@
             },
             {
               "action": "say_with_context",
-              "user_instruction": "tell me the name of the person at the lamp",
+              "user_instruction": "the name of the person at the lamp",
               "previous_command_info": "get_person_info"
             }
           ],
@@ -1510,10 +1433,10 @@
     {
       "task_type": "C",
       "task_description": "Speak or answer a question",
-      "passed_count": 18,
-      "failed_count": 1,
+      "passed_count": 15,
+      "failed_count": 4,
       "total_count": 19,
-      "pass_rate": 94.73684210526315,
+      "pass_rate": 78.94736842105263,
       "test_results": [
         {
           "index": 200,
@@ -1522,9 +1445,9 @@
           "actual_command_count": 4,
           "score": 0.9995300695300102,
           "passed": true,
-          "execution_time": 5.116209030151367,
-          "input_tokens": 2619,
-          "output_tokens": 761,
+          "execution_time": 2.349292039871216,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1573,11 +1496,11 @@
           "input_command": "introduce yourself to the person wearing a blue sweater in the office and follow them",
           "expected_command_count": 4,
           "actual_command_count": 4,
-          "score": 0.9815973415970802,
+          "score": 0.9917579889297485,
           "passed": true,
-          "execution_time": 4.493970155715942,
-          "input_tokens": 2623,
-          "output_tokens": 567,
+          "execution_time": 6.9117591381073,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1605,11 +1528,11 @@
             },
             {
               "action": "find_person",
-              "attribute_value": "person wearing a blue sweater"
+              "attribute_value": "wearing a blue sweater"
             },
             {
               "action": "say_with_context",
-              "user_instruction": "introduce yourself",
+              "user_instruction": "introduce yourself to the person wearing a blue sweater",
               "previous_command_info": "introduction"
             },
             {
@@ -1626,9 +1549,9 @@
           "actual_command_count": 4,
           "score": 0.9901038557291031,
           "passed": true,
-          "execution_time": 3.4970438480377197,
-          "input_tokens": 2621,
-          "output_tokens": 103,
+          "execution_time": 2.7417080402374268,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1677,9 +1600,9 @@
           "actual_command_count": 4,
           "score": 0.9992636814713478,
           "passed": true,
-          "execution_time": 3.7538187503814697,
-          "input_tokens": 2620,
-          "output_tokens": 349,
+          "execution_time": 2.1623847484588623,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1725,79 +1648,27 @@
           "index": 205,
           "input_command": "tell the gesture of the person at the entrance to the person at the storage rack",
           "expected_command_count": 6,
-          "actual_command_count": 6,
-          "score": 1.0,
-          "passed": true,
-          "execution_time": 3.7579808235168457,
-          "input_tokens": 2624,
-          "output_tokens": 425,
-          "error": null,
-          "expected_commands": [
-            {
-              "action": "go_to",
-              "location_to_go": "entrance"
-            },
-            {
-              "action": "find_person",
-              "attribute_value": ""
-            },
-            {
-              "action": "get_person_info",
-              "info_type": "gesture"
-            },
-            {
-              "action": "go_to",
-              "location_to_go": "storage rack"
-            },
-            {
-              "action": "find_person",
-              "attribute_value": ""
-            },
-            {
-              "action": "say_with_context",
-              "user_instruction": "tell the gesture of the person at the entrance to the person at the storage rack",
-              "previous_command_info": "get_person_info"
-            }
-          ],
-          "actual_commands": [
-            {
-              "action": "go_to",
-              "location_to_go": "entrance"
-            },
-            {
-              "action": "find_person",
-              "attribute_value": ""
-            },
-            {
-              "action": "get_person_info",
-              "info_type": "gesture"
-            },
-            {
-              "action": "go_to",
-              "location_to_go": "storage rack"
-            },
-            {
-              "action": "find_person",
-              "attribute_value": ""
-            },
-            {
-              "action": "say_with_context",
-              "user_instruction": "tell the gesture of the person at the entrance to the person at the storage rack",
-              "previous_command_info": "get_person_info"
-            }
-          ],
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 2.93017315864563,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "48 validation errors for CommandListLLM\ncommands.1.GoTo.action\n  Input should be 'go_to' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.GoTo.location_to_go\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.PickObject.action\n  Input should be 'pick_object' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.PickObject.object_to_pick\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.FindPersonByName.action\n  Input should be 'find_person_by_name' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.FindPersonByName.name\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.FindPerson.attribute_value\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.Count.action\n  Input should be 'count' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.Count.target_to_count\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.GetPersonInfo.action\n  Input should be 'get_person_info' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.GetPersonInfo.info_type\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.GetVisualInfo.action\n  Input should be 'get_visual_info' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.GetVisualInfo.measure\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.GetVisualInfo.object_category\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.AnswerQuestion.action\n  Input should be 'answer_question' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.FollowPersonUntil.action\n  Input should be 'follow_person_until' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.FollowPersonUntil.destination\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.GuidePersonTo.action\n  Input should be 'guide_person_to' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.GuidePersonTo.destination_room\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.GiveObject.action\n  Input should be 'give_object' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.PlaceObject.action\n  Input should be 'place_object' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.SayWithContext.action\n  Input should be 'say_with_context' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.1.SayWithContext.user_instruction\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.1.SayWithContext.previous_command_info\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.GoTo.action\n  Input should be 'go_to' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.GoTo.location_to_go\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.PickObject.action\n  Input should be 'pick_object' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.PickObject.object_to_pick\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.FindPersonByName.action\n  Input should be 'find_person_by_name' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.FindPersonByName.name\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.FindPerson.attribute_value\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.Count.action\n  Input should be 'count' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.Count.target_to_count\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.GetPersonInfo.action\n  Input should be 'get_person_info' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.GetPersonInfo.info_type\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.GetVisualInfo.action\n  Input should be 'get_visual_info' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.GetVisualInfo.measure\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.GetVisualInfo.object_category\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.AnswerQuestion.action\n  Input should be 'answer_question' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.FollowPersonUntil.action\n  Input should be 'follow_person_until' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.FollowPersonUntil.destination\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.GuidePersonTo.action\n  Input should be 'guide_person_to' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.GuidePersonTo.destination_room\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.GiveObject.action\n  Input should be 'give_object' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.PlaceObject.action\n  Input should be 'place_object' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.SayWithContext.action\n  Input should be 'say_with_context' [type=literal_error, input_value='find_person', input_type=str]\n    For further information visit https://errors.pydantic.dev/2.11/v/literal_error\ncommands.4.SayWithContext.user_instruction\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing\ncommands.4.SayWithContext.previous_command_info\n  Field required [type=missing, input_value={'action': 'find_person'}, input_type=dict]\n    For further information visit https://errors.pydantic.dev/2.11/v/missing",
+          "expected_commands": null,
+          "actual_commands": null,
           "cmd_category": "C"
         },
         {
           "index": 207,
           "input_command": "go to the trashbin then locate a tropical juice and get it and put it on the bedside table",
           "expected_command_count": 4,
-          "actual_command_count": 5,
-          "score": 0.0,
-          "passed": false,
-          "execution_time": 3.3911020755767822,
-          "input_tokens": 2628,
-          "output_tokens": 423,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 5.261594295501709,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1820,11 +1691,6 @@
             {
               "action": "go_to",
               "location_to_go": "trashbin"
-            },
-            {
-              "action": "get_visual_info",
-              "measure": "tropical juice",
-              "object_category": "drinks"
             },
             {
               "action": "pick_object",
@@ -1847,9 +1713,9 @@
           "actual_command_count": 3,
           "score": 0.9990844329198202,
           "passed": true,
-          "execution_time": 1.7170519828796387,
-          "input_tokens": 2620,
-          "output_tokens": 148,
+          "execution_time": 2.2178518772125244,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1883,12 +1749,12 @@
           "index": 211,
           "input_command": "meet Axel in the office and tell the day of the week",
           "expected_command_count": 3,
-          "actual_command_count": 3,
-          "score": 0.9874521295229594,
-          "passed": true,
-          "execution_time": 2.8310420513153076,
-          "input_tokens": 2620,
-          "output_tokens": 360,
+          "actual_command_count": 4,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 3.0712151527404785,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1915,9 +1781,13 @@
               "name": "Axel"
             },
             {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
               "action": "say_with_context",
               "user_instruction": "tell the day of the week",
-              "previous_command_info": "time"
+              "previous_command_info": "the day of the week"
             }
           ],
           "cmd_category": "A|C"
@@ -1929,9 +1799,9 @@
           "actual_command_count": 4,
           "score": 0.9993200302124023,
           "passed": true,
-          "execution_time": 2.1006431579589844,
-          "input_tokens": 2619,
-          "output_tokens": 233,
+          "execution_time": 1.5029702186584473,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -1980,9 +1850,9 @@
           "actual_command_count": 4,
           "score": 0.9992010146379471,
           "passed": true,
-          "execution_time": 8.098030090332031,
-          "input_tokens": 2618,
-          "output_tokens": 857,
+          "execution_time": 5.8750410079956055,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2029,11 +1899,11 @@
           "input_command": "tell me the name of the person at the lamp",
           "expected_command_count": 5,
           "actual_command_count": 5,
-          "score": 1.0,
+          "score": 0.999071615934372,
           "passed": true,
-          "execution_time": 1.9787890911102295,
-          "input_tokens": 2618,
-          "output_tokens": 268,
+          "execution_time": 3.3069310188293457,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2077,7 +1947,7 @@
             },
             {
               "action": "say_with_context",
-              "user_instruction": "tell me the name of the person at the lamp",
+              "user_instruction": "the name of the person at the lamp",
               "previous_command_info": "get_person_info"
             }
           ],
@@ -2090,9 +1960,9 @@
           "actual_command_count": 4,
           "score": 1.0,
           "passed": true,
-          "execution_time": 3.204303026199341,
-          "input_tokens": 2618,
-          "output_tokens": 442,
+          "execution_time": 1.6828627586364746,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2140,43 +2010,15 @@
           "index": 216,
           "input_command": "say something about yourself to the person raising their left arm in the office",
           "expected_command_count": 3,
-          "actual_command_count": 3,
-          "score": 0.9944761693477631,
-          "passed": true,
-          "execution_time": 4.291317939758301,
-          "input_tokens": 2622,
-          "output_tokens": 552,
-          "error": null,
-          "expected_commands": [
-            {
-              "action": "go_to",
-              "location_to_go": "office"
-            },
-            {
-              "action": "find_person",
-              "attribute_value": "person raising their left arm"
-            },
-            {
-              "action": "say_with_context",
-              "user_instruction": "say something about yourself to the person raising their left arm in the office",
-              "previous_command_info": "something about yourself"
-            }
-          ],
-          "actual_commands": [
-            {
-              "action": "go_to",
-              "location_to_go": "office"
-            },
-            {
-              "action": "find_person",
-              "attribute_value": "raising their left arm"
-            },
-            {
-              "action": "say_with_context",
-              "user_instruction": "say something about yourself to the person raising their left arm in the office",
-              "previous_command_info": "introduction"
-            }
-          ],
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.142338752746582,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "503 UNAVAILABLE. {'error': {'code': 503, 'message': 'The model is overloaded. Please try again later.', 'status': 'UNAVAILABLE'}}",
+          "expected_commands": null,
+          "actual_commands": null,
           "cmd_category": "C"
         },
         {
@@ -2186,9 +2028,9 @@
           "actual_command_count": 3,
           "score": 0.9989950557549795,
           "passed": true,
-          "execution_time": 4.9913530349731445,
-          "input_tokens": 2621,
-          "output_tokens": 253,
+          "execution_time": 6.2221620082855225,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2223,11 +2065,11 @@
           "input_command": "tell me what is the smallest cleaning supply on the cabinet",
           "expected_command_count": 4,
           "actual_command_count": 4,
-          "score": 1.0,
+          "score": 0.999505802989006,
           "passed": true,
-          "execution_time": 6.262495994567871,
-          "input_tokens": 2619,
-          "output_tokens": 941,
+          "execution_time": 2.3065669536590576,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2265,7 +2107,7 @@
             },
             {
               "action": "say_with_context",
-              "user_instruction": "tell me what is the smallest cleaning supply on the cabinet",
+              "user_instruction": "what is the smallest cleaning supply on the cabinet",
               "previous_command_info": "get_visual_info"
             }
           ],
@@ -2276,11 +2118,11 @@
           "input_command": "salute the person wearing a red shirt in the office and answer a question",
           "expected_command_count": 4,
           "actual_command_count": 4,
-          "score": 0.983948789536953,
+          "score": 0.9915856719017029,
           "passed": true,
-          "execution_time": 6.342982053756714,
-          "input_tokens": 2623,
-          "output_tokens": 727,
+          "execution_time": 5.598690032958984,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2307,12 +2149,12 @@
             },
             {
               "action": "find_person",
-              "attribute_value": "red shirt"
+              "attribute_value": "wearing a red shirt"
             },
             {
               "action": "say_with_context",
-              "user_instruction": "salute the person wearing a red shirt",
-              "previous_command_info": "found_person"
+              "user_instruction": "salute the person wearing a red shirt in the office",
+              "previous_command_info": "introduction"
             },
             {
               "action": "answer_question"
@@ -2324,12 +2166,12 @@
           "index": 225,
           "input_command": "say hello to Paris in the living room and tell your teams country",
           "expected_command_count": 4,
-          "actual_command_count": 4,
-          "score": 0.9718966409564018,
-          "passed": true,
-          "execution_time": 6.046074151992798,
-          "input_tokens": 2621,
-          "output_tokens": 825,
+          "actual_command_count": 5,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 4.895083904266357,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2366,9 +2208,13 @@
               "previous_command_info": "introduction"
             },
             {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
               "action": "say_with_context",
               "user_instruction": "tell your teams country",
-              "previous_command_info": "robot_team_country"
+              "previous_command_info": "team's country"
             }
           ],
           "cmd_category": "A|C"
@@ -2378,11 +2224,11 @@
           "input_command": "tell me how many people in the living room are wearing blue shirts",
           "expected_command_count": 4,
           "actual_command_count": 4,
-          "score": 1.0,
+          "score": 0.9991752952337265,
           "passed": true,
-          "execution_time": 1.6482670307159424,
-          "input_tokens": 2621,
-          "output_tokens": 221,
+          "execution_time": 2.608167886734009,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2418,7 +2264,7 @@
             },
             {
               "action": "say_with_context",
-              "user_instruction": "tell me how many people in the living room are wearing blue shirts",
+              "user_instruction": "how many people in the living room are wearing blue shirts",
               "previous_command_info": "count"
             }
           ],
@@ -2429,11 +2275,11 @@
           "input_command": "tell the pose of the person at the trashbin to the person at the bookshelf",
           "expected_command_count": 6,
           "actual_command_count": 6,
-          "score": 1.0,
+          "score": 0.9895262271165848,
           "passed": true,
-          "execution_time": 1.8169498443603516,
-          "input_tokens": 2624,
-          "output_tokens": 157,
+          "execution_time": 5.67692494392395,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2485,8 +2331,8 @@
             },
             {
               "action": "say_with_context",
-              "user_instruction": "tell the pose of the person at the trashbin to the person at the bookshelf",
-              "previous_command_info": "get_person_info"
+              "user_instruction": "the pose of the person at the trashbin",
+              "previous_command_info": "pose"
             }
           ],
           "cmd_category": "C"
@@ -2496,21 +2342,21 @@
     {
       "task_type": "A",
       "task_description": "Navigate to a location, look for a person, and follow",
-      "passed_count": 14,
-      "failed_count": 1,
+      "passed_count": 13,
+      "failed_count": 2,
       "total_count": 15,
-      "pass_rate": 93.33333333333333,
+      "pass_rate": 86.66666666666667,
       "test_results": [
         {
           "index": 201,
           "input_command": "introduce yourself to the person wearing a blue sweater in the office and follow them",
           "expected_command_count": 4,
           "actual_command_count": 4,
-          "score": 0.9815973415970802,
+          "score": 0.9917579889297485,
           "passed": true,
-          "execution_time": 4.493970155715942,
-          "input_tokens": 2623,
-          "output_tokens": 567,
+          "execution_time": 6.9117591381073,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2538,11 +2384,11 @@
             },
             {
               "action": "find_person",
-              "attribute_value": "person wearing a blue sweater"
+              "attribute_value": "wearing a blue sweater"
             },
             {
               "action": "say_with_context",
-              "user_instruction": "introduce yourself",
+              "user_instruction": "introduce yourself to the person wearing a blue sweater",
               "previous_command_info": "introduction"
             },
             {
@@ -2559,9 +2405,9 @@
           "actual_command_count": 4,
           "score": 0.9901038557291031,
           "passed": true,
-          "execution_time": 3.4970438480377197,
-          "input_tokens": 2621,
-          "output_tokens": 103,
+          "execution_time": 2.7417080402374268,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2610,9 +2456,9 @@
           "actual_command_count": 4,
           "score": 1.0,
           "passed": true,
-          "execution_time": 4.48592209815979,
-          "input_tokens": 2621,
-          "output_tokens": 193,
+          "execution_time": 2.007668972015381,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2659,9 +2505,9 @@
           "actual_command_count": 3,
           "score": 0.9977969725926717,
           "passed": true,
-          "execution_time": 2.237513780593872,
-          "input_tokens": 2616,
-          "output_tokens": 295,
+          "execution_time": 3.051304817199707,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2697,12 +2543,12 @@
           "index": 207,
           "input_command": "go to the trashbin then locate a tropical juice and get it and put it on the bedside table",
           "expected_command_count": 4,
-          "actual_command_count": 5,
-          "score": 0.0,
-          "passed": false,
-          "execution_time": 3.3911020755767822,
-          "input_tokens": 2628,
-          "output_tokens": 423,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 5.261594295501709,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2727,11 +2573,6 @@
               "location_to_go": "trashbin"
             },
             {
-              "action": "get_visual_info",
-              "measure": "tropical juice",
-              "object_category": "drinks"
-            },
-            {
               "action": "pick_object",
               "object_to_pick": "tropical juice"
             },
@@ -2752,9 +2593,9 @@
           "actual_command_count": 3,
           "score": 0.9990844329198202,
           "passed": true,
-          "execution_time": 1.7170519828796387,
-          "input_tokens": 2620,
-          "output_tokens": 148,
+          "execution_time": 2.2178518772125244,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2788,12 +2629,12 @@
           "index": 211,
           "input_command": "meet Axel in the office and tell the day of the week",
           "expected_command_count": 3,
-          "actual_command_count": 3,
-          "score": 0.9874521295229594,
-          "passed": true,
-          "execution_time": 2.8310420513153076,
-          "input_tokens": 2620,
-          "output_tokens": 360,
+          "actual_command_count": 4,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 3.0712151527404785,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2820,9 +2661,13 @@
               "name": "Axel"
             },
             {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
               "action": "say_with_context",
               "user_instruction": "tell the day of the week",
-              "previous_command_info": "time"
+              "previous_command_info": "the day of the week"
             }
           ],
           "cmd_category": "A|C"
@@ -2834,9 +2679,9 @@
           "actual_command_count": 3,
           "score": 1.0,
           "passed": true,
-          "execution_time": 3.9762609004974365,
-          "input_tokens": 2616,
-          "output_tokens": 527,
+          "execution_time": 2.135016918182373,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2875,9 +2720,9 @@
           "actual_command_count": 3,
           "score": 1.0,
           "passed": true,
-          "execution_time": 6.360957145690918,
-          "input_tokens": 2616,
-          "output_tokens": 521,
+          "execution_time": 1.5972192287445068,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2916,9 +2761,9 @@
           "actual_command_count": 3,
           "score": 0.998828132947286,
           "passed": true,
-          "execution_time": 5.408099174499512,
-          "input_tokens": 2623,
-          "output_tokens": 210,
+          "execution_time": 14.093353986740112,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2955,11 +2800,11 @@
           "input_command": "escort the person wearing a red shirt from the cabinet to the dishwasher",
           "expected_command_count": 3,
           "actual_command_count": 3,
-          "score": 0.9969724913438162,
+          "score": 0.9966580073038737,
           "passed": true,
-          "execution_time": 3.330487012863159,
-          "input_tokens": 2622,
-          "output_tokens": 252,
+          "execution_time": 2.372951030731201,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -2982,7 +2827,7 @@
             },
             {
               "action": "find_person",
-              "attribute_value": "wearing a red shirt"
+              "attribute_value": "person wearing a red shirt"
             },
             {
               "action": "guide_person_to",
@@ -2996,11 +2841,11 @@
           "input_command": "salute the person wearing a red shirt in the office and answer a question",
           "expected_command_count": 4,
           "actual_command_count": 4,
-          "score": 0.983948789536953,
+          "score": 0.9915856719017029,
           "passed": true,
-          "execution_time": 6.342982053756714,
-          "input_tokens": 2623,
-          "output_tokens": 727,
+          "execution_time": 5.598690032958984,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -3027,12 +2872,12 @@
             },
             {
               "action": "find_person",
-              "attribute_value": "red shirt"
+              "attribute_value": "wearing a red shirt"
             },
             {
               "action": "say_with_context",
-              "user_instruction": "salute the person wearing a red shirt",
-              "previous_command_info": "found_person"
+              "user_instruction": "salute the person wearing a red shirt in the office",
+              "previous_command_info": "introduction"
             },
             {
               "action": "answer_question"
@@ -3044,12 +2889,12 @@
           "index": 225,
           "input_command": "say hello to Paris in the living room and tell your teams country",
           "expected_command_count": 4,
-          "actual_command_count": 4,
-          "score": 0.9718966409564018,
-          "passed": true,
-          "execution_time": 6.046074151992798,
-          "input_tokens": 2621,
-          "output_tokens": 825,
+          "actual_command_count": 5,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 4.895083904266357,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -3086,9 +2931,13 @@
               "previous_command_info": "introduction"
             },
             {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
               "action": "say_with_context",
               "user_instruction": "tell your teams country",
-              "previous_command_info": "robot_team_country"
+              "previous_command_info": "team's country"
             }
           ],
           "cmd_category": "A|C"
@@ -3100,9 +2949,9 @@
           "actual_command_count": 4,
           "score": 1.0,
           "passed": true,
-          "execution_time": 2.802988052368164,
-          "input_tokens": 2622,
-          "output_tokens": 354,
+          "execution_time": 8.022363901138306,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -3149,9 +2998,9 @@
           "actual_command_count": 3,
           "score": 0.9977969725926717,
           "passed": true,
-          "execution_time": 1.048241138458252,
-          "input_tokens": 2615,
-          "output_tokens": 94,
+          "execution_time": 2.384538173675537,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -3188,21 +3037,21 @@
     {
       "task_type": "B",
       "task_description": "Take an object from a placement, and perform an action",
-      "passed_count": 3,
-      "failed_count": 1,
+      "passed_count": 4,
+      "failed_count": 0,
       "total_count": 4,
-      "pass_rate": 75.0,
+      "pass_rate": 100.0,
       "test_results": [
         {
           "index": 207,
           "input_command": "go to the trashbin then locate a tropical juice and get it and put it on the bedside table",
           "expected_command_count": 4,
-          "actual_command_count": 5,
-          "score": 0.0,
-          "passed": false,
-          "execution_time": 3.3911020755767822,
-          "input_tokens": 2628,
-          "output_tokens": 423,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 5.261594295501709,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -3227,11 +3076,6 @@
               "location_to_go": "trashbin"
             },
             {
-              "action": "get_visual_info",
-              "measure": "tropical juice",
-              "object_category": "drinks"
-            },
-            {
               "action": "pick_object",
               "object_to_pick": "tropical juice"
             },
@@ -3252,9 +3096,9 @@
           "actual_command_count": 4,
           "score": 1.0,
           "passed": true,
-          "execution_time": 2.805565118789673,
-          "input_tokens": 2621,
-          "output_tokens": 382,
+          "execution_time": 3.9571049213409424,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -3299,9 +3143,9 @@
           "actual_command_count": 4,
           "score": 1.0,
           "passed": true,
-          "execution_time": 1.051041603088379,
-          "input_tokens": 2624,
-          "output_tokens": 112,
+          "execution_time": 2.8761637210845947,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
@@ -3346,9 +3190,9 @@
           "actual_command_count": 4,
           "score": 1.0,
           "passed": true,
-          "execution_time": 3.09279727935791,
-          "input_tokens": 2616,
-          "output_tokens": 253,
+          "execution_time": 1.7619831562042236,
+          "input_tokens": 0,
+          "output_tokens": 0,
           "error": null,
           "expected_commands": [
             {
