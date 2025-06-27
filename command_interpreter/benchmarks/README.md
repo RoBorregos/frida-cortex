@@ -272,18 +272,18 @@ python model_performance_tester.py
 
 | Commands | Total | Passed | Failed | Pass Rate |
 | :--- | :--- | :--- | :--- | :--- |
-| 3 | 10 | 10 | 0 | 100.0% |
-| 4 | 17 | 16 | 1 | 94.1% |
-| 5 | 1 | 1 | 0 | 100.0% |
-| 6 | 2 | 2 | 0 | 100.0% |
+| 3 | 20 | 20 | 0 | 100.0% |
+| 4 | 34 | 32 | 2 | 94.1% |
+| 5 | 2 | 2 | 0 | 100.0% |
+| 6 | 4 | 4 | 0 | 100.0% |
 
 **Results by Task Type**
 
 | Task Type | Total | Passed | Failed | Pass Rate |
 | :--- | :--- | :--- | :--- | :--- |
-| Task A: Navigate to a location, look for a person, and follow | 15 | 14 | 1 | 93.3% |
-| Task B: Take an object from a placement, and perform an action | 4 | 3 | 1 | 75.0% |
-| Task C: Speak or answer a question | 19 | 18 | 1 | 94.7% |
+| Task A: Navigate to a location, look for a person, and follow | 30 | 28 | 2 | 93.3% |
+| Task B: Take an object from a placement, and perform an action | 8 | 6 | 2 | 75.0% |
+| Task C: Speak or answer a question | 38 | 36 | 2 | 94.7% |
 
 ### JSON mode
 
@@ -302,18 +302,18 @@ python model_performance_tester.py
 
 | Commands | Total | Passed | Failed | Pass Rate |
 | :--- | :--- | :--- | :--- | :--- |
-| 3 | 10 | 8 | 2 | 80.0% |
-| 4 | 17 | 16 | 1 | 94.1% |
-| 5 | 1 | 1 | 0 | 100.0% |
-| 6 | 2 | 1 | 1 | 50.0% |
+| 3 | 20 | 16 | 4 | 80.0% |
+| 4 | 34 | 32 | 2 | 94.1% |
+| 5 | 2 | 2 | 0 | 100.0% |
+| 6 | 4 | 2 | 2 | 50.0% |
 
 **Results by Task Type**
 
 | Task Type | Total | Passed | Failed | Pass Rate |
 | :--- | :--- | :--- | :--- | :--- |
-| Task A: Navigate to a location, look for a person, and follow | 15 | 13 | 2 | 86.7% |
-| Task B: Take an object from a placement, and perform an action | 4 | 4 | 0 | 100.0% |
-| Task C: Speak or answer a question | 19 | 15 | 4 | 78.9% |
+| Task A: Navigate to a location, look for a person, and follow | 30 | 26 | 4 | 86.7% |
+| Task B: Take an object from a placement, and perform an action | 8 | 8 | 0 | 100.0% |
+| Task C: Speak or answer a question | 38 | 30 | 8 | 78.9% |
 
 ### Prompting
 
@@ -332,18 +332,18 @@ python model_performance_tester.py
 
 | Commands | Total | Passed | Failed | Pass Rate |
 | :--- | :--- | :--- | :--- | :--- |
-| 3 | 10 | 0 | 10 | 0.0% |
-| 4 | 17 | 0 | 17 | 0.0% |
-| 5 | 1 | 0 | 1 | 0.0% |
-| 6 | 2 | 0 | 2 | 0.0% |
+| 3 | 20 | 0 | 20 | 0.0% |
+| 4 | 34 | 0 | 34 | 0.0% |
+| 5 | 2 | 0 | 2 | 0.0% |
+| 6 | 4 | 0 | 4 | 0.0% |
 
 **Results by Task Type**
 
 | Task Type | Total | Passed | Failed | Pass Rate |
 | :--- | :--- | :--- | :--- | :--- |
-| Task A: Navigate to a location, look for a person, and follow | 15 | 0 | 15 | 0.0% |
-| Task B: Take an object from a placement, and perform an action | 4 | 0 | 4 | 0.0% |
-| Task C: Speak or answer a question | 19 | 0 | 19 | 0.0% |
+| Task A: Navigate to a location, look for a person, and follow | 30 | 0 | 30 | 0.0% |
+| Task B: Take an object from a placement, and perform an action | 8 | 0 | 8 | 0.0% |
+| Task C: Speak or answer a question | 38 | 0 | 38 | 0.0% |
 
 # Results execution
 
