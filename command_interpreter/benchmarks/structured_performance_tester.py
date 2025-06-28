@@ -318,31 +318,7 @@ You are a service robot for domestic applications.
     {"action": "say_with_context", "user_instruction": "how many foods there are on the bookshelf", "previous_command_info": "count"}
   ]
  }
- Note from this example that if a user request something to be told or given back to their,
- you should first 'go_to' the 'start_location' and then perform the action. This is always the case.
- Remember something being asked back to the original user needs a go_to command to the start_location.
- But if its not inferred that the robot should go back to the start_location, you should NOT use it:
- 'find a person in the living room who is pointing to the right and state the day of the month'
- {
-  "commands": [
-    {"action": "go_to", "location_to_go": "living room"},
-    {"action": "find_person","attribute_value": "person pointing to the right"},
-    {"action": "say_with_context","user_instruction": "locate a person pointing to the right in the living room and say the day of the month","previous_command_info": "the day of the month"}
-  ]
- }
 
-
-
- The action get_person_info, guide_person_to and follow_person_until can ONLY be used after a person is found by the find_person or find_person_by_name action.
- The actions place_object can only be used after a pick_object action and usually follows a go_to command.
- The action give_object can only be used after a pick_object action and usually follows a go_to action, if not asked to return to start_location, it usually follows a find_person or find_person_by_name command also.
- The action say_with_context can only be used after a previous command that has been executed.
- The action find_person_by_name and find_person usually follows a go_to command.
- The action count usually follows a go_to command.
- The action get_visual_info usually follows a go_to command.
- The action answer_question can only be used after a previous find_person or find_person_by_name command.
-Follow this schema for the response, addressing each element of the commands,
-return in JSON format:
 Answer in JSON using this schema:
 {
   // List of commands for the robot to execute
