@@ -261,29 +261,29 @@ python model_performance_tester.py
 
 | Metric | Value |
 | --- | --- |
-| Total Cases | 60 |
-| Passed | 58 (96.7%) |
-| Failed | 2 |
-| Average Execution Time | 3.73s |
-| Average Input Tokens | 2620 |
-| Average Output Tokens | 393 |
+| Total Cases | 115 |
+| Passed | 108 (93.9%) |
+| Failed | 7 |
+| Average Execution Time | 1.32s |
+| Average Input Tokens | 1809 |
+| Average Output Tokens | 129 |
 
 **Results by Command Count**
 
 | Commands | Total | Passed | Failed | Pass Rate |
 | :--- | :--- | :--- | :--- | :--- |
-| 3 | 20 | 20 | 0 | 100.0% |
-| 4 | 34 | 32 | 2 | 94.1% |
-| 5 | 2 | 2 | 0 | 100.0% |
-| 6 | 4 | 4 | 0 | 100.0% |
+| 3 | 45 | 42 | 3 | 93.3% |
+| 4 | 56 | 54 | 2 | 96.4% |
+| 5 | 9 | 8 | 1 | 88.9% |
+| 6 | 5 | 4 | 1 | 80.0% |
 
 **Results by Task Type**
 
 | Task Type | Total | Passed | Failed | Pass Rate |
 | :--- | :--- | :--- | :--- | :--- |
-| Task A: Navigate to a location, look for a person, and follow | 30 | 28 | 2 | 93.3% |
-| Task B: Take an object from a placement, and perform an action | 8 | 6 | 2 | 75.0% |
-| Task C: Speak or answer a question | 38 | 36 | 2 | 94.7% |
+| Task A: Navigate to a location, look for a person, and follow | 55 | 51 | 4 | 92.7% |
+| Task B: Take an object from a placement, and perform an action | 20 | 19 | 1 | 95.0% |
+| Task C: Speak or answer a question | 70 | 68 | 2 | 97.1% |
 
 ### JSON mode
 
@@ -291,10 +291,10 @@ python model_performance_tester.py
 
 | Metric | Value |
 | --- | --- |
-| Total Cases | 60 |
-| Passed | 52 (86.7%) |
-| Failed | 8 |
-| Average Execution Time | 3.76s |
+| Total Cases | 115 |
+| Passed | 92 (80.0%) |
+| Failed | 23 |
+| Average Execution Time | 3.83s |
 | Average Input Tokens | 0 |
 | Average Output Tokens | 0 |
 
@@ -302,18 +302,18 @@ python model_performance_tester.py
 
 | Commands | Total | Passed | Failed | Pass Rate |
 | :--- | :--- | :--- | :--- | :--- |
-| 3 | 20 | 16 | 4 | 80.0% |
-| 4 | 34 | 32 | 2 | 94.1% |
-| 5 | 2 | 2 | 0 | 100.0% |
-| 6 | 4 | 2 | 2 | 50.0% |
+| 3 | 45 | 40 | 5 | 88.9% |
+| 4 | 56 | 47 | 9 | 83.9% |
+| 5 | 9 | 4 | 5 | 44.4% |
+| 6 | 5 | 1 | 4 | 20.0% |
 
 **Results by Task Type**
 
 | Task Type | Total | Passed | Failed | Pass Rate |
 | :--- | :--- | :--- | :--- | :--- |
-| Task A: Navigate to a location, look for a person, and follow | 30 | 26 | 4 | 86.7% |
-| Task B: Take an object from a placement, and perform an action | 8 | 8 | 0 | 100.0% |
-| Task C: Speak or answer a question | 38 | 30 | 8 | 78.9% |
+| Task A: Navigate to a location, look for a person, and follow | 55 | 50 | 5 | 90.9% |
+| Task B: Take an object from a placement, and perform an action | 20 | 17 | 3 | 85.0% |
+| Task C: Speak or answer a question | 70 | 55 | 15 | 78.6% |
 
 ### Prompting
 
@@ -321,10 +321,10 @@ python model_performance_tester.py
 
 | Metric | Value |
 | --- | --- |
-| Total Cases | 30 |
+| Total Cases | 115 |
 | Passed | 0 (0.0%) |
-| Failed | 30 |
-| Average Execution Time | 3.30s |
+| Failed | 115 |
+| Average Execution Time | 0.78s |
 | Average Input Tokens | 0 |
 | Average Output Tokens | 0 |
 
@@ -332,18 +332,18 @@ python model_performance_tester.py
 
 | Commands | Total | Passed | Failed | Pass Rate |
 | :--- | :--- | :--- | :--- | :--- |
-| 3 | 20 | 0 | 20 | 0.0% |
-| 4 | 34 | 0 | 34 | 0.0% |
-| 5 | 2 | 0 | 2 | 0.0% |
-| 6 | 4 | 0 | 4 | 0.0% |
+| 3 | 45 | 0 | 45 | 0.0% |
+| 4 | 56 | 0 | 56 | 0.0% |
+| 5 | 9 | 0 | 9 | 0.0% |
+| 6 | 5 | 0 | 5 | 0.0% |
 
 **Results by Task Type**
 
 | Task Type | Total | Passed | Failed | Pass Rate |
 | :--- | :--- | :--- | :--- | :--- |
-| Task A: Navigate to a location, look for a person, and follow | 30 | 0 | 30 | 0.0% |
-| Task B: Take an object from a placement, and perform an action | 8 | 0 | 8 | 0.0% |
-| Task C: Speak or answer a question | 38 | 0 | 38 | 0.0% |
+| Task A: Navigate to a location, look for a person, and follow | 55 | 0 | 55 | 0.0% |
+| Task B: Take an object from a placement, and perform an action | 20 | 0 | 20 | 0.0% |
+| Task C: Speak or answer a question | 70 | 0 | 70 | 0.0% |
 
 # Results execution
 
