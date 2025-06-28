@@ -1,4 +1,8 @@
-"""Testing command interpreter using BAML for structured responses"""
+"""Testing three different approaches to achieve structured outputs:
+1. BAML (Schema Aligned Parsing)
+2. JSON mode
+3. Prompting
+"""
 
 import json
 import time
@@ -26,18 +30,6 @@ from baml_client.config import set_log_level
 # Turn off all logging
 set_log_level("ERROR")
 
-# Available models (copied from interpreter.py)
-AVAILABLE_MODELS = [
-    "LOCAL_FINETUNED",
-    "GEMINI_PRO_2_5",
-    "GEMINI_FLASH_LITE_2_5",
-    "DEEPSEEK_R1_DISTILL_LLAMA_8B",
-    "GEMINI_FLASH_2_5",
-    "OPENAI_GPT_4_1_MINI",
-    "ANTHROPIC_CLAUDE_SONNET_4",
-    "GEMMA_3_4B"
-]
-
 DEFAULT_MODEL = "GEMINI_FLASH_2_5"
 
 # Initialize client registry
@@ -50,6 +42,7 @@ SIMILARITY_THRESHOLD = 0.8  # Threshold for complement similarity
 OVERALL_THRESHOLD = 0.75  # Threshold for the overall test case score
 TEST_DATA_FILE = "../../dataset_generator/dataset.json"
 TEST_DATA_FILE_ENRICHED_AND_REORDERED = "../../dataset_generator/dataset_enriched_reordered.json"
+BAML_ENABLED = True
 
 EMBEDDING_MODEL = "all-MiniLM-L6-v2"  # Example model
 
@@ -228,7 +221,7 @@ def calculate_cosine_similarity(text1: Optional[str], text2: Optional[str]) -> f
 
 
 def compare_commands(actual: CommandListLLM, expected: CommandListLLM) -> float:
-    """Compares the actual BAML output with the expected output."""
+    """Compares the actual BAML output with the expected output.""" 
     if len(actual.commands) != len(expected.commands):
         print(f"Mismatch in number of commands: Actual={len(actual.commands)}, Expected={len(expected.commands)}")
         return 0.0
@@ -269,19 +262,158 @@ def compare_commands(actual: CommandListLLM, expected: CommandListLLM) -> float:
 
 # --- Main Test Execution ---
 
-def execute_command_with_model(command_text: str, model_name: str):
+def execute_command_with_model(command_text: str, mode: int):
     """Execute a command using the appropriate model function"""
-    if model_name == "LOCAL_FINETUNED":
-        return b.GenerateCommandListFineTuned(command_text,
-                                              baml_options={"client_registry": client_registry,
-                                                            "collector": collector})
-    else:
+    if mode == 1:
         return b.GenerateCommandList(command_text,
                                      baml_options={"client_registry": client_registry,
                                                    "collector": collector})
+    else:
+        from google import genai
+
+        system_prompt = """
+        system:
+You are a service robot for domestic applications.
+ Now you are located in a house environment and we will give you general purpose tasks in the form of natural language.
+
+ You have in your architecture the modules of:
+ - navigation
+ - manipulation
+ - person recognition
+ - object detection
+ - human-robot interaction
+
+ Your job is to understand the task and divide it into smaller actions proper to your modules,
+ considering a logical flow of the actions along the time. For example, for the prompt
+ 'Locate a dish in the kitchen then get it and give it to Angel in the living room', the result would be: 
+
+ {
+     "commands": [
+         {'action': 'go_to', 'location_to_go': 'kitchen'},
+         {'action': 'pick_object', 'object_to_pick': 'dish'},
+         {'action': 'go_to', 'location_to_go': 'living room'},
+         {'action': 'find_person_by_name', 'name': 'Angel'},
+         {'action': 'give_object'}
+     ]
+ }
+
+ Another important thing is that when we give you the general task, some complements are grouped in categories.
+ For example: apple, banana and lemon are all of them in the fruits category; cola, milk and red wine are all of them in the drinks category.
+ If we give you a task talking about an item category, do not change the category word. It is very important you don't make up information
+ not given explicitly. If you add new words, we will be disqualified. 
+ For example:  'navigate to the bedroom then locate a food'.
+
+ Another important thing is that you have to rememeber the name of the person, in case we are talking about 
+ someone specifically. An example for the prompt can be: 'Get a snack from the 
+ side tables and deliver it to Adel in the bedroom'.
+
+ The system will handle the instructions and collect the response for each command.
+ You can set the commands to use information from previous commands and context, for example:
+ 'tell me how many foods there are on the bookshelf'
+ {
+  "commands": [
+    {"action": "go_to", "location_to_go": "bookshelf"},
+    {"action": "count", "target_to_count": "foods"},
+    {"action": "go_to", "location_to_go": "start_location"},
+    {"action": "say_with_context", "user_instruction": "how many foods there are on the bookshelf", "previous_command_info": "count"}
+  ]
+ }
+
+Answer in JSON using this schema:
+{
+  // List of commands for the robot to execute
+  commands: [
+    {
+      action: "go_to",
+      // The location to go to,
+      //   (kitchen, living room table, etc.)
+      //   if asked to return something to the initial user use 'start_location'
+      location_to_go: "start_location" or string,
+    } or {
+      action: "pick_object",
+      // Name of the object to pick
+      object_to_pick: string,
+    } or {
+      action: "find_person_by_name",
+      // Name of the person to find
+      name: string,
+    } or {
+      action: "find_person",
+      // Can be a feature/pose (pointing to
+      //   the left, standing, blue shirt, etc.). If just asked to find ANY person, leave empty
+      attribute_value: "" or string,
+    } or {
+      action: "count",
+      // Name of the object/person to count
+      //   (snacks, persons pointing to the left, persons wearing blue shirt, etc.)
+      target_to_count: string,
+    } or {
+      action: "get_person_info",
+      // Information to be
+      //   retrieved about the person (pose, gesture, name, clothing, age, etc.)
+      info_type: "pose" or "gesture" or "name" or string,
+    } or {
+      action: "get_visual_info",
+      // The property which will be measured to find the
+      //   desired object in the environment (color, shape, size, thinnest, biggest, etc.)
+      measure: string,
+      // The category of the object to be found
+      //   (snack, drink, dish, object, etc.)
+      object_category: string,
+    } or {
+      action: "answer_question",
+    } or {
+      action: "follow_person_until",
+      // The destination location to which
+      //   the robot will follow the person until, can be a room, furniture, etc. or 
+      //   'cancelled' if the robot is to follow the person until asked to stop
+      destination: "cancelled" or string,
+    } or {
+      action: "guide_person_to",
+      // The destination to guide or lead a person to
+      //   can be a room, furniture, etc.
+      destination_room: string,
+    } or {
+      action: "give_object",
+    } or {
+      action: "place_object",
+    } or {
+      action: "say_with_context",
+      // Instruction that will help to system
+      //   to return the desired information to the user, it can be a question or a
+      //   statement like 'tell me how many foods there are on the bookshelf'
+      user_instruction: string,
+      // Previous command needed to return
+      //   the desired information to the user, it has to be a previous command that
+      //   have been executed ('count', 'get_visual_info', etc.), or
+      //   internal information that the system has stored in its memory 
+      //   ('time', 'affection', etc.)
+      previous_command_info: "introduction" or string,
+    }
+  ],
+}
+
+user:
+Generate commands for this prompt in the specified format.
+        """
+        config = {}
+        if mode == 2:
+            config={
+                "response_mime_type": "application/json",
+            }
+    
+        client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=system_prompt + command_text,
+            config=config
+        )
+
+        my_commands: CommandListLLM = CommandListLLM(**json.loads(response.text))
+        return my_commands
 
 
-def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool = False) -> TestSummary:
+def run_tests(model_name: str = DEFAULT_MODEL, mode: int = 1) -> TestSummary:
     """Loads data, runs tests, and returns structured results.
     
     Args:
@@ -291,17 +423,11 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
     Returns:
         TestSummary: Structured results including grouping by command count
     """
-    # Validate model name
-    if model_name not in AVAILABLE_MODELS:
-        print(f"Error: Model '{model_name}' not available. Available models: {', '.join(AVAILABLE_MODELS)}")
-        return None
     
     # Set the model in client registry
     client_registry.set_primary(model_name)
     print(f"Testing with model: {model_name}")
-    test_data_file = TEST_DATA_FILE_ENRICHED_AND_REORDERED if use_enrichment_and_reorder else TEST_DATA_FILE
-    if use_enrichment_and_reorder:
-        print("Combined enrichment and reordering: ENABLED")
+    test_data_file = TEST_DATA_FILE
 
     print(f"Loading test data from: {test_data_file}")
     try:
@@ -353,7 +479,7 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
         try:
             start_time = time.time()
             # Call the BAML function with the selected model using processed input
-            actual_command_list = execute_command_with_model(input_str, model_name)
+            actual_command_list = execute_command_with_model(input_str, mode)
             end_time = time.time()
             duration = end_time - start_time
             execution_times.append(duration)
@@ -370,6 +496,9 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
 
             # Compare results
             score = compare_commands(actual_command_list, expected_command_list)
+            # Override with LLM GetFeasibilityScore
+            #feasibility_score = b.GetFeasibilityScore(input_str, expected_command_list, actual_command_list)
+            #score = feasibility_score.score
             print(f"Comparison Score: {score:.3f}")
             
             passed = score >= OVERALL_THRESHOLD
@@ -499,98 +628,55 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
     return summary
 
 
-def display_available_models():
-    """Display available models for selection"""
-    print("\n=== Available Models ===")
-    for i, model in enumerate(AVAILABLE_MODELS, 1):
-        print(f"{i}. {model}")
+def display_available_modes():
+    """Display available modes for structured outputs"""
+    print("\n=== Available Modes ===")
+    print("1. BAML (Schema Aligned Parsing)")
+    print("2. JSON mode")
+    print("3. Prompting")
+    print("0. Exit")
     print("========================\n")
 
 
-def select_model_interactive():
-    """Interactive model selection"""
-    display_available_models()
+def select_mode_interactive():
+    """Interactive mode selection"""
+    display_available_modes()
     
     while True:
         try:
-            choice = input(f"Enter model number (1-{len(AVAILABLE_MODELS)}) or model name [default: {DEFAULT_MODEL}]: ").strip()
+            choice = int(input("Enter mode number (1-3): "))
             
             if not choice:
-                return DEFAULT_MODEL
+                return 0
             
-            # Try to parse as number
-            if choice.isdigit():
-                choice_num = int(choice) - 1
-                if 0 <= choice_num < len(AVAILABLE_MODELS):
-                    return AVAILABLE_MODELS[choice_num]
-                else:
-                    print(f"Invalid choice. Please select a number between 1 and {len(AVAILABLE_MODELS)}")
-                    continue
-            
-            # Try to find exact model name match
-            if choice in AVAILABLE_MODELS:
-                return choice
-
-            # Try case-insensitive match
-            for model in AVAILABLE_MODELS:
-                if model.lower() == choice.lower():
-                    return model
-            
-            print(f"Model '{choice}' not found. Available models:")
-            for model in AVAILABLE_MODELS:
-                print(f"  - {model}")
+            return choice
             
         except KeyboardInterrupt:
             print("\nExiting...")
             return None
         except Exception as e:
             print(f"Error: {e}")
-
-
-def select_combined_enrichment():
-    """Interactive combined enrichment selection"""
-    while True:
-        try:
-            choice = input("Enable combined enrichment and reordering? (y/N): ").strip().lower()
-            if choice in ['', 'n', 'no']:
-                return False
-            elif choice in ['y', 'yes']:
-                return True
-            else:
-                print("Please enter 'y' for yes or 'n' for no.")
-        except KeyboardInterrupt:
-            print("\nExiting...")
-            return None
-        except Exception as e:
-            print(f"Error: {e}")
-
 
 if __name__ == "__main__":
     # Interactive model selection
-    selected_model = select_model_interactive()
+    selected_mode = select_mode_interactive()
     
-    if selected_model:
-        # Interactive options selection
-        use_enrichment_and_reorder = select_combined_enrichment()
-        
-        if use_enrichment_and_reorder is not None:
-            enrichment_and_reorder_suffix = "_enriched_and_reordered" if use_enrichment_and_reorder else ""
-            print(f"\nStarting tests with model: {selected_model}")
+    if selected_mode > 0:
+        print(f"\nStarting tests with mode: {selected_mode}")
 
-            results = run_tests(selected_model, use_enrichment_and_reorder)
+        results = run_tests(DEFAULT_MODEL, selected_mode)
             
-            if results:
-                print(f"\nTest execution completed. Results available in structured format.")
-                print(f"Use the returned TestSummary object to access detailed results.")
-                
-                # Example: Save results to JSON file inside results folder
-                results_file = f"results/test_results_{selected_model}{enrichment_and_reorder_suffix}_{int(time.time())}.json"
-                with open(results_file, 'w') as f:
-                    json.dump(results.model_dump(), f, indent=2)
-                print(f"Results saved to: {results_file}")
-            else:
-                print("Test execution failed.")
+        if results:
+            print(f"\nTest execution completed. Results available in structured format.")
+            print(f"Use the returned TestSummary object to access detailed results.")
+            
+            # Example: Save results to JSON file inside results folder
+            selected_mode_suffix = "baml" if selected_mode == 1 else "json_mode" if selected_mode == 2 else "prompting"
+            results_file = f"results/structured_results_{selected_mode_suffix}_{int(time.time())}.json"
+            with open(results_file, 'w') as f:
+                json.dump(results.model_dump(), f, indent=2)
+            print(f"Results saved to: {results_file}")
         else:
-            print("No semantic enrichment option selected. Exiting.")
+            print("Test execution failed.")
     else:
-        print("No model selected. Exiting.")
+        print("No mode selected. Exiting.")
