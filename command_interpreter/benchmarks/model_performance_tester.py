@@ -24,17 +24,18 @@ from baml_client.types import CommandListLLM
 from baml_client.config import set_log_level
 
 # Turn off all logging
-set_log_level("INFO")
+set_log_level("ERROR")
 
 # Available models (copied from interpreter.py)
 AVAILABLE_MODELS = [
     "LOCAL_FINETUNED",
     "GEMINI_PRO_2_5",
+    "GEMINI_FLASH_LITE_2_5",
+    "DEEPSEEK_R1_DISTILL_LLAMA_8B",
     "GEMINI_FLASH_2_5",
     "OPENAI_GPT_4_1_MINI",
     "ANTHROPIC_CLAUDE_SONNET_4",
-    "META_LLAMA_3_3_8B_IT_FREE",
-    "GEMMA_2_7B"
+    "GEMMA_3_4B"
 ]
 
 DEFAULT_MODEL = "GEMINI_FLASH_2_5"
@@ -44,7 +45,7 @@ client_registry = ClientRegistry()
 collector = Collector()
 
 # --- Configuration ---
-STARTING_CASE = 200  # Adjust if needed
+STARTING_CASE = 115  # Adjust if needed
 SIMILARITY_THRESHOLD = 0.8  # Threshold for complement similarity
 OVERALL_THRESHOLD = 0.75  # Threshold for the overall test case score
 TEST_DATA_FILE = "../../dataset_generator/dataset.json"
@@ -326,7 +327,7 @@ def run_tests(model_name: str = DEFAULT_MODEL, use_enrichment_and_reorder: bool 
     total_input_tokens = []
     total_output_tokens = []
     for i, (input_str, expected_str, cmd_category) in enumerate(tqdm(test_cases, desc="Running BAML tests")):
-        time.sleep(3)
+        time.sleep(2)
         print(f"\n--- Test Case {STARTING_CASE + i} ---")
         print(f"Input: {input_str}")
 
