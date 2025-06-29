@@ -1,0 +1,5207 @@
+{
+  "model_name": "GEMINI_FLASH_LITE_2_5",
+  "total_cases": 115,
+  "total_passed": 10,
+  "total_failed": 105,
+  "overall_pass_rate": 8.695652173913043,
+  "average_execution_time": 0.5661508207735808,
+  "average_input_tokens": 0,
+  "average_output_tokens": 0,
+  "groups_by_command_count": [
+    {
+      "command_count": 4,
+      "passed_count": 7,
+      "failed_count": 49,
+      "total_count": 56,
+      "pass_rate": 12.5,
+      "test_results": [
+        {
+          "index": 115,
+          "input_command": "go to the bathroom then locate a cup and fetch it and put it on the side tables",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.9396297931671143,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 118,
+          "input_command": "look for a tomato soup in the living room then fetch it and deliver it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6051449775695801,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 120,
+          "input_command": "tell me how many fruits there are on the desk",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.6059010028839111,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "desk"
+            },
+            {
+              "action": "count",
+              "target_to_count": "fruits"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me how many fruits there are on the desk",
+              "previous_command_info": "count"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "desk"
+            },
+            {
+              "action": "count",
+              "target_to_count": "fruits"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me how many fruits there are on the desk",
+              "previous_command_info": "count"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 121,
+          "input_command": "tell me how many standing persons are in the kitchen",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.645118236541748,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 123,
+          "input_command": "tell me what is the thinnest object on the sofa",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.5527002811431885,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "sofa"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "thinnest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the thinnest object on the sofa",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "sofa"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "thinnest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the thinnest object on the sofa",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 130,
+          "input_command": "give me a cheezit from the kitchen table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.496812105178833,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 131,
+          "input_command": "tell me what is the lightest toy on the cabinet",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.3209426403045654,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 132,
+          "input_command": "greet the person wearing an orange t shirt in the living room and take them to the coatrack",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4408559799194336,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 133,
+          "input_command": "say hello to Axel in the kitchen and guide them to the entrance",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.47341489791870117,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 134,
+          "input_command": "meet Axel at the sink then find them in the bathroom",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4878220558166504,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 135,
+          "input_command": "tell me how many people in the bathroom are wearing white sweaters",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6067976951599121,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 138,
+          "input_command": "navigate to the cabinet then look for a cleaning supply and get it and deliver it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5659022331237793,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 139,
+          "input_command": "grasp a toy from the bookshelf and deliver it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5468387603759766,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 143,
+          "input_command": "tell me how many cleaning supplies there are on the side tables",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6071169376373291,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 144,
+          "input_command": "tell me how many sitting persons are in the office",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4995760917663574,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 146,
+          "input_command": "tell me what is the biggest object on the sink",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.588191032409668,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "sink"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "biggest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the biggest object on the sink",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "sink"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "biggest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the biggest object on the sink",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 153,
+          "input_command": "bring me a mustard from the shelf",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5001020431518555,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 154,
+          "input_command": "tell me what is the lightest dish on the bedside table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6027872562408447,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 155,
+          "input_command": "greet the person wearing a white coat in the kitchen and escort them to the desk",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4212057590484619,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 156,
+          "input_command": "introduce yourself to Morgan in the bedroom and follow them",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5552031993865967,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 157,
+          "input_command": "meet Charlie at the desk lamp then locate them in the kitchen",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5610291957855225,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 158,
+          "input_command": "tell me how many people in the office are wearing yellow blouses",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.594567060470581,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 162,
+          "input_command": "take a food from the shelf and bring it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6164040565490723,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 164,
+          "input_command": "locate a spam in the bedroom then grasp it and bring it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.42275190353393555,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 166,
+          "input_command": "tell me how many fruits there are on the kitchen table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5676262378692627,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 167,
+          "input_command": "tell me how many persons raising their left arm are in the bedroom",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.6040239334106445,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "count",
+              "target_to_count": "persons raising their left arm"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me how many persons raising their left arm are in the bedroom",
+              "previous_command_info": "count"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "count",
+              "target_to_count": "persons raising their left arm"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me how many persons raising their left arm are in the bedroom",
+              "previous_command_info": "count"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 169,
+          "input_command": "tell me what is the biggest object on the refrigerator",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.5115630626678467,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "refrigerator"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "biggest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the biggest object on the refrigerator",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "refrigerator"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "biggest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the biggest object on the refrigerator",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 176,
+          "input_command": "bring me a pringles from the bed",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4520988464355469,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 177,
+          "input_command": "tell me what is the largest fruit on the storage rack",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5273821353912354,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 178,
+          "input_command": "introduce yourself to the person wearing a blue sweater in the bedroom and take them to the coatrack",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4278910160064697,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 179,
+          "input_command": "salute Robin in the living room and follow them to the bed",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5413298606872559,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 180,
+          "input_command": "meet Adel at the cabinet then look for them in the bedroom",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4745311737060547,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 181,
+          "input_command": "tell me how many people in the bathroom are wearing yellow t shirts",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5992538928985596,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 185,
+          "input_command": "take a fruit from the kitchen table and deliver it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.7066330909729004,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 187,
+          "input_command": "find a cup in the bedroom then take it and give it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4997520446777344,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 189,
+          "input_command": "tell me how many cleaning supplies there are on the shelf",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6008541584014893,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 190,
+          "input_command": "tell me how many persons pointing to the right are in the bedroom",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6035780906677246,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 192,
+          "input_command": "tell me what is the biggest object on the sink",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.5359797477722168,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "sink"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "biggest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the biggest object on the sink",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "sink"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "biggest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the biggest object on the sink",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 199,
+          "input_command": "give me a milk from the bed",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5192451477050781,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 200,
+          "input_command": "tell me what is the biggest cleaning supply on the bookshelf",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.2202529907226562,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 201,
+          "input_command": "introduce yourself to the person wearing a blue sweater in the office and follow them",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5844600200653076,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 202,
+          "input_command": "introduce yourself to Jules in the bathroom and follow them to the desk",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5009901523590088,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 203,
+          "input_command": "meet Charlie at the cabinet then look for them in the living room",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.496845006942749,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 204,
+          "input_command": "tell me how many people in the kitchen are wearing blue jackets",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5197708606719971,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 207,
+          "input_command": "go to the trashbin then locate a tropical juice and get it and put it on the bedside table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5128469467163086,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 208,
+          "input_command": "get a drink from the tv stand and place it on the cabinet",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4932999610900879,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 210,
+          "input_command": "look for a cola in the bedroom then get it and place it on the shelf",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5810902118682861,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 212,
+          "input_command": "tell me how many toys there are on the kitchen table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5658512115478516,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 213,
+          "input_command": "tell me how many standing persons are in the bedroom",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.49987101554870605,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "count",
+              "target_to_count": "standing persons"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me how many standing persons are in the bedroom",
+              "previous_command_info": "count"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "count",
+              "target_to_count": "standing persons"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me how many standing persons are in the bedroom",
+              "previous_command_info": "count"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 215,
+          "input_command": "tell me what is the heaviest object on the cabinet",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6023240089416504,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 222,
+          "input_command": "bring me a fork from the bedside table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.48944997787475586,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 223,
+          "input_command": "tell me what is the smallest cleaning supply on the cabinet",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6074438095092773,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 224,
+          "input_command": "salute the person wearing a red shirt in the office and answer a question",
+          "expected_command_count": 4,
+          "actual_command_count": 3,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.0096678733825684,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "office"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "red shirt"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "salute the person wearing a red shirt in the office and answer a question",
+              "previous_command_info": "introduction"
+            },
+            {
+              "action": "answer_question"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "office"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person wearing a red shirt"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "salute the person wearing a red shirt in the office and answer a question",
+              "previous_command_info": "introduction"
+            }
+          ],
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 225,
+          "input_command": "say hello to Paris in the living room and tell your teams country",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5035810470581055,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 226,
+          "input_command": "meet Robin at the kitchen table then look for them in the living room",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6033411026000977,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 227,
+          "input_command": "tell me how many people in the living room are wearing blue shirts",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5151159763336182,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        }
+      ]
+    },
+    {
+      "command_count": 5,
+      "passed_count": 0,
+      "failed_count": 9,
+      "total_count": 9,
+      "pass_rate": 0.0,
+      "test_results": [
+        {
+          "index": 116,
+          "input_command": "fetch a tennis ball from the dishwasher and give it to Morgan in the bathroom",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.602025032043457,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 122,
+          "input_command": "tell me the pose of the person at the tv stand",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5470609664916992,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 141,
+          "input_command": "find a fruit in the bathroom then take it and deliver it to the waving person in the office",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.8135128021240234,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 145,
+          "input_command": "tell me the pose of the person in the bathroom",
+          "expected_command_count": 5,
+          "actual_command_count": 3,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.40851402282714844,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": ""
+            },
+            {
+              "action": "get_person_info",
+              "info_type": "pose"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me the pose of the person in the bathroom",
+              "previous_command_info": "get_person_info"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": ""
+            },
+            {
+              "action": "get_person_info",
+              "info_type": "pose"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 161,
+          "input_command": "go to the bedroom then look for a fruit and fetch it and bring it to Jane in the bathroom",
+          "expected_command_count": 5,
+          "actual_command_count": 6,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4854278564453125,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "pick_object",
+              "object_to_pick": "fruit"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Jane"
+            },
+            {
+              "action": "give_object"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "any",
+              "object_category": "fruit"
+            },
+            {
+              "action": "pick_object",
+              "object_to_pick": "fruit"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Jane"
+            },
+            {
+              "action": "give_object"
+            }
+          ],
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 168,
+          "input_command": "tell me the name of the person in the living room",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.7108762264251709,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 184,
+          "input_command": "go to the potted plant then find an orange and take it and deliver it to the person pointing to the left in the living room",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5012989044189453,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 191,
+          "input_command": "tell me the pose of the person at the storage rack",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5008461475372314,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 214,
+          "input_command": "tell me the name of the person at the lamp",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5138852596282959,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        }
+      ]
+    },
+    {
+      "command_count": 3,
+      "passed_count": 3,
+      "failed_count": 42,
+      "total_count": 45,
+      "pass_rate": 6.666666666666667,
+      "test_results": [
+        {
+          "index": 117,
+          "input_command": "locate a waving person in the bathroom and answer a quiz",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6028521060943604,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 119,
+          "input_command": "meet Axel in the office and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.49701786041259766,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 124,
+          "input_command": "say the time to the person pointing to the left in the kitchen",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.657170295715332,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 125,
+          "input_command": "answer the quiz of the person raising their right arm in the living room",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4408400058746338,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 126,
+          "input_command": "follow Jules from the bed to the living room",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4636359214782715,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 127,
+          "input_command": "lead Paris from the pantry to the kitchen table",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5034589767456055,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 128,
+          "input_command": "guide the standing person from the entrance to the dishwasher",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6041309833526611,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 129,
+          "input_command": "escort the person wearing a red t shirt from the trashbin to the bedside table",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5049440860748291,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 137,
+          "input_command": "follow the person raising their left arm in the living room",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5079271793365479,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 140,
+          "input_command": "find a sitting person in the bedroom and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5582559108734131,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 142,
+          "input_command": "meet Simone in the living room and escort them to the bedside table",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6051442623138428,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 147,
+          "input_command": "say what day is tomorrow to the person raising their left arm in the office",
+          "expected_command_count": 3,
+          "actual_command_count": 3,
+          "score": 0.9843490123748779,
+          "passed": true,
+          "execution_time": 0.43790411949157715,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "office"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person raising their left arm"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "say what day is tomorrow to the person raising their left arm in the office",
+              "previous_command_info": "what day is tomorrow"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "office"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person raising their left arm"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "say what day is tomorrow",
+              "previous_command_info": "tomorrow's date"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 148,
+          "input_command": "answer the quiz of the person pointing to the right in the office",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.7087140083312988,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 149,
+          "input_command": "follow Morgan from the sink to the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4978659152984619,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 150,
+          "input_command": "guide Axel from the side tables to the kitchen",
+          "expected_command_count": 3,
+          "actual_command_count": 2,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.3444690704345703,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "side tables"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Axel"
+            },
+            {
+              "action": "guide_person_to",
+              "destination_room": "kitchen"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "find_person_by_name",
+              "name": "Axel"
+            },
+            {
+              "action": "guide_person_to",
+              "destination_room": "kitchen"
+            }
+          ],
+          "cmd_category": "A"
+        },
+        {
+          "index": 151,
+          "input_command": "guide the lying person from the bed to the tv stand",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5063230991363525,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 152,
+          "input_command": "lead the person wearing a gray sweater from the potted plant to the storage rack",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5502018928527832,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 160,
+          "input_command": "follow the lying person in the living room",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.46189188957214355,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 163,
+          "input_command": "locate a sitting person in the living room and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4321401119232178,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 165,
+          "input_command": "meet Axel in the kitchen and lead them to the desk",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.48262786865234375,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 170,
+          "input_command": "say your teams name to the person pointing to the left in the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 3,
+          "score": 0.9993920226891836,
+          "passed": true,
+          "execution_time": 0.45916318893432617,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person pointing to the left"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "say your teams name to the person pointing to the left in the bedroom",
+              "previous_command_info": "your teams name"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person pointing to the left"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "say your teams name to the person pointing to the left in the bedroom",
+              "previous_command_info": "team name"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 171,
+          "input_command": "answer the quiz of the person pointing to the left in the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5801291465759277,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 172,
+          "input_command": "follow Charlie from the waste basket to the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 3,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.38651418685913086,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "waste basket"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Charlie"
+            },
+            {
+              "action": "follow_person_until",
+              "destination": "bedroom"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "waste basket"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Charlie"
+            },
+            {
+              "action": "follow_person_until",
+              "destination": "bedroom"
+            }
+          ],
+          "cmd_category": "A"
+        },
+        {
+          "index": 173,
+          "input_command": "take Axel from the cabinet to the sofa",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4478609561920166,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 174,
+          "input_command": "lead the person raising their right arm from the entrance to the kitchen",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4215540885925293,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 175,
+          "input_command": "guide the person wearing a orange shirt from the pantry to the refrigerator",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5456130504608154,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 183,
+          "input_command": "follow the person pointing to the left at the lamp",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.40526318550109863,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 186,
+          "input_command": "find a sitting person in the bathroom and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5045688152313232,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 188,
+          "input_command": "meet Angel in the living room and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5025279521942139,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 193,
+          "input_command": "tell your teams country to the person raising their left arm in the office",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 2.620626211166382,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 194,
+          "input_command": "answer the question of the person pointing to the left in the bathroom",
+          "expected_command_count": 3,
+          "actual_command_count": 4,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.534949779510498,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person pointing to the left"
+            },
+            {
+              "action": "answer_question"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person pointing to the left"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "answer the question of the person pointing to the left in the bathroom",
+              "previous_command_info": "answer the question"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 195,
+          "input_command": "follow Jules from the chairs to the bathroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4925558567047119,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 196,
+          "input_command": "guide Angel from the exit to the kitchen",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5275919437408447,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 197,
+          "input_command": "take the lying person from the exit to the bathroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.502202033996582,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 198,
+          "input_command": "escort the person wearing a white jacket from the bookshelf to the bathroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5773859024047852,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 206,
+          "input_command": "follow the sitting person at the trashbin",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.39655232429504395,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 209,
+          "input_command": "look for a sitting person in the bedroom and answer a quiz",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5139482021331787,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 211,
+          "input_command": "meet Axel in the office and tell the day of the week",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.44721293449401855,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 216,
+          "input_command": "say something about yourself to the person raising their left arm in the office",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4998321533203125,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 217,
+          "input_command": "answer the quiz of the person raising their left arm in the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5012416839599609,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 218,
+          "input_command": "follow Jane from the shelf to the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5042469501495361,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 219,
+          "input_command": "guide Robin from the shelf to the office",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.3699030876159668,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 220,
+          "input_command": "escort the person raising their right arm from the side tables to the bathroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4936339855194092,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 221,
+          "input_command": "escort the person wearing a red shirt from the cabinet to the dishwasher",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4461350440979004,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 229,
+          "input_command": "follow the sitting person in the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4149339199066162,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        }
+      ]
+    },
+    {
+      "command_count": 6,
+      "passed_count": 0,
+      "failed_count": 5,
+      "total_count": 5,
+      "pass_rate": 0.0,
+      "test_results": [
+        {
+          "index": 136,
+          "input_command": "tell the name of the person at the trashbin to the person at the desk",
+          "expected_command_count": 6,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6274878978729248,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 159,
+          "input_command": "tell the pose of the person at the cabinet to the person at the dishwasher",
+          "expected_command_count": 6,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5117530822753906,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 182,
+          "input_command": "tell the pose of the person at the exit to the person at the potted plant",
+          "expected_command_count": 6,
+          "actual_command_count": 5,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.47591710090637207,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "exit"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": ""
+            },
+            {
+              "action": "get_person_info",
+              "info_type": "pose"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "potted plant"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": ""
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell the pose of the person at the exit to the person at the potted plant",
+              "previous_command_info": "get_person_info"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "exit"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person at the exit"
+            },
+            {
+              "action": "get_person_info",
+              "info_type": "pose"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "potted plant"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell the pose of the person at the exit to the person at the potted plant",
+              "previous_command_info": "pose"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 205,
+          "input_command": "tell the gesture of the person at the entrance to the person at the storage rack",
+          "expected_command_count": 6,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6916179656982422,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 228,
+          "input_command": "tell the pose of the person at the trashbin to the person at the bookshelf",
+          "expected_command_count": 6,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5186991691589355,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        }
+      ]
+    }
+  ],
+  "groups_by_task_type": [
+    {
+      "task_type": "A",
+      "task_description": "Navigate to a location, look for a person, and follow",
+      "passed_count": 1,
+      "failed_count": 54,
+      "total_count": 55,
+      "pass_rate": 1.8181818181818181,
+      "test_results": [
+        {
+          "index": 115,
+          "input_command": "go to the bathroom then locate a cup and fetch it and put it on the side tables",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.9396297931671143,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 117,
+          "input_command": "locate a waving person in the bathroom and answer a quiz",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6028521060943604,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 119,
+          "input_command": "meet Axel in the office and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.49701786041259766,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 126,
+          "input_command": "follow Jules from the bed to the living room",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4636359214782715,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 127,
+          "input_command": "lead Paris from the pantry to the kitchen table",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5034589767456055,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 128,
+          "input_command": "guide the standing person from the entrance to the dishwasher",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6041309833526611,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 129,
+          "input_command": "escort the person wearing a red t shirt from the trashbin to the bedside table",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5049440860748291,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 132,
+          "input_command": "greet the person wearing an orange t shirt in the living room and take them to the coatrack",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4408559799194336,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 133,
+          "input_command": "say hello to Axel in the kitchen and guide them to the entrance",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.47341489791870117,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 134,
+          "input_command": "meet Axel at the sink then find them in the bathroom",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4878220558166504,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 137,
+          "input_command": "follow the person raising their left arm in the living room",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5079271793365479,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 138,
+          "input_command": "navigate to the cabinet then look for a cleaning supply and get it and deliver it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5659022331237793,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 140,
+          "input_command": "find a sitting person in the bedroom and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5582559108734131,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 142,
+          "input_command": "meet Simone in the living room and escort them to the bedside table",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6051442623138428,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 149,
+          "input_command": "follow Morgan from the sink to the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4978659152984619,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 150,
+          "input_command": "guide Axel from the side tables to the kitchen",
+          "expected_command_count": 3,
+          "actual_command_count": 2,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.3444690704345703,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "side tables"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Axel"
+            },
+            {
+              "action": "guide_person_to",
+              "destination_room": "kitchen"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "find_person_by_name",
+              "name": "Axel"
+            },
+            {
+              "action": "guide_person_to",
+              "destination_room": "kitchen"
+            }
+          ],
+          "cmd_category": "A"
+        },
+        {
+          "index": 151,
+          "input_command": "guide the lying person from the bed to the tv stand",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5063230991363525,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 152,
+          "input_command": "lead the person wearing a gray sweater from the potted plant to the storage rack",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5502018928527832,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 155,
+          "input_command": "greet the person wearing a white coat in the kitchen and escort them to the desk",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4212057590484619,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 156,
+          "input_command": "introduce yourself to Morgan in the bedroom and follow them",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5552031993865967,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 157,
+          "input_command": "meet Charlie at the desk lamp then locate them in the kitchen",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5610291957855225,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 160,
+          "input_command": "follow the lying person in the living room",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.46189188957214355,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 161,
+          "input_command": "go to the bedroom then look for a fruit and fetch it and bring it to Jane in the bathroom",
+          "expected_command_count": 5,
+          "actual_command_count": 6,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4854278564453125,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "pick_object",
+              "object_to_pick": "fruit"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Jane"
+            },
+            {
+              "action": "give_object"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "any",
+              "object_category": "fruit"
+            },
+            {
+              "action": "pick_object",
+              "object_to_pick": "fruit"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Jane"
+            },
+            {
+              "action": "give_object"
+            }
+          ],
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 163,
+          "input_command": "locate a sitting person in the living room and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4321401119232178,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 165,
+          "input_command": "meet Axel in the kitchen and lead them to the desk",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.48262786865234375,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 172,
+          "input_command": "follow Charlie from the waste basket to the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 3,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.38651418685913086,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "waste basket"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Charlie"
+            },
+            {
+              "action": "follow_person_until",
+              "destination": "bedroom"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "waste basket"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Charlie"
+            },
+            {
+              "action": "follow_person_until",
+              "destination": "bedroom"
+            }
+          ],
+          "cmd_category": "A"
+        },
+        {
+          "index": 173,
+          "input_command": "take Axel from the cabinet to the sofa",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4478609561920166,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 174,
+          "input_command": "lead the person raising their right arm from the entrance to the kitchen",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4215540885925293,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 175,
+          "input_command": "guide the person wearing a orange shirt from the pantry to the refrigerator",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5456130504608154,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 178,
+          "input_command": "introduce yourself to the person wearing a blue sweater in the bedroom and take them to the coatrack",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4278910160064697,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 179,
+          "input_command": "salute Robin in the living room and follow them to the bed",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5413298606872559,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 180,
+          "input_command": "meet Adel at the cabinet then look for them in the bedroom",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4745311737060547,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 183,
+          "input_command": "follow the person pointing to the left at the lamp",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.40526318550109863,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 184,
+          "input_command": "go to the potted plant then find an orange and take it and deliver it to the person pointing to the left in the living room",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5012989044189453,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 186,
+          "input_command": "find a sitting person in the bathroom and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5045688152313232,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 188,
+          "input_command": "meet Angel in the living room and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5025279521942139,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 195,
+          "input_command": "follow Jules from the chairs to the bathroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4925558567047119,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 196,
+          "input_command": "guide Angel from the exit to the kitchen",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5275919437408447,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 197,
+          "input_command": "take the lying person from the exit to the bathroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.502202033996582,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 198,
+          "input_command": "escort the person wearing a white jacket from the bookshelf to the bathroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5773859024047852,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 201,
+          "input_command": "introduce yourself to the person wearing a blue sweater in the office and follow them",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5844600200653076,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 202,
+          "input_command": "introduce yourself to Jules in the bathroom and follow them to the desk",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5009901523590088,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 203,
+          "input_command": "meet Charlie at the cabinet then look for them in the living room",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.496845006942749,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 206,
+          "input_command": "follow the sitting person at the trashbin",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.39655232429504395,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 207,
+          "input_command": "go to the trashbin then locate a tropical juice and get it and put it on the bedside table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5128469467163086,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 209,
+          "input_command": "look for a sitting person in the bedroom and answer a quiz",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5139482021331787,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 211,
+          "input_command": "meet Axel in the office and tell the day of the week",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.44721293449401855,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 218,
+          "input_command": "follow Jane from the shelf to the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5042469501495361,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 219,
+          "input_command": "guide Robin from the shelf to the office",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.3699030876159668,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 220,
+          "input_command": "escort the person raising their right arm from the side tables to the bathroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4936339855194092,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 221,
+          "input_command": "escort the person wearing a red shirt from the cabinet to the dishwasher",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4461350440979004,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 224,
+          "input_command": "salute the person wearing a red shirt in the office and answer a question",
+          "expected_command_count": 4,
+          "actual_command_count": 3,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.0096678733825684,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "office"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "red shirt"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "salute the person wearing a red shirt in the office and answer a question",
+              "previous_command_info": "introduction"
+            },
+            {
+              "action": "answer_question"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "office"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person wearing a red shirt"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "salute the person wearing a red shirt in the office and answer a question",
+              "previous_command_info": "introduction"
+            }
+          ],
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 225,
+          "input_command": "say hello to Paris in the living room and tell your teams country",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5035810470581055,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 226,
+          "input_command": "meet Robin at the kitchen table then look for them in the living room",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6033411026000977,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 229,
+          "input_command": "follow the sitting person in the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4149339199066162,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        }
+      ]
+    },
+    {
+      "task_type": "B",
+      "task_description": "Take an object from a placement, and perform an action",
+      "passed_count": 0,
+      "failed_count": 20,
+      "total_count": 20,
+      "pass_rate": 0.0,
+      "test_results": [
+        {
+          "index": 115,
+          "input_command": "go to the bathroom then locate a cup and fetch it and put it on the side tables",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.9396297931671143,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 116,
+          "input_command": "fetch a tennis ball from the dishwasher and give it to Morgan in the bathroom",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.602025032043457,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 118,
+          "input_command": "look for a tomato soup in the living room then fetch it and deliver it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6051449775695801,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 130,
+          "input_command": "give me a cheezit from the kitchen table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.496812105178833,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 138,
+          "input_command": "navigate to the cabinet then look for a cleaning supply and get it and deliver it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5659022331237793,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 139,
+          "input_command": "grasp a toy from the bookshelf and deliver it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5468387603759766,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 141,
+          "input_command": "find a fruit in the bathroom then take it and deliver it to the waving person in the office",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.8135128021240234,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 153,
+          "input_command": "bring me a mustard from the shelf",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5001020431518555,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 161,
+          "input_command": "go to the bedroom then look for a fruit and fetch it and bring it to Jane in the bathroom",
+          "expected_command_count": 5,
+          "actual_command_count": 6,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4854278564453125,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "pick_object",
+              "object_to_pick": "fruit"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Jane"
+            },
+            {
+              "action": "give_object"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "any",
+              "object_category": "fruit"
+            },
+            {
+              "action": "pick_object",
+              "object_to_pick": "fruit"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Jane"
+            },
+            {
+              "action": "give_object"
+            }
+          ],
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 162,
+          "input_command": "take a food from the shelf and bring it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6164040565490723,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 164,
+          "input_command": "locate a spam in the bedroom then grasp it and bring it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.42275190353393555,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 176,
+          "input_command": "bring me a pringles from the bed",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4520988464355469,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 184,
+          "input_command": "go to the potted plant then find an orange and take it and deliver it to the person pointing to the left in the living room",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5012989044189453,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 185,
+          "input_command": "take a fruit from the kitchen table and deliver it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.7066330909729004,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 187,
+          "input_command": "find a cup in the bedroom then take it and give it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4997520446777344,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 199,
+          "input_command": "give me a milk from the bed",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5192451477050781,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 207,
+          "input_command": "go to the trashbin then locate a tropical juice and get it and put it on the bedside table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5128469467163086,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 208,
+          "input_command": "get a drink from the tv stand and place it on the cabinet",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4932999610900879,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 210,
+          "input_command": "look for a cola in the bedroom then get it and place it on the shelf",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5810902118682861,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        },
+        {
+          "index": 222,
+          "input_command": "bring me a fork from the bedside table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.48944997787475586,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "B"
+        }
+      ]
+    },
+    {
+      "task_type": "C",
+      "task_description": "Speak or answer a question",
+      "passed_count": 9,
+      "failed_count": 61,
+      "total_count": 70,
+      "pass_rate": 12.857142857142856,
+      "test_results": [
+        {
+          "index": 115,
+          "input_command": "go to the bathroom then locate a cup and fetch it and put it on the side tables",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.9396297931671143,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 117,
+          "input_command": "locate a waving person in the bathroom and answer a quiz",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6028521060943604,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 119,
+          "input_command": "meet Axel in the office and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.49701786041259766,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 120,
+          "input_command": "tell me how many fruits there are on the desk",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.6059010028839111,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "desk"
+            },
+            {
+              "action": "count",
+              "target_to_count": "fruits"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me how many fruits there are on the desk",
+              "previous_command_info": "count"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "desk"
+            },
+            {
+              "action": "count",
+              "target_to_count": "fruits"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me how many fruits there are on the desk",
+              "previous_command_info": "count"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 121,
+          "input_command": "tell me how many standing persons are in the kitchen",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.645118236541748,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 122,
+          "input_command": "tell me the pose of the person at the tv stand",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5470609664916992,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 123,
+          "input_command": "tell me what is the thinnest object on the sofa",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.5527002811431885,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "sofa"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "thinnest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the thinnest object on the sofa",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "sofa"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "thinnest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the thinnest object on the sofa",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 124,
+          "input_command": "say the time to the person pointing to the left in the kitchen",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.657170295715332,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 125,
+          "input_command": "answer the quiz of the person raising their right arm in the living room",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4408400058746338,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 131,
+          "input_command": "tell me what is the lightest toy on the cabinet",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.3209426403045654,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 132,
+          "input_command": "greet the person wearing an orange t shirt in the living room and take them to the coatrack",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4408559799194336,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 133,
+          "input_command": "say hello to Axel in the kitchen and guide them to the entrance",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.47341489791870117,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 135,
+          "input_command": "tell me how many people in the bathroom are wearing white sweaters",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6067976951599121,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 136,
+          "input_command": "tell the name of the person at the trashbin to the person at the desk",
+          "expected_command_count": 6,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6274878978729248,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 138,
+          "input_command": "navigate to the cabinet then look for a cleaning supply and get it and deliver it to me",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5659022331237793,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 140,
+          "input_command": "find a sitting person in the bedroom and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5582559108734131,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 142,
+          "input_command": "meet Simone in the living room and escort them to the bedside table",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6051442623138428,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 143,
+          "input_command": "tell me how many cleaning supplies there are on the side tables",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6071169376373291,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 144,
+          "input_command": "tell me how many sitting persons are in the office",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4995760917663574,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 145,
+          "input_command": "tell me the pose of the person in the bathroom",
+          "expected_command_count": 5,
+          "actual_command_count": 3,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.40851402282714844,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": ""
+            },
+            {
+              "action": "get_person_info",
+              "info_type": "pose"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me the pose of the person in the bathroom",
+              "previous_command_info": "get_person_info"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": ""
+            },
+            {
+              "action": "get_person_info",
+              "info_type": "pose"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 146,
+          "input_command": "tell me what is the biggest object on the sink",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.588191032409668,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "sink"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "biggest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the biggest object on the sink",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "sink"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "biggest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the biggest object on the sink",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 147,
+          "input_command": "say what day is tomorrow to the person raising their left arm in the office",
+          "expected_command_count": 3,
+          "actual_command_count": 3,
+          "score": 0.9843490123748779,
+          "passed": true,
+          "execution_time": 0.43790411949157715,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "office"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person raising their left arm"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "say what day is tomorrow to the person raising their left arm in the office",
+              "previous_command_info": "what day is tomorrow"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "office"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person raising their left arm"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "say what day is tomorrow",
+              "previous_command_info": "tomorrow's date"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 148,
+          "input_command": "answer the quiz of the person pointing to the right in the office",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.7087140083312988,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 154,
+          "input_command": "tell me what is the lightest dish on the bedside table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6027872562408447,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 155,
+          "input_command": "greet the person wearing a white coat in the kitchen and escort them to the desk",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4212057590484619,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 156,
+          "input_command": "introduce yourself to Morgan in the bedroom and follow them",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5552031993865967,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 158,
+          "input_command": "tell me how many people in the office are wearing yellow blouses",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.594567060470581,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 159,
+          "input_command": "tell the pose of the person at the cabinet to the person at the dishwasher",
+          "expected_command_count": 6,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5117530822753906,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 161,
+          "input_command": "go to the bedroom then look for a fruit and fetch it and bring it to Jane in the bathroom",
+          "expected_command_count": 5,
+          "actual_command_count": 6,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4854278564453125,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "pick_object",
+              "object_to_pick": "fruit"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Jane"
+            },
+            {
+              "action": "give_object"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "any",
+              "object_category": "fruit"
+            },
+            {
+              "action": "pick_object",
+              "object_to_pick": "fruit"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person_by_name",
+              "name": "Jane"
+            },
+            {
+              "action": "give_object"
+            }
+          ],
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 163,
+          "input_command": "locate a sitting person in the living room and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4321401119232178,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 165,
+          "input_command": "meet Axel in the kitchen and lead them to the desk",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.48262786865234375,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 166,
+          "input_command": "tell me how many fruits there are on the kitchen table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5676262378692627,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 167,
+          "input_command": "tell me how many persons raising their left arm are in the bedroom",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.6040239334106445,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "count",
+              "target_to_count": "persons raising their left arm"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me how many persons raising their left arm are in the bedroom",
+              "previous_command_info": "count"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "count",
+              "target_to_count": "persons raising their left arm"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me how many persons raising their left arm are in the bedroom",
+              "previous_command_info": "count"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 168,
+          "input_command": "tell me the name of the person in the living room",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.7108762264251709,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 169,
+          "input_command": "tell me what is the biggest object on the refrigerator",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.5115630626678467,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "refrigerator"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "biggest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the biggest object on the refrigerator",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "refrigerator"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "biggest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the biggest object on the refrigerator",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 170,
+          "input_command": "say your teams name to the person pointing to the left in the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 3,
+          "score": 0.9993920226891836,
+          "passed": true,
+          "execution_time": 0.45916318893432617,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person pointing to the left"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "say your teams name to the person pointing to the left in the bedroom",
+              "previous_command_info": "your teams name"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person pointing to the left"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "say your teams name to the person pointing to the left in the bedroom",
+              "previous_command_info": "team name"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 171,
+          "input_command": "answer the quiz of the person pointing to the left in the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5801291465759277,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 177,
+          "input_command": "tell me what is the largest fruit on the storage rack",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5273821353912354,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 178,
+          "input_command": "introduce yourself to the person wearing a blue sweater in the bedroom and take them to the coatrack",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4278910160064697,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 179,
+          "input_command": "salute Robin in the living room and follow them to the bed",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5413298606872559,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 181,
+          "input_command": "tell me how many people in the bathroom are wearing yellow t shirts",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5992538928985596,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 182,
+          "input_command": "tell the pose of the person at the exit to the person at the potted plant",
+          "expected_command_count": 6,
+          "actual_command_count": 5,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.47591710090637207,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "exit"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": ""
+            },
+            {
+              "action": "get_person_info",
+              "info_type": "pose"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "potted plant"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": ""
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell the pose of the person at the exit to the person at the potted plant",
+              "previous_command_info": "get_person_info"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "exit"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person at the exit"
+            },
+            {
+              "action": "get_person_info",
+              "info_type": "pose"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "potted plant"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell the pose of the person at the exit to the person at the potted plant",
+              "previous_command_info": "pose"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 184,
+          "input_command": "go to the potted plant then find an orange and take it and deliver it to the person pointing to the left in the living room",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5012989044189453,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 186,
+          "input_command": "find a sitting person in the bathroom and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5045688152313232,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 188,
+          "input_command": "meet Angel in the living room and follow them",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5025279521942139,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 189,
+          "input_command": "tell me how many cleaning supplies there are on the shelf",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6008541584014893,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 190,
+          "input_command": "tell me how many persons pointing to the right are in the bedroom",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6035780906677246,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 191,
+          "input_command": "tell me the pose of the person at the storage rack",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5008461475372314,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 192,
+          "input_command": "tell me what is the biggest object on the sink",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.5359797477722168,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "sink"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "biggest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the biggest object on the sink",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "sink"
+            },
+            {
+              "action": "get_visual_info",
+              "measure": "biggest",
+              "object_category": "object"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me what is the biggest object on the sink",
+              "previous_command_info": "get_visual_info"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 193,
+          "input_command": "tell your teams country to the person raising their left arm in the office",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 2.620626211166382,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 194,
+          "input_command": "answer the question of the person pointing to the left in the bathroom",
+          "expected_command_count": 3,
+          "actual_command_count": 4,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.534949779510498,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person pointing to the left"
+            },
+            {
+              "action": "answer_question"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bathroom"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person pointing to the left"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "answer the question of the person pointing to the left in the bathroom",
+              "previous_command_info": "answer the question"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 200,
+          "input_command": "tell me what is the biggest cleaning supply on the bookshelf",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.2202529907226562,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 201,
+          "input_command": "introduce yourself to the person wearing a blue sweater in the office and follow them",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5844600200653076,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 202,
+          "input_command": "introduce yourself to Jules in the bathroom and follow them to the desk",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5009901523590088,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 204,
+          "input_command": "tell me how many people in the kitchen are wearing blue jackets",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5197708606719971,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 205,
+          "input_command": "tell the gesture of the person at the entrance to the person at the storage rack",
+          "expected_command_count": 6,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6916179656982422,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 207,
+          "input_command": "go to the trashbin then locate a tropical juice and get it and put it on the bedside table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5128469467163086,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|B|C"
+        },
+        {
+          "index": 209,
+          "input_command": "look for a sitting person in the bedroom and answer a quiz",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5139482021331787,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 211,
+          "input_command": "meet Axel in the office and tell the day of the week",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.44721293449401855,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 212,
+          "input_command": "tell me how many toys there are on the kitchen table",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5658512115478516,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 213,
+          "input_command": "tell me how many standing persons are in the bedroom",
+          "expected_command_count": 4,
+          "actual_command_count": 4,
+          "score": 1.0,
+          "passed": true,
+          "execution_time": 0.49987101554870605,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "count",
+              "target_to_count": "standing persons"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me how many standing persons are in the bedroom",
+              "previous_command_info": "count"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "bedroom"
+            },
+            {
+              "action": "count",
+              "target_to_count": "standing persons"
+            },
+            {
+              "action": "go_to",
+              "location_to_go": "start_location"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "tell me how many standing persons are in the bedroom",
+              "previous_command_info": "count"
+            }
+          ],
+          "cmd_category": "C"
+        },
+        {
+          "index": 214,
+          "input_command": "tell me the name of the person at the lamp",
+          "expected_command_count": 5,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5138852596282959,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 215,
+          "input_command": "tell me what is the heaviest object on the cabinet",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6023240089416504,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 216,
+          "input_command": "say something about yourself to the person raising their left arm in the office",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.4998321533203125,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 217,
+          "input_command": "answer the quiz of the person raising their left arm in the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5012416839599609,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 223,
+          "input_command": "tell me what is the smallest cleaning supply on the cabinet",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.6074438095092773,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 224,
+          "input_command": "salute the person wearing a red shirt in the office and answer a question",
+          "expected_command_count": 4,
+          "actual_command_count": 3,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.0096678733825684,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": null,
+          "expected_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "office"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "red shirt"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "salute the person wearing a red shirt in the office and answer a question",
+              "previous_command_info": "introduction"
+            },
+            {
+              "action": "answer_question"
+            }
+          ],
+          "actual_commands": [
+            {
+              "action": "go_to",
+              "location_to_go": "office"
+            },
+            {
+              "action": "find_person",
+              "attribute_value": "person wearing a red shirt"
+            },
+            {
+              "action": "say_with_context",
+              "user_instruction": "salute the person wearing a red shirt in the office and answer a question",
+              "previous_command_info": "introduction"
+            }
+          ],
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 225,
+          "input_command": "say hello to Paris in the living room and tell your teams country",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5035810470581055,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 227,
+          "input_command": "tell me how many people in the living room are wearing blue shirts",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5151159763336182,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 228,
+          "input_command": "tell the pose of the person at the trashbin to the person at the bookshelf",
+          "expected_command_count": 6,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 0.5186991691589355,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "Expecting value: line 1 column 1 (char 0)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        }
+      ]
+    }
+  ]
+}
