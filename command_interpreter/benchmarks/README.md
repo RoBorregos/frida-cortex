@@ -255,6 +255,8 @@ python model_performance_tester.py
 
 # Structured outputs
 
+## Gemini 2.5 Flash
+
 ### BAML (Schema Aligned Parsing)
 
 **Test Summary: `GEMINI_FLASH_2_5`**
@@ -344,6 +346,98 @@ python model_performance_tester.py
 | Task A: Navigate to a location, look for a person, and follow | 55 | 0 | 55 | 0.0% |
 | Task B: Take an object from a placement, and perform an action | 20 | 0 | 20 | 0.0% |
 | Task C: Speak or answer a question | 70 | 0 | 70 | 0.0% |
+
+## Gemini 2.5 Flash Lite
+
+### BAML (Schema Aligned Parsing)
+
+**Test Summary: `GEMINI_FLASH_LITE_2_5`**
+
+| Metric | Value |
+| --- | --- |
+| Total Cases | 115 |
+| Passed | 87 (75.7%) |
+| Failed | 28 |
+| Average Execution Time | 1.04s |
+| Average Input Tokens | 1809 |
+| Average Output Tokens | 125 |
+
+**Results by Command Count**
+
+| Commands | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| 3 | 45 | 34 | 11 | 75.6% |
+| 4 | 56 | 43 | 13 | 76.8% |
+| 5 | 9 | 5 | 4 | 55.6% |
+| 6 | 5 | 5 | 0 | 100.0% |
+
+**Results by Task Type**
+
+| Task Type | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| Task A: Navigate to a location, look for a person, and follow | 55 | 37 | 18 | 67.3% |
+| Task B: Take an object from a placement, and perform an action | 20 | 12 | 8 | 60.0% |
+| Task C: Speak or answer a question | 70 | 57 | 13 | 81.4% |
+
+### JSON mode
+
+**Test Summary: `GEMINI_FLASH_LITE_2_5`**
+
+| Metric | Value |
+| --- | --- |
+| Total Cases | 115 |
+| Passed | 74 (64.3%) |
+| Failed | 41 |
+| Average Execution Time | 2.12s |
+| Average Input Tokens | 0 |
+| Average Output Tokens | 0 |
+
+**Results by Command Count**
+
+| Commands | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| 3 | 45 | 30 | 15 | 66.7% |
+| 4 | 56 | 42 | 14 | 75.0% |
+| 5 | 9 | 0 | 9 | 0.0% |
+| 6 | 5 | 2 | 3 | 40.0% |
+
+**Results by Task Type**
+
+| Task Type | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| Task A: Navigate to a location, look for a person, and follow | 55 | 36 | 19 | 65.5% |
+| Task B: Take an object from a placement, and perform an action | 20 | 9 | 11 | 45.0% |
+| Task C: Speak or answer a question | 70 | 46 | 24 | 65.7% |
+
+### Prompting
+
+**Test Summary: `GEMINI_FLASH_LITE_2_5`**
+
+| Metric | Value |
+| --- | --- |
+| Total Cases | 115 |
+| Passed | 10 (8.7%) |
+| Failed | 105 |
+| Average Execution Time | 0.57s |
+| Average Input Tokens | 0 |
+| Average Output Tokens | 0 |
+
+**Results by Command Count**
+
+| Commands | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| 3 | 45 | 3 | 42 | 6.7% |
+| 4 | 56 | 7 | 49 | 12.5% |
+| 5 | 9 | 0 | 9 | 0.0% |
+| 6 | 5 | 0 | 5 | 0.0% |
+
+**Results by Task Type**
+
+| Task Type | Total | Passed | Failed | Pass Rate |
+| :--- | :--- | :--- | :--- | :--- |
+| Task A: Navigate to a location, look for a person, and follow | 55 | 1 | 54 | 1.8% |
+| Task B: Take an object from a placement, and perform an action | 20 | 0 | 20 | 0.0% |
+| Task C: Speak or answer a question | 70 | 9 | 61 | 12.9% |
 
 # Results execution
 
