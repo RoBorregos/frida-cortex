@@ -30,7 +30,7 @@ from baml_client.config import set_log_level
 # Turn off all logging
 set_log_level("ERROR")
 
-DEFAULT_MODEL = "GEMINI_FLASH_2_5"
+DEFAULT_MODEL = "GEMINI_FLASH_LITE_2_5"
 
 # Initialize client registry
 client_registry = ClientRegistry()
@@ -318,6 +318,18 @@ You are a service robot for domestic applications.
     {"action": "say_with_context", "user_instruction": "how many foods there are on the bookshelf", "previous_command_info": "count"}
   ]
  }
+ Note from this example that if a user request something to be told or given back to their,
+ you should first 'go_to' the 'start_location' and then perform the action. This is always the case.
+ Remember something being asked back to the original user needs a go_to command to the start_location.
+ But if its not inferred that the robot should go back to the start_location, you should NOT use it:
+ 'find a person in the living room who is pointing to the right and state the day of the month'
+ {
+  "commands": [
+    {"action": "go_to", "location_to_go": "living room"},
+    {"action": "find_person","attribute_value": "person pointing to the right"},
+    {"action": "say_with_context","user_instruction": "locate a person pointing to the right in the living room and say the day of the month","previous_command_info": "the day of the month"}
+  ]
+ }
 
 Answer in JSON using this schema:
 {
@@ -404,7 +416,7 @@ Generate commands for this prompt in the specified format.
     
         client = genai.Client(api_key=os.getenv("GOOGLE_API_KEY"))
         response = client.models.generate_content(
-            model="gemini-2.5-flash",
+            model="gemini-2.5-flash-lite-preview-06-17",
             contents=system_prompt + command_text,
             config=config
         )
@@ -453,7 +465,7 @@ def run_tests(model_name: str = DEFAULT_MODEL, mode: int = 1) -> TestSummary:
     total_input_tokens = []
     total_output_tokens = []
     for i, (input_str, expected_str, cmd_category) in enumerate(tqdm(test_cases, desc="Running BAML tests")):
-        time.sleep(2)
+        time.sleep(4)
         print(f"\n--- Test Case {STARTING_CASE + i} ---")
         print(f"Input: {input_str}")
 
