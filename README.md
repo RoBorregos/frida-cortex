@@ -99,3 +99,31 @@ If you prefer to use Docker Compose directly (CPU-only mode):
 ```bash
 docker compose up
 ```
+
+## Web Application
+
+This project includes a simple web application to interact with the command interpreter.
+
+### Running the Web Application
+
+1.  **Install the dependencies:**
+    ```bash
+    pip install -r app-requirements.txt
+    ```
+
+2.  **Set up your API key:**
+    -   Create a `.env` file by copying the `.env.example` file:
+        ```bash
+        cp .env.example .env
+        ```
+    -   Open the `.env` file and add your Google AI Studio API key:
+        ```
+        GOOGLE_API_KEY="YOUR_API_KEY_HERE"
+        ```
+
+3.  **Run the Flask application:**
+    ```bash
+    python main.py
+    ```
+
+4.  Open your browser and navigate to `http://localhost:8080` to use the web interface.

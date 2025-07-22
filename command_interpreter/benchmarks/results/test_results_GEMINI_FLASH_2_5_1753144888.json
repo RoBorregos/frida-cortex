@@ -1,0 +1,226 @@
+{
+  "model_name": "GEMINI_FLASH_2_5",
+  "total_cases": 5,
+  "total_passed": 0,
+  "total_failed": 5,
+  "overall_pass_rate": 0.0,
+  "average_execution_time": 1.767877721786499,
+  "average_input_tokens": 0,
+  "average_output_tokens": 0,
+  "groups_by_command_count": [
+    {
+      "command_count": 4,
+      "passed_count": 0,
+      "failed_count": 3,
+      "total_count": 3,
+      "pass_rate": 0.0,
+      "test_results": [
+        {
+          "index": 225,
+          "input_command": "say hello to Paris in the living room and tell your teams country",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.5299489498138428,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "BamlClientHttpError(client_name=GEMINI_FLASH_2_5, message=Request failed with status code: 401 Unauthorized. {\"error\":{\"message\":\"No auth credentials found\",\"code\":401}}, status_code=401)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 226,
+          "input_command": "meet Robin at the kitchen table then look for them in the living room",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 3.141119956970215,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "BamlClientHttpError(client_name=GEMINI_FLASH_2_5, message=Request failed with status code: 401 Unauthorized. {\"error\":{\"message\":\"No auth credentials found\",\"code\":401}}, status_code=401)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 227,
+          "input_command": "tell me how many people in the living room are wearing blue shirts",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.363539457321167,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "BamlClientHttpError(client_name=GEMINI_FLASH_2_5, message=Request failed with status code: 401 Unauthorized. {\"error\":{\"message\":\"No auth credentials found\",\"code\":401}}, status_code=401)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        }
+      ]
+    },
+    {
+      "command_count": 6,
+      "passed_count": 0,
+      "failed_count": 1,
+      "total_count": 1,
+      "pass_rate": 0.0,
+      "test_results": [
+        {
+          "index": 228,
+          "input_command": "tell the pose of the person at the trashbin to the person at the bookshelf",
+          "expected_command_count": 6,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.3259060382843018,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "BamlClientHttpError(client_name=GEMINI_FLASH_2_5, message=Request failed with status code: 401 Unauthorized. {\"error\":{\"message\":\"No auth credentials found\",\"code\":401}}, status_code=401)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        }
+      ]
+    },
+    {
+      "command_count": 3,
+      "passed_count": 0,
+      "failed_count": 1,
+      "total_count": 1,
+      "pass_rate": 0.0,
+      "test_results": [
+        {
+          "index": 229,
+          "input_command": "follow the sitting person in the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.4788742065429688,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "BamlClientHttpError(client_name=GEMINI_FLASH_2_5, message=Request failed with status code: 401 Unauthorized. {\"error\":{\"message\":\"No auth credentials found\",\"code\":401}}, status_code=401)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        }
+      ]
+    }
+  ],
+  "groups_by_task_type": [
+    {
+      "task_type": "A",
+      "task_description": "Navigate to a location, look for a person, and follow",
+      "passed_count": 0,
+      "failed_count": 3,
+      "total_count": 3,
+      "pass_rate": 0.0,
+      "test_results": [
+        {
+          "index": 225,
+          "input_command": "say hello to Paris in the living room and tell your teams country",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.5299489498138428,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "BamlClientHttpError(client_name=GEMINI_FLASH_2_5, message=Request failed with status code: 401 Unauthorized. {\"error\":{\"message\":\"No auth credentials found\",\"code\":401}}, status_code=401)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 226,
+          "input_command": "meet Robin at the kitchen table then look for them in the living room",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 3.141119956970215,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "BamlClientHttpError(client_name=GEMINI_FLASH_2_5, message=Request failed with status code: 401 Unauthorized. {\"error\":{\"message\":\"No auth credentials found\",\"code\":401}}, status_code=401)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        },
+        {
+          "index": 229,
+          "input_command": "follow the sitting person in the bedroom",
+          "expected_command_count": 3,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.4788742065429688,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "BamlClientHttpError(client_name=GEMINI_FLASH_2_5, message=Request failed with status code: 401 Unauthorized. {\"error\":{\"message\":\"No auth credentials found\",\"code\":401}}, status_code=401)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A"
+        }
+      ]
+    },
+    {
+      "task_type": "C",
+      "task_description": "Speak or answer a question",
+      "passed_count": 0,
+      "failed_count": 3,
+      "total_count": 3,
+      "pass_rate": 0.0,
+      "test_results": [
+        {
+          "index": 225,
+          "input_command": "say hello to Paris in the living room and tell your teams country",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.5299489498138428,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "BamlClientHttpError(client_name=GEMINI_FLASH_2_5, message=Request failed with status code: 401 Unauthorized. {\"error\":{\"message\":\"No auth credentials found\",\"code\":401}}, status_code=401)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "A|C"
+        },
+        {
+          "index": 227,
+          "input_command": "tell me how many people in the living room are wearing blue shirts",
+          "expected_command_count": 4,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.363539457321167,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "BamlClientHttpError(client_name=GEMINI_FLASH_2_5, message=Request failed with status code: 401 Unauthorized. {\"error\":{\"message\":\"No auth credentials found\",\"code\":401}}, status_code=401)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        },
+        {
+          "index": 228,
+          "input_command": "tell the pose of the person at the trashbin to the person at the bookshelf",
+          "expected_command_count": 6,
+          "actual_command_count": 0,
+          "score": 0.0,
+          "passed": false,
+          "execution_time": 1.3259060382843018,
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "error": "BamlClientHttpError(client_name=GEMINI_FLASH_2_5, message=Request failed with status code: 401 Unauthorized. {\"error\":{\"message\":\"No auth credentials found\",\"code\":401}}, status_code=401)",
+          "expected_commands": null,
+          "actual_commands": null,
+          "cmd_category": "C"
+        }
+      ]
+    }
+  ]
+}
