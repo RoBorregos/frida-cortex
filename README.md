@@ -1,12 +1,17 @@
-# frida-cortex
-
 FRIDA natural language command interpreter
+
+# LNAI Paper at MICAI 2025
+**Taming the LLM: Reliable Task Planning for Robotics Using Parsing and Grounding**
+
+DOI: [10.1007/978-3-032-09037-9_24](https://doi.org/10.1007/978-3-032-09037-9_24)
 
 ## Supplementary material
 - [Explanatory video demonstration of task planning test using the command interpreter with the robot](https://www.youtube.com/watch?v=do1S1zfmMsA)
 - [Video demonstration of the GPSR task during the Mexican Robotics Tournament 2025](https://youtube.com/shorts/0bMz6ESv6B8)
 - [Video demonstration of the GPSR task during the RoboCup Competition 2025](https://youtu.be/mR20gFp2lA0)
 - [Code repository of the complete deployed code of the robot for all tasks of the competition](https://github.com/RoBorregos/home2)
+
+# Execution
 
 ## Clone submodules
 
