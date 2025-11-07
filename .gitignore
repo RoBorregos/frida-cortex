@@ -203,3 +203,24 @@ cython_debug/
 *baml_client
 
 persist_folder/
+
+# Web deployment - Backend
+backend/.env
+backend/.env.local
+backend/venv/
+backend/__pycache__/
+
+# Web deployment - Frontend
+frontend/node_modules/
+frontend/.next/
+frontend/out/
+frontend/.env.local
+frontend/.env*.local
+frontend/.vercel/
+
+# Security - Never commit these!
+*.env
+*.env.local
+*.env.*.local
+.env.production
+.env.development
