@@ -64,8 +64,8 @@ AVAILABLE_MODELS = [
     'GEMINI_FLASH_2_5',
     'OPENAI_GPT_4_1_MINI',
     'ANTHROPIC_CLAUDE_SONNET_4',
-    'META_LLAMA_3_3_8B_IT_FREE',
-    'META_LLAMA_3_3_70B'
+    'META_LLAMA_3_3_70B',
+    'KIMI_K2_THINKING'
 ]
 
 # Initialize client registry

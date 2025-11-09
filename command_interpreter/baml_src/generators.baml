@@ -6,6 +6,7 @@ generator target {
     output_type "python/pydantic"
 
     // Where the generated code will be saved (relative to baml_src/)
+    //output_dir "../../backend/baml_clien
     output_dir "../"
 
     // The version of the BAML package you have installed (e.g. same version as your baml-py or @boundaryml/baml).

@@ -200,7 +200,7 @@ cython_debug/
 .cursorignore
 .cursorindexingignore
 
-*baml_client
+command_interpreter/baml_client
 
 persist_folder/
 

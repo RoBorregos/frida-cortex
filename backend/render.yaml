@@ -2,7 +2,10 @@ services:
   - type: web
     name: frida-backend
     env: python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: |
+      git submodule update --init --recursive &&
+      pip install -r requirements.txt &&
+      pip install -e ../dataset_generator/CommandGenerator
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
