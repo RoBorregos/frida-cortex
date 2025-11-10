@@ -342,9 +342,41 @@
   font-size: 0.9rem;
 }
 
-.footer p {
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.footerText {
   margin: 0;
   opacity: 0.9;
+}
+
+.footerLinks {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.footerLink {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  opacity: 0.9;
+  transition: all 0.2s;
+  border-bottom: 1px solid transparent;
+}
+
+.footerLink:hover {
+  opacity: 1;
+  border-bottom-color: white;
+  transform: translateY(-1px);
+}
+
+.footerSeparator {
+  opacity: 0.6;
 }
 
 @media (max-width: 768px) {

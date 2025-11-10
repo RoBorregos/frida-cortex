@@ -20,6 +20,28 @@ interface CommandResponse {
   execution_results?: ExecutionResult[];
 }
 
+// Format model name from snake_case to readable format
+// GEMINI_FLASH_2_5 -> Gemini Flash 2.5
+// CLAUDE_3_5_SONNET -> Claude 3.5 Sonnet
+const formatModelName = (modelName: string): string => {
+  return modelName
+    .split('_')
+    .map((part, index, array) => {
+      // If this part is a number and next part is also a number, add a dot after
+      if (!isNaN(Number(part)) && index < array.length - 1 && !isNaN(Number(array[index + 1]))) {
+        return part + '.';
+      }
+      // Capitalize first letter of words
+      if (isNaN(Number(part))) {
+        return part.charAt(0).toUpperCase() + part.slice(1).toLowerCase();
+      }
+      return part;
+    })
+    .join(' ')
+    .replace(/\s+\./g, '.') // Remove spaces before dots
+    .replace(/\.\s+/g, '.'); // Remove spaces after dots
+};
+
 export default function Home() {
   const [models, setModels] = useState<string[]>([]);
   const [selectedModel, setSelectedModel] = useState<string>('GEMINI_FLASH_2_5');
@@ -152,7 +174,7 @@ export default function Home() {
             >
               {models.map((model) => (
                 <option key={model} value={model}>
-                  {model}
+                  {formatModelName(model)}
                 </option>
               ))}
             </select>
@@ -281,9 +303,31 @@ export default function Home() {
       </main>
 
       <footer className={styles.footer}>
-        <p>
-          Powered by BAML • Model: {selectedModel}
-        </p>
+        <div className={styles.footerContent}>
+          <p className={styles.footerText}>
+            Powered by BAML • Model: {formatModelName(selectedModel)}
+          </p>
+          <div className={styles.footerLinks}>
+            <a
+              href="https://github.com/RoBorregos/frida-cortex"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.footerLink}
+            >
+              GitHub
+            </a>
+            <span className={styles.footerSeparator}>•</span>
+            <a
+              href="https://doi.org/10.1007/978-3-032-09037-9_24"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.footerLink}
+              title="Taming the LLM: Reliable Task Planning for Robotics Using Parsing and Grounding"
+            >
+              Paper
+            </a>
+          </div>
+        </div>
       </footer>
     </div>
   );
