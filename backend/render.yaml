@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: frida-backend
+    env: python
+    buildCommand: |
+      git submodule update --init --recursive &&
+      pip install -r requirements.txt &&
+      pip install -e ../dataset_generator/CommandGenerator
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0
+      - key: BACKEND_API_KEY
+        sync: false
+      - key: OPENROUTER_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+    healthCheckPath: /health

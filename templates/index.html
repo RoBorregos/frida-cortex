@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FRIDA Command Interpreter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1>FRIDA Command Interpreter</h1>
+      <div class="mb-3">
+        <label for="model" class="form-label">Select Model</label>
+        <select class="form-select" id="model">
+          <option value="GEMINI_FLASH_2_5">GEMINI_FLASH_2_5</option>
+          <option value="LOCAL_FINETUNED">LOCAL_FINETUNED</option>
+          <option value="GEMINI_PRO_2_5">GEMINI_PRO_2_5</option>
+          <option value="OPENAI_GPT_4_1_MINI">OPENAI_GPT_4_1_MINI</option>
+          <option value="ANTHROPIC_CLAUDE_SONNET_4">ANTHROPIC_CLAUDE_SONNET_4</option>
+          <option value="META_LLAMA_3_3_8B_IT_FREE">META_LLAMA_3_3_8B_IT_FREE</option>
+          <option value="META_LLAMA_3_3_70B">META_LLAMA_3_3_70B</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="command" class="form-label">Enter Command</label>
+        <textarea class="form-control" id="command" rows="3"></textarea>
+      </div>
+      <button type="button" class="btn btn-primary" id="submit">Submit</button>
+      <div class="mt-4">
+        <h2>Results</h2>
+        <pre id="results"></pre>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById('submit').addEventListener('click', () => {
+        const model = document.getElementById('model').value;
+        const command = document.getElementById('command').value;
+        fetch('/interpret', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ model, command })
+        })
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('results').textContent = JSON.stringify(data, null, 2);
+        });
+      });
+    </script>
+  </body>
+</html>

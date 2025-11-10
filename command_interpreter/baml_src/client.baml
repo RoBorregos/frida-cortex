@@ -70,6 +70,16 @@ client<llm> ANTHROPIC_CLAUDE_SONNET_4 {
   }
 }
 
+client<llm> KIMI_K2_THINKING {
+  provider "openai-generic"
+  retry_policy Constant
+  options {
+    base_url https://openrouter.ai/api/v1
+    api_key env.OPENROUTER_API_KEY
+    model "moonshotai/kimi-k2-thinking"
+  }
+}
+
 client<llm> META_LLAMA_3_1_8B_IT_FREE {
   provider "openai-generic"
   retry_policy Constant
