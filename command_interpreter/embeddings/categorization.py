@@ -8,11 +8,16 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspa
 
 from pathlib import Path
 from typing import ClassVar, Dict, Optional
-from command_interpreter.embeddings.chroma_adapter import ChromaAdapter
 from pydantic import BaseModel, ValidationError
 from types import SimpleNamespace
 from termcolor import colored
 from datetime import datetime
+
+# Check if embeddings are enabled
+EMBEDDINGS_ENABLED = os.getenv("DISABLE_EMBEDDINGS", "false").lower() != "true"
+
+if EMBEDDINGS_ENABLED:
+    from command_interpreter.embeddings.chroma_adapter import ChromaAdapter
 
 
 class MetadataProfile(str, Enum):
@@ -56,11 +61,19 @@ class Embeddings():
     def __init__(self):
         # print("Initializing categorization node.")
         # Initialize ChromaAdapter (handles Chroma client and embedding functions)
+        if not EMBEDDINGS_ENABLED:
+            print(colored("⚠️  Embeddings disabled (DISABLE_EMBEDDINGS=true). Query features unavailable.", "yellow"))
+            self.chroma_adapter = None
+            return
+
         self.chroma_adapter = ChromaAdapter()
         self.build_embeddings()
 
     def add_entry_callback(self, request):
         """Service callback to add items to ChromaDB"""
+        if not EMBEDDINGS_ENABLED or self.chroma_adapter is None:
+            print(colored("⚠️  Embeddings disabled. Skipping add_entry.", "yellow"))
+            return
         try:
             if request.metadata:
                 metadatas_ = json.loads(request.metadata)
@@ -116,6 +129,9 @@ class Embeddings():
     def query_entry_callback(self, request):
         """Service callback to query items from ChromaDB"""
         # print("Query Entry request received")
+        if not EMBEDDINGS_ENABLED or self.chroma_adapter is None:
+            print(colored("⚠️  Embeddings disabled. Returning empty query results.", "yellow"))
+            return SimpleNamespace(grouped_results=[], ungrouped_results=[])
         try:
             if request.collection == "items":
                 context = MetadataModel.PROFILES[MetadataProfile.ITEMS]["context"]
@@ -201,6 +217,10 @@ class Embeddings():
 
     def build_embeddings_callback(self, request, response):
         """Method to build embeddings for the household items data"""
+        if not EMBEDDINGS_ENABLED or self.chroma_adapter is None:
+            response.success = False
+            response.message = "Embeddings are disabled"
+            return response
 
         try:
             # Call the build_embeddings_callback of ChromaAdapter to handle the actual embedding process
@@ -232,6 +252,8 @@ class Embeddings():
             which will process documents and metadata (adding "original_name",
             appending "context", and cleaning metadata) automatically.
         """
+        if not EMBEDDINGS_ENABLED or self.chroma_adapter is None:
+            return
         # Get the directory of the current script
         script_dir = Path(__file__).resolve().parent
         # Define the folder where the CSV files are located
@@ -295,6 +317,8 @@ class Embeddings():
         return
 
     def add_command_history(self, command, result, status):
+        if not EMBEDDINGS_ENABLED or self.chroma_adapter is None:
+            return
         collection = "command_history"
 
         document = [command.action]
@@ -402,6 +426,8 @@ class Embeddings():
 
     def _query_(self, query: str, collection: str, top_k: int = 1) -> list[str]:
     # Wrap the query in a list so that the field receives a sequence of strings.
+        if not EMBEDDINGS_ENABLED or self.chroma_adapter is None:
+            return []
         request = SimpleNamespace(query=[query], collection=collection, topk=top_k)
         results, success = self.query_entry_callback(request)
         if collection == "command_history":
@@ -439,10 +465,12 @@ class Embeddings():
     def delete_collection(self, collection_name: str):
         """
         Deletes a collection from the ChromaDB.
-        
+
         Args:
             collection_name (str): The name of the collection to delete.
         """
+        if not EMBEDDINGS_ENABLED or self.chroma_adapter is None:
+            return
         try:
             self.chroma_adapter.delete_collection(collection_name)
             print(colored(f"🗑️  Database: Collection '{collection_name}' deleted successfully", "blue", attrs=['bold']))
@@ -475,7 +503,7 @@ class Embeddings():
             query_result (tuple): The query result tuple (status, list of JSON strings)
 
         Returns:
-            list: The 'context' field from metadata, or empty string if not found
+            list: The 'context' field from metadata, or empty list if not found
         """
         try:
             key_list = []
@@ -488,13 +516,15 @@ class Embeddings():
             return key_list
         except (IndexError, KeyError, json.JSONDecodeError) as e:
             print(f"Failed to extract context: {str(e)}")
-            return ""
+            return []
 
     def get_subarea(self, query_result):
-        return self.get_metadata_key(query_result, "subarea")[0]
+        result = self.get_metadata_key(query_result, "subarea")
+        return result[0] if result else ""
 
     def get_area(self, query_result):
-        return self.get_metadata_key(query_result, "area")[0]
+        result = self.get_metadata_key(query_result, "area")
+        return result[0] if result else ""
     
     def get_context(self, query_result):
         return self.get_metadata_key(query_result, "context")
@@ -509,7 +539,8 @@ class Embeddings():
         return self.get_metadata_key(query_result, "status")
 
     def get_name(self, query_result):
-        return self.get_metadata_key(query_result, "original_name")[0]
+        result = self.get_metadata_key(query_result, "original_name")
+        return result[0] if result else ""
     
 
 

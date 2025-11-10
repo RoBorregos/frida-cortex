@@ -4,12 +4,14 @@ services:
     env: python
     buildCommand: |
       git submodule update --init --recursive &&
-      pip install -r requirements.txt &&
+      pip install -r requirements-minimal.txt &&
       pip install -e ../dataset_generator/CommandGenerator
     startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.0
+      - key: DISABLE_EMBEDDINGS
+        value: "true"
       - key: BACKEND_API_KEY
         sync: false
       - key: OPENROUTER_API_KEY

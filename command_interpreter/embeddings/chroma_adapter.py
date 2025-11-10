@@ -3,11 +3,17 @@ import os
 from datetime import datetime
 from uuid import uuid4
 
-import chromadb
-from chromadb.utils import embedding_functions
+# Check if embeddings are disabled via environment variable
+EMBEDDINGS_ENABLED = os.getenv("DISABLE_EMBEDDINGS", "false").lower() != "true"
+
+# Only import heavy dependencies if embeddings are enabled
+if EMBEDDINGS_ENABLED:
+    import chromadb
+    from chromadb.utils import embedding_functions
+    from sentence_transformers import SentenceTransformer
+    from chromadb.utils.embedding_functions.cohere_embedding_function import CohereEmbeddingFunction
+
 from command_interpreter.embeddings.filter import remove_empty_lists, remove_nulls
-from sentence_transformers import SentenceTransformer
-from chromadb.utils.embedding_functions.cohere_embedding_function import CohereEmbeddingFunction
 
 
 # MODEL_PATH = "/workspace/src/hri/packages/nlp/assets/all-MiniLM-L12-v2"
@@ -15,6 +21,9 @@ from chromadb.utils.embedding_functions.cohere_embedding_function import CohereE
 
 class ChromaAdapter:
     def __init__(self):
+        if not EMBEDDINGS_ENABLED:
+            raise RuntimeError("ChromaDB embeddings are disabled. Set DISABLE_EMBEDDINGS=false to enable.")
+
         #self.client = chromadb.HttpClient(host="localhost", port=8000)
         self.client = chromadb.PersistentClient(path="persist_folder")
 
