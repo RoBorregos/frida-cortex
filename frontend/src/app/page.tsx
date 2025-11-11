@@ -183,7 +183,7 @@ export default function Home() {
             </select>
           </div>
 
-          <div className={styles.formGroup}>
+          {/*<div className={styles.formGroup}>
             <label className={styles.checkboxLabel}>
               <input
                 type="checkbox"
@@ -194,7 +194,8 @@ export default function Home() {
               />
               Execute commands (simulate execution)
             </label>
-          </div>
+          </div>*/}
+          
         </div>
 
         {/* Command Input */}
