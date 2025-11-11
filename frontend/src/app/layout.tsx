@@ -4,6 +4,9 @@ import './globals.css';
 export const metadata: Metadata = {
   title: 'FRIDA Command Interpreter',
   description: 'Natural Language Robot Command Parser powered by BAML',
+  icons: {
+    icon: '/rbrgs_logo.ico',
+  },
 };
 
 export default function RootLayout({
