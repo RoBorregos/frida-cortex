@@ -154,6 +154,9 @@ export default function Home() {
   return (
     <div className={styles.container}>
       <header className={styles.header}>
+        <div className={styles.logoContainer}>
+          <img src="/rbrgs_logo.ico" alt="RBRGS Logo" className={styles.logo} />
+        </div>
         <h1 className={styles.title}>🤖 FRIDA Command Interpreter</h1>
         <p className={styles.subtitle}>Natural Language Robot Command Parser</p>
       </header>
