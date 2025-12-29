@@ -1,10 +1,20 @@
+<p align="center">
+    <a href="https://huggingface.co/spaces/afr2903/frida-cortex"><img width="93" height="30" alt="HF Space" src="https://github.com/user-attachments/assets/bc5fa4e9-cee7-45f0-8c4f-9cc3e836b19d"></a>
+</p>
+
 # FRIDA Natural Language Command Interpreter
 
 FRIDA is a natural language command interpreter for robotics that converts human instructions into structured robot actions. It uses LLM-powered parsing with BAML (boundaryml.com) to reliably interpret commands and generate executable task plans.
 
-## LNAI Paper at MICAI 2025
+## Springer LNAI Paper at MICAI 2025
 
-**Taming the LLM: Reliable Task Planning for Robotics Using Parsing and Grounding**
+<p align="center">
+    <a href="https://doi.org/10.1007/978-3-032-09037-9_24"><img width="400" height="100" src="https://micai.org/2025/wp-content/uploads/2025/06/LOGOS_header-1.png" alt="DOI"></a>
+</p>
+
+> **Taming the LLM: Reliable Task Planning for Robotics Using Parsing and Grounding**
+
+<img width="680" height="565" alt="architecture_600dpi" src="https://github.com/user-attachments/assets/5aaf08fe-dbe5-4049-a879-340ff1818ec8" />
 
 DOI: [10.1007/978-3-032-09037-9_24](https://doi.org/10.1007/978-3-032-09037-9_24)
 
@@ -17,7 +27,7 @@ DOI: [10.1007/978-3-032-09037-9_24](https://doi.org/10.1007/978-3-032-09037-9_24
 
 ## Try It Online
 
-**Recommended**: Use the [Hugging Face Space](https://huggingface.co/spaces/afr2903/frida-cortex) for the easiest way to try FRIDA without any setup.
+**Recommended**: Use the [🤗 Space](https://huggingface.co/spaces/afr2903/frida-cortex) for the easiest way to try FRIDA without any setup.
 
 Alternatively, there's another [Playground](https://frida-cortex.vercel.app/) online.
 
